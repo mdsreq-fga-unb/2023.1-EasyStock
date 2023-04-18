@@ -38,7 +38,7 @@ A comunicação diária será feita pelo Whatsapp e as reuniões serão feitas p
 ## Gerenciamento de riscos
 
 
-| Descrição | Causa | Probabilidade | Mitigação |
+| Risco | Causa | Probabilidade | Mitigação |
 | --------- | --------------- | :-------------: | ---------------- |
 | | |  |
 
