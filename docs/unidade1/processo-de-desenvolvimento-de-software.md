@@ -13,3 +13,9 @@ Histórico de Revisão
 | Integração Contínua |  O código irá ser frequentemente integrado (versionado) ajudando tanto na questão da transparência como no aumento da segurança do código a partir do controle de versões evitando perda do código por modificações| 
 |Testes| Adotaremos os testes unitários  a fim de garantir a qualidade do código e a sua aderência aos requisitos|
 |Posse Coletiva| A equipe passa a ser responsável por cada arquivo de código, não sendo necessário solicitar autorização para fazer alterações|
+
+## Atividades
+
+| Atividade       | Método | Ferramemta |                                               
+| ---------- | ------ | -------------------- |
+| | |
