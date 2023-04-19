@@ -1,0 +1,4 @@
+site_name: My Docs
+nav:
+    - Início: index.md
+    - Documentação: about.md
