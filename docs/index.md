@@ -8,10 +8,10 @@ O produto que será feito pela equipe easystock consiste em...
 
 | Aluno     | Matrícula |
 |-----------|-----------|
-| Hemanoel  | 211111111 |
-| Isaac     | 211111111 |
+| Hemanoel  | 200061674 |
+| Isaac     | 211031735 |
 | Milena    | 211111111 |
-| Gustavo   | 211111111 |
+| Gustavo   | 211039457 |
 | Daniela   | 211111111 |
 
 <!-- * Hemanoel

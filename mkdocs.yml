@@ -1,4 +1,14 @@
-site_name: My Docs
+site_name: EasyStock
 nav:
     - Início: index.md
-    - Documentação: about.md
+    - Documentação:
+        - 'Visão geral do produto': 'visao-geral-produto.md'
+        - 'Visão geral do projeto': 'visao-geral-projeto.md'
+        - 'Processo de desenvolvimento de software': 'processo-de-desenvolvimento-de-software.md'
+        - 'Lições aprendidas': 'licoes-aprendidas.md'
+        
+theme: 
+    name: material
+    palette:
+        scheme: default
+        primary: green
