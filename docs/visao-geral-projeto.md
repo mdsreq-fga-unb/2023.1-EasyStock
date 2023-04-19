@@ -5,9 +5,7 @@
 |18/04/2023 | 0.1| Criação e estruturação do documento| Hemanoel,Gustavo,Isaac|
 
 
-sadasdasasdasdsasd
-
-# Organização do projeto
+# 2.1 Organização do projeto
 
 | Papel         | Atribuições                                                  | Responsável        | Participantes                                                |
 | ------------- | ------------------------------------------------------------ | ------------------ | ------------------------------------------------------------ |
@@ -16,14 +14,17 @@ sadasdasasdasdsasd
 | Front End |                 |     |     |
 | Scrum Master |  |  |  |
 
-## Planejamento das Fases e/ou Iterações do Projeto
+## 2.2 Planejamento das Fases e/ou Iterações do Projeto
 
-| Sprint| Atividades | Produto (Entrega) | Data Início | Data fim |
-| :------:| -------- | ---------------- | ----------- | -------- |
-|  |  | |  |
+| Sprint| Produto (Entrega) | Data Início | Data fim |
+| :------: | ---------------- | ----------- | -------- |
+| Sprint 1 | Definição da produto e equipe |xx/xx/xxxx|xx/xx/xxxx|
+| Sprint 2 |  |xx/xx/xxxx|xx/xx/xxxx|
+| Sprint 2 |  |xx/xx/xxxx|xx/xx/xxxx|
+| Sprint 3 |  |xx/xx/xxxx|xx/xx/xxxx|
 
 
-## Matriz de Comunicação 
+## 2.3 Matriz de Comunicação 
 
 A comunicação diária será feita pelo Whatsapp e as reuniões serão feitas pelo Discord ou Google Meet
 
@@ -36,7 +37,7 @@ A comunicação diária será feita pelo Whatsapp e as reuniões serão feitas p
 | Comunicar situação do projeto      | Equipe do Projeto e Professor| Final de cada unidade| Situação do projeto    |
 
 
-## Gerenciamento de riscos
+## 2.4 Gerenciamento de riscos
 
 
 | Risco | Causa | Probabilidade | Mitigação |
@@ -45,7 +46,7 @@ A comunicação diária será feita pelo Whatsapp e as reuniões serão feitas p
 
 
 
-## Critérios de replanejamento
+## 2.5 Critérios de replanejamento
 
 
 

@@ -2,10 +2,10 @@ site_name: EasyStock
 nav:
     - Início: index.md
     - Documentação:
-        - 'Visão geral do produto': 'visao-geral-produto.md'
-        - 'Visão geral do projeto': 'visao-geral-projeto.md'
-        - 'Processo de desenvolvimento de software': 'processo-de-desenvolvimento-de-software.md'
-        - 'Lições aprendidas': 'licoes-aprendidas.md'
+        - '1 Visão geral do produto': 'visao-geral-produto.md'
+        - '2 Visão geral do projeto': 'visao-geral-projeto.md'
+        - '3 Processo de desenvolvimento de software': 'processo-de-desenvolvimento-de-software.md'
+        - '4 Lições aprendidas': 'licoes-aprendidas.md'
         
 theme: 
     name: material
