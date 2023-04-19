@@ -7,6 +7,9 @@
 ## 1.1 Problema
 
 O problema identificado é a dificuldade no controle de estoque. Isso afeta os clientes e funcionários, resultando em atrasos e erros que diminuem a produtividade e afetam a gestão da loja. Uma possível solução seria uma ferramenta que mantém o registro preciso do inventário para cada produto, atualiza o iventário quando o produto for vendido, informa os clientes sobre a disponibilidade do produto e prevê a demanda de acordo com os dados de vendas.
+![Screenshot_1](https://user-images.githubusercontent.com/88113694/233199398-28593099-6f42-4b9e-8ada-548c8e7ed3d1.png)
+
+![screenshot_2](https://user-images.githubusercontent.com/88113694/233199417-d2fdd746-901d-464e-b68b-4d7c0b583f6c.png)
 
 
 ## 1.2 Declaração de Posição do Produto
