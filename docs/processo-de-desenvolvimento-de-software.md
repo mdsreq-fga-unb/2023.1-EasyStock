@@ -7,7 +7,8 @@
 
 
 ## Metodologia ScrumXP
-Scrum XP combina as metodologias Scrum e Extreme Programming(XP). Scrum é uma abordagem ágil de desenvolvimento de software que enfatiza a entrega de valor em ciclos curtos de tempo, chamados de sprints. Valoriza a colaboração e trabalho em equipe a partir de times que conseguem ser auto-organizáveis e adaptáveis. Já as práticas técnicas do XP se baseiam em programação em pares, testes automatizados, refatoração e integração contínua. Em sintese, o Scrum XP é uma metodologia ágil que une as melhores práticas do Scrum e do XP para garantir uma entrega de software mais eficaz, colaborativa e de qualidade superior. 
+<div style="text-align: justify"> 
+Scrum XP combina as metodologias Scrum e Extreme Programming(XP). Scrum é uma abordagem ágil de desenvolvimento de software que enfatiza a entrega de valor em ciclos curtos de tempo, chamados de sprints. Valoriza a colaboração e trabalho em equipe a partir de times que conseguem ser auto-organizáveis e adaptáveis. Já as práticas técnicas do XP se baseiam em programação em pares, testes automatizados, refatoração e integração contínua. Em sintese, o Scrum XP é uma metodologia ágil que une as melhores práticas do Scrum e do XP para garantir uma entrega de software mais eficaz, colaborativa e de qualidade superior.</div>
 
 # Scrum
 | Evento                  | Descrição      | 

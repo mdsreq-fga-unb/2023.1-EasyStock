@@ -6,6 +6,8 @@ nav:
         - 'Visão geral do projeto': 'visao-geral-projeto.md'
         - 'Processo de desenvolvimento de software': 'processo-de-desenvolvimento-de-software.md'
         - 'Lições aprendidas': 'licoes-aprendidas.md'
+    - Entregas:
+        - 'Unidade 1': 'unidade1.md'
         
 theme: 
     name: material

@@ -6,8 +6,8 @@
 | 19/04/2023 | 0.2 | Adição de objetivos e problema e tecnologias | Hemanoel, Gustavo, Isaac, Daniela, Milena|
 
 ## 1.1 Problema
-
-O problema identificado é a dificuldade no controle e gerenciar dos produtos em estoque. Sem esse sistema automatizado, problemas como excesso/falta de produtos em estoque e lentidão no ato de vender algo para o cliente por não encontrar o produto solicitado podem acontecer. Dentre as consequências negativas destes problemas temos a perda de venda e consequentemente um prejuízo financeiro, insatisfação do cliente e maior chance de erros humanos por parte dos funcionários responsáveis por gerenciar o estoque. Uma possível solução seria uma ferramenta que mantém o registro preciso do inventário para cada produto, atualiza o iventário quando o produto for vendido e prevê a demanda de acordo com os dados de vendas. 
+<div style="text-align: justify"> 
+O problema identificado é a dificuldade no controle e gerenciar dos produtos em estoque. Sem esse sistema automatizado, problemas como excesso/falta de produtos em estoque e lentidão no ato de vender algo para o cliente por não encontrar o produto solicitado podem acontecer. Dentre as consequências negativas destes problemas temos a perda de venda e consequentemente um prejuízo financeiro, insatisfação do cliente e maior chance de erros humanos por parte dos funcionários responsáveis por gerenciar o estoque. Uma possível solução seria uma ferramenta que mantém o registro preciso do inventário para cada produto, atualiza o iventário quando o produto for vendido e prevê a demanda de acordo com os dados de vendas. </div>
 
 Estratégias:
 
@@ -26,8 +26,8 @@ Estratégias:
 | Nosso produto  | Interface simples, atualização automatica o estoque, fornecer análises sobre as vendas |
 
 ## 1.3 Objetivos do Produto
-
-O objetivo principal do produto é melhorar o sistema de controle de estoque e a satisfação do cliente, buscando criar um site que mantém o registro preciso do iventário, atualiza quando um produto for vendido e prevê demandas com base nos dados de vendas.
+<div style="text-align: justify"> 
+O objetivo principal do produto é melhorar o sistema de controle de estoque e a satisfação do cliente, buscando criar um site que mantém o registro preciso do inventário, atualiza quando um produto for vendido.Alem disso como objetivo secundário,  seria a previsao de demandas com base nos dados de vendas.</div>
 
 ## 1.4 Tecnologias a serem utilizadas
 
