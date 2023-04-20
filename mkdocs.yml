@@ -13,6 +13,6 @@ theme:
     name: material
     palette:
     - scheme: slate
-      primary: green
+      primary: cyan
     
   

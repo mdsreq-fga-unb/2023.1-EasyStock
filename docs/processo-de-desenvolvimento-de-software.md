@@ -35,9 +35,9 @@ Scrum XP combina as metodologias Scrum e Extreme Programming(XP). Scrum é uma a
 
 | Práticas | Motivo de não utilizar |
 |----------|-----------------------|
-| Jogo do planejamento | Buscaremos ter o planejamento bem definido sem a necessidade de utilizar tal prática. |
+| Jogo do planejamento |O Jogo do planejamento pode demandar o tempo que a equipe não consiga realizar a pratica de maneira efetiva |
 | Programação em pares | Nem todos os membros terão a disponibilidade de trabalhar no mesmo tempo. |
-| Semana de 40 horas | Indisponibilidade de horas por parte de todos os integrantes da equipe. | 
+| Semana de 40 horas | Indisponibilidade de horas por parte de todos os integrantes da equipe,optando por cargas mais flexiveis | 
 | Cliente Presente | O cliente não terá disponibilidade em estar presente constantemente. | 
 | Small Releases (Pequenas versões) | Os clientes não têm desejo, tempo ou experiência para participar do desenvolvimento do produto constantemente. Diminuindo assim a qualidade de um possivel feedback. |
 

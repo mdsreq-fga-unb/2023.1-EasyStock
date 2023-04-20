@@ -7,13 +7,13 @@
 
 ## 1.1 Problema
 <div style="text-align: justify"> 
-O problema identificado é a dificuldade no controle e gerenciar dos produtos em estoque. Sem esse sistema automatizado, problemas como excesso/falta de produtos em estoque e lentidão no ato de vender algo para o cliente por não encontrar o produto solicitado podem acontecer. Dentre as consequências negativas destes problemas temos a perda de venda e consequentemente um prejuízo financeiro, insatisfação do cliente e maior chance de erros humanos por parte dos funcionários responsáveis por gerenciar o estoque. Uma possível solução seria uma ferramenta que mantém o registro preciso do inventário para cada produto, atualiza o iventário quando o produto for vendido e prevê a demanda de acordo com os dados de vendas. </div>
+O problema identificado é a dificuldade no controle e gerenciar dos produtos em estoque. Sem esse sistema automatizado, problemas como excesso/falta de produtos em estoque e lentidão no ato de vender algo para o cliente por não encontrar o produto solicitado podem acontecer. Dentre as consequências negativas destes problemas temos a perda de venda e consequentemente um prejuízo financeiro, insatisfação do cliente e maior chance de erros humanos por parte dos funcionários responsáveis por gerenciar o estoque. Uma possível solução seria uma ferramenta que mantém o registro preciso do inventário para cada produto, atualiza o inventário quando o produto for vendido e prevê a demanda de acordo com os dados de vendas. </div>
 
 Estratégias:
 
-![Screenshot_1](https://user-images.githubusercontent.com/88113694/233199398-28593099-6f42-4b9e-8ada-548c8e7ed3d1.png)
+![Screenshot_1](https://user-images.githubusercontent.com/79723182/233247544-dcb1aa9d-cbc4-4019-9193-e46a56e2cac2.png)
 
-![screenshot_2](https://user-images.githubusercontent.com/88113694/233199417-d2fdd746-901d-464e-b68b-4d7c0b583f6c.png)
+![WhatsApp Image 2023-04-19 at 23 56 25](https://user-images.githubusercontent.com/79723182/233247536-34bf0218-d0da-40cf-946e-136fbb17fa80.png)
 
 ## 1.2 Declaração de Posição do Produto
 
