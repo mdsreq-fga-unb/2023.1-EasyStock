@@ -10,7 +10,7 @@ O produto desenvolvido pela equipe easystock, formada por acadêmicos da Univers
 |-----------|-----------|
 | Hemanoel  | 200061674 |
 | Isaac     | 211031735 |
-| Milena    | 211111111 |
+| Milena    | 211062339 |
 | Gustavo   | 211039457 |
 | Daniela   | 211041123 |
 
