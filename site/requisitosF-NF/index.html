@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.9">
     
     
       
@@ -21,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -57,7 +57,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
     
@@ -111,13 +111,17 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
+      
+        <form class="md-header__option" data-md-component="palette">
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            
           
-        
-      </form>
+        </form>
+      
     
     
     
@@ -433,6 +437,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#personas" class="md-nav__link">
+    Personas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#requisitos-funcionais" class="md-nav__link">
     Requisitos Funcionais
   </a>
@@ -493,6 +504,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#personas" class="md-nav__link">
+    Personas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#requisitos-funcionais" class="md-nav__link">
     Requisitos Funcionais
   </a>
@@ -542,6 +560,12 @@
 </tr>
 </tbody>
 </table>
+<h2 id="personas">Personas</h2>
+<ul>
+<li><b>Gerente:</b> Indivíduo que exerce o gerenciamento dos setores do produto, seja acerca das informações dos produtos até os relatórios de vendas.</li>
+<li><b>Funcionário:</b> Indivíduo que utiliza do sistema de frente de caixa.</li>
+<li><b>Usuário:</b> Generalização de Gerente e Funcionário.</li>
+</ul>
 <h2 id="requisitos-funcionais">Requisitos Funcionais</h2>
 <table>
 <thead>
@@ -560,17 +584,17 @@
 <tr>
 <td><b>[TM02]</b> Gerenciamento de produtos</td>
 <td><b>[EP02]</b> Consulta de informações sobre produtos</td>
-<td><b>[US04]</b> Eu, como usuário, quero poder consultar informações de produtos, como preço, estoque e descrição.<br><b>[US05]</b> Eu, como usuário, quero poder consultar o preço do produto.<br><b>[US06]</b> Eu, como usuário, quero poder consultar o nível de estoque dos produtos.<br><b>[US07]</b> Eu, como usuário, quero poder adicionar ou remover descrição de produtos.</td>
+<td><b>[US04]</b> Eu, como usuário, quero poder consultar o preço do produto.<br><b>[US05]</b> Eu, como usuário, quero poder consultar o nível de estoque dos produtos.<br><b>[US06]</b> Eu, como gerente, quero poder adicionar ou remover descrição de produtos.</td>
 </tr>
 <tr>
 <td><b>[TM02]</b> Gerenciamento de produtos</td>
 <td><b>[EP03]</b> Adicionar ou remover produtos</td>
-<td><b>[US08]</b> Eu, como usuário, quero poder adicionar ou remover novos produtos no sistema para atualizar o catálogo.<br><b>[US09]</b> Eu, como usuário, quero ser capaz de registrar produtos através dos códigos de barra para agilizar o processo de atualização do produto.<br><b>[US10]</b> Eu, como um usuário gostaria de um alerta de estoque baixo, para poder repor o produto.</td>
+<td><b>[US07]</b> Eu, como gerente, quero poder adicionar ou remover novos produtos no sistema para atualizar o catálogo.<br><b>[US08]</b> Eu, como funcionário, quero ser capaz de registrar produtos através dos códigos de barra para agilizar o processo de atualização do produto.<br><b>[US09]</b> Eu, como gerente, gostaria de um alerta de estoque baixo, para poder repor o produto.</td>
 </tr>
 <tr>
 <td><b>[TM03]</b> Gerenciamento de vendas</td>
 <td><b>[EP04]</b> Geração de relatórios de vendas</td>
-<td><b>[US11]</b> Eu, como usuário, quero ser capaz de gerar um gráfico de linhas, para observar melhor o fluxo de vendas de produtos específicos e identificar tendências e padrões.<br><b>[US12]</b> Eu, como usuário, quero ser capaz de gerar um gráfico de pizza, para identificar a participação de cada categoria nas vendas totais.<br><b>[US13]</b> Eu, como usuário, quero ser capaz de gerar um gráfico de barras, para comparar as vendas de diferentes produtos.</td>
+<td><b>[US10]</b> Eu, como gerente, quero ser capaz de gerar um gráfico de linhas, para observar melhor o fluxo de vendas de produtos específicos e identificar tendências e padrões.<br><b>[US11]</b> Eu, como gerente, quero ser capaz de gerar um gráfico de pizza, para identificar a participação de cada categoria nas vendas totais.<br><b>[US12]</b> Eu, como gerente, quero ser capaz de gerar um gráfico de barras, para comparar as vendas de diferentes produtos.</td>
 </tr>
 </tbody>
 </table>
@@ -657,7 +681,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="../assets/javascripts/bundle.fac441b0.min.js"></script>
       
     
   </body>
