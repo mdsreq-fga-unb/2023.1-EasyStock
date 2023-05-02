@@ -18,9 +18,15 @@
 
 ## 2.2 Planejamento das Fases e/ou Iterações do Projeto
 
-| Sprint | Produto (Entrega) | Data Início | Data fim |
+| Sprint | Produto (Entrega) | Data Início | Data Fim |
 | :------: | ---------------- | ----------- | -------- |
-| Sprint 1 | Criação do documento de Visão do produto e projeto ;<br>Construção do GitPages;<br>Inicio da documentação | 17/04/2023|30/04/2023 |
+| Sprint 1 | Criação do documento de Visão do produto e projeto;<br>Construção do GitPages;<br>Inicio da documentação. | 17/04/2023 | 30/04/2023 |
+| Sprint 2 |  | 01/05/2023 | 15/05/2023 |
+| Sprint 3 |  | 16/05/2023 | 30/05/2023 |
+| Sprint 4 |  | 31/05/2023 | 14/06/2023 |
+| Sprint 5 |  | 15/06/2023 | 29/06/2023 |
+| Sprint 6 |  | 30/06/2023 | 14/07/2023 |
+| Sprint 7 |  | 15/07/2023 | 29/07/2023 |
 
 ## 2.3 Matriz de Comunicação  
 

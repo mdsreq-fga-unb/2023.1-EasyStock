@@ -8,6 +8,10 @@ nav:
         - 'Lições aprendidas': 'licoes-aprendidas.md'
     - Entregas:
         - 'Unidade 1': 'unidade1.md'
+    - Backlogs:
+        - 'Definições': 'dod-dor.md'
+        - 'Requisitos': 'requisitosF-NF.md'
+
         
 theme: 
     name: material
