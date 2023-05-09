@@ -11,7 +11,7 @@ nav:
     - Backlog:
         - 'Definições': 'dod-dor.md'
         - 'Requisitos': 'requisitosF-NF.md'
-
+        - 'MVP': 'mvp1-mvp2.md'
         
 theme: 
     name: material
