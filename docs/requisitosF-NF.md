@@ -1,9 +1,9 @@
 ## Histórico de Revisão
 
-| Data       | Versão | Descrição            | Autor(es)                                                   |
+| Data       | Versão | Descrição            | Autor(es) |
 | ---------- | ------ | -------------------- | ------------------------------------------------------------ |
-|08/05/2023 | 0.2 | Atualizando requisitos funcionais  | Hemanoel,Gustavo,Isaac,Milena,Daniela|
 |01/05/2023 | 0.1 | Criação e estruturação do documentação dos Requisitos Funcionais e Não-Funcionais | Hemanoel,Gustavo,Isaac |
+|08/05/2023 | 0.2 | Atualizando requisitos funcionais  | Hemanoel,Gustavo,Isaac,Milena,Daniela|
 
 ## Personas
 * <b>Gerente:</b> Indivíduo que exerce o gerenciamento dos setores do produto, seja acerca das informações dos produtos até os relatórios de vendas.
