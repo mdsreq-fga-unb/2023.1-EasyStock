@@ -12,6 +12,7 @@ nav:
         - 'Definições': 'dod-dor.md'
         - 'Requisitos': 'requisitosF-NF.md'
         - 'MVP': 'mvp1-mvp2.md'
+    - Arquitetura: 'arquitetura.md'     
         
 theme: 
     name: material
