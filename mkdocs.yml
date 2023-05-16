@@ -6,13 +6,14 @@ nav:
         - 'Visão geral do projeto': 'visao-geral-projeto.md'
         - 'Processo de desenvolvimento de software': 'processo-de-desenvolvimento-de-software.md'
         - 'Lições aprendidas': 'licoes-aprendidas.md'
-    - Entregas:
-        - 'Unidade 1': 'unidade1.md'
     - Backlog:
         - 'Definições': 'dod-dor.md'
         - 'Requisitos': 'requisitosF-NF.md'
+        - 'Critérios de Aceitação': 'criterios.md'
         - 'MVP': 'mvp1-mvp2.md'
     - Arquitetura: 'arquitetura.md'     
+    - Entregas:
+        - 'Unidade 1': 'unidade1.md'
         
 theme: 
     name: material

@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../criterios/">
+        <link rel="prev" href="../requisitosF-NF/">
       
       
-        <link rel="next" href="../arquitetura/">
+        <link rel="next" href="../mvp1-mvp2/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.9">
     
     
       
-        <title>MVP - EasyStock</title>
+        <title>Critérios de Aceitação - EasyStock</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mvp-1" class="md-skip">
+        <a href="#historico-de-revisao" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MVP
+              Critérios de Aceitação
             
           </span>
         </div>
@@ -365,20 +365,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../criterios/" class="md-nav__link">
-        Critérios de Aceitação
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -389,12 +375,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          MVP
+          Critérios de Aceitação
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        MVP
+        Critérios de Aceitação
       </a>
       
         
@@ -411,78 +397,121 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mvp-1" class="md-nav__link">
-    MVP 1
+  <a href="#historico-de-revisao" class="md-nav__link">
+    Histórico de Revisão
   </a>
-  
-    <nav class="md-nav" aria-label="MVP 1">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ep02-adicionar-ou-remover-produtos" class="md-nav__link">
-    [EP02] Adicionar ou remover produtos
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ep01-consulta-de-informacoes-de-produto" class="md-nav__link">
-    [EP01] Consulta de informações  de produto
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ep03-controle-de-estoque" class="md-nav__link">
-    [EP03] Controle de Estoque
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ep04-frente-de-caixa" class="md-nav__link">
-    [EP04] Frente de caixa
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mvp-2" class="md-nav__link">
-    MVP 2
+  <a href="#criterios-de-aceitacao" class="md-nav__link">
+    Critérios de aceitação
   </a>
   
-    <nav class="md-nav" aria-label="MVP 2">
+    <nav class="md-nav" aria-label="Critérios de aceitação">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ep02-adicionar-ou-remover-produtos_1" class="md-nav__link">
-    [EP02] Adicionar ou remover produtos
+  <a href="#us01-eu-como-usuario-quero-poder-consultar-o-preco-do-produto" class="md-nav__link">
+    [US01] Eu, como usuário, quero poder consultar o preço do produto.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ep03-controle-de-estoque_1" class="md-nav__link">
-    [EP03] Controle de Estoque
+  <a href="#us02-eu-como-usuario-quero-consultar-o-nivel-de-estoque-dos-produtos" class="md-nav__link">
+    [US02] Eu, como usuário, quero consultar o nível de estoque dos produtos.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ep05-geracao-de-relatorios-de-vendas" class="md-nav__link">
-    [EP05] Geração de relatórios de vendas
+  <a href="#us08-eu-como-gerente-gostaria-de-impedir-a-venda-de-uma-quantidade-de-produtos-acima-do-que-existe-no-estoque" class="md-nav__link">
+    [US08] Eu, como gerente, gostaria de impedir a venda de uma quantidade de produtos acima do que existe no estoque.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ep06-gerenciamento-de-funcionarios" class="md-nav__link">
-    [EP06] Gerenciamento de funcionários
+  <a href="#us24-eu-como-gerente-quero-ser-capaz-de-gerar-uma-lista-com-todas-as-vendas-ja-realizadas" class="md-nav__link">
+    [US24] Eu, como gerente, quero ser capaz de gerar uma lista com todas as vendas já realizadas.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us03-eu-como-gerente-quero-ser-capaz-de-adicionar-um-novo-produto-ao-catalogo" class="md-nav__link">
+    [US03] Eu, como gerente, quero ser capaz de adicionar um novo produto ao catálogo.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us04-eu-como-gerente-quero-ser-capaz-de-remover-um-produto-do-catalogo" class="md-nav__link">
+    [US04] Eu, como gerente, quero ser capaz de remover um produto do catálogo.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us09-eu-como-gerente-quero-ser-capaz-de-visualizar-o-estoque-total" class="md-nav__link">
+    [US09] Eu, como gerente, quero ser capaz de visualizar o estoque total.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us12-eu-como-funcionario-quero-que-no-pedido-em-aberto-seja-realizado-os-calculos-da-compra" class="md-nav__link">
+    [US12] Eu, como funcionário, quero que no pedido em aberto seja realizado os cálculos da compra.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us15-eu-como-funcionario-quero-ser-capaz-de-escolher-qual-o-tipo-da-entrega-do-pedido" class="md-nav__link">
+    [US15] Eu, como funcionário, quero ser capaz de escolher qual o tipo da entrega do pedido.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us17-eu-como-usuario-quero-ser-capaz-de-gerar-uma-lista-de-todos-devedores" class="md-nav__link">
+    [US17] Eu, como usuário, quero ser capaz de gerar uma lista de todos devedores.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us05-eu-como-gerente-gostaria-de-adicionar-promocoes-para-estimular-as-vendas" class="md-nav__link">
+    [US05] Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us07-eu-como-gerente-gostaria-do-sistema-gerar-um-alerta-de-estoque-baixo" class="md-nav__link">
+    [US07] Eu, como gerente, gostaria do sistema gerar um alerta de estoque baixo.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us10-eu-como-funcionario-quero-ser-capaz-de-adicionar-um-carrinho-que-contenha-um-pedido-de-venda-para-efetuar-a-compra" class="md-nav__link">
+    [US10] Eu, como funcionário, quero ser capaz de adicionar um carrinho que contenha um pedido de venda, para efetuar a compra.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us13-eu-como-funcionario-quero-que-no-pedido-seja-realizado-um-fechamento-da-venda" class="md-nav__link">
+    [US13] Eu, como funcionário, quero que no pedido seja realizado um fechamento da venda.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us14-eu-como-funcionario-quero-ser-capaz-de-escolher-a-forma-de-pagamento-que-foi-realizada-para-registrar-a-transacao-corretamente" class="md-nav__link">
+    [US14] Eu, como funcionário, quero ser capaz de escolher a forma de pagamento que foi realizada, para registrar a transação corretamente.
   </a>
   
 </li>
@@ -496,6 +525,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvp1-mvp2/" class="md-nav__link">
+        MVP
+      </a>
     </li>
   
 
@@ -596,78 +639,121 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mvp-1" class="md-nav__link">
-    MVP 1
+  <a href="#historico-de-revisao" class="md-nav__link">
+    Histórico de Revisão
   </a>
-  
-    <nav class="md-nav" aria-label="MVP 1">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ep02-adicionar-ou-remover-produtos" class="md-nav__link">
-    [EP02] Adicionar ou remover produtos
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ep01-consulta-de-informacoes-de-produto" class="md-nav__link">
-    [EP01] Consulta de informações  de produto
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ep03-controle-de-estoque" class="md-nav__link">
-    [EP03] Controle de Estoque
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ep04-frente-de-caixa" class="md-nav__link">
-    [EP04] Frente de caixa
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mvp-2" class="md-nav__link">
-    MVP 2
+  <a href="#criterios-de-aceitacao" class="md-nav__link">
+    Critérios de aceitação
   </a>
   
-    <nav class="md-nav" aria-label="MVP 2">
+    <nav class="md-nav" aria-label="Critérios de aceitação">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ep02-adicionar-ou-remover-produtos_1" class="md-nav__link">
-    [EP02] Adicionar ou remover produtos
+  <a href="#us01-eu-como-usuario-quero-poder-consultar-o-preco-do-produto" class="md-nav__link">
+    [US01] Eu, como usuário, quero poder consultar o preço do produto.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ep03-controle-de-estoque_1" class="md-nav__link">
-    [EP03] Controle de Estoque
+  <a href="#us02-eu-como-usuario-quero-consultar-o-nivel-de-estoque-dos-produtos" class="md-nav__link">
+    [US02] Eu, como usuário, quero consultar o nível de estoque dos produtos.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ep05-geracao-de-relatorios-de-vendas" class="md-nav__link">
-    [EP05] Geração de relatórios de vendas
+  <a href="#us08-eu-como-gerente-gostaria-de-impedir-a-venda-de-uma-quantidade-de-produtos-acima-do-que-existe-no-estoque" class="md-nav__link">
+    [US08] Eu, como gerente, gostaria de impedir a venda de uma quantidade de produtos acima do que existe no estoque.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ep06-gerenciamento-de-funcionarios" class="md-nav__link">
-    [EP06] Gerenciamento de funcionários
+  <a href="#us24-eu-como-gerente-quero-ser-capaz-de-gerar-uma-lista-com-todas-as-vendas-ja-realizadas" class="md-nav__link">
+    [US24] Eu, como gerente, quero ser capaz de gerar uma lista com todas as vendas já realizadas.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us03-eu-como-gerente-quero-ser-capaz-de-adicionar-um-novo-produto-ao-catalogo" class="md-nav__link">
+    [US03] Eu, como gerente, quero ser capaz de adicionar um novo produto ao catálogo.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us04-eu-como-gerente-quero-ser-capaz-de-remover-um-produto-do-catalogo" class="md-nav__link">
+    [US04] Eu, como gerente, quero ser capaz de remover um produto do catálogo.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us09-eu-como-gerente-quero-ser-capaz-de-visualizar-o-estoque-total" class="md-nav__link">
+    [US09] Eu, como gerente, quero ser capaz de visualizar o estoque total.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us12-eu-como-funcionario-quero-que-no-pedido-em-aberto-seja-realizado-os-calculos-da-compra" class="md-nav__link">
+    [US12] Eu, como funcionário, quero que no pedido em aberto seja realizado os cálculos da compra.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us15-eu-como-funcionario-quero-ser-capaz-de-escolher-qual-o-tipo-da-entrega-do-pedido" class="md-nav__link">
+    [US15] Eu, como funcionário, quero ser capaz de escolher qual o tipo da entrega do pedido.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us17-eu-como-usuario-quero-ser-capaz-de-gerar-uma-lista-de-todos-devedores" class="md-nav__link">
+    [US17] Eu, como usuário, quero ser capaz de gerar uma lista de todos devedores.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us05-eu-como-gerente-gostaria-de-adicionar-promocoes-para-estimular-as-vendas" class="md-nav__link">
+    [US05] Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us07-eu-como-gerente-gostaria-do-sistema-gerar-um-alerta-de-estoque-baixo" class="md-nav__link">
+    [US07] Eu, como gerente, gostaria do sistema gerar um alerta de estoque baixo.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us10-eu-como-funcionario-quero-ser-capaz-de-adicionar-um-carrinho-que-contenha-um-pedido-de-venda-para-efetuar-a-compra" class="md-nav__link">
+    [US10] Eu, como funcionário, quero ser capaz de adicionar um carrinho que contenha um pedido de venda, para efetuar a compra.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us13-eu-como-funcionario-quero-que-no-pedido-seja-realizado-um-fechamento-da-venda" class="md-nav__link">
+    [US13] Eu, como funcionário, quero que no pedido seja realizado um fechamento da venda.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us14-eu-como-funcionario-quero-ser-capaz-de-escolher-a-forma-de-pagamento-que-foi-realizada-para-registrar-a-transacao-corretamente" class="md-nav__link">
+    [US14] Eu, como funcionário, quero ser capaz de escolher a forma de pagamento que foi realizada, para registrar a transação corretamente.
   </a>
   
 </li>
@@ -692,210 +778,107 @@
                   
 
 
-  <h1>MVP</h1>
-
+<h2 id="historico-de-revisao">Histórico de Revisão</h2>
 <table>
 <thead>
 <tr>
 <th>Data      </th>
 <th>Versão</th>
 <th>Descrição            </th>
-<th>Autor(es)                                                  </th>
+<th>Autor(es)</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>08/05/2023</td>
-<td>0.1</td>
-<td>Criação e estruturação do documentação do MVP1 e MVP2</td>
-<td>Hemanoel,Gustavo,Isaac,Milena,Daniela</td>
-</tr>
-<tr>
-<td>10/05/2023</td>
-<td>0.2</td>
-<td>Atualização do MVP1 e MVP2</td>
-<td>Gustavo</td>
-</tr>
 <tr>
 <td>15/05/2023</td>
-<td>0.3</td>
-<td>Atualização do MVP1 e MVP2</td>
-<td>Gustavo, Hemanoel</td>
+<td>0.1</td>
+<td>Criação e estruturação do documentação dos Critérios de Aceitação</td>
+<td>Hemanoel,Gustavo,Isaac, Milena</td>
 </tr>
 </tbody>
 </table>
-<h2 id="mvp-1">MVP 1</h2>
-<h4 id="ep02-adicionar-ou-remover-produtos"><b>[EP02]</b> Adicionar ou remover produtos</h4>
-<table>
-<thead>
-<tr>
-<th>User Stories</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>[US03]</b> Eu, como gerente, quero ser capaz de adicionar um novo produto ao catálogo, para atualizar o estoque.</td>
-</tr>
-<tr>
-<td><b>[US04]</b> Eu, como gerente, quero ser capaz de remover um produto do catálogo, para atualizar o estoque.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="ep01-consulta-de-informacoes-de-produto"><b>[EP01]</b> Consulta de informações  de produto</h4>
-<table>
-<thead>
-<tr>
-<th>User Stories</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>[US01]</b> Eu, como usuário, quero poder consultar o preço do produto, para verificar o valor antes da compra.</td>
-</tr>
-<tr>
-<td><b>[US02]</b> Eu, como usuário, quero consultar o nível de estoque dos produtos, para saber a disponibilidade do produto.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="ep03-controle-de-estoque"><b>[EP03]</b> Controle de Estoque</h4>
-<table>
-<thead>
-<tr>
-<th>User Stories</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>[US08]</b> Eu, como gerente, gostaria de impedir a venda de uma quantidade de produtos acima do que existe no estoque, para evitar vendas que não possam ser efetuadas.</td>
-</tr>
-<tr>
-<td><b>[US09] </b> Eu, como gerente, quero ser capaz de visualizar o estoque total da loja em tempo real, para ter uma visão atualizada sobre os produtos.</td>
-</tr>
-<tr>
-<td><b>[US10]</b> Eu, como funcionário, quero ser capaz de adicionar um carrinho que contenha um pedido de venda, para efetuar a compra.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="ep04-frente-de-caixa"><b>[EP04]</b> Frente de caixa</h4>
-<table>
-<thead>
-<tr>
-<th>User Stories</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>[US11]</b> Eu, como funcionário, quero adicionar ao carrinho do pedido em aberto, diferentes produtos, utilizando código reservado a cada produto, para adicionar os itens corretos.</td>
-</tr>
-<tr>
-<td><b>[US12]</b> Eu, como funcionário, quero que no pedido em aberto seja realizado os cálculos da compra, para mostrar o valor total da venda.</td>
-</tr>
-<tr>
-<td><b>[US13]</b> Eu, como funcionário, quero que no pedido seja realizado um fechamento da venda, para garantir a precisão da transacão.</td>
-</tr>
-<tr>
-<td><b>[US14]</b> Eu, como funcionário, quero ser capaz de escolher a forma de pagamento que foi realizada, para registrar a transação corretamente.</td>
-</tr>
-<tr>
-<td><b>[US15]</b> Eu, como funcionário, quero ser capaz de escolher qual o tipo da entrega do pedido, para monitorar o desempenho dos canais de vendas.</td>
-</tr>
-<tr>
-<td><b>[US16]</b> Eu, como usuário, quero ser capaz de cadastrar clientes no sistema, para que possa acompanhar seu histórico de compra.</td>
-</tr>
-<tr>
-<td><b>[US17]</b> Eu, como usuário, quero ser capaz de gerar uma lista de todos devedores, para acompanhar as pendências de pagamento.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="mvp-2">MVP 2</h2>
-<h4 id="ep02-adicionar-ou-remover-produtos_1"><b>[EP02]</b> Adicionar ou remover produtos</h4>
-<table>
-<thead>
-<tr>
-<th>User Stories</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>[US05]</b> Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas.</td>
-</tr>
-<tr>
-<td><b>[US06]</b> Eu, como gerente, quero ser capaz de visualizar o histórico de alterações no estoque de um produto, para acompanhar as transações.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="ep03-controle-de-estoque_1"><b>[EP03]</b> Controle de Estoque</h4>
-<table>
-<thead>
-<tr>
-<th>User Stories</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>[US07]</b> Eu, como gerente, gostaria do sistema gerar um alerta de estoque baixo, para poder repor o produto.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="ep05-geracao-de-relatorios-de-vendas"><b>[EP05]</b> Geração de relatórios de vendas</h4>
-<table>
-<thead>
-<tr>
-<th>User Stories</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>[US18]</b> Eu, como gerente, quero ser capaz de gerar um gráfico de linhas, para monitorar melhor o fluxo de vendas de produtos específicos e identificar tendências e padrões.</td>
-</tr>
-<tr>
-<td><b>[US19]</b> Eu, como gerente, quero ser capaz de gerar um gráfico de pizza, para identificar a participação de cada categoria nas vendas totais.</td>
-</tr>
-<tr>
-<td><b>[US20]</b> Eu, como gerente, quero ser capaz de gerar um gráfico de barras, para comparar as vendas de diferentes produtos.</td>
-</tr>
-<tr>
-<td><b>[US21]</b> Eu, como gerente, quero ter um dashboard, para monitorar o desempenho das vendas e a situação financeira da loja.</td>
-</tr>
-<tr>
-<td><b>[US22]</b> Eu, como gerente, quero ser capaz de gerar relatórios de vendas por horário, para identificar os horários de pico de vendas.</td>
-</tr>
-<tr>
-<td><b>[US23]</b> EEu, como gerente, quero ser capaz de gerar relatórios comparando a venda entre diferentes métodos, para identificar a eficácia de cada um.</td>
-</tr>
-<tr>
-<td><b>[US24]</b> Eu, como gerente, quero ser capaz de gerar uma lista com todas as vendas já realizadas, para manter registro completo.</td>
-</tr>
-<tr>
-<td><b>[US25]</b> Eu, como gerente, quero ser capaz de gerar esses relatórios de vendas por período, para monitorar o desempenho.</td>
-</tr>
-<tr>
-<td><b>[US26]</b> Eu, como gerente, quero ser capaz de gerar relatórios de vendas por promoção, para identificar as promoções que têm melhor desempenho.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="ep06-gerenciamento-de-funcionarios"><b>[EP06]</b> Gerenciamento de funcionários</h4>
-<table>
-<thead>
-<tr>
-<th>User Stories</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>[US27]</b> Eu, como gerente, quero ser capaz de adicionar um novo funcionário ao sistema, para manter o registro atual dos funcionários.</td>
-</tr>
-<tr>
-<td><b>[US28]</b> Eu, como gerente, quero ser capaz de remover um funcionário do sistema, para manter a integridade do sistema.</td>
-</tr>
-<tr>
-<td><b>[US29]</b> Eu, como gerente, quero ser capaz de editar as informações de um funcionário existente, para atualizar com novas informações.</td>
-</tr>
-<tr>
-<td><b>[US30]</b> Eu, como gerente, quero ser capaz de visualizar as informações pessoais dos funcionários, para manter o registro atualizado.</td>
-</tr>
-</tbody>
-</table>
+<h1 id="criterios-de-aceitacao">Critérios de aceitação</h1>
+<h3 id="us01-eu-como-usuario-quero-poder-consultar-o-preco-do-produto"><b>[US01]</b> Eu, como usuário, quero poder consultar o preço do produto.</h3>
+<ul>
+<li>O sistema deve ser capaz de exibir o preço de produtos atualizados.</li>
+<li>O preço deve ser exibido com o valor correto estabelecido.</li>
+<li>Deve ser exibido o nome e a imagem do produto, junto com sua descrição.</li>
+</ul>
+<h3 id="us02-eu-como-usuario-quero-consultar-o-nivel-de-estoque-dos-produtos"><b>[US02]</b> Eu, como usuário, quero consultar o nível de estoque dos produtos.</h3>
+<ul>
+<li>O sistema deve exibir o nível de estoque em tempo real.</li>
+<li>O nível do estoque deve estar atualizado e correto.</li>
+<li>O sistema deve permitir que o usuário visualize o nível de estoque de todos  os produtos.</li>
+</ul>
+<h3 id="us08-eu-como-gerente-gostaria-de-impedir-a-venda-de-uma-quantidade-de-produtos-acima-do-que-existe-no-estoque"><b>[US08]</b> Eu, como gerente, gostaria de impedir a venda de uma quantidade de produtos acima do que existe no estoque.</h3>
+<ul>
+<li>O sistema deve impedir que o funcionário efetue uma venda de um produto que não está disponível no estoque.</li>
+<li>O sistema ao perceber que o funcionário tentou efetuar uma venda indisponível exibirá uma mensagem de erro.</li>
+</ul>
+<h3 id="us24-eu-como-gerente-quero-ser-capaz-de-gerar-uma-lista-com-todas-as-vendas-ja-realizadas"><b>[US24]</b> Eu, como gerente, quero ser capaz de gerar uma lista com todas as vendas já realizadas.</h3>
+<ul>
+<li>O sistema deve ser capaz de gerar uma lista com as vendas realizadas.</li>
+<li>A lista de vendas deve conter informações como nome do produto, quantidade vendida, valor total,data, horario de venda e o estoque disponível.</li>
+<li>O sistema deve ser capaz de gerar a lista em diferentes períodos de tempo (Diária, Semanal, Quinzenal, Mensal).</li>
+</ul>
+<h3 id="us03-eu-como-gerente-quero-ser-capaz-de-adicionar-um-novo-produto-ao-catalogo"><b>[US03]</b> Eu, como gerente, quero ser capaz de adicionar um novo produto ao catálogo.</h3>
+<ul>
+<li>O sistema deve permitir que o gerente adicione um produto do catálogo.</li>
+<li>O sistema deve pedir ao gerente as informações para adicionar um novo produto como nome, quantidade no estoque, descrição e preço.</li>
+</ul>
+<h3 id="us04-eu-como-gerente-quero-ser-capaz-de-remover-um-produto-do-catalogo"><b>[US04]</b> Eu, como gerente, quero ser capaz de remover um produto do catálogo.</h3>
+<ul>
+<li>O sistema deve permitir que o gerente remova um produto do catálogo.</li>
+<li>O sistema deve solicitar uma confirmação antes de remover um produto do catálogo.</li>
+<li>O sistema deve atualizar a quantidade do estoque ao remover um produto.</li>
+</ul>
+<h3 id="us09-eu-como-gerente-quero-ser-capaz-de-visualizar-o-estoque-total"><b>[US09]</b> Eu, como gerente, quero ser capaz de visualizar o estoque total.</h3>
+<ul>
+<li>O sistema deve permitir o gerente visualizar o estoque da loja em tempo real. </li>
+<li>O estoque total deve estar atualizado.</li>
+</ul>
+<h3 id="us12-eu-como-funcionario-quero-que-no-pedido-em-aberto-seja-realizado-os-calculos-da-compra"><b>[US12]</b> Eu, como funcionário, quero que no pedido em aberto seja realizado os cálculos da compra.</h3>
+<ul>
+<li>O sistema deve ser capaz de realizar os cálculos de compra de acordo com os produtos adicionados ao carrinho.</li>
+<li>O sistema deve ser capaz de mostrar o troco da compra realizada.</li>
+</ul>
+<h3 id="us15-eu-como-funcionario-quero-ser-capaz-de-escolher-qual-o-tipo-da-entrega-do-pedido"><b>[US15]</b> Eu, como funcionário, quero ser capaz de escolher qual o tipo da entrega do pedido.</h3>
+<ul>
+<li>O sistema de fornercer as seguintes opções de como a entrega foi realizada: Presencial, Delivery (iFood ou Entrega Pessoal).</li>
+</ul>
+<h3 id="us17-eu-como-usuario-quero-ser-capaz-de-gerar-uma-lista-de-todos-devedores"><b>[US17]</b> Eu, como usuário, quero ser capaz de gerar uma lista de todos devedores.</h3>
+<ul>
+<li>O sistema deve ser capaz de gerar uma lista dos devedores.</li>
+<li>A lista de devedores deve conter informações como nome, valor total da divida e prazo de pagamento.</li>
+<li>A lista deve ser atualizada ao confirmar pagamentos e pendências quando forem registradas no sistema.</li>
+</ul>
+<h3 id="us05-eu-como-gerente-gostaria-de-adicionar-promocoes-para-estimular-as-vendas"><b>[US05]</b> Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas.</h3>
+<ul>
+<li>O sistema deve permitir ao gerente adicionar uma nova promoção.</li>
+<li>O sistema deve solicitar ao gerente informações para a adição de uma promoção como nome do produto, desconto e tempo que a promoção estará disponível.</li>
+</ul>
+<h3 id="us07-eu-como-gerente-gostaria-do-sistema-gerar-um-alerta-de-estoque-baixo"><b>[US07]</b> Eu, como gerente, gostaria do sistema gerar um alerta de estoque baixo.</h3>
+<ul>
+<li>O sistema deve monitorar o nível de estoque.</li>
+<li>O sistema deve notificar o estoque baixo caso um produto esteja abaixo do limite.</li>
+<li>O sistema deve permitir que o gerente altere o limite de estoque.</li>
+</ul>
+<h3 id="us10-eu-como-funcionario-quero-ser-capaz-de-adicionar-um-carrinho-que-contenha-um-pedido-de-venda-para-efetuar-a-compra"><b>[US10]</b> Eu, como funcionário, quero ser capaz de adicionar um carrinho que contenha um pedido de venda, para efetuar a compra.</h3>
+<ul>
+<li>O sistema deve permitir que um funcionário adicione produtos no carrinho.</li>
+<li>O sistema deve permitir que o usuário visualize os produtos no carrinho como nome do produto, quantidade, preços individuais e valor total.</li>
+<li>O sistema deve finalizar o pedido de acordo com o pagamento selecionado.</li>
+</ul>
+<h3 id="us13-eu-como-funcionario-quero-que-no-pedido-seja-realizado-um-fechamento-da-venda"><b>[US13]</b> Eu, como funcionário, quero que no pedido seja realizado um fechamento da venda.</h3>
+<ul>
+<li>O sistema deve finalizar o pedido.</li>
+<li>O sistema deve calcular o valor total de venda incluindo possíveis descontos e troco a ser pago.</li>
+</ul>
+<h3 id="us14-eu-como-funcionario-quero-ser-capaz-de-escolher-a-forma-de-pagamento-que-foi-realizada-para-registrar-a-transacao-corretamente"><b>[US14]</b> Eu, como funcionário, quero ser capaz de escolher a forma de pagamento que foi realizada, para registrar a transação corretamente.</h3>
+<ul>
+<li>O sistema deve oferecer diferentes opções de pagamento, como dinheiro, cartão de crédito, débito e PIX.</li>
+<li>Ao selecionar a forma de pagamento desejada, o sistema deve registrar essa informação juntamente com os detalhes da venda.</li>
+</ul>
 
 
 
