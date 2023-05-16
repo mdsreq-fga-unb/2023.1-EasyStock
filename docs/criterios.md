@@ -50,10 +50,6 @@
 * A lista de devedores deve conter informações como nome, valor total da divida e prazo de pagamento.
 * A lista deve ser atualizada ao confirmar pagamentos e pendências quando forem registradas no sistema.
 
-### <b>[US05]</b> Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas.
-* O sistema deve permitir ao gerente adicionar uma nova promoção.
-* O sistema deve solicitar ao gerente informações para a adição de uma promoção como nome do produto, desconto e tempo que a promoção estará disponível.
-
 ### <b>[US07]</b> Eu, como gerente, gostaria do sistema gerar um alerta de estoque baixo.
 * O sistema deve monitorar o nível de estoque.
 * O sistema deve notificar o estoque baixo caso um produto esteja abaixo do limite.

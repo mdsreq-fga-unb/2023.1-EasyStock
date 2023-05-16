@@ -6,7 +6,7 @@
 |08/05/2023 | 0.2 | Atualizando requisitos funcionais  | Hemanoel,Gustavo,Isaac,Milena,Daniela|
 |10/05/2023 | 0.3 | Atualizando requisitos funcionais e adicionando a Tabela de Critérios  | Gustavo, Daniela, Hemanoel, Isaac |
 |10/05/2023 | 0.4 | Atualizando requisitos funcionais e a Tabela de Critérios  | Gustavo, Milena, Hemanoel, Isaac |
-|15/05/2023 | 0.5 | Atualização do Backlog  | Gustavo, Hemanoel, Isaac |
+|15/05/2023 | 0.5 | Atualização do Backlog | Gustavo, Hemanoel, Isaac |
 
 ## Personas
 * <b>Gerente:</b> Indivíduo que exerce o gerenciamento dos setores do produto, seja acerca das informações dos produtos até os relatórios de vendas.
@@ -45,7 +45,7 @@
 | <b>[US02]</b>| Eu, como usuário, quero consultar o nível de estoque dos produtos, para saber a disponibilidade do produto. | 3 | 3 | 3 | 9 |
 | <b>[US03]</b>| Eu, como gerente, quero ser capaz de adicionar um novo produto ao catálogo, para atualizar o estoque. | 3 | 3 | 2 | 8 |
 | <b>[US04]</b>| Eu, como gerente, quero ser capaz de remover um produto do catálogo, para atualizar o estoque. | 3 | 3 | 2 | 8 |
-| <b>[US05]</b>| Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas. | 2 | 3 | 2 | 7 |
+| <b>[US05]</b>| Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas. | 1 | 2 | 2 | 5 |
 | <b>[US06]</b>| Eu, como gerente, quero ser capaz de visualizar o histórico de alterações no estoque de um produto, para acompanhar as transações. | 3 | 2 | 1 | 6 |
 | <b>[US07]</b>| Eu, como gerente, gostaria do sistema gerar um alerta de estoque baixo, para poder repor o produto. | 1 | 3 | 3 | 7 |
 | <b>[US08]</b>| Eu, como gerente, gostaria de impedir a venda de uma quantidade de produtos acima do que existe no estoque, para evitar vendas que não possam ser efetuadas. | 3 | 3 | 3 | 9 |
@@ -86,7 +86,6 @@
 | <b>[US12]</b>| Eu, como funcionário, quero que no pedido em aberto seja realizado os cálculos da compra, para mostrar o valor total da venda. | 2 | 3 | 3 | 8 |
 | <b>[US15]</b>| Eu, como funcionário, quero ser capaz de escolher qual o tipo da entrega do pedido, para monitorar o desempenho dos canais de vendas. | 3 | 3 | 2 | 8 | 
 | <b>[US17]</b>| Eu, como usuário, quero ser capaz de gerar uma lista de todos devedores, para acompanhar as pendências de pagamento. | 3 | 2 | 3 | 8 |
-| <b>[US05]</b>| Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas. | 2 | 3 | 2 | 7 |
 | <b>[US07]</b>| Eu, como gerente, gostaria do sistema gerar um alerta de estoque baixo, para poder repor o produto. | 1 | 3 | 3 | 7 |
 | <b>[US10]</b>| Eu, como funcionário, quero ser capaz de adicionar um carrinho que contenha um pedido de venda, para efetuar a compra. | 3 | 2 | 2 | 7 |
 | <b>[US13]</b>| Eu, como funcionário, quero que no pedido seja realizado um fechamento da venda, para garantir a precisão da transacão. | 2 | 3 | 2 | 7 |
@@ -106,6 +105,7 @@
 | <b>[US28]</b>| Eu, como gerente, quero ser capaz de remover um funcionário do sistema, para manter a integridade do sistema. | 1 | 2 | 3 | 6 |
 | <b>[US29]</b>| Eu, como gerente, quero ser capaz de editar as informações de um funcionário existente, para atualizar com novas informações. | 1 | 2 | 3 | 6 |
 | <b>[US30]</b>| Eu, como gerente, quero ser capaz de visualizar as informações pessoais dos funcionários, para manter o registro atualizado. | 1 | 2 | 3 | 6 | 
+| <b>[US05]</b>| Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas. | 1 | 2 | 2 | 5 |
 
 
 
