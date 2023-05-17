@@ -6,10 +6,12 @@ nav:
         - 'Visão geral do projeto': 'visao-geral-projeto.md'
         - 'Processo de desenvolvimento de software': 'processo-de-desenvolvimento-de-software.md'
         - 'Lições aprendidas': 'licoes-aprendidas.md'
+    - Interface:
+        - 'Interface do projeto': 'interface.md'
+    - Workflow: 'workflow.md'
     - Backlog:
         - 'Definições': 'dod-dor.md'
-        - 'Requisitos': 'requisitosF-NF.md'
-        - 'Critérios de Aceitação': 'criterios.md'
+        - 'Requisitos e Critérios': 'requisitos-criterios.md'
         - 'MVP': 'mvp1-mvp2.md'
     - Arquitetura: 'arquitetura.md'     
     - Entregas:
