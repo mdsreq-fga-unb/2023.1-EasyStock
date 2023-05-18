@@ -20,6 +20,8 @@ Scrum XP combina as metodologias Scrum e Extreme Programming(XP). Scrum é uma a
 | Sprint review | O produto que está sendo construído é o principal tópico da sprint review. A equipe convida o cliente para falar sobre o que foi realizado durante o sprint durante uma revisão do sprint | 
 | Retrospectiva da sprint | A retrospectiva é uma reunião onde a equipe analisa o que deu certo e onde há espaço para melhorias durante uma retrospectiva do sprint|
 
+![Scrum](https://github.com/mdsreq-fga-unb/2023.1-EasyStock/assets/88113694/464633d4-a0cf-406c-9bbb-428421797374)
+
 ## Práticas utilizadas do XP
 
 | Práticas | Definição |
