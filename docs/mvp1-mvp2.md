@@ -3,8 +3,7 @@
 |08/05/2023 | 0.1 | Criação e estruturação do documentação do MVP1 e MVP2 | Hemanoel,Gustavo,Isaac,Milena,Daniela |
 |10/05/2023 | 0.2 | Atualização do MVP1 e MVP2 | Gustavo |
 |15/05/2023 | 0.3 | Atualização do MVP1 e MVP2 | Gustavo, Hemanoel |
-|16/05/2023 | 0.3 | Atualização do MVP1 e MVP2 | Gustavo, Hemanoel,Isaac |
-
+|16/05/2023 | 0.3 | Atualização do MVP1 e MVP2 | Gustavo, Hemanoel, Isaac |
 
 ## MVP 1
 

@@ -2,7 +2,7 @@
 
 ## Descrição
 <div style="text-align: justify"> 
-O produto desenvolvido pela equipe EasyStock, formada por acadêmicos da Universidade de Brasília, é destinado para donos de uma papelaria física localizada na Asa Norte. Tal aplicação busca promover uma gestão eficiente, automatizada e segura do estoque de produtos da papelaria a fim de facilitar o cotidiano dos funcionários e gestores da papelaria. </div>
+O produto desenvolvido pela equipe EasyStock, formada por acadêmicos da Universidade de Brasília, é destinado para uma loja de açaí Thois Açaí localizada na Asa Norte. Tal aplicação busca promover uma gestão eficiente do estoque junto de um sistema de frente de caixa a fim de facilitar o cotidiano dos funcionários e gestores da papelaria. </div>
 
 ## Membros da equipe
 
@@ -14,10 +14,5 @@ O produto desenvolvido pela equipe EasyStock, formada por acadêmicos da Univers
 | Gustavo   | 211039457 |
 | Daniela   | 211041123 |
 
-<!-- * Hemanoel
-* Isaac
-* Gustavo
-* Milena
-* Daniela -->
 
 

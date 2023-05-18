@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../interface/">
+        <link rel="prev" href="../arquitetura/">
       
       
-        <link rel="next" href="../dod-dor/">
+        <link rel="next" href="../unidade1/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.9">
     
     
       
-        <title>Workflow - EasyStock</title>
+        <title>Sprints - EasyStock</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#historico-de-revisao" class="md-skip">
+        <a href="#padronizacao-de-codigo" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Workflow
+              Sprints
             
           </span>
         </div>
@@ -357,55 +357,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Workflow
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../workflow/" class="md-nav__link">
         Workflow
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#historico-de-revisao" class="md-nav__link">
-    Histórico de Revisão
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-integracao-continua" class="md-nav__link">
-    Workflow Integração Contínua
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -508,11 +464,48 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../sprints/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Sprints
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Sprints
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#padronizacao-de-codigo" class="md-nav__link">
+    Padronização de código
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -591,15 +584,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#historico-de-revisao" class="md-nav__link">
-    Histórico de Revisão
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-integracao-continua" class="md-nav__link">
-    Workflow Integração Contínua
+  <a href="#padronizacao-de-codigo" class="md-nav__link">
+    Padronização de código
   </a>
   
 </li>
@@ -619,66 +605,56 @@
                   
 
 
-  <h1>Workflow</h1>
+  <h1>Sprints</h1>
 
-<h2 id="historico-de-revisao">Histórico de Revisão</h2>
 <table>
 <thead>
 <tr>
 <th>Data      </th>
 <th>Versão</th>
 <th>Descrição            </th>
-<th>Autor(es)</th>
+<th>Autor(es)                                                  </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>16/05/2023</td>
+<td>17/05/2023</td>
 <td>0.1</td>
-<td>Definição do Workflow de Integração Contínua</td>
-<td>Daniela</td>
+<td>Criação e estruturação do documentação da Sprints</td>
+<td>Hemanoel,Gustavo,Isaac,Daniela,Milena</td>
 </tr>
 </tbody>
 </table>
-<h2 id="workflow-integracao-continua">Workflow Integração Contínua</h2>
-<table>
-<thead>
-<tr>
-<th>Etapa</th>
-<th>Descrição</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Estruturação do ambiente</td>
-<td>Os comandos/scripts são definidos no ambiente de testes visando atender aos requisitos do projetos</td>
-</tr>
-<tr>
-<td>Disparador de evento</td>
-<td>O workflow é acionado quando ocorre uma tentativa de push/pull request na branch principal por parte de algum desenvolvedor</td>
-</tr>
-<tr>
-<td>Acessar código fonte</td>
-<td>O código fonte do repositório é baixado no ambiente onde as etapas de teste serão executadas</td>
-</tr>
-<tr>
-<td>Execução dos testes</td>
-<td>Executam-se os testes em cima da base de comandos definidos previamente na etapa de estruturação do ambiente</td>
-</tr>
-<tr>
-<td>Exibição de resultados</td>
-<td>O resultado do teste é exibido no console</td>
-</tr>
-<tr>
-<td>Feedback de resultados</td>
-<td>O CI Tester repassa o feedback com o resultado dos testes para os outros desenvolvedores da equipe</td>
-</tr>
-<tr>
-<td>Tomada de decisão</td>
-<td>Caso os testes sejam processados com sucesso, a solicitação de push/pull request é autorizada e ocorre a mesclagem com a branch principal. Caso os testes reportem erros, a solicitação de push/pull request fica em espera até que as correções sejam feitas pelos desenvolvedores</td>
-</tr>
-</tbody>
-</table>
+<h2 id="padronizacao-de-codigo">Padronização de código</h2>
+<ul>
+<li>Utilizaremos padrões de nomeclatura usando nomes descritivos, assim como convenções de nomenclatura(camelCase ou snake_case), também sera feito o uso consistente de espaços ou tab para a indentação correta do código além de comentários para explicar a funcionalidade do código.</li>
+</ul>
+<!-- ## Práticas utilizadas do XP
+
+| Práticas | Aplicação |
+| ------------- |:-------------:|
+| Refatoração | O Visual Studio Code será uma ferramenta utilizada para auxiliar o refatoramento de código, uma vez que essa IDE possui recursos integrados que suportam e auxiliam técnicas de refatoração |
+| Projeto Simples | O Visual Studio Code será uma ferramenta que auxiliará no desenvolvimento de um código simples, uma vez que possui vários pacotes de extensões que simplificam o processo de desenvolvimento | 
+| Integração Contínua |  O código irá ser frequentemente integrado (versionado) ajudando tanto na questão da transparência como no aumento da segurança do código a partir do controle de versões evitando perda do código por modificações. | 
+| Testes Unitários | Adotaremos os testes unitários  a fim de garantir a qualidade do código e a sua aderência aos requisitos. |
+| Posse Coletiva | A equipe passa a ser responsável por cada arquivo de código, não sendo necessário solicitar autorização para fazer alterações. |
+| Padronização de código | Utilizaremos padrões de nomeclatura usando nomes descritivos, assim como convenções de nomenclatura(camelCase ou snake_case), também sera feito o uso consistente de espaços ou tab para a indentação correta do código além de comentários para explicar a funcionalidade do código. | 
+| Small Releases (Pequenas versões) | Permite entregar o valor de forma incremental e interativa. |
+
+
+em eu lembro dele explicando na aula, que os metodos de scrumxp que optamos na entrega 1
+
+Desenvolveremos o projeto com o menor número possível de classes e método, passando em todos os testes e evitando duplicação de funcionalidades. -->
+
+<p>Padrões de codificação</p>
+<p>Utilizaremos padrões de nomeclatura usando nomes descritivos,assim como convenções de nomenclatura(camelCase ou snake_case).também sera feito o uso consistente de espaços ou tab para a indentação correta do código além de comentários para explicar a funcionalidade do código.</p>
+<p>Integração Contínua
+Definimos alguns pontos para a integração contínua, como o workflow e o GitHub Actions como ferramenta.</p>
+<p>Sprint Planning</p>
+<p>Daily
+Foram feitos diariamente feedbacks, nas plataformas de comunicação (Teams, WhatsApp).</p>
+<p>Sprint Retrospective
+Fizemos reuniões ao final das sprints, para poder avaliar os feedback do professor, e aprimorarmos para a próxima entrega.</p>
 
 
 

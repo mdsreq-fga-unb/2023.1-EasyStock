@@ -4,33 +4,36 @@
 | ---------- | ------ | -------------------- | ------------------------------------------------------------|
 | 18/04/2023 | 0.1 | Criação e estruturação do documentação | Hemanoel, Gustavo, Isaac |
 | 19/04/2023 | 0.2 | Adição de objetivos e problema e tecnologias | Hemanoel, Gustavo, Isaac, Daniela, Milena|
-
+| 17/05/2023 | 0.3 | Revisão da documentação | Hemanoel, Gustavo, Isaac|
 ## 1.1 Problema
 <div style="text-align: justify"> 
-O problema identificado é a dificuldade no controle e gerenciar dos produtos em estoque. Sem esse sistema automatizado, problemas como excesso/falta de produtos em estoque e lentidão no ato de vender algo para o cliente por não encontrar o produto solicitado podem acontecer. Dentre as consequências negativas destes problemas temos a perda de venda e consequentemente um prejuízo financeiro, insatisfação do cliente e maior chance de erros humanos por parte dos funcionários responsáveis por gerenciar o estoque. Uma possível solução seria uma ferramenta que mantém o registro preciso do inventário para cada produto, atualiza o inventário quando o produto for vendido e prevê a demanda de acordo com os dados de vendas. </div>
+Uma das dificuldades que um pequeno comércio pode sofrer é a falta de um sistema de gerenciamento de vendas ou o uso de um sistema ineficiente (alta complexidade, desempenho lento, má integração do estoque com a frente de caixa), onde isto pode acarretar em problemas de controle de estoque, atrasos nos procedimentos de venda, erros de inventário e dificuldades na tomada de decisões estratégicas com base nos dados gerais. Isso impacta negativamente as operações do comércio, levando a perdas financeiras e de oportunidades de negócio.
+</div>
+
 
 Estratégias:
 
-![Screenshot_1](https://user-images.githubusercontent.com/79723182/233247544-dcb1aa9d-cbc4-4019-9193-e46a56e2cac2.png)
+![Aesthetic Fishbone Diagram Graph](https://github.com/mdsreq-fga-unb/2023.1-EasyStock/assets/88113694/50688f1c-9d78-4a66-93d6-f1ff852a8d31)
 
-![WhatsApp Image 2023-04-19 at 23 56 25](https://user-images.githubusercontent.com/79723182/233247536-34bf0218-d0da-40cf-946e-136fbb17fa80.png)
 
 ## 1.2 Declaração de Posição do Produto
-
-| Para           | Pequenas lojas e comércio |
+|  |  |
 | -------------- | ----------------------------------------------------- |
-| Quem           | Proprietários de lojas e/ou funcionários responsáveis pelo controle de estoque |
-| O (nome do produto)    | EasyStock é uma ferramenta cuja finalidade é facilitar o gerenciamento de estoque, registro do produto, atualização automática do estoque quando o produto for vendido e prevê possíveis demandas com base em dados de venda |
-| Que            | Melhora a experiência do cliente, maior produtividade no controle de estoque |
-| Ao contrário | Controles manuais ou sistema de gerenciamento limitados |
-| Nosso produto  | Interface simples, atualização automatica o estoque, fornecer análises sobre as vendas |
+| Para           | Thois Açaí |
+| Quem           | for o responsável por gerenciar as vendas |
+| O Easy Stock   | é uma aplicação web para gerenciamento de vendas |
+| Que            | Permite o acompanhamento do controle de estoque, dos processo de vendas e análise de desempenho |
+| Ao contrário do  |  Bling |
+| Nosso produto  | abstrai apenas funcionalidades necessárias para o cliente e é gratuito |
 
 ## 1.3 Objetivos do Produto
 <div style="text-align: justify"> 
-O objetivo principal do produto é melhorar o sistema de controle de estoque e a satisfação do cliente, buscando criar um site que mantém o registro preciso do inventário, atualiza quando um produto for vendido.Alem disso como objetivo secundário,  seria a previsao de demandas com base nos dados de vendas.</div>
+O EasyStock tem como objetivo principal fornecer ao cliente uma plataforma de controle e gerenciamento de estoque personalizado, controle de vendas, frente de caixa e análise de desempenho, para otimizar as operações e impulsionar os negócios.
+</div>
 
 ## 1.4 Tecnologias a serem utilizadas
 
-* Node.js (Express) 
 * ReactJS
+* Node.js (Express) 
+* MongoDB
 * Git Actions 

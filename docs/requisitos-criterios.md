@@ -32,14 +32,11 @@
 
 | Tipo      | Requisito |
 | -------------- | ------------|
-|Usabilidade|Deve ter uma interface intuitiva, fácil e consistente, sendo organizada de maneira lógica, para reduzir a curva de aprendizado do usuário.|
-|Confiabilidade|O software deve ser capaz de lidar com erros ou falhas, sempre operacional para atender às necessidades do usuário, evitar perda de venda e manter um grau de segurança.|
-|Desempenho|O desempenho basicamente será medido em tempo de resposta e tempo de processamento sendo o primeiro quão rápido o sistema é responsivo em relação as ações do usuário, e o segundo seria o quão eficiente o sistema é capaz em realizar uma tarefa.|
+|Usabilidade| O site deverá ser responsivo e se adaptar em caso de redimensionamento de tela. |
+|Interface| A site deverá seguir a palheta de cores estabelecida pelos padrões de UI. |
 |Suportabilidade|O site deve ser funcional nas versões atuais dos navegadores. (Chrome, Edge, Opera e Firefox)|
-|Requisitos de implementação|O Front-End será construído em ReactJS, o Back-End em NodeJS e com testes no GitActions.|
-|Requisitos de interface|Deve ser compatível com diferentes dispositivos hardware, como impressoras, leitores de código de barras.|
-|Requisitos físicos|Deve ser suportado pelo desktop do cliente.|
-|Restrições de Design|Deve ser desenvolvido um software seguindo práticas de design e arquitetura.|
+|Requisitos de implementação|O Front-End será construído em ReactJS, o Back-End em NodeJS, banco de dados MongoDB e com testes no GitActions.|
+|Restrições de Design|O software deve seguir a arquitetura em camadas com estilo MVC.|
 
 <!-- ## Tabela de Critérios
 

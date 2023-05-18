@@ -4,6 +4,7 @@
 | ---------- | ------ | -------------------- | ------------------------------------------------------------|
 | 18/04/2023 | 0.1 | Criação e estruturação do documentação | Hemanoel,Gustavo,Isaac |
 | 19/04/2023 | 0.2 | Adicionado metodologia,tabelas scrum e praticas de xp| Hemanoel,Gustavo,Isaac,Daniela,Milena|
+| 17/05/2023 | 0.3 | Remoção da prática de metáfora e adição do small relases| Hemanoel,Gustavo,Isaac,Daniela|
 
 
 ## Metodologia ScrumXP
@@ -21,29 +22,29 @@ Scrum XP combina as metodologias Scrum e Extreme Programming(XP). Scrum é uma a
 
 ## Práticas utilizadas do XP
 
-| Práticas | Definição | 
-| ------------- |:-------------:| 
-| Refatoração | Realizaremos manutenções periódicas no código, afim de melhorar o design e a estrutura do código.| 
+| Práticas | Definição |
+| ------------- |:-------------:|
+| Refatoração | Realizaremos manutenções periódicas no código, afim de melhorar o design e a estrutura do código.|
 | Projeto Simples | Implementaremos o Projeto simples, significando que o código será eficiente, e atenderá aos requisitos e que seja fácil de testar, refatorar e adicionar novas funcionalidades. | 
 | Integração Contínua | O código irá ser frequentemente integrado (versionado) ajudando tanto na questão da transparência como no aumento da segurança do código a partir do controle de versões evitando perda do código por modificações. | 
 | Testes Unitários | Adotaremos os testes unitários  a fim de garantir a qualidade do código e a sua aderência aos requisitos. |
 | Posse Coletiva | A equipe passa a ser responsável por cada arquivo de código, não sendo necessário solicitar autorização para fazer alterações. |
-| Padronização de código | Utilizaremos padrões de código permite que os desenvolvimento de códigos seguindo padrões bem definidos e consistentes, facilitando a leitura do código entre a equipe, melhorando a qualidade geral do código produzido. | 
-| Metáforas | A metáfora criada pela equipe consiste em uma analogia à uma loja de departamentos. O sistema de software seria a loja que possui diferentes seções representando as categorias de produtos. A ferramenta de busca da aplicação funciona como um mapa da loja, que ajuda os funcionários e clientes a encontrarem os produtos mais rapidamente. |
+| Padronização de código | Para que o desenvolvimento do código seja bem definido, consistente e de fácil leitura e interpretação Utilizaremos padrões de código. Essa prática melhora a qualidade geral do código produzido. | 
+| Small Releases (Pequenas versões) | Permite entregar o valor de forma incremental e interativa. |
 
 ## Práticas não utilizadas do XP
 
 | Práticas | Motivo de não utilizar |
 |----------|-----------------------|
-| Jogo do planejamento |O Jogo do planejamento pode demandar o tempo que a equipe não consiga realizar a pratica de maneira efetiva |
+| Metáforas | Dificuldade de compreensão por parte da equipe e a cliente, podendo gerar interpretações equivocadas ou ambíguas. |
+| Jogo do planejamento |O Jogo do planejamento pode demandar o tempo que a equipe não consiga realizar a pratica de maneira efetiva. |
 | Programação em pares | Nem todos os membros terão a disponibilidade de trabalhar no mesmo tempo. |
-| Semana de 40 horas | Indisponibilidade de horas por parte de todos os integrantes da equipe,optando por cargas mais flexiveis | 
+| Semana de 40 horas | Indisponibilidade de horas por parte de todos os integrantes da equipe, optando por cargas mais flexiveis. | 
 | Cliente Presente | O cliente não terá disponibilidade em estar presente constantemente. | 
-| Small Releases (Pequenas versões) | Os clientes não têm desejo, tempo ou experiência para participar do desenvolvimento do produto constantemente. Diminuindo assim a qualidade de um possivel feedback. |
 
-## Atividades
+<!-- ## Atividades
 
 | Atividade | Método | Ferramenta | Entrega |
 | ---------- | ------ | -------------------- | ---------------- |
 | Apresentação do problema | Diagrama de Ishikawa | Canva | 06/04 |
-| Elaboração documental de visão do produto e projeto | Brainstorm | MkDocs | 20/04 |
+| Elaboração documental de visão do produto e projeto | Brainstorm | MkDocs | 20/04 | -->

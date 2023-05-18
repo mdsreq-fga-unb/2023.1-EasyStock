@@ -13,7 +13,8 @@ nav:
         - 'Definições': 'dod-dor.md'
         - 'Requisitos e Critérios': 'requisitos-criterios.md'
         - 'MVP': 'mvp1-mvp2.md'
-    - Arquitetura: 'arquitetura.md'     
+    - Arquitetura: 'arquitetura.md'
+    - Sprints: 'sprints.md'  
     - Entregas:
         - 'Unidade 1': 'unidade1.md'
         
