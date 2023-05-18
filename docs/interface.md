@@ -51,7 +51,7 @@ A fonte escolhida para compor o projeto foi a Poppins, para manter um conceito d
 
 ![letra](https://github.com/mdsreq-fga-unb/2023.1-EasyStock/assets/88113694/e72d5c8a-5a58-4e8d-9eaa-d0d835fe1199)
 
-### Ícones:
+### Ícones
 Utilizaremos apenas dois ícones, um para edição de produtos do estoque e um para pesquisa, respectivamente. Podendo ser encontrados no site Icon Finder. Segue os ícones escolhidos:
 
 ![pen_icon](https://github.com/mdsreq-fga-unb/2023.1-EasyStock/assets/88113694/f73f7f56-8e49-4981-8646-8251255440c7)
