@@ -2,7 +2,7 @@
 
 | Data       | Versão | Descrição            | Autor(es) |
 | ---------- | ------ | -------------------- | ------------------------------------------------------------ |
-|11/05/2023 | 0.1 | Definição da Arquitetura do projeto | Gustavo |
+|11/05/2023 | 0.1 | Definição da Arquitetura do projeto | Gustavo, Daniela|
 |16/05/2023 | 0.2 | Atualização da arquitetura do projeto | Gustavo |
 
 

@@ -17,7 +17,7 @@ Scrum XP combina as metodologias Scrum e Extreme Programming(XP). Scrum é uma a
 | Sprint | A sprint é um um período de tempo predefinido em que uma equipe trabalhará para atingir um objetivo específico. |
 | Sprint Planning |  É uma reunião onde toda a equipe trabalha em conjunto para identificar o objetivo do sprint e definir o objetivo de alta prioridade desejado para o sprint durante o planejamento do sprint, isto posto e onde a equipe constrói o backlog da sprint |
 | Daily  | Na daily scrums todos os dias do sprint, a equipe de desenvolvimento se reúne para revisar o progresso na sprint.|
-| Sprint review | O produto que está sendo construído é o principal tópico da sprint review. A equipe  convida o cliente para falar sobre o que foi realizado durante o sprint durante uma revisão do sprint | 
+| Sprint review | O produto que está sendo construído é o principal tópico da sprint review. A equipe convida o cliente para falar sobre o que foi realizado durante o sprint durante uma revisão do sprint | 
 | Retrospectiva da sprint | A retrospectiva é uma reunião onde a equipe analisa o que deu certo e onde há espaço para melhorias durante uma retrospectiva do sprint|
 
 ## Práticas utilizadas do XP
@@ -31,6 +31,9 @@ Scrum XP combina as metodologias Scrum e Extreme Programming(XP). Scrum é uma a
 | Posse Coletiva | A equipe passa a ser responsável por cada arquivo de código, não sendo necessário solicitar autorização para fazer alterações. |
 | Padronização de código | Para que o desenvolvimento do código seja bem definido, consistente e de fácil leitura e interpretação Utilizaremos padrões de código. Essa prática melhora a qualidade geral do código produzido. | 
 | Small Releases (Pequenas versões) | Permite entregar o valor de forma incremental e interativa. |
+
+### Padronização de código
+* Utilizaremos padrões de nomeclatura usando nomes descritivos, assim como convenções de nomenclatura(camelCase ou snake_case), também sera feito o uso consistente de espaços ou tab para a indentação correta do código além de comentários para explicar a funcionalidade do código.
 
 ## Práticas não utilizadas do XP
 

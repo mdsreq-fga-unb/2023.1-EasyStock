@@ -10,12 +10,14 @@ nav:
         - 'Definições': 'dod-dor.md'
         - 'Requisitos e Critérios': 'requisitos-criterios.md'
         - 'MVP': 'mvp1-mvp2.md'
-    - Sprints: 'sprints.md'
+    - Sprints:
+        - 'Sprint 1': 'sprint1.md'
+        - 'Sprint 2': 'sprint2.md'
     - Arquitetura: 'arquitetura.md'
     - Interface: 'interface.md'
     - Workflow: 'workflow.md'  
     - Entregas:
-        - 'Unidade 1': 'unidade1.md'
+        - 'Vídeos': 'unidade1.md'
         
 theme: 
     name: material
