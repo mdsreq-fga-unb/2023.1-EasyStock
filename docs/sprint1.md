@@ -9,6 +9,9 @@ Data início: 17/04/2023
 
 Data término: 30/04/2023
 
+## Metas da Sprint
+* 
+
 ## Sprint Planning
 * Definimos onde iriam acontecer nossas reuniões e decidimos fazer todo o esboço do planejamento pelo miro.
 
