@@ -9,17 +9,17 @@ Data início: 17/04/2023
 
 Data término: 30/04/2023
 
-## Metas da Sprint
-* 
-
 ## Sprint Planning
 * Definimos onde iriam acontecer nossas reuniões e decidimos fazer todo o esboço do planejamento pelo miro.
-
+### Metas da Sprint
+* Criação do documento de Visão do produto e projeto;
+* Construção do GitPages;
+* Inicio da documentação.
 ## Sprint Review
 * A review foi prejudicada pela saida da cliente no fim da Sprint, porém com os feedbacks recebidos em sala de aula tentamos adequar as mudanças necessárias nas entregas.
  
 ## Sprint Retrospective
-* Foi observado a falta de organização durante as nossas reuniões quanto a parte da disponibilidade dos membros, foram raras as reuniões onde todos os membros do grupo estavam presentes
+* Foi observado a falta de organização durante as nossas reuniões quanto a parte da disponibilidade dos membros, foram raras as reuniões onde todos os membros do grupo estavam presentes.
 
 
 

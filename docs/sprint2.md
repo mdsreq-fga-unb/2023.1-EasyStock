@@ -9,9 +9,13 @@ Data início: 01/05/2023
 Data término: 15/05/2023
 
 ## Sprint Planning
-* Durante as reuniões, a cliente exigiu a implementação de um sistema para registrar clientes devedores, pois em sua loja ela aceita fiado. Com isso decidimos adicionar esses requisitos como stories ao backlog com prioridade média/alta.
 * Decidimos que iriamos dividir as User Stories (ordenadas pela prioridade) em essenciais, e encaixar essas no escopo do MVP1, e em secundárias, colocando-as no escopo do MVP2. 
-
+### Metas da Sprint
+* Criação da estrutura do Backlog; 
+* Estabelecimento dos requisitos funcionais e não funcionais;
+* Estabelecimento do MVP1 e MVP2;
+* Idealização do Workflow;
+* Atualização da documentação.
 ## Sprint Review
 * Nessa sprint em seu inicio ainda não contavamos com uma cliente, perto da data final conseguimos o contato de um cliente, porém ainda não a convidamos para obter o feedback dela. Ainda sim contamos com a ajuda do professor para refinar os produtos entregados, sendo esses os DOR e DOD, requisitos, MVPs,interface e o Workflow.
 
