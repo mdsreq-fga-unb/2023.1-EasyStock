@@ -1,5 +1,6 @@
 const productService = require('../services/user.service');
 const counterService = require('../models/CounterTable');
+const mongoose = require('mongoose');
 
 const create = async (req, res) => { // Cadastro de um produto
     await counterService.findOneAndUpdate(
@@ -46,8 +47,8 @@ const create = async (req, res) => { // Cadastro de um produto
 
 }
 
-const findAll = async (req, res) => {
-    const products = productService.findAllService();
+const findAll = async (req, res) => { // Listagem de todos os produtos cadastrados
+    const products = await productService.findAllService();
 
     if (products.length === 0)
         return res.status(400).send({ message: "Não há produtos cadastrados" });
@@ -55,4 +56,18 @@ const findAll = async (req, res) => {
     res.send(products);
 }
 
-module.exports = { create, findAll }
+const findById = async (req, res) => { // Busca de um produto específico pelo ID
+    const id = req.params.id;
+
+    if (!mongoose.Types.ObjectId.isValid(id))
+        return res.status(400).send({ message: "ID inválido" });
+
+    const product = await productService.findByIdService(id);
+    
+    if (!product)
+        return res.status(400).send({ message: "Produto não encontrado" });
+
+    res.send(product);    
+}
+
+module.exports = { create, findAll, findById }
