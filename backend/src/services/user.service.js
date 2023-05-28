@@ -1,7 +1,10 @@
 const Product = require('../models/Product');
 
-const create = (body) => Product.create(body);
+const createService = (body) => Product.create(body);
+
+const findAllService = () => Product.find();
 
 module.exports = {
-    create,
+    createService,
+    findAllService
 };

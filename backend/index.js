@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const connectDatabase = require('./src/database/db');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const productRoute = require('./src/routes/product.route');
 
@@ -9,8 +12,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const PORT = 8000;
-
-// B7y7mr7LbhgVbB94
 
 app.use("/produto", productRoute);
 
