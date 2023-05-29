@@ -1,73 +1,98 @@
-const productService = require('../services/user.service');
-const counterService = require('../models/CounterTable');
-const mongoose = require('mongoose');
+import productService from '../services/product.service.js';
+import counterService from '../models/CounterTable.js';
 
 const create = async (req, res) => { // Cadastro de um produto
-    await counterService.findOneAndUpdate(
-        { id: "autoinc" },
-        { "$inc":{ "seq":1 } },
-        { new:true }
-    ).then(async (cd) => {
-        let seqId;
-    
-        if (cd == null) { // Auto increment para codigoPDV
-            const newinc = new counterService({ id: "autoinc", seq:1 });
-            newinc.save();
-            seqId = 1;
-        } else {
-            seqId = cd.seq;
-        }
+    try { 
+        await counterService.findOneAndUpdate(
+            { id: "autoinc" },
+            { "$inc":{ "seq":1 } },
+            { new:true }
+        ).then(async (cd) => {
+            let seqId;
+        
+            if (cd == null) { // Auto increment para codigoPDV
+                const newinc = new counterService({ id: "autoinc", seq:1 });
+                newinc.save();
+                seqId = 1;
+            } else {
+                seqId = cd.seq;
+            }
 
-        const { nome, precoCusto, precoVenda, qtdEstoque, statusVenda } = req.body;
+            const { nome, precoCusto, precoVenda, qtdEstoque, statusVenda } = req.body;
 
-        if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !statusVenda)
-            res.status(400).send({message: "Preencha todos os campos para realizar o cadastro"});
+            if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !statusVenda)
+                return res.status(400).send({message: "Preencha todos os campos para realizar o cadastro"});
 
-        codigoPDV = seqId;
-            
-        const product = await productService.createService({ nome, precoCusto, precoVenda, qtdEstoque, codigoPDV, statusVenda });
+            codigoPDV = seqId;
+                
+            const product = await productService.createService({ nome, precoCusto, precoVenda, qtdEstoque, codigoPDV, statusVenda });
 
-        if (!product)
-            return res.status(400).send({ message: "Erro na criação do produto" });
+            if (!product)
+                return res.status(400).send({ message: "Erro na criação do produto" });
 
-        res.status(201).send({
-            product: {
-                id: product._id,
-                nome,
-                precoCusto,
-                precoVenda,
-                qtdEstoque,
-                statusVenda,
-                codigoPDV
-            },
-            message: "Produto cadastrado com sucesso!"
-        });
-
-    });
-
+            res.status(201).send({
+                product: {
+                    id: product._id,
+                    nome,
+                    precoCusto,
+                    precoVenda,
+                    qtdEstoque,
+                    statusVenda,
+                    codigoPDV
+                },
+                message: "Produto cadastrado com sucesso!"
+            });
+        })
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
 }
 
 const findAll = async (req, res) => { // Listagem de todos os produtos cadastrados
-    const products = await productService.findAllService();
+    try {
+        const products = await productService.findAllService();
 
-    if (products.length === 0)
-        return res.status(400).send({ message: "Não há produtos cadastrados" });
+        if (products.length === 0)
+            return res.status(400).send({ message: "Não há produtos cadastrados" });
 
-    res.send(products);
+        res.send(products);
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }    
 }
 
 const findById = async (req, res) => { // Busca de um produto específico pelo ID
-    const id = req.params.id;
+    try {
+        const product = req.product;
 
-    if (!mongoose.Types.ObjectId.isValid(id))
-        return res.status(400).send({ message: "ID inválido" });
-
-    const product = await productService.findByIdService(id);
-    
-    if (!product)
-        return res.status(400).send({ message: "Produto não encontrado" });
-
-    res.send(product);    
+        res.send(product);
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }        
 }
 
-module.exports = { create, findAll, findById }
+const update = async (req, res) => { // Atualiza os campos do produto
+    try {
+        const { nome, precoCusto, precoVenda, qtdEstoque, statusVenda } = req.body;
+
+        if (!nome && !precoCusto && !precoVenda && !qtdEstoque && !statusVenda)
+            return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
+
+        const { id, product } = req;
+            
+        await productService.updateService(
+            id,
+            nome,
+            precoCusto,
+            precoVenda,
+            qtdEstoque,
+            statusVenda
+        );
+        
+        res.send({ message: 'Produto atualizado com sucesso' });
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }     
+}
+
+export default { create, findAll, findById, update }

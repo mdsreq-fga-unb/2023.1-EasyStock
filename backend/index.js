@@ -1,11 +1,11 @@
-const express = require('express');
+import express from 'express';
+import connectDatabase from './src/database/db.js';
+import dotenv from 'dotenv';
+import productRoute from './src/routes/product.route.js';
+
 const app = express();
-const connectDatabase = require('./src/database/db');
-const dotenv = require('dotenv');
 
 dotenv.config();
-
-const productRoute = require('./src/routes/product.route');
 
 connectDatabase();
 app.use(express.json());

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const connectDatabase = () => {
     mongoose.connect( process.env.MONGODB_URI,
@@ -7,4 +7,4 @@ const connectDatabase = () => {
     .catch((err) => console.log(`Erro ao se conectar ao banco ${err}`));
 }
 
-module.exports = connectDatabase;
+export default connectDatabase;

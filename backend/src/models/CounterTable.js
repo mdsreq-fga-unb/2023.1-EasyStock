@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const CounterSchema = new mongoose.Schema({ // Contador para auto increment do codigoPDV
     id: {
@@ -11,4 +11,4 @@ const CounterSchema = new mongoose.Schema({ // Contador para auto increment do c
 
 const Counter = mongoose.model('Counter', CounterSchema);
 
-module.exports = Counter;
+export default Counter;
