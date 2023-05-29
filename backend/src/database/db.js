@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const connectDatabase = () => {
+const connectDatabase = () => { // Conectando ao Mongo Atlas
     mongoose.connect( process.env.MONGODB_URI,
     { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Conectado ao mongoDB"))

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import productService from '../services/product.service.js';
 
-export const validId = (req, res, next) => {
+export const validId = (req, res, next) => { // Verifica se o ID do produto segue o padrão do mongo
     try {
         const id = req.params.id;
 
@@ -14,7 +14,7 @@ export const validId = (req, res, next) => {
     }        
 }
 
-export const validProduct = async (req, res, next) => {
+export const validProduct = async (req, res, next) => { // Verifica se o produto existe no banco
     try {
         const id = req.params.id;
 

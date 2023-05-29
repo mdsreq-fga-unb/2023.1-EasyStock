@@ -1,5 +1,6 @@
 import Product from '../models/Product.js';
 
+// Funções que acessam o banco de dados para criação, leitura, atualização e exclusão
 const createService = (body) => Product.create(body);
 
 const findAllService = () => Product.find();
