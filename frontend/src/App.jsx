@@ -1,11 +1,15 @@
-import './App.css'
-import Inicio from './pages/inicio/Inicio'
+import "./App.css";
+import { NavBar } from "./components/navBar/NavBar";
 //App,jsx vai praticamente virar as rotas entre os componentes
 function App() {
-
   return (
-    <Inicio />
-  )
+    <>
+      {" "}
+      {/*fragment = uma tag vazia*/}
+      <NavBar />
+      <h1> Home</h1>
+    </>
+  );
 }
 
-export default App
+export default App;
