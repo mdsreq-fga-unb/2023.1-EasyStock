@@ -1,8 +1,8 @@
-import express from 'express';
+import { Router } from 'express';
 import productController from '../controllers/product.controller.js';
 import { validId, validProduct } from '../middlewares/global.middleware.js';
 
-const router = express.Router();
+const router = Router();
 
 router.post("/", productController.createProduct); // Cadastra um produto
 router.get("/", productController.findAll); // Lista todos os produtos
