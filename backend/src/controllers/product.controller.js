@@ -1,7 +1,7 @@
 import productService from '../services/product.service.js';
 import counterService from '../models/CounterTable.js';
 
-const create = async (req, res) => { // Cadastro de um produto
+const createProduct = async (req, res) => { // Cadastro de um produto
     try { 
         await counterService.findOneAndUpdate(
             { id: "autoinc" },
@@ -18,13 +18,14 @@ const create = async (req, res) => { // Cadastro de um produto
                 seqId = cd.seq;
             }
 
+            let codigoPDV;
+            codigoPDV = seqId;
+
             const { nome, precoCusto, precoVenda, qtdEstoque, statusVenda } = req.body;
 
             if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !statusVenda)
                 return res.status(400).send({message: "Preencha todos os campos para realizar o cadastro"});
-
-            codigoPDV = seqId;
-                
+     
             const product = await productService.createService({ nome, precoCusto, precoVenda, qtdEstoque, codigoPDV, statusVenda });
 
             if (!product)
@@ -71,7 +72,7 @@ const findById = async (req, res) => { // Busca de um produto específico pelo I
     }        
 }
 
-const update = async (req, res) => { // Atualiza os campos do produto
+const updateProduct = async (req, res) => { // Atualiza os campos do produto
     try {
         const { nome, precoCusto, precoVenda, qtdEstoque, statusVenda } = req.body;
 
@@ -95,4 +96,16 @@ const update = async (req, res) => { // Atualiza os campos do produto
     }     
 }
 
-export default { create, findAll, findById, update }
+const deleteProduct = async (req, res) => { // Deleta um produto
+    try {
+        const { id } = req;
+
+        await productService.deleteService(id);
+
+        res.send({ message: 'Produto deletado com sucesso' });
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+}
+
+export default { createProduct, findAll, findById, updateProduct, deleteProduct }
