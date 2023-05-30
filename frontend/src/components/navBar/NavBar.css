@@ -4,24 +4,13 @@
   background-color: #d9d9d9;
   font-family: 'Poppins', sans-serif;
 } */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 24px;
-  /* position: fixed; */
-  top: 0;
-  z-index: 1;
-}
 
-img {
-  /* Caso for preciso editar as proporções da imagem */
+/* img {
   width: 13rem;
   height: 4.rem;
-  /* object-fit: cover; */
-}
-
+  object-fit: cover; 
+} */
+/* 
 .botoes-principais ul {
   margin: 0;
   padding: 0;
@@ -47,4 +36,4 @@ img {
   font-size: 23px;
   margin-top: 0;
   color: black;
-}
+} */

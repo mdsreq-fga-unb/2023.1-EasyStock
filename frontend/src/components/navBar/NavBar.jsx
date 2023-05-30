@@ -1,16 +1,17 @@
 import logo from "../../images/LOGOeasystock.png";
-import "./NavBar.css";
+import { BarraPrincipal, ImgLogo, Nav } from "./NavBarStyled";
+
 export function NavBar() {
   return (
     <>
-      <nav>
+      <Nav>
         <div>
           <a href="#inicio">
-            <img className="imagem-logo" src={logo} alt="Logo EasyStock" />
+            <ImgLogo src={logo} alt="Logo EasyStock" />
           </a>
         </div>
 
-        <div className="botoes-principais">
+        <BarraPrincipal>
           <ul>
             <li>
               <a href="#inicio">INICIO</a>
@@ -32,8 +33,8 @@ export function NavBar() {
               <a href="#"> DASHBOARD</a>
             </li>
           </ul>
-        </div>
-      </nav>
+        </BarraPrincipal>
+      </Nav>
     </>
   );
 }
