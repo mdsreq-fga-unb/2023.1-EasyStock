@@ -7,7 +7,7 @@ function App() {
       {" "}
       {/*fragment = uma tag vazia*/}
       <NavBar />
-      <h1> Home</h1>
+      <h1> UM JEITO FÁCIL DE<br /> CONTROLAR O ESTOQUE! </h1>
     </>
   );
 }

@@ -4,21 +4,13 @@
   background-color: #d9d9d9;
   font-family: 'Poppins', sans-serif;
 } */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 40px;
-  /* position: fixed; */
-  top: 0;
-  z-index: 1;
-}
 
-img {
-  /* Caso for preciso editar as proporções da imagem */
-}
-
+/* img {
+  width: 13rem;
+  height: 4.rem;
+  object-fit: cover; 
+} */
+/* 
 .botoes-principais ul {
   margin: 0;
   padding: 0;
@@ -30,8 +22,8 @@ img {
 .botoes-principais a {
   text-decoration: none;
   color: #444452;
-  font-size: 39px;
-  padding: 100px;
+  font-size: 20px;
+  padding: 50px;
   transition: all 0.3s ease-out;
   text-transform: uppercase;
 }
@@ -41,7 +33,7 @@ img {
 
 .botoes-principais a:focus,
 .botoes-principais a:valid {
-  font-size: 50px;
+  font-size: 23px;
   margin-top: 0;
   color: black;
-}
+} */
