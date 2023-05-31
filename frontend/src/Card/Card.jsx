@@ -1,10 +1,12 @@
-export function Card({news}) {
+export function Card({products}) {
     return (
         <section>
-            <p>{news.iten}</p>
-            <p>{news.nome}</p>
-            <p>{news.descri}</p>
-            <p>{news.qtd}</p>
+            <p>{products.nome}</p>
+            <p>{products.precoCusto}</p>
+            <p>{products.precoVenda}</p>
+            <p>{products.qtdEstoque}</p>
+            <p>{products.codigoPDV}</p>
+            <p>{products.statusVenda}</p>
             
         </section>
     );

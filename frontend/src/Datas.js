@@ -1,21 +1,27 @@
 //Criação de dados mocados para não conectar diretamente com o back
-export const news = [
+export const products = [
     {
-        iten: 1,
-        nome: "Açaí",
-        descri: "Pote de açaí 1L",
-        qtd: 20,
+        nome: "Açaí 750mL",
+        precoCusto: 7,
+        precoVenda: 11.5, 
+        qtdEstoque: 10,
+        codigoPDV: 3,
+        statusVenda: true
     },
     {
-        iten: 2,
-        nome: "Cupuaçu",
-        descri: "Pote de cupuaçu 1L",
-        qtd: 60,
+        nome: "Açaí 300mL",
+        precoCusto: 3,
+        precoVenda: 4.5, 
+        qtdEstoque: 20,
+        codigoPDV: 1,
+        statusVenda: true
     },
     {
-        iten: 3,
-        nome: "granola",
-        descri: "umm granola",
-        qtd: 30,
+        nome: "Água 500mL",
+        precoCusto: 2,
+        precoVenda: 3.5, 
+        qtdEstoque: 40,
+        codigoPDV: 16,
+        statusVenda: true
     },
 ];
