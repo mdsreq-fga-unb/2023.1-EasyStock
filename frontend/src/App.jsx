@@ -1,15 +1,15 @@
 import "./App.css";
-import { NavBar } from "./components/navBar/NavBar";
+import { GlobalStyled } from "./GlobalStyled";
+import Estoque from "./pages/Estoque/Estoque";
 //App,jsx vai praticamente virar as rotas entre os componentes
 function App() {
-  return (
-    <>
-      {" "}
-      {/*fragment = uma tag vazia*/}
-      <NavBar />
-      <h1> UM JEITO FÁCIL DE<br /> CONTROLAR O ESTOQUE! </h1>
-    </>
-  );
+    return (
+        <>
+            <GlobalStyled />
+
+            <Estoque />
+        </>
+    );
 }
 
 export default App;

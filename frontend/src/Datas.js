@@ -1,25 +1,21 @@
 //Criação de dados mocados para não conectar diretamente com o back
 export const news = [
     {
-        idItem: 1,
-        qtd: 2,
+        iten: 1,
         nome: "Açaí",
-        precoUni: 10.00,
-        precoTot: 20,
+        descri: "Pote de açaí 1L",
+        qtd: 20,
     },
     {
-        idItem: 2,
-        qtd: 6,
-        nome: "leite em pó",
-        precoUni: 5.00,
-        precoTot: 10.00,
+        iten: 2,
+        nome: "Cupuaçu",
+        descri: "Pote de cupuaçu 1L",
+        qtd: 60,
     },
     {
-        idItem: 3,
-        qtd: 3,
-        nome: "cupuaçu",
-        precoUni: 1.00,
-        precoTot: 2.00,
+        iten: 3,
+        nome: "granola",
+        descri: "umm granola",
+        qtd: 30,
     },
-
 ];
