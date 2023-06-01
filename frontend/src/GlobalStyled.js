@@ -6,11 +6,11 @@ import PoppinsWoff2 from '../public/fonts/Poppins.woff2';
 export const GlobalStyled = createGlobalStyle`
 @font-face {
   font-family: 'Poppins';
-        src: local('Poppins'), local('Poppins'),
-        url(${PoppinsWoff2}) format('woff2'),
-        url(${PoppinsWoff}) format('woff');
-        font-weight: 300;
-        font-style: normal;
+  src: local('Poppins'), local('Poppins'),
+  url(${PoppinsWoff2}) format('woff2'),
+  url(${PoppinsWoff}) format('woff');
+  font-weight: 300;
+  font-style: normal;
 }
 
 * {
