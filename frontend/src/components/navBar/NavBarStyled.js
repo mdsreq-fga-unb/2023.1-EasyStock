@@ -18,7 +18,7 @@ export const ImgLogo = styled.img`
     /* object-fit: cover; */
 `;
 
-export const BarraPrincipal = styled.div`
+export const BarraPrincipal = styled.div`  
     ul {
         margin: 0;
         padding: 0;
