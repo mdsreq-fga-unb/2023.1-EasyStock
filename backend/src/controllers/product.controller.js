@@ -2,7 +2,7 @@ import productService from '../services/product.service.js';
 import counterService from '../models/CounterTable.js';
 
 const createProduct = async (req, res) => { // Cadastro de um produto
-    try { 
+    try {
         await counterService.findOneAndUpdate(
             { id: "autoinc" },
             { "$inc":{ "seq":1 } },
