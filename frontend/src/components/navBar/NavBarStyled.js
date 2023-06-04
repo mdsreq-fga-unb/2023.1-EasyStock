@@ -17,7 +17,7 @@ export const ImgLogo = styled.img`
     /* object-fit: cover; */
 `;
 
-export const BarraPrincipal = styled.div`  
+export const BarraPrincipal = styled.div`
     ul {
         margin: 0;
         padding: 0;
@@ -35,11 +35,11 @@ export const BarraPrincipal = styled.div`
         :hover {
             color: black;
         }
-        :focus,
+        /* :focus,
         :valid {
             font-size: 23px;
             margin-top: 0;
             color: black;
-        }
+        } */
     }
 `;

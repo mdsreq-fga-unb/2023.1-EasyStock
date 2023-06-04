@@ -1,40 +1,46 @@
 import logo from "../../images/LOGOeasystock.png";
 import { BarraPrincipal, ImgLogo, Nav } from "./NavBarStyled";
+import { Link } from "react-router-dom";
 
 export function NavBar() {
-  return (
-    <>
-      <Nav>
-        <div>
-          <a href="#inicio">
-            <ImgLogo src={logo} alt="Logo EasyStock" />
-          </a>
-        </div>
+    return (
+        <>
+            <Nav>
+                <div>
+                    <Link to="/">
+                        <ImgLogo src={logo} alt="Logo EasyStock" />
+                    </Link>
+                </div>
 
-        <BarraPrincipal>
-          <ul>
-            <li>
-              <a href="#inicio">INICIO</a>
-            </li>
+                <BarraPrincipal>
+                    <ul>
+                        <li>
+                            <Link to="/" end>
+                                INICIO
+                            </Link>
+                        </li>
 
-            <li>
-              <a href="#"> CAIXA</a>
-            </li>
-            <li>
-              <a href="#"> CLIENTE</a>
-            </li>
-            <li>
-              <a href="#"> ESTOQUE</a>
-            </li>
-            <li>
-              <a href="#"> RELATORIO</a>
-            </li>
-            <li>
-              <a href="#"> DASHBOARD</a>
-            </li>
-          </ul>
-        </BarraPrincipal>
-      </Nav>
-    </>
-  );
+                        <li>
+                            <Link to="/asd">CAIXA</Link>
+                        </li>
+                        <li>
+                            <Link to="/asd">CLIENTE</Link>
+                        </li>
+                        <li>
+                            <Link to="/estoque" end>
+                                ESTOQUE
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link to="/asd">RELATÓRIO</Link>
+                        </li>
+                        <li>
+                            <Link to="/asd">DASHBOARD</Link>
+                        </li>
+                    </ul>
+                </BarraPrincipal>
+            </Nav>
+        </>
+    );
 }
