@@ -1,27 +1,38 @@
 import { Card } from "../../Card/Card";
 import { NavBar } from "../../components/navBar/NavBar";
-import "./EstoqueStyled.css";
 import { products } from "../../Datas";
+import { PesquisaProduto, TabelaEstoque } from "../estoque/EstoqueStyled";
 
 export default function Estoque() {
     return (
         <>
             <NavBar />
 
-            <div className="input-search-space">
+            <PesquisaProduto>
                 <i className="bi bi-search"></i>
                 <input type="text" placeholder="Código ou nome do produto" />
-            </div>
+            </PesquisaProduto>
 
-            {products.map((codigoPDV) => {
-                return <Card key={codigoPDV} products={codigoPDV} />;
-            })}
+            <TabelaEstoque>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço Custo</th>
+                            <th>Preço venda</th>
+                            <th>Qtd Estoque</th>
+                            <th>CódigoPDV</th>
+                            <th>Status Venda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {products.map((product) => (
+                            <Card key={product.codigoPDV} product={product} />
+                        ))}
+                    </tbody>
+                </table>
+                <button> Adicionar Produtos</button>
+            </TabelaEstoque>
         </>
     );
 }
-
-//   {news.map((item, index)=>{
-//             return(
-//                 <Card key={index} news={item}/>
-//             )
-//         })}

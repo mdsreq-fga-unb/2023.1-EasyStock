@@ -14,7 +14,6 @@ export const Nav = styled.nav`
 export const ImgLogo = styled.img`
     /* Caso for preciso editar as proporções da imagem */
     width: 13rem;
-    height: 4rem;
     /* object-fit: cover; */
 `;
 

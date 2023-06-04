@@ -1,14 +1,14 @@
-export function Card({products}) {
+import { Produtos } from "./CardStyled";
+
+export function Card({ product }) {
     return (
-        <section>
-            <p>{products.nome}</p>
-            <p>{products.precoCusto}</p>
-            <p>{products.precoVenda}</p>
-            <p>{products.qtdEstoque}</p>
-            <p>{products.codigoPDV}</p>
-            <p>{products.statusVenda}</p>
-            
-        </section>
+        <Produtos>
+            <td>{product.nome}</td>
+            <td>{product.precoCusto}</td>
+            <td>{product.precoVenda}</td>
+            <td>{product.qtdEstoque}</td>
+            <td>{product.codigoPDV}</td>
+            <td>{product.statusVenda}</td>
+        </Produtos>
     );
 }
-/* <i className="bi bi-pencil-square"></i> */
