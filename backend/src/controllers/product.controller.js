@@ -29,7 +29,7 @@ const createProduct = async (req, res) => { // Cadastro de um produto
             const product = await productService.createService({ nome, precoCusto, precoVenda, qtdEstoque, codigoPDV, statusVenda });
 
             if (!product)
-                return res.status(400).send({ message: "Erro na criação do produto" });
+                return res.status(400).send({ message: "Erro no cadastro do produto" });
 
             res.status(201).send({
                 product: {
@@ -49,7 +49,7 @@ const createProduct = async (req, res) => { // Cadastro de um produto
     }
 }
 
-const findAll = async (req, res) => { // Listagem de todos os produtos cadastrados
+const findAllProducts = async (req, res) => { // Listagem de todos os produtos cadastrados
     try {
         const products = await productService.findAllService();
 
@@ -62,7 +62,7 @@ const findAll = async (req, res) => { // Listagem de todos os produtos cadastrad
     }    
 }
 
-const findById = async (req, res) => { // Busca de um produto específico pelo ID
+const findProductById = async (req, res) => { // Busca de um produto específico pelo ID
     try {
         const product = req.product;
 
@@ -108,4 +108,4 @@ const deleteProduct = async (req, res) => { // Deleta um produto
     }
 }
 
-export default { createProduct, findAll, findById, updateProduct, deleteProduct }
+export default { createProduct, findAllProducts, findProductById, updateProduct, deleteProduct }
