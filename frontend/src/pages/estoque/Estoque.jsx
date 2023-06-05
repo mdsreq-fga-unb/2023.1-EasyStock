@@ -2,8 +2,12 @@ import { Card } from "../../Card/Card";
 import { NavBar } from "../../components/navBar/NavBar";
 import { products } from "../../Datas";
 import { PesquisaProduto, TabelaEstoque } from "../estoque/EstoqueStyled";
+import EstoqueModal from "../estoque/EstoqueModal";
+import { useState } from "react";
 
 export default function Estoque() {
+    const [openModal, setOpenModal] = useState(false);
+
     return (
         <>
             <NavBar />
@@ -31,7 +35,9 @@ export default function Estoque() {
                         ))}
                     </tbody>
                 </table>
-                <button> Adicionar Produtos</button>
+
+                <button onClick={() => setOpenModal(true)}>Adicionar Produtos</button>
+                <EstoqueModal isOpen={openModal} />
             </TabelaEstoque>
         </>
     );

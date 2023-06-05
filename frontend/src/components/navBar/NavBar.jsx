@@ -15,9 +15,7 @@ export function NavBar() {
                 <BarraPrincipal>
                     <ul>
                         <li>
-                            <Link to="/" end>
-                                INICIO
-                            </Link>
+                            <Link to="/">INICIO</Link>
                         </li>
 
                         <li>
@@ -27,9 +25,7 @@ export function NavBar() {
                             <Link to="/asd">CLIENTE</Link>
                         </li>
                         <li>
-                            <Link to="/estoque" end>
-                                ESTOQUE
-                            </Link>
+                            <Link to="/estoque">ESTOQUE</Link>
                         </li>
 
                         <li>
