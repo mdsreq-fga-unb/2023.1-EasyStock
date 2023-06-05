@@ -13,10 +13,12 @@ const updateService = (
     precoCusto,
     precoVenda,
     qtdEstoque,
+    qtdEstoqueMin,
+    medida,
     statusVenda
 ) => Product.findOneAndUpdate(
     { _id: id },
-    { nome, precoCusto, precoVenda, qtdEstoque, statusVenda }
+    { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda }
 )
 
 const deleteService = (id) => Product.findOneAndDelete({ _id: id });

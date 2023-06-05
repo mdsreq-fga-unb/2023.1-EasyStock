@@ -1,6 +1,7 @@
 import express from 'express';
 import connectDatabase from './src/database/db.js';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 // Rotas
 import productRoute from './src/routes/product.route.js';
@@ -16,6 +17,10 @@ app.use(express.json()); // Habilitando uso do JSON no express
 app.use(express.urlencoded({ extended: false }));
 
 const PORT = process.env.PORT || 8000;
+
+app.use(cors({
+    origin: "http://localhost:5173"
+}))
 
 app.use("/produto", productRoute); // Rota padrão de produto
 app.use("/auth", authRoute); // Rota de autenticação
