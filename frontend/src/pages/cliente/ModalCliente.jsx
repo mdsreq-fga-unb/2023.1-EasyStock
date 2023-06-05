@@ -15,10 +15,22 @@ export default function ModalCliente({ isOpen, onClose }) {
                                 placeholder="Nome"
                                 required
                             />
+                                <input
+                                    type="number"
+                                    id="numeroTelefone"
+                                    placeholder="Número *"
+                                    required
+                                />
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="email *"
+                                required
+                            />
                             <input
                                 type="number"
-                                id="precoCusto"
-                                placeholder="Dividendo"
+                                id="valorDivida "
+                                placeholder="Valor da Divida"
                                 required
                             />
                             

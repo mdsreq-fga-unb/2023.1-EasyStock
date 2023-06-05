@@ -19,6 +19,8 @@ export default function Cliente() {
                     <thead>
                         <tr>
                             <th>Cliente</th>
+                            <th>Número</th>
+                            <th>Email</th>
                             <th>Dividendo</th>
                             <th>Status</th>
                         </tr>

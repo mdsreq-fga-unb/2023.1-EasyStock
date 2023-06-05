@@ -29,17 +29,23 @@ export const products = [
 export const clients = [
     {
         cliente: "Cleber",
-        dividendo: 103.20,
+        telefone: 998987654,
+        email: "asdasdk@gmail.com",
+        divida: 103.20,
         statusDivida: true
     },
     {
         cliente: "Paula",
-        dividendo: 3.20,
+        telefone: 543432423,
+        email: "gfrgfd@gmail.com",
+        divida: 3.20,
         statusDivida: false
     },
     {
         cliente: "Thiago",
-        dividendo: 12.00,
+        telefone: 546778766,
+        email: "awadsk@gmail.com",
+        divida: 12.00,
         statusDivida: true
     },
 ];

@@ -4,8 +4,16 @@ import { products } from "../../Datas";
 import { PesquisaProduto, Tabela } from "../estoque/EstoqueStyled";
 import EstoqueModal from "../estoque/EstoqueModal";
 import { useState } from "react";
+import { getAllPosts } from "../../services/postsServices";
 
 export default function Estoque() {
+
+    async function findAllPosts(){
+        const response = await getAllPosts();
+        console.log(response);
+    }
+    findAllPosts();
+
     const [openModal, setOpenModal] = useState(false);
     
     return (

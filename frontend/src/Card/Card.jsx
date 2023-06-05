@@ -17,7 +17,9 @@ export function CardClient({client}){
     return(
         <Produtos>
             <td>{client.cliente}</td>
-            <td>{client.dividendo}</td>
+            <td>{client.telefone}</td>
+            <td>{client.email}</td>
+            <td>{client.divida}</td>
             <td>{client.statusDivida}</td>
         </Produtos>
     )
