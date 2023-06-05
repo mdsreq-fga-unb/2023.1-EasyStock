@@ -7,7 +7,6 @@ import { useState } from "react";
 
 export default function Estoque() {
     const [openModal, setOpenModal] = useState(false);
-
     return (
         <>
             <NavBar />
@@ -37,7 +36,7 @@ export default function Estoque() {
                 </table>
 
                 <button onClick={() => setOpenModal(true)}>Adicionar Produtos</button>
-                <EstoqueModal isOpen={openModal} />
+                <EstoqueModal isOpen={openModal} onClose={() => setOpenModal(!openModal)} />
             </TabelaEstoque>
         </>
     );

@@ -53,4 +53,9 @@ export const TabelaEstoque = styled.section`
         margin: 10%;
         left: 54%;
     }
+    button:hover {
+        background-color: #1e5c74;
+        font-weight: bolder;
+        color: #77C3D5;
+    }
 `;

@@ -6,7 +6,8 @@ export const TodoModal = styled.section`
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        z-index: 9999;
+        z-index: 1000;
+        padding: 150px;
     }
     .card {
         background-color: #f4f4ed;
@@ -41,6 +42,8 @@ export const TodoModal = styled.section`
         margin-bottom: 5%;
     }
     .button-modal {
+        bottom: 90px;
+
         border-color: #272262;
         color: #444449;
         padding: 2px;
@@ -51,6 +54,22 @@ export const TodoModal = styled.section`
         transition: all 0.1s ease-out;
     }
     .button-modal:hover {
+        background-color: #1e5c74;
+        font-weight: bolder;
+    }
+    .button-modalc {
+        bottom: 90px;
+        left: 270px;
+        border-color: #272262;
+        color: #444449;
+        padding: 2px;
+        font-size: 16px;
+        margin-top: 0;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.1s ease-out;
+    }
+    .button-modalc:hover {
         background-color: #1e5c74;
         font-weight: bolder;
     }
