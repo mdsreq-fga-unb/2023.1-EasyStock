@@ -22,19 +22,19 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                 required
                             />
                             <input
-                                type="text"
+                                type="number"
                                 id="precoVenda"
                                 placeholder="Preço venda"
                                 required
                             />
                             <input
-                                type="text"
+                                type="number"
                                 id="qtdEstoque"
                                 placeholder="Quantidade"
                                 required
                             />
                             <input
-                                type="text"
+                                type="number"
                                 id="codigoPDV"
                                 placeholder="Código PDV"
                                 required

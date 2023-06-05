@@ -5,12 +5,13 @@ export const Body = styled.body`
     align-items: flex-end;
 
     div {
+        z-index: 1;
     }
 
     img {
         width: 23rem;
         position: fixed;
-        z-index: 30;
+        z-index: 1;
         right: 10px;
         position: fixed;
         right: 220px;
@@ -38,6 +39,7 @@ export const CirculoBranco = styled.div`
     height: 500px;
     right: 180px;
     bottom: 30px;
+    z-index: 0;
 `;
 
 export const CirculoAzul = styled.div`
@@ -47,7 +49,7 @@ export const CirculoAzul = styled.div`
     width: 200px;
     height: 200px;
     margin-top: 20px;
-    z-index: 20;
+    z-index: 0;
     right: 180px;
     bottom: -30px;
 `;

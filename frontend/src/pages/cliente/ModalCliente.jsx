@@ -16,7 +16,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                                 required
                             />
                             <input
-                                type="text"
+                                type="number"
                                 id="precoCusto"
                                 placeholder="Dividendo"
                                 required
