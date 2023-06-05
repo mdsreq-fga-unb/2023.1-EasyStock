@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import productRoute from './src/routes/product.route.js';
 import authRoute from './src/routes/auth.route.js';
 import customerRoute from './src/routes/customer.route.js';
+import orderRoute from './src/routes/order.route.js';
 
 const app = express();
 dotenv.config(); // Habilitando o uso do .env
@@ -19,6 +20,7 @@ const PORT = process.env.PORT || 8000;
 app.use("/produto", productRoute); // Rota padrão de produto
 app.use("/auth", authRoute); // Rota de autenticação
 app.use("/cliente", customerRoute); // Rota padrão do cliente
+app.use("/pedido", orderRoute); // Rota padrão do pedido
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);

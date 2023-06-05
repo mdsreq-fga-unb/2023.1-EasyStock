@@ -11,7 +11,7 @@ const loginAdmin = async (req, res) => {
 
         res.send({token});
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ authController: err.message });
     }
 }
 

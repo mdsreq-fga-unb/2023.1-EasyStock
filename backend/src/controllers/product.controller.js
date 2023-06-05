@@ -45,7 +45,7 @@ const createProduct = async (req, res) => { // Cadastro de um produto
             });
         })
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ productController: err.message });
     }
 }
 
@@ -58,7 +58,7 @@ const findAllProducts = async (req, res) => { // Listagem de todos os produtos c
 
         res.send(products);
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ productController: err.message });
     }    
 }
 
@@ -68,7 +68,7 @@ const findProductById = async (req, res) => { // Busca de um produto específico
 
         res.send(product);
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ productController: err.message });
     }        
 }
 
@@ -92,7 +92,7 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
         
         res.send({ message: 'Produto atualizado com sucesso' });
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ productController: err.message });
     }     
 }
 
@@ -104,7 +104,7 @@ const deleteProduct = async (req, res) => { // Deleta um produto
 
         res.send({ message: 'Produto deletado com sucesso' });
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ productController: err.message });
     }
 }
 

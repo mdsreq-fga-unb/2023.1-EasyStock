@@ -18,7 +18,7 @@ const createCustomer = async (req, res) => { // Cadastro de um cliente
         });    
 
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ customerController: err.message });
     }
 }
 
@@ -31,7 +31,7 @@ const findAllCustomers = async (req, res) => { // Listagem de todos os clientes 
         
         res.send(customers);    
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ customerController: err.message });
     }
 }
 
@@ -41,7 +41,7 @@ const findCustomerById = async (req, res) => {  // Busca de um cliente específi
 
         res.send(customer);
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ customerController: err.message });
     }
 }
 
@@ -64,7 +64,7 @@ const updateCustomer = async (req, res) => { // Atualiza os campos do cliente
 
         res.send({ message: 'Cliente atualizado com sucesso' });    
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ customerController: err.message });
     }
 }
 
@@ -76,7 +76,7 @@ const deleteCustomer = async (req, res) => { // Deleta um cliente
 
         res.send({ message: 'Cliente deletado com sucesso' });
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ customerController: err.message });
     }
 }
 
