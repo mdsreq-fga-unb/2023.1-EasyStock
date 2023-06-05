@@ -21,12 +21,12 @@ const createProduct = async (req, res) => { // Cadastro de um produto
             let codigoPDV;
             codigoPDV = seqId;
 
-            const { nome, precoCusto, precoVenda, qtdEstoque, statusVenda } = req.body;
+            const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda } = req.body;
 
-            if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !statusVenda)
+            if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !qtdEstoqueMin || !medida || !statusVenda)
                 return res.status(400).send({message: "Preencha todos os campos para realizar o cadastro"});
      
-            const product = await productService.createService({ nome, precoCusto, precoVenda, qtdEstoque, codigoPDV, statusVenda });
+            const product = await productService.createService({ nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, codigoPDV, statusVenda });
 
             if (!product)
                 return res.status(400).send({ message: "Erro no cadastro do produto" });
@@ -38,6 +38,8 @@ const createProduct = async (req, res) => { // Cadastro de um produto
                     precoCusto,
                     precoVenda,
                     qtdEstoque,
+                    qtdEstoqueMin,
+                    medida,
                     statusVenda,
                     codigoPDV
                 },
@@ -76,7 +78,7 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
     try {
         const { nome, precoCusto, precoVenda, qtdEstoque, statusVenda } = req.body;
 
-        if (!nome && !precoCusto && !precoVenda && !qtdEstoque && !statusVenda)
+        if (!nome && !precoCusto && !precoVenda && !qtdEstoque && !qtdEstoqueMin && !medida && !statusVenda)
             return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
 
         const { id, product } = req;
@@ -87,6 +89,8 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
             precoCusto,
             precoVenda,
             qtdEstoque,
+            qtdEstoqueMin,
+            medida,
             statusVenda
         );
         

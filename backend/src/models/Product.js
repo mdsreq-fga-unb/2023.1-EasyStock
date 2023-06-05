@@ -17,10 +17,19 @@ const ProductSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    qtdEstoqueMin: {
+        type: Number,
+        required: true
+    },
     codigoPDV: {
         type: Number,
         required: true,
         unique: true
+    },
+    medida: {
+        type: String,
+        enum: ['KG', 'UN'],
+        required: true
     },
     statusVenda: {
         type: Boolean,
