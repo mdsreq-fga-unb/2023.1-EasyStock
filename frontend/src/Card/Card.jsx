@@ -12,3 +12,13 @@ export function Card({ product }) {
         </Produtos>
     );
 }
+
+export function CardClient({client}){
+    return(
+        <Produtos>
+            <td>{client.cliente}</td>
+            <td>{client.dividendo}</td>
+            <td>{client.statusDividada}</td>
+        </Produtos>
+    )
+}

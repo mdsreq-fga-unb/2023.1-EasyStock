@@ -25,3 +25,21 @@ export const products = [
         statusVenda: true
     },
 ];
+
+export const clients = [
+    {
+        cliente: "Cleber",
+        dividendo: 103.20,
+        statusDivida: true
+    },
+    {
+        cliente: "Paula",
+        dividendo: 3.20,
+        statusDivida: false
+    },
+    {
+        cliente: "Thiago",
+        dividendo: 12.00,
+        statusDivida: true
+    },
+];

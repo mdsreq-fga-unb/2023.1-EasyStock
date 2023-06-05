@@ -24,7 +24,7 @@ export const PesquisaProduto = styled.div`
     }
 `;
 
-export const TabelaEstoque = styled.section`
+export const Tabela = styled.section`
     table {
         background-color: #f4f4ed;
         margin-top: 2rem;

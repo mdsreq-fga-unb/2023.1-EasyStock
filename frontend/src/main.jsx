@@ -11,6 +11,8 @@ import Estoque from "./pages/Estoque/Estoque";
 import Erro from "./pages/erro/Error.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Cliente from "./pages/cliente/Cliente.jsx";
+import Caixa from "./pages/caixa/Caixa.jsx";
 
 // const router = createBrowserRouter([
 //     {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
             {
                 path: "/estoque",
                 element: <Estoque />,
+            },
+            {
+                path: "/cliente",
+                element: <Cliente />,
+            },
+            {
+                path: "/caixa",
+                element: <Caixa />,
             },
         ],
     },

@@ -1,12 +1,13 @@
 import { Card } from "../../Card/Card";
 import { NavBar } from "../../components/navBar/NavBar";
 import { products } from "../../Datas";
-import { PesquisaProduto, TabelaEstoque } from "../estoque/EstoqueStyled";
+import { PesquisaProduto, Tabela } from "../estoque/EstoqueStyled";
 import EstoqueModal from "../estoque/EstoqueModal";
 import { useState } from "react";
 
 export default function Estoque() {
     const [openModal, setOpenModal] = useState(false);
+    
     return (
         <>
             <NavBar />
@@ -16,7 +17,7 @@ export default function Estoque() {
                 <input type="text" placeholder="Código ou nome do produto" />
             </PesquisaProduto>
 
-            <TabelaEstoque>
+            <Tabela>
                 <table>
                     <thead>
                         <tr>
@@ -37,7 +38,7 @@ export default function Estoque() {
 
                 <button onClick={() => setOpenModal(true)}>Adicionar Produtos</button>
                 <EstoqueModal isOpen={openModal} onClose={() => setOpenModal(!openModal)} />
-            </TabelaEstoque>
+            </Tabela>
         </>
     );
 }

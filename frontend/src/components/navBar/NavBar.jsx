@@ -19,20 +19,20 @@ export function NavBar() {
                         </li>
 
                         <li>
-                            <Link to="/asd">CAIXA</Link>
+                            <Link to="/caixa">CAIXA</Link>
                         </li>
                         <li>
-                            <Link to="/asd">CLIENTE</Link>
+                            <Link to="/cliente">CLIENTE</Link>
                         </li>
                         <li>
                             <Link to="/estoque">ESTOQUE</Link>
                         </li>
 
                         <li>
-                            <Link to="/asd">RELATÓRIO</Link>
+                            <Link to="/relatorio">RELATÓRIO</Link>
                         </li>
                         <li>
-                            <Link to="/asd">DASHBOARD</Link>
+                            <Link to="/dashboard">DASHBOARD</Link>
                         </li>
                     </ul>
                 </BarraPrincipal>
