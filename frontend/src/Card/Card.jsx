@@ -18,7 +18,7 @@ export function CardClient({client}){
         <Produtos>
             <td>{client.cliente}</td>
             <td>{client.dividendo}</td>
-            <td>{client.statusDividada}</td>
+            <td>{client.statusDivida}</td>
         </Produtos>
     )
 }

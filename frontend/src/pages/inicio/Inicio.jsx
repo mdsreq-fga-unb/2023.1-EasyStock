@@ -1,20 +1,27 @@
 import { NavBar } from "../../components/navBar/NavBar";
+import { Body, CirculoAzul, CirculoBranco } from "./InicioStyled";
+import Icone from "../../images/imagemInicioMeninas.png";
+
 export default function Inicio() {
     return (
         <>
             <NavBar />
-            <body>
+            <Body>
                 <div>
                     <h1>
-                        UM JEITO FÁCIL DE
-                        <br /> CONTROLAR O ESTOQUE!
+                        Um Jeito Fácil De
+                        <br /> Controlar o Estoque!
                     </h1>
-                    <p>Com nosso novo site é possível controlar o estoque de sua loja, fazer vendas, obter relatórios e ter controle de seus clientes. </p>
+                    <p>
+                        Com nosso novo site é possível controlar o estoque de
+                        sua loja, fazer vendas, obter relatórios e ter controle
+                        de seus clientes.{" "}
+                    </p>
                 </div>
-                <div className="bola-branca"></div>
-                <div className="bola-pequena"></div>
-                <div className="icone"></div>
-            </body>
+                <CirculoBranco />
+                <CirculoAzul />
+                <img src={Icone} alt="Logo meninas" />
+            </Body>
         </>
     );
 }
