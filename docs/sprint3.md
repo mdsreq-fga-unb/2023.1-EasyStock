@@ -20,8 +20,5 @@ Data término: 30/05/2023
 ### Metas da Sprint
 * Iniciar desenvolvimento do MVP1, implementando as stories <b>[US01]</b>, <b>[US02]</b>, <b>[US03]</b> e <b>[US04]</b>.
 
-## Sprint Review
-
-
 ## Sprint Retrospective
 Durante a sprint a equipe se concentrou no desenvolvimento inicial do catálogo de produtos e o sistema de gerenciamento de estoque, com base nas  histórias <b>[US01]</b>, <b>[US02]</b>, <b>[US03]</b> e <b>[US04]</b>,no entanto, é necessário rever o código com base nas contribuições do professor, destacou-se que ainda precisa ser melhorado  por exemplo em relação as adoções da pratica de SCRUMXP no código como a Pair Programming, que ajuda na revisão e refatoração e no padrão de código. Assim o objetivo novo é aumentar a adoção das práticas durante o desenvolvimento na próxima sprint para cumprir os critérios de entrega do MVP1.

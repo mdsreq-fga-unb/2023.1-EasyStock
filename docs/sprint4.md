@@ -1,4 +1,4 @@
-Data       Versão | Descrição            | Autor(es)                                                   |
+| Data       | Versão | Descrição            | Autor(es)                                                   |
 | ---------- | ------ | -------------------- | ------------------------------------------------------------ |
 | 18/05/2023 | 0.1 | Criação e estruturação do documentação da sprint 4 | Hemanoel, Gustavo, Isaac |
 | 05/06/2023 | 0.2 | Atualização da documentação da sprint 4 | Daniela, Gustavo,Hemanoel, Isaac, Milena |
