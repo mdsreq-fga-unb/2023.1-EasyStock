@@ -5,6 +5,7 @@ import { PesquisaProduto, Tabela } from "../estoque/EstoqueStyled";
 import EstoqueModal from "../estoque/EstoqueModal";
 import { useState } from "react";
 import { getAllPosts } from "../../services/postsServices";
+import { useEffect } from "react";
 
 export default function Estoque() {
     let [products, setProducts] = useState([]);
@@ -13,7 +14,11 @@ export default function Estoque() {
         const response = await getAllPosts();
         setProducts (response.data);
     }
-    findAllPosts();
+
+    useEffect(() => {
+        findAllPosts();
+        console.log(products)
+    }, []);
 
     const [openModal, setOpenModal] = useState(false);
     

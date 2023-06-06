@@ -45,12 +45,6 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                 placeholder="Unidade"
                                 required
                             />
-                            <input
-                                type="number"
-                                id="codigoPDV"
-                                placeholder="Código PDV"
-                                required
-                            />
                         </div>
                         <div className="button-container">
                             <button className="button-modal">Adicionar</button>
