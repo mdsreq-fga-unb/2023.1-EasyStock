@@ -55,7 +55,6 @@ A comunicação diária será feita pelo Whatsapp e as reuniões serão feitas p
 * Mudanças na tecnologia utilizadas no projeto; 
 * Insatisfação do cliente com a entrega;
 * Mudanças no requisitos por parte do cliente;
-* Atraso na entrega da sprint;
 
 
 
