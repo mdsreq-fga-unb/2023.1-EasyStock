@@ -35,6 +35,18 @@ export default function EstoqueModal({ isOpen, onClose }) {
                             />
                             <input
                                 type="number"
+                                id="qtdMinEstoque"
+                                placeholder="Quantidade mínima"
+                                required
+                            />
+                            <input
+                                type="text"
+                                id="Unidade"
+                                placeholder="Unidade"
+                                required
+                            />
+                            <input
+                                type="number"
                                 id="codigoPDV"
                                 placeholder="Código PDV"
                                 required

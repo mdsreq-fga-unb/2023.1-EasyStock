@@ -7,10 +7,11 @@ import { useState } from "react";
 import { getAllPosts } from "../../services/postsServices";
 
 export default function Estoque() {
+    let [products, setProducts] = useState([]);
 
     async function findAllPosts(){
         const response = await getAllPosts();
-        console.log(response);
+        setProducts (response.data);
     }
     findAllPosts();
 
@@ -33,8 +34,10 @@ export default function Estoque() {
                             <th>Preço Custo</th>
                             <th>Preço venda</th>
                             <th>Qtd Estoque</th>
+                            <th>Qtd Min</th>
+                            <th>Medida</th>
                             <th>CódigoPDV</th>
-                            <th>Status Venda</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>

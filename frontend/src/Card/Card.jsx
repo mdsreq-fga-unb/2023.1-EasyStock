@@ -7,6 +7,8 @@ export function Card({ product }) {
             <td>{product.precoCusto}</td>
             <td>{product.precoVenda}</td>
             <td>{product.qtdEstoque}</td>
+            <td>{product.qtdEstoqueMin}</td>
+            <td>{product.medida}</td>
             <td>{product.codigoPDV}</td>
             <td>{product.statusVenda}</td>
         </Produtos>

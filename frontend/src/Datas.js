@@ -5,6 +5,8 @@ export const products = [
         precoCusto: 7,
         precoVenda: 11.5, 
         qtdEstoque: 10,
+        qtdMinEstoque: 20,
+        medida: "ML",
         codigoPDV: 3,
         statusVenda: true
     },
@@ -13,6 +15,8 @@ export const products = [
         precoCusto: 3,
         precoVenda: 4.5, 
         qtdEstoque: 20,
+        qtdMinEstoque: 2,
+        medida: "L",
         codigoPDV: 1,
         statusVenda: true
     },
@@ -21,6 +25,8 @@ export const products = [
         precoCusto: 2,
         precoVenda: 3.5, 
         qtdEstoque: 40,
+        qtdMinEstoque: 4,
+        medida: "Mg",
         codigoPDV: 16,
         statusVenda: true
     },
