@@ -2,6 +2,7 @@
 | ---------- | ------ | -------------------- | ------------------------------------------------------------ |
 | 18/05/2023 | 0.1 | Criação e estruturação do documentação da sprint 3 | Hemanoel, Gustavo, Isaac |
 | 25/05/2023 | 0.2 | Atualização da documentação da sprint 3 | Hemanoel, Gustavo, Isaac |
+| 05/06/2023  | 0.3 | Atualização da documentação da sprint 3 |  Daniela, Gustavo,Hemanoel, Isaac, Milena  |
 
 # Sprint 3
 
