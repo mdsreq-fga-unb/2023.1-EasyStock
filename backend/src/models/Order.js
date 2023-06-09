@@ -6,10 +6,6 @@ const OrderSchema = new mongoose.Schema({
         ref: 'OrderProduct',
         required: true
     }],
-    cliente: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Customer'
-    },
     precoTotal: {
         type: Number,
         required: true,
