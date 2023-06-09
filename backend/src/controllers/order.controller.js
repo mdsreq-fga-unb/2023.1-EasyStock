@@ -3,8 +3,6 @@ import OrderProduct from '../models/OrderProduct.js';
 
 const createOrder = async (req, res) => {
     try {
-        const { cliente } = req.body;
-
         const orderProductsIds = Promise.all(req.body.produtos.map(async (orderProduct) => {
             let newOrderProduct = new OrderProduct({
                 quantidade: orderProduct.quantidade,
@@ -28,7 +26,6 @@ const createOrder = async (req, res) => {
 
         let order = {
             produtos: orderIdsResolved,
-            cliente,
             precoTotal,
         };
 
