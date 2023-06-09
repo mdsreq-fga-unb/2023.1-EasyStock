@@ -20,7 +20,7 @@ export const TodoModal = styled.section`
         margin-bottom: 5px;
         color: #6ba9b6;
     }
-    .label-float input {
+    form div {
         text-align: center;
         background-color: #77c3d5;
         width: 50%;
@@ -47,7 +47,7 @@ export const TodoModal = styled.section`
         -webkit-appearance: none;
         margin: 0;
     }
-    .button-modal {
+    .button-modal, .buttons {
         bottom: 90px;
 
         border-color: #272262;
@@ -59,11 +59,11 @@ export const TodoModal = styled.section`
         cursor: pointer;
         transition: all 0.1s ease-out;
     }
-    .button-modal:hover {
+    .button-modal, .buttons:hover {
         background-color: #1e5c74;
         font-weight: bolder;
     }
-    .button-modalc {
+    .button-modalc, .buttons {
         bottom: 90px;
         left: 270px;
         border-color: #272262;
@@ -75,7 +75,7 @@ export const TodoModal = styled.section`
         cursor: pointer;
         transition: all 0.1s ease-out;
     }
-    .button-modalc:hover {
+    .button-modalc, .buttons:hover {
         background-color: #1e5c74;
         font-weight: bolder;
     }
