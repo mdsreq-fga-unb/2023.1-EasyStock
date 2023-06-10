@@ -7,7 +7,13 @@ const findAllService = () => Payment.find().populate('cliente', 'nome').sort({ '
 const findByIdService = (id) => 
 Payment.findById(id)
 .populate('cliente', 'nome')
-.populate('pedido');
+.populate({
+    path: 'pedido',
+    populate: {
+        path: 'produtos',
+        populate: 'produto'
+    }
+});
 
 const deleteService = (id) => Payment.findOneAndDelete({ _id: id });
 
