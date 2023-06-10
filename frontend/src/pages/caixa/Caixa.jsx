@@ -38,7 +38,7 @@ export default function Caixa() {
                         />
                     </div>
                     <div className="valor">
-                      <p>  VALOR: "0"</p>
+                        <p> VALOR: "0"</p>
                     </div>
                 </form>
             </PesquisaCaixa>
@@ -55,13 +55,16 @@ export default function Caixa() {
                         </tr>
                     </thead>
                     <tbody>
-                        {caixas.map((caixa) => (
-                            <CardCaixa key={caixa.itemP} caixa={caixa} />
+                        {caixas.map((caixa, index) => (
+                            <CardCaixa key={index} caixa={caixa} />
                         ))}
                     </tbody>
                 </table>
                 <div>
-                    <button className="botao-principal" onClick={() => setOpenModal(true)}>
+                    <button
+                        className="botao-principal"
+                        onClick={() => setOpenModal(true)}
+                    >
                         Pagamento
                     </button>
                 </div>

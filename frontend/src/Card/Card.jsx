@@ -12,7 +12,8 @@ export function Card({ product }) {
             <td>{product.qtdEstoqueMin}</td>
             <td>{product.medida}</td>
             <td>{product.codigoPDV}</td>
-            <td className={statusClass}>{product.statusVenda ? "Ativo" : "Inativo"}</td>
+            <td className={statusClass.toString()}>{product.statusVenda ? "Ativo" : "Inativo"}</td>
+
         </Produtos>
     );
 }

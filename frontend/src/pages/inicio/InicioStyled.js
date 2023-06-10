@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Body = styled.body`
+export const Section = styled.section`
     display: flex;
     align-items: flex-end;
 

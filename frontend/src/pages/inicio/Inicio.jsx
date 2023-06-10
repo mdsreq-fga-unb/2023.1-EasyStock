@@ -1,12 +1,12 @@
 import { NavBar } from "../../components/navBar/NavBar";
-import { Body, CirculoAzul, CirculoBranco } from "./InicioStyled";
+import { Section, CirculoAzul, CirculoBranco } from "./InicioStyled";
 import Icone from "../../images/imagemInicioMeninas.png";
 
 export default function Inicio() {
     return (
         <>
             <NavBar />
-            <Body>
+            <Section>
                 <div>
                     <h1>
                         Um Jeito Fácil De
@@ -21,7 +21,7 @@ export default function Inicio() {
                 <CirculoBranco />
                 <CirculoAzul />
                 <img src={Icone} alt="Logo meninas" />
-            </Body>
+            </Section>
         </>
     );
 }

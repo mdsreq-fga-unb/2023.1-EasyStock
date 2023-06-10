@@ -13,7 +13,6 @@ export default function Cliente() {
         <>
             <NavBar />
 
-
             <Tabela>
                 <table>
                     <thead>
@@ -26,14 +25,22 @@ export default function Cliente() {
                         </tr>
                     </thead>
                     <tbody>
-                        {clients.map ((client) => (
-                            <CardClient key={client.dividendo} client={client} />
+                        {clients.map((client, index) => (
+                            <CardClient key={index} client={client} />
                         ))}
                     </tbody>
                 </table>
 
-                <button className="botao-principal" onClick={() => setOpenModal(true)}>Adicionar cliente</button>
-                <ModalCliente isOpen={openModal} onClose={() => setOpenModal(!openModal)}/>
+                <button
+                    className="botao-principal"
+                    onClick={() => setOpenModal(true)}
+                >
+                    Adicionar cliente
+                </button>
+                <ModalCliente
+                    isOpen={openModal}
+                    onClose={() => setOpenModal(!openModal)}
+                />
             </Tabela>
         </>
     );
