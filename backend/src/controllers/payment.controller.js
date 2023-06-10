@@ -7,12 +7,15 @@ const createPayment = async (req, res) => {
         const { pedido, cliente, tipoPagamento, tipoEntrega } = req.body;
 
         if (!pedido || !tipoPagamento || !tipoEntrega)
-            return res.status(400).send({message: "Preencha todos os campos obrigatórios para realizar o cadastro"});
+            return res.status(400).send({message: "Preencha todos os campos obrigatórios para realizar o pagamento"});
         
         const order = await orderService.findByIdService(pedido);
     
         if (!order)
-            return res.status(400).send({ message: "Pedido não encontrado" });    
+            return res.status(400).send({ message: "Pedido não encontrado" });
+            
+        if (order.statusPedido === 'Finalizado')
+            return res.status(400).send({ message: "Esse pedido já foi finalizado" });
 
         const payment = await paymentService.createService(req.body);
 
@@ -20,10 +23,19 @@ const createPayment = async (req, res) => {
             return res.status(400).send({ message: "Erro na criação do pagamento" });
         
         if (tipoPagamento === 'Fiado' && cliente) {
-            await customerService.updateService({
-                id: cliente,
-                divida: cliente.divida + order.precoTotal
-            });
+            const customer = await customerService.findByIdService(cliente);
+            if (!customer)
+                return res.status(400).send({ message: "Cliente não encontrado" });
+
+            const divida = customer.divida + order.precoTotal;
+
+            await customerService.updateService(
+                cliente,
+                customer.nome,
+                customer.telefone,
+                customer.email,
+                divida
+            );
         }
 
         await orderService.updateService(pedido, 'Finalizado');
