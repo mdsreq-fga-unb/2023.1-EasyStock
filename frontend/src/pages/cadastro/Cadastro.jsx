@@ -17,12 +17,12 @@ export default function Cadastro() {
 
     return (
         <section>
-            <form onSubmit={handleSubmit(handleSignIn)}>
-                <div class="container">
-                    <div class="card">
+            <form className="principal" onSubmit={handleSubmit(handleSignIn)}>
+                <div class="divLogin">
+                    <div class="hLogin">
                         <h1> Login </h1>
 
-                        <div class="inputs">
+                        <div className="inputs">
                             <input
                                 {...register('username')}
                                 type="text"
@@ -34,7 +34,7 @@ export default function Cadastro() {
                             <label for="username"> Usuário</label>
                         </div>
 
-                        <div class="inputs">
+                        <div className="inputs">
                             <input
                                 {...register('password')}
                                 type="password"
