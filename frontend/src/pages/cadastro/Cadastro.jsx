@@ -5,11 +5,11 @@ export default function Cadastro() {
     return (
         <section>
             <form>
-                <div class="container">
-                    <div class="card">
-                        <h1> Login </h1>
+                <div class="principal">
+                    <div class="divLogin">
+                        <h1 className="hLogin"> Login </h1>
 
-                        <div class="label-float">
+                        <div class="inputs">
                             <input
                                 type="text"
                                 id="usuario"
@@ -19,7 +19,7 @@ export default function Cadastro() {
                             <label for="usuario"> Usuário</label>
                         </div>
 
-                        <div class="label-float">
+                        <div class="inputs">
                             <input
                                 type="password"
                                 id="senha"
@@ -35,7 +35,7 @@ export default function Cadastro() {
                                 type="submit"
                                 name="Entrar"
                                 id="Entrar"
-                                className="buttonz"
+                                className="login"
                                 value="Entrar"
                             />
                         </div>

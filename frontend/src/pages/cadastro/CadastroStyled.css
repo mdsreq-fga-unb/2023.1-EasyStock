@@ -1,31 +1,24 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Pangolin", cursive, sans-serif;
-}
 
-body {
-    background-color: #d9d9d9;
-}
-.container {
+
+.principal {
     display: flex;
     justify-content: center;
     width: 100%;
     margin-top: 150px;
 }
-.card {
+.divLogin {
     background-color: #ffffff80;
     padding: 50px;
     border-radius: 4%;
     box-shadow: 3px 3px 1px 0px #00000080;
     width: 500px;
 }
-h1 {
+.hLogin {
     text-align: center;
     margin-bottom: 20px;
     color: #0614bd;
 }
-.label-float input {
+.inputs input {
     width: 100%;
     padding: 5px;
     display: inline-block;
@@ -39,17 +32,17 @@ h1 {
     border-radius: 0;
 }
 
-.label-float {
+.inputs {
     position: relative;
     padding-top: 13px;
     margin-top: 5%;
     margin-bottom: 5%;
 }
-.label-float input:focus {
+.inputs input:focus {
     border-bottom: 2px solid #4038a0;
 }
 
-.label-float label {
+.inputs label {
     color: #0614bd;
     position: absolute;
     top: 0;
@@ -58,14 +51,14 @@ h1 {
     transition: all 0.3s ease-out;
 }
 
-.label-float input:focus + label,
-.label-float input:valid + label {
+.inputs input:focus + label,
+.inputs input:valid + label {
     font-size: 13px;
     margin-top: 0;
     color: #4038a0;
 }
 
-.buttonz {
+.login {
     background-color: transparent;
     border-color: #272262;
     color: #0614bd;
@@ -78,7 +71,7 @@ h1 {
     outline: none;
     transition: all 0.1s ease-out;
 }
-button:hover {
+.login:hover {
     background-color: #272267;
     color: #f702d9;
 }
@@ -87,10 +80,3 @@ button:hover {
     justify-content: center;
 }
 
-.fa-eye {
-    position: absolute;
-    top: 20px;
-    right: 10px;
-    cursor: pointer;
-    color: #272267;
-}
