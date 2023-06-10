@@ -41,6 +41,19 @@ export const TodoModal = styled.section`
         margin-top: 1%;
         margin-bottom: 5%;
     }
+    
+    .label-float input{
+        border: none;
+        background-color: transparent;
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    .label-float label, select{
+        border: none;
+        background-color: transparent;
+        color: #758184 ;
+    }
 
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
