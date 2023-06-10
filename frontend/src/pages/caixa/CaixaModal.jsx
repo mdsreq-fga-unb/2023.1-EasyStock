@@ -24,6 +24,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                             <div className="label-float">
                                 <input
                                     type="number"
+                                    step="any"
                                     id="Qtd"
                                     placeholder="Valor recebido"
                                     required
@@ -32,6 +33,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                             <div className="label-float">
                                 <input
                                     type="number"
+                                    step="any"
                                     id="preco"
                                     placeholder="Troco"
                                     required

@@ -37,6 +37,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                             <div className="label-float">
                                 <input
                                     type="number"
+                                    step="any"
                                     id="valorDivida "
                                     placeholder="Valor da Divida"
                                     required

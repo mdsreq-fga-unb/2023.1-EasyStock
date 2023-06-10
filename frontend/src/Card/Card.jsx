@@ -1,6 +1,8 @@
 import { Produtos } from "./CardStyled";
 
 export function Card({ product }) {
+    const statusClass = product.statusVenda;
+
     return (
         <Produtos>
             <td>{product.nome}</td>
@@ -10,7 +12,7 @@ export function Card({ product }) {
             <td>{product.qtdEstoqueMin}</td>
             <td>{product.medida}</td>
             <td>{product.codigoPDV}</td>
-            <td>{product.statusVenda}</td>
+            <td className={statusClass}>{product.statusVenda ? "Ativo" : "Inativo"}</td>
         </Produtos>
     );
 }
@@ -22,7 +24,7 @@ export function CardClient({client}){
             <td>{client.telefone}</td>
             <td>{client.email}</td>
             <td>{client.divida}</td>
-            <td>{client.statusDivida}</td>
+            <td >{client.statusDivida}</td>
         </Produtos>
     )
 }

@@ -48,6 +48,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                             <div className="label-float">
                                 <input
                                     type="number"
+                                    step="any"
                                     id="precoCusto"
                                     placeholder="Preço custo"
                                     required
@@ -59,6 +60,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                             <div className="label-float">
                                 <input
                                     type="number"
+                                    step="any"
                                     id="precoVenda"
                                     placeholder="Preço venda"
                                     required
