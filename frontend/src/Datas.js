@@ -55,3 +55,28 @@ export const clients = [
         statusDivida: true
     },
 ];
+
+export const caixas = [
+    {
+        itemP: 3,
+        qtdEstoqueP: 10,
+        nomeP: "Açaí 750mL",
+        precoUniP: 7,
+        precoVendaP: 11.5,
+        
+    },
+    {
+        itemP: 6,
+        qtdEstoqueP: 10,
+        nomeP: "caju 750mL",
+        precoUniP: 7,
+        precoVendaP: 11.5,
+    },
+    {
+        itemP: 3,
+        qtdEstoqueP: 10,
+        nomeP: "pera 750mL",
+        precoUniP: 7,
+        precoVendaP: 11.5,
+    },
+];

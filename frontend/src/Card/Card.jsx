@@ -26,3 +26,14 @@ export function CardClient({client}){
         </Produtos>
     )
 }
+export function CardCaixa({caixa}){
+    return(
+        <Produtos>
+            <td>{caixa.itemP}</td>
+            <td>{caixa.qtdEstoqueP}</td>
+            <td>{caixa.nomeP}</td>
+            <td>{caixa.precoUniP}</td>
+            <td>{caixa.precoVendaP}</td>
+        </Produtos>
+    )
+}

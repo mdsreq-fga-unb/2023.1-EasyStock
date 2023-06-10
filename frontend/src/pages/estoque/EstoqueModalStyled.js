@@ -58,6 +58,7 @@ export const TodoModal = styled.section`
         border-radius: 20px;
         cursor: pointer;
         transition: all 0.1s ease-out;
+        
     }
     .button-modal, .buttons:hover {
         background-color: #1e5c74;
