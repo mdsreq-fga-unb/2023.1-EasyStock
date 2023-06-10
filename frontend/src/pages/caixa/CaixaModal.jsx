@@ -11,7 +11,9 @@ export default function ModalCliente({ isOpen, onClose }) {
                         <h1>Pagamentos</h1>
                         <form onSubmit={(e) => createForm(e)}>
                             <div className="label-float">
-                                <label htmlFor="medida">Tipo de pagamento:</label>
+                                <label htmlFor="medida">
+                                    Tipo de pagamento:
+                                </label>
                                 <select
                                     id="medida"
                                     onChange={(e) => setMedida(e.target.value)}
@@ -40,7 +42,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                                 />
                             </div>
                             <div className="label-float">
-                            <label htmlFor="medida">Tipo de entrega:</label>
+                                <label htmlFor="medida">Tipo de entrega:</label>
                                 <select
                                     id="medida"
                                     onChange={(e) => setMedida(e.target.value)}
@@ -50,20 +52,25 @@ export default function ModalCliente({ isOpen, onClose }) {
                                     <option value="KG">mototaxi</option>
                                 </select>
                             </div>
-                            <input
-                                type="submit"
-                                name="Adicionar Produto"
-                                id="enviar"
-                                className="buttons"
-                                value="Finalizar pedido"
-                            />
+                            <div className="display-botoes">
+                                <input
+                                    type="submit"
+                                    name="Adicionar Produto"
+                                    id="enviar"
+                                    className="buttons"
+                                    value="Finalizar pedido"
+                                />
+                            </div>
+                            <div className="display-botoes">
+                                {/* <button className="button-modal">Adicionar</button> */}
+                                <button
+                                    className="button-modalc"
+                                    onClick={onClose}
+                                >
+                                    Cancelar
+                                </button>
+                            </div>
                         </form>
-                        <div className="button-container">
-                            {/* <button className="button-modal">Adicionar</button> */}
-                            <button className="button-modalc" onClick={onClose}>
-                                Cancelar
-                            </button>
-                        </div>
                     </div>
                 </div>
             </TodoModal>

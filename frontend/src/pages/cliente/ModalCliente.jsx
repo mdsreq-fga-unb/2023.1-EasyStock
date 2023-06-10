@@ -43,14 +43,23 @@ export default function ModalCliente({ isOpen, onClose }) {
                                     required
                                 />
                             </div>
+                            <div className="display-botoes">
+                                <input
+                                    type="submit"
+                                    name="Adicionar Produto"
+                                    id="enviar"
+                                    className="buttons"
+                                />
+                            </div>
+                            <div className="display-botoes">
+                                <button
+                                    className="button-modalc"
+                                    onClick={onClose}
+                                >
+                                    Cancelar
+                                </button>
+                            </div>
                         </form>
-
-                        <div className="button-container">
-                            <button className="button-modal">Adicionar</button>
-                            <button className="button-modalc" onClick={onClose}>
-                                Cancelar
-                            </button>
-                        </div>
                     </div>
                 </div>
             </TodoModal>

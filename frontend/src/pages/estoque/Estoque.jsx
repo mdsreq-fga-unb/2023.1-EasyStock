@@ -52,7 +52,7 @@ export default function Estoque() {
                     </tbody>
                 </table>
 
-                <button onClick={() => setOpenModal(true)}>Adicionar Produtos</button>
+                <button className="botao-principal" onClick={() => setOpenModal(true)}>Adicionar Produtos</button>
                 <EstoqueModal isOpen={openModal} onClose={() => setOpenModal(!openModal)} />
             </Tabela>
         </>

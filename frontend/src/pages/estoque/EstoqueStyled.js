@@ -42,7 +42,8 @@ export const Tabela = styled.section`
         width: 10%;
     }
 
-    button {
+    .botao-principal {
+        cursor: pointer;
         border: none;
         background-color: #6ba9b6;
         border-radius: 20px;
@@ -50,12 +51,13 @@ export const Tabela = styled.section`
         color: #4F5A51;
         position: fixed;
         padding: 10px;
-        margin: 10%;
-        left: 54%;
+        margin: 10px;
+        left: 66%;
     }
-    button:hover {
+    .botao-principal:hover {
         background-color: #1e5c74;
         font-weight: bolder;
-        color: #77C3D5;
+        color: #6ba9b6;
+        transition: all 0.1s ease-out;
     }
 `;

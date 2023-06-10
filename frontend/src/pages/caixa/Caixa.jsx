@@ -25,6 +25,7 @@ export default function Caixa() {
                             name="qtd"
                             id="qtd"
                             placeholder="Quantidade"
+                            required
                         />
                     </div>
                     <div>
@@ -60,7 +61,7 @@ export default function Caixa() {
                     </tbody>
                 </table>
                 <div>
-                    <button onClick={() => setOpenModal(true)}>
+                    <button className="botao-principal" onClick={() => setOpenModal(true)}>
                         Pagamento
                     </button>
                 </div>

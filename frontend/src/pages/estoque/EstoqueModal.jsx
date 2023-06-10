@@ -3,7 +3,6 @@ import { TodoModal } from "./EstoqueModalStyled";
 import { useState } from "react";
 import blogFetch from "../../services/postProduto";
 
-
 export default function EstoqueModal({ isOpen, onClose }) {
     const [nome, setNome] = useState();
     const [precoCusto, setPrecoCusto] = useState();
@@ -12,7 +11,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
     const [qtdEstoqueMin, setQtdEstoqueMin] = useState();
     const [medida, setMedida] = useState();
 
-    const createForm = async (e)  => {
+    const createForm = async (e) => {
         e.preventDefault();
 
         const post = {
@@ -26,7 +25,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
 
         await blogFetch.post("http://localhost:8000/produto", {
             body: post,
-        })
+        });
     };
 
     if (isOpen) {
@@ -101,19 +100,22 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                     <option value="KG">KG</option>
                                 </select>
                             </div>
-                            <input
-                                type="submit"
-                                name="Adicionar Produto"
-                                id="enviar"
-                                className="buttons"
-                            />
-                        </form>
-                        <div className="button-container">
+                            <div className="display-botoes">
+                                <input
+                                    type="submit"
+                                    name="Adicionar Produto"
+                                    id="enviar"
+                                    className="buttons"
+                                />
+                            </div>
+                            <div className="display-botoes">
                             {/* <button className="button-modal">Adicionar</button> */}
                             <button className="button-modalc" onClick={onClose}>
                                 Cancelar
                             </button>
                         </div>
+                        </form>
+                        
                     </div>
                 </div>
             </TodoModal>

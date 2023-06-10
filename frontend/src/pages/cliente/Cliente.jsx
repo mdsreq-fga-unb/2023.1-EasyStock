@@ -32,7 +32,7 @@ export default function Cliente() {
                     </tbody>
                 </table>
 
-                <button onClick={() => setOpenModal(true)}>Adicionar Produtos</button>
+                <button className="botao-principal" onClick={() => setOpenModal(true)}>Adicionar cliente</button>
                 <ModalCliente isOpen={openModal} onClose={() => setOpenModal(!openModal)}/>
             </Tabela>
         </>

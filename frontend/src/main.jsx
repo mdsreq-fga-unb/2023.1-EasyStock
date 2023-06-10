@@ -7,7 +7,7 @@ import App from "./App.jsx";
 
 //importando paginas
 import Inicio from "./pages/Inicio/Inicio";
-import Estoque from "./pages/Estoque/Estoque";
+import Estoque from "./pages/estoque/Estoque";
 import Erro from "./pages/erro/Error.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

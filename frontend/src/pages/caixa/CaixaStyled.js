@@ -8,10 +8,11 @@ export const PesquisaCaixa = styled.div`
     border-radius: 20px;
 
     form {
-        width: 80%;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        
     }
     i.bi-search {
         margin-left: 1px;
@@ -20,10 +21,11 @@ export const PesquisaCaixa = styled.div`
     form div {
         margin-left: 1px;
         padding: 0.6rem;
+        
     }
     form div input, p{
-        font-size: 1rem;
-        padding: 0.4rem;
+        font-size: 15px;
+        padding: 1rem;
         background-color: #77c3d5;
         border: none;
         border-radius: 20px;

@@ -55,31 +55,19 @@ export const TodoModal = styled.section`
         color: #758184 ;
     }
 
-    input[type="number"]::-webkit-inner-spin-button,
+    input [type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
-    .button-modal, .buttons {
-        bottom: 90px;
+    .display-botoes{
+        display: inline;
+        justify-content: space-between;
+        background-color: #F4F4ED;
 
-        border-color: #272262;
-        color: #444449;
-        padding: 2px;
-        font-size: 16px;
-        margin-top: 0;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: all 0.1s ease-out;
-        
-    }
-    .button-modal, .buttons:hover {
-        background-color: #1e5c74;
-        font-weight: bolder;
     }
     .button-modalc, .buttons {
         bottom: 90px;
-        left: 270px;
         border-color: #272262;
         color: #444449;
         padding: 2px;
@@ -88,8 +76,11 @@ export const TodoModal = styled.section`
         border-radius: 20px;
         cursor: pointer;
         transition: all 0.1s ease-out;
+        background-color: #6BA9B6;
+        
     }
-    .button-modalc, .buttons:hover {
+    
+    .button-modalc:hover, .buttons:hover {
         background-color: #1e5c74;
         font-weight: bolder;
     }
