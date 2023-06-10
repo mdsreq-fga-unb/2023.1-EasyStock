@@ -17,7 +17,7 @@ export default function Cadastro() {
 
     return (
         <section>
-            <form>
+            <form onSubmit={handleSubmit(handleSignIn)}>
                 <div class="container">
                     <div class="card">
                         <h1> Login </h1>
