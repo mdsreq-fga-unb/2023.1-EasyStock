@@ -13,6 +13,7 @@ import Erro from "./pages/erro/Error.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Cliente from "./pages/cliente/Cliente.jsx";
 import Caixa from "./pages/caixa/Caixa.jsx";
+import Cadastro from "./pages/estoque/cadastro/Cadastro.jsx";
 
 // const router = createBrowserRouter([
 //     {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
         errorElement: <Erro />,
         children: [
             {
-                path: "/",
+                path: "/cadastro",
+                element: <Cadastro />,
+            },
+            {
+                path: "/inicio",
                 element: <Inicio />,
             },
             {

@@ -15,7 +15,7 @@ export function NavBar() {
                 <BarraPrincipal>
                     <ul>
                         <li>
-                            <Link to="/">INICIO</Link>
+                            <Link to="/inicio">INICIO</Link>
                         </li>
 
                         <li>
