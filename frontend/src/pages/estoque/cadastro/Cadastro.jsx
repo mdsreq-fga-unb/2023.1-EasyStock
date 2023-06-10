@@ -64,7 +64,7 @@ export default function Cadastro() {
                                 type="submit"
                                 name="Adicionar Produto"
                                 id="enviar"
-                                className="buttons"
+                                className="buttonz"
                                 value="Cadastrar"
                             />
                         </div>
