@@ -17,12 +17,12 @@ export default function Cadastro() {
 
     return (
         <section>
-            <form onSubmit={handleSubmit(handleSignIn)}>
+            <form>
                 <div class="container">
                     <div class="card">
                         <h1> Login </h1>
 
-                        <div class="label-float">
+                        <div class="inputs">
                             <input
                                 {...register('username')}
                                 type="text"
@@ -34,7 +34,7 @@ export default function Cadastro() {
                             <label for="username"> Usuário</label>
                         </div>
 
-                        <div class="label-float">
+                        <div class="inputs">
                             <input
                                 {...register('password')}
                                 type="password"
@@ -52,7 +52,7 @@ export default function Cadastro() {
                                 type="submit"
                                 name="Entrar"
                                 id="Entrar"
-                                className="buttonz"
+                                className="login"
                                 value="Entrar"
                             />
                         </div>
