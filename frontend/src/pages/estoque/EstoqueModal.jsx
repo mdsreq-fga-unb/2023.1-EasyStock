@@ -35,7 +35,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                 <div className="container">
                     <div className="card">
                         <h1>Adicionar Produtos</h1>
-                        <form onSubmit={(e) => createForm(e)}>
+                        <form onSubmit={async (e) => await createForm(e).then(onClose)}>
                             <div className="label-float">
                                 <input
                                     type="text"
