@@ -28,7 +28,6 @@ export const Tabela = styled.section`
     table {
         background-color: #f4f4ed;
         margin-top: 2rem;
-        margin-left: 1rem;
         border-radius: 10px;
         width: 78%;
     }
@@ -47,13 +46,25 @@ export const Tabela = styled.section`
         border: none;
         background-color: #6ba9b6;
         border-radius: 20px;
-        font-size: 20px;
-        color: #4F5A51;
-        position: fixed;
+        color: #4f5a51;
         padding: 10px;
         margin: 10px;
-        left: 66%;
+        margin-left: 57rem;
+        //left: auto;
     }
+    /* 
+    .botao-principal {
+    cursor: pointer;
+    background-color: #6ba9b6;
+    border-radius: 20px;
+    color: #4F5A51;
+    padding: 10px;
+    margin: 10px;
+    left: 66%;
+}
+    
+    */
+
     .botao-principal:hover {
         background-color: #1e5c74;
         font-weight: bolder;
