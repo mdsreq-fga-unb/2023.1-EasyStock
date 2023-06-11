@@ -20,8 +20,9 @@ export const validId = (req, res, next) => { // Verifica se o ID do produto segu
 export const validProduct = async (req, res, next) => { // Verifica se o produto existe no banco
     try {
         const id = req.params.id;
+        const pdv = req.params.pdv;
 
-        const product = await productService.findByIdService(id);
+        const product = await productService.findByPdvService(pdv);
 
         if (!product)
             return res.status(400).send({ message: "Produto não encontrado" });

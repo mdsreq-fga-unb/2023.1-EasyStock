@@ -5,7 +5,11 @@ const createService = (body) => Product.create(body);
 
 const findAllService = () => Product.find();
 
-const findByIdService = (id) => Product.findById(id);
+const searchByName = (nome) => Product.find({
+    nome: { $regex: `${nome || ""}`, $options: "i" }
+});
+
+const findByPdvService = (pdv) => Product.findOne({ codigoPDV: pdv });
 
 const updateService = (
     id,
@@ -26,7 +30,8 @@ const deleteService = (id) => Product.findOneAndDelete({ _id: id });
 export default {
     createService,
     findAllService,
-    findByIdService,
+    searchByName,
+    findByPdvService,
     updateService,
     deleteService
 }

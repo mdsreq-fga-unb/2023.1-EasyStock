@@ -64,6 +64,21 @@ const findAllProducts = async (req, res) => { // Listagem de todos os produtos c
     }    
 }
 
+const searchProductsByName = async (req, res) => { // Busca de produtos pelo nome
+    try {
+        const { nome } = req.query;
+
+        const products = await productService.searchByName(nome);
+
+        if (products.length === 0)
+            return res.status(400).send({ message: "Não há produtos cadastrados" });
+
+        res.send(products);    
+    } catch (err) {
+        res.status(500).send({ productController: err.message });
+    }
+}
+
 const findProductById = async (req, res) => { // Busca de um produto específico pelo ID
     try {
         const product = req.product;
@@ -76,7 +91,7 @@ const findProductById = async (req, res) => { // Busca de um produto específico
 
 const updateProduct = async (req, res) => { // Atualiza os campos do produto
     try {
-        const { nome, precoCusto, precoVenda, qtdEstoque, statusVenda } = req.body;
+        const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda } = req.body;
 
         if (!nome && !precoCusto && !precoVenda && !qtdEstoque && !qtdEstoqueMin && !medida && !statusVenda)
             return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
@@ -112,4 +127,4 @@ const deleteProduct = async (req, res) => { // Deleta um produto
     }
 }
 
-export default { createProduct, findAllProducts, findProductById, updateProduct, deleteProduct }
+export default { createProduct, findAllProducts, searchProductsByName, findProductById, updateProduct, deleteProduct }
