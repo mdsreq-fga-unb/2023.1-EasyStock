@@ -15,3 +15,15 @@ export function getAllPosts() {
 
     return response;
 }
+
+export function getProductById(id) {
+    const response = axios.get(`${baseURL}/produto/:${id}`, config);
+
+    return response;
+}
+
+export function postProduto(data) {
+    const response = axios.post(`${baseURL}/produto`, data, config);
+
+    return response;
+}

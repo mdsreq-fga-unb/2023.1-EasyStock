@@ -2,6 +2,7 @@ import React from "react";
 import { TodoModal } from "./EstoqueModalStyled";
 import { useState } from "react";
 import blogFetch from "../../services/postProduto";
+import { postProduto } from "../../services/postsServices";
 
 export default function EstoqueModal({ isOpen, onClose }) {
     const [nome, setNome] = useState();
@@ -10,22 +11,22 @@ export default function EstoqueModal({ isOpen, onClose }) {
     const [qtdEstoque, setQtdEstoque] = useState();
     const [qtdEstoqueMin, setQtdEstoqueMin] = useState();
     const [medida, setMedida] = useState();
+    const [statusVenda, setStatusVenda] = useState();
 
     const createForm = async (e) => {
         e.preventDefault();
 
-        const post = {
+        const data = {
             nome,
             precoCusto,
             precoVenda,
             qtdEstoque,
             qtdEstoqueMin,
             medida,
+            statusVenda: true
         };
 
-        await blogFetch.post("http://localhost:8000/produto", {
-            body: post,
-        });
+        await postProduto(data);
     };
 
     if (isOpen) {
