@@ -6,22 +6,28 @@ import EstoqueModal from "../estoque/EstoqueModal";
 import { useState } from "react";
 import { getAllPosts } from "../../services/postsServices";
 import { useEffect } from "react";
+import ProdutoModal from "../estoque/ProdutoModal";
 
 export default function Estoque() {
-    let [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [openEstoqueModal, setOpenEstoqueModal] = useState(false);
+    const [openProdutoModal, setOpenProdutoModal] = useState(false);
 
-    async function findAllPosts(){
+    async function findAllPosts() {
         const response = await getAllPosts();
-        setProducts (response.data);
+        setProducts(response.data);
     }
 
     useEffect(() => {
         findAllPosts();
-        console.log(products)
     }, []);
 
-    const [openModal, setOpenModal] = useState(false);
-    
+    const handleProductSelect = (product) => {
+        setSelectedProduct(product);
+        setOpenProdutoModal(true);
+    };
+
     return (
         <>
             <NavBar />
@@ -47,13 +53,30 @@ export default function Estoque() {
                     </thead>
                     <tbody>
                         {products.map((product) => (
-                            <Card key={product.codigoPDV} product={product} />
+                            <Card
+                                key={product.codigoPDV}
+                                product={product}
+                                onSelect={handleProductSelect}
+                            />
                         ))}
                     </tbody>
                 </table>
 
-                <button className="botao-principal" onClick={() => setOpenModal(true)}>Adicionar Produtos</button>
-                <EstoqueModal isOpen={openModal} onClose={() => setOpenModal(!openModal)} />
+                <button
+                    className="botao-principal"
+                    onClick={() => setOpenEstoqueModal(true)}
+                >
+                    Adicionar Produtos
+                </button>
+                <EstoqueModal
+                    isOpen={openEstoqueModal}
+                    onClose={() => setOpenEstoqueModal(false)}
+                />
+                <ProdutoModal
+                    isOpen={openProdutoModal}
+                    onClose={() => setOpenProdutoModal(false)}
+                    selectedProduct={selectedProduct}
+                />
             </Tabela>
         </>
     );
