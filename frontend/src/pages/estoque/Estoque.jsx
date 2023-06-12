@@ -6,13 +6,16 @@ import EstoqueModal from "../estoque/EstoqueModal";
 import { useState } from "react";
 import { getAllPosts } from "../../services/postsServices";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ProdutoModal from "../estoque/ProdutoModal";
+import { sessionStatus } from "../../contexts/AuthContext";
 
 export default function Estoque() {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [openEstoqueModal, setOpenEstoqueModal] = useState(false);
     const [openProdutoModal, setOpenProdutoModal] = useState(false);
+    const navigate = useNavigate();
 
     async function findAllPosts() {
         const response = await getAllPosts();
@@ -20,6 +23,8 @@ export default function Estoque() {
     }
 
     useEffect(() => {
+        sessionStatus(navigate);
+
         findAllPosts();
     }, []);
 

@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
 import { PesquisaProduto, Tabela } from "../estoque/EstoqueStyled";
 import { caixas } from "../../Datas";
 import { CardCaixa } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
 import { PesquisaCaixa } from "./CaixaStyled";
+import { useNavigate } from "react-router-dom";
+import { sessionStatus } from "../../contexts/AuthContext";
 
 export default function Caixa() {
     const [openModal, setOpenModal] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        sessionStatus(navigate);
+    }, []);
 
     return (
         <>

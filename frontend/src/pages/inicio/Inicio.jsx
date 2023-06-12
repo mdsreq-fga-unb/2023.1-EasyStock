@@ -1,11 +1,19 @@
 import { NavBar } from "../../components/navBar/NavBar";
 import { Section, CirculoAzul, CirculoBranco } from "./InicioStyled";
 import Icone from "../../images/imagemInicioMeninas.png";
-import { api } from '../../services/postsServices.js'
 import { useEffect } from "react";
-import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
+import { sessionStatus } from "../../contexts/AuthContext";
 
 export default function Inicio() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        sessionStatus(navigate);
+    }, []);
+
+    
+
     return (
         <>
             <NavBar />

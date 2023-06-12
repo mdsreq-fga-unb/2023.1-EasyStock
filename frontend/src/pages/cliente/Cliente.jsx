@@ -4,10 +4,17 @@ import { Tabela } from "../estoque/EstoqueStyled";
 import { clients } from "../../Datas";
 import { CardClient } from "../../Card/Card";
 import ModalCliente from "./ModalCliente";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { sessionStatus } from "../../contexts/AuthContext";
 
 export default function Cliente() {
     const [openModal, setOpenModal] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        sessionStatus(navigate);
+    }, []);
 
     return (
         <>

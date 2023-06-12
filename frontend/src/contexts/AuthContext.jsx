@@ -3,6 +3,14 @@ import { login, getUsernameFromToken } from "../services/authServices";
 import Cookies from 'js-cookie';
 import { api } from "../services/postsServices";
 
+export const sessionStatus = async (navigate) => {
+    const { token } = Cookies.get();
+
+    if (!token) {
+        navigate("/");
+    }
+}
+
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
@@ -37,7 +45,7 @@ export const AuthProvider = ({ children }) => {
         if (res.status === 200) {
             const { token, username } = res.data;
 
-            Cookies.set('token', token, { expires: 3 }); // Expira em 3 dias
+            Cookies.set('token', token, { expires: 1 }); // Expira em 1 dia
         
             setUsername(username);
 
