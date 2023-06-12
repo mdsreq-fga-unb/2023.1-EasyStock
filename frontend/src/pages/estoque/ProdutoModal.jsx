@@ -95,7 +95,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                 onChange={(e) => setMedida(e.target.value)}
                             >
                                 <option value="" disabled hidden>
-                                    Selecione uma medida:
+                                {selectedProduct.medida}
                                 </option>
                                 <option value="UN">UN</option>
                                 <option value="UN">KG</option>
@@ -107,6 +107,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                 name="editar"
                                 id="editar"
                                 className="buttons"
+                                value="Atualizar"
                             />
                         </div>
                         <div className="display-botoes">
