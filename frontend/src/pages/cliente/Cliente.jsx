@@ -8,10 +8,16 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
 import { getAllClients } from "../../services/postsServices";
+import NomeModal from "./NomeModal";
 
 export default function Cliente() {
     const [openModal, setOpenModal] = useState(false);
     const navigate = useNavigate();
+
+    const [selectedClient, setSelectedClient] = useState(null);
+    const [openNomeModal, setOpenNomeModal] = useState(false);
+
+
 
     const [clients, setClients] = useState([]);
 
@@ -27,8 +33,8 @@ export default function Cliente() {
     }, []);
 
     const handleProductSelect = (client) => {
-        setSelectedProduct(client);
-        setOpenProdutoModal(true);
+        setSelectedClient(client);
+        setOpenNomeModal(true);
     };
 
     return (
@@ -48,7 +54,7 @@ export default function Cliente() {
                     </thead>
                     <tbody>
                         {clients.map((client) => (
-                            <CardClient key={client.telefone} client={client} onSelect={handleProductSelect}/>
+                            <CardClient key={client.nome} client={client} onSelect={handleProductSelect}/>
                         ))}
                     </tbody>
                 </table>
@@ -63,6 +69,11 @@ export default function Cliente() {
                     isOpen={openModal}
                     onClose={() => setOpenModal(!openModal)}
                 />
+                <NomeModal
+                    isOpen={openNomeModal}
+                    onClose={() => setOpenNomeModal(false)}
+                    selectedClient={selectedClient}
+                    />
             </Tabela>
         </>
     );

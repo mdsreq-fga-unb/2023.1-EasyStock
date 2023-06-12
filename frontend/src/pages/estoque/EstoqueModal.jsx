@@ -25,7 +25,8 @@ export default function EstoqueModal({ isOpen, onClose }) {
             medida,
             statusVenda: true
         };
-
+        //console.log(data);
+        
         await postProduto(data);
     };
 

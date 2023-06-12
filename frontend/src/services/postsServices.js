@@ -10,7 +10,7 @@ export const api = axios.create({
 if (token) {
     api.defaults.headers['Authorization'] = `Bearer ${token}`;
 }
-
+//Produto
 export function getAllPosts() {
     const response = api.get(`/produto`);
 
@@ -33,9 +33,15 @@ export function deleteProduto(pdv) {
     const response = api.delete(`/produto/:${pdv}`)
 }
 
+//Cliente
 export function getAllClients() {
     const response = api.get(`/cliente`);
 
     return response;
 }
 
+export function postCliente(data) {
+    const response = api.post(`/cliente`, data);
+    
+    return response;
+}

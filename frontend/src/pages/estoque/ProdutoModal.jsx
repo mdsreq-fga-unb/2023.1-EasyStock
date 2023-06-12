@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { TodoModal } from "./EstoqueModalStyled";
 
 export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
-    // const [nome, setNome] = useState();
-    // const [precoCusto, setPrecoCusto] = useState();
-    // const [precoVenda, setPrecoVenda] = useState();
-    // const [qtdEstoque, setQtdEstoque] = useState();
-    // const [qtdEstoqueMin, setQtdEstoqueMin] = useState();
-    // const [medida, setMedida] = useState();
+    const [nome, setNome] = useState();
+    const [precoCusto, setPrecoCusto] = useState();
+    const [precoVenda, setPrecoVenda] = useState();
+    const [qtdEstoque, setQtdEstoque] = useState();
+    const [qtdEstoqueMin, setQtdEstoqueMin] = useState();
+    const [medida, setMedida] = useState();
+    const [codigoPDV, setCodigoPDV] = useState();
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -19,9 +20,12 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
             qtdEstoque,
             qtdEstoqueMin,
             medida,
+            codigoPDV,
             statusVenda: true,
         };
         await editProduto(data);
+
+        console.log(data);
     };
 
     if (!isOpen) {
@@ -31,12 +35,13 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
     if (!selectedProduct) {
         return null;
     }
+    console.log(selectedProduct._id)
 
     return (
         <TodoModal>
             <div className="container">
                 <div className="card">
-                    <h1>{selectedProduct.nome}</h1>
+                    <h1>{selectedProduct.nome} {selectedProduct.codigoPDV}</h1>
                     <form onSubmit={async (e) => await handleFormSubmit(e).then(onClose)}>
                         <div className="label-float">
                             <input
