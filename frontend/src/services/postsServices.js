@@ -1,29 +1,30 @@
 import axios from "axios";
+import Cookies from 'js-cookie';
 
-const baseURL = "http://localhost:8000";
+const { token } = Cookies.get();
 
-// Se esse token tiver inválido cria um na API e cola aqui
-// é necessário enquanto não tem tela de login
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNjg2NDA2MTgyLCJleHAiOjE2ODY2NjUzODJ9._HsxueogdyUT5KsbFmyQHvZT-feMPm-UL9bHOMnQBB0"
+export const api = axios.create({
+    baseURL: "http://localhost:8000"
+});
 
-const config = {
-    headers: { Authorization: `Bearer ${token}` }
+if (token) {
+    api.defaults.headers['Authorization'] = `Bearer ${token}`;
 }
 
 export function getAllPosts() {
-    const response = axios.get(`${baseURL}/produto`, config);
+    const response = api.get(`/produto`);
 
     return response;
 }
 
 export function getProductById(id) {
-    const response = axios.get(`${baseURL}/produto/:${id}`, config);
+    const response = api.get(`/produto/:${id}`);
 
     return response;
 }
 
 export function postProduto(data) {
-    const response = axios.post(`${baseURL}/produto`, data, config);
+    const response = api.post(`/produto`, data);
 
     return response;
 }

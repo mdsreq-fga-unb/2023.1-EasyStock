@@ -2,14 +2,14 @@ import axios from "axios";
 
 const baseURL = "http://localhost:8000";
 
-export function login(data) {
-    const response = axios.post(`${baseURL}/auth/admin`, data);
+export async function login(data) {
+    const response = await axios.post(`${baseURL}/auth/admin`, data);
 
     return response;
 }
 
-export function getToken() {
-    const token = axios.get(`${baseURL}/auth/admin`);
+export async function getUsernameFromToken(data) {
+    const response = await axios.post(`${baseURL}/auth/validate`, data);
 
-    return token;
+    return response;
 }

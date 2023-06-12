@@ -1,6 +1,9 @@
 import { NavBar } from "../../components/navBar/NavBar";
 import { Section, CirculoAzul, CirculoBranco } from "./InicioStyled";
 import Icone from "../../images/imagemInicioMeninas.png";
+import { api } from '../../services/postsServices.js'
+import { useEffect } from "react";
+import Cookies from 'js-cookie';
 
 export default function Inicio() {
     return (

@@ -1,25 +1,32 @@
-import React from "react";
-import "./CadastroStyled.css";
+import React, { useState } from "react";
+import "./LoginStyled.css";
 import { useForm } from "react-hook-form";
-import { login } from "../../services/authServices";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 
-export default function Cadastro() {
+export default function Login() {
     const { register, handleSubmit } = useForm();
+    const { signIn } = useAuth();
+    const navigate = useNavigate();
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     async function handleSignIn(data) {
-        const res = await login(data);
-
-        console.log(res.data);
-        const token = res.data;
-        return token;
+        const res = await signIn(data);
+        if (res) {
+            navigate("/inicio");
+        }
     }
 
     return (
         <section>
             <form className="principal" onSubmit={handleSubmit(handleSignIn)}>
-                <div class="divLogin">
-                    <div class="hLogin">
+                <div className="divLogin">
+                    <div className="hLogin">
                         <h1> Login </h1>
 
                         <div className="inputs">
@@ -31,7 +38,7 @@ export default function Cadastro() {
                                 paceholder=""
                                 required
                             />
-                            <label for="username"> Usuário</label>
+                            <label htmlFor="username"> Usuário</label>
                         </div>
 
                         <div className="inputs">
@@ -43,11 +50,11 @@ export default function Cadastro() {
                                 paceholder=""
                                 required
                             />
-                            <label for="senha"> Senha</label>                       
+                            <label htmlFor="senha"> Senha</label>                       
                         </div>
 
 
-                        <div class="justify-center">
+                        <div className="justify-center">
                             <input
                                 type="submit"
                                 name="Entrar"

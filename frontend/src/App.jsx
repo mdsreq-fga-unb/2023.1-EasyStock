@@ -1,16 +1,14 @@
 import { GlobalStyled } from "./GlobalStyled.js";
-import Estoque from "./pages/estoque/Estoque.jsx";
 //App,jsx vai praticamente virar as rotas entre os componentes
-
+import { AuthProvider } from "./contexts/AuthContext.jsx";
 import { Outlet } from "react-router-dom";
 
 function App() {
     return (
-        <>
+        <AuthProvider>
             <GlobalStyled />
-
             <Outlet />
-        </>
+        </AuthProvider>
     );
 }
 

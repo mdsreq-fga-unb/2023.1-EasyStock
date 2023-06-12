@@ -1,4 +1,4 @@
-import { generateToken } from "../services/auth.service.js";
+import { generateToken, getUserFromToken } from "../services/auth.service.js";
 
 const loginAdmin = async (req, res) => {
     try {
@@ -9,10 +9,31 @@ const loginAdmin = async (req, res) => {
 
         const token = generateToken(username, password);
 
-        res.send({token});
+        res.send({
+            token,
+            username
+        });
     } catch (err) {
         res.status(500).send({ authController: err.message });
     }
 }
 
-export { loginAdmin };
+const getUsername = async (req, res) => {
+    try {
+        const { token } = req.body;
+
+        if (!token)
+            return res.status(400).send({ message: 'Informe o token' });
+
+        const username = getUserFromToken(token);
+
+        if (username === 'false')
+            return res.status(400).send({ message: 'Token inválido' });
+
+        res.send({username});
+    } catch (err) {
+        res.status(500).send({ authController: err.message });
+    }
+}
+
+export { loginAdmin, getUsername };
