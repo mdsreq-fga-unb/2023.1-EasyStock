@@ -17,6 +17,12 @@ export function getAllPosts() {
     return response;
 }
 
+export function searchProduct(nomeProduto) {
+    const response = api.get(`/produto/buscar`, { params: { nome: nomeProduto } });
+
+    return response;
+}
+
 export function getProductById(id) {
     const response = api.get(`/produto/:${id}`);
 
