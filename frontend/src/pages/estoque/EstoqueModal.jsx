@@ -92,11 +92,14 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                 />
                             </div>
                             <div className="label-float">
-                                <label htmlFor="medida">Medida:</label>
                                 <select
+                                    name="medida"
                                     id="medida"
+                                    defaultValue=""
+                                    required
                                     onChange={(e) => setMedida(e.target.value)}
                                 >
+                                    <option value="" disabled hidden>Selecione uma medida:</option>
                                     <option value="UN">UN</option>
                                     <option value="KG">KG</option>
                                 </select>
