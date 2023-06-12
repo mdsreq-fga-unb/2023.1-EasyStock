@@ -21,7 +21,6 @@ export default function ModalCliente({ isOpen, onClose }) {
                             <div className="label-float">
                                 <input
                                     type="number"
-                                    any
                                     id="numeroTelefone"
                                     placeholder="Número *"
                                     

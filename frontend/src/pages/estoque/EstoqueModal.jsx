@@ -23,11 +23,14 @@ export default function EstoqueModal({ isOpen, onClose }) {
             qtdEstoque,
             qtdEstoqueMin,
             medida,
-            statusVenda: true
+            statusVenda: true,
         };
         //console.log(data);
-        
+
         await postProduto(data);
+
+        // Recarrega a página
+        window.location.reload();
     };
 
     if (isOpen) {
@@ -36,7 +39,11 @@ export default function EstoqueModal({ isOpen, onClose }) {
                 <div className="container">
                     <div className="card">
                         <h1>Adicionar Produtos</h1>
-                        <form onSubmit={async (e) => await createForm(e).then(onClose)}>
+                        <form
+                            onSubmit={async (e) =>
+                                await createForm(e).then(onClose)
+                            }
+                        >
                             <div className="label-float">
                                 <input
                                     type="text"
@@ -100,7 +107,9 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                     required
                                     onChange={(e) => setMedida(e.target.value)}
                                 >
-                                    <option value="" disabled hidden>Selecione uma medida:</option>
+                                    <option value="" disabled hidden>
+                                        Selecione uma medida:
+                                    </option>
                                     <option value="UN">UN</option>
                                     <option value="KG">KG</option>
                                 </select>
@@ -114,13 +123,15 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                 />
                             </div>
                             <div className="display-botoes">
-                            {/* <button className="button-modal">Adicionar</button> */}
-                            <button className="button-modalc" onClick={onClose}>
-                                Cancelar
-                            </button>
-                        </div>
+                                {/* <button className="button-modal">Adicionar</button> */}
+                                <button
+                                    className="button-modalc"
+                                    onClick={onClose}
+                                >
+                                    Cancelar
+                                </button>
+                            </div>
                         </form>
-                        
                     </div>
                 </div>
             </TodoModal>
