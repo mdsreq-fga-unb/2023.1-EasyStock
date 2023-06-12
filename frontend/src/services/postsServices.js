@@ -29,8 +29,16 @@ export function postProduto(data) {
     return response;
 }
 
+export function updateProduto(pdv, data) {
+    const response = api.patch(`/produto/${pdv}`, data)
+
+    return response;
+}
+
 export function deleteProduto(pdv) {
-    const response = api.delete(`/produto/:${pdv}`)
+    const response = api.delete(`/produto/${pdv}`);
+
+    return response;
 }
 
 //Cliente

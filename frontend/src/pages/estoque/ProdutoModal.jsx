@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TodoModal } from "./EstoqueModalStyled";
+import { deleteProduto, updateProduto } from "../../services/postsServices";
 
 export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
     const [nome, setNome] = useState();
@@ -10,7 +11,21 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
     const [medida, setMedida] = useState();
     const [codigoPDV, setCodigoPDV] = useState();
 
-    const handleFormSubmit = async (e) => {
+    if (!isOpen) {
+        return null;
+    }
+
+    if (!selectedProduct) {
+        return null;
+    }
+
+    const pdv = selectedProduct.codigoPDV;
+
+    const deleteProduct = async (pdv) => {
+        await deleteProduto(pdv);
+    }
+
+    const handleFormSubmit = async (e, pdv) => {
         e.preventDefault();
 
         const data = {
@@ -20,29 +35,20 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
             qtdEstoque,
             qtdEstoqueMin,
             medida,
-            codigoPDV,
             statusVenda: true,
         };
-        await editProduto(data);
+
+        await updateProduto(pdv, data);
 
         console.log(data);
     };
-
-    if (!isOpen) {
-        return null;
-    }
-
-    if (!selectedProduct) {
-        return null;
-    }
-    console.log(selectedProduct._id)
 
     return (
         <TodoModal>
             <div className="container">
                 <div className="card">
                     <h1>{selectedProduct.nome} {selectedProduct.codigoPDV}</h1>
-                    <form onSubmit={async (e) => await handleFormSubmit(e).then(onClose)}>
+                    <form onSubmit={async (e) => await handleFormSubmit(e, pdv).then(onClose)}>
                         <div className="label-float">
                             <input
                                 type="number"
@@ -116,7 +122,9 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                             />
                         </div>
                         <div className="display-botoes">
-                            <input type="submit" name="deletar" id="deletar" className="buttons" value="Deletar" />
+                            <input type="submit" name="deletar" id="deletar"
+                             className="buttons" value="Deletar"
+                             onClick={async () => await deleteProduct(pdv).then(onClose)} />
                         </div>
                         <div className="display-botoes">
                             <button className="button-modalc" onClick={onClose}>
