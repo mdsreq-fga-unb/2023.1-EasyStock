@@ -12,7 +12,7 @@ const searchByName = (nome) => Product.find({
 const findByPdvService = (pdv) => Product.findOne({ codigoPDV: pdv });
 
 const updateService = (
-    id,
+    codigoPDV,
     nome,
     precoCusto,
     precoVenda,
@@ -21,7 +21,7 @@ const updateService = (
     medida,
     statusVenda
 ) => Product.findOneAndUpdate(
-    { _id: id },
+    { codigoPDV: codigoPDV },
     { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda }
 )
 

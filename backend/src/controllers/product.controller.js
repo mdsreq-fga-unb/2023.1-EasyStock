@@ -96,10 +96,10 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
         if (!nome && !precoCusto && !precoVenda && !qtdEstoque && !qtdEstoqueMin && !medida && !statusVenda)
             return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
 
-        const { id, product } = req;
+        const { id, product, pdv } = req;
             
         await productService.updateService(
-            id,
+            pdv,
             nome,
             precoCusto,
             precoVenda,
