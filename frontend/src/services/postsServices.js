@@ -28,3 +28,9 @@ export function postProduto(data) {
 
     return response;
 }
+
+export function getAllClients() {
+    const response = api.get(`/cliente`);
+
+    return response;
+}

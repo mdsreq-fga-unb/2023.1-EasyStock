@@ -24,13 +24,17 @@ export function Card({ product, onSelect }) {
 }
 
 export function CardClient({ client }) {
+    //const statusClient = client.statusDivida;
+
     return (
         <Produtos>
-            <td>{client.cliente}</td>
+            <td>{client.nome}</td>
             <td>{client.telefone}</td>
             <td>{client.email}</td>
             <td>{client.divida}</td>
-            <td>{client.statusDivida}</td>
+            {/* <td className={statusClient.toString()}>
+                {client.statusDivida ? "Ativo" : "Inativo"}
+            </td> */}
         </Produtos>
     );
 }
