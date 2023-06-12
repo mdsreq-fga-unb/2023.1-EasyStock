@@ -36,7 +36,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
         <TodoModal>
             <div className="container">
                 <div className="card">
-                    <h3>{selectedProduct.nome}</h3>
+                    <h1>{selectedProduct.nome}</h1>
                     <form onSubmit={async (e) => await handleFormSubmit(e).then(onClose)}>
                         <div className="label-float">
                             <input
