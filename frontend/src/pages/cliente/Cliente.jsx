@@ -13,12 +13,8 @@ import NomeModal from "./NomeModal";
 export default function Cliente() {
     const [openModal, setOpenModal] = useState(false);
     const navigate = useNavigate();
-
     const [selectedClient, setSelectedClient] = useState(null);
     const [openNomeModal, setOpenNomeModal] = useState(false);
-
-
-
     const [clients, setClients] = useState([]);
 
     async function findAllClients() {
