@@ -23,11 +23,14 @@ export function Card({ product, onSelect }) {
     );
 }
 
-export function CardClient({ client }) {
+export function CardClient({ client, onSelect }) {
     //const statusClient = client.statusDivida;
+    const handleClick = () => {
+        onSelect(client);
+    };
 
     return (
-        <Produtos>
+        <Produtos onClick={handleClick}>
             <td>{client.nome}</td>
             <td>{client.telefone}</td>
             <td>{client.email}</td>

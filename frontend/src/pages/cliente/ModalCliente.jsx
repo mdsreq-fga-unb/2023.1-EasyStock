@@ -21,9 +21,10 @@ export default function ModalCliente({ isOpen, onClose }) {
                             <div className="label-float">
                                 <input
                                     type="number"
+                                    any
                                     id="numeroTelefone"
                                     placeholder="Número *"
-                                    required
+                                    
                                 />
                             </div>
                             <div className="label-float">
@@ -31,7 +32,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                                     type="email"
                                     id="email"
                                     placeholder="email *"
-                                    required
+                                    
                                 />
                             </div>
                             <div className="label-float">
