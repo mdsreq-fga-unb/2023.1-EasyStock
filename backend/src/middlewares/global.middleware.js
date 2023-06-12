@@ -28,7 +28,8 @@ export const validProduct = async (req, res, next) => { // Verifica se o produto
             return res.status(400).send({ message: "Produto não encontrado" });
 
         req.id = id;
-        req.product = product;    
+        req.product = product;   
+        req.pdv = pdv; 
 
         next();
     } catch (err) {

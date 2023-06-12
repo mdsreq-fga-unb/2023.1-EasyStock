@@ -29,8 +29,13 @@ export function postProduto(data) {
     return response;
 }
 
+export function deleteProduto(pdv) {
+    const response = api.delete(`/produto/:${pdv}`)
+}
+
 export function getAllClients() {
     const response = api.get(`/cliente`);
 
     return response;
 }
+
