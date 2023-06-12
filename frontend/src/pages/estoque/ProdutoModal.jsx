@@ -110,13 +110,11 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                             />
                         </div>
                         <div className="display-botoes">
-                            <button className="button-modalc" onClick={onClose}>
-                                Fechar
-                            </button>
+                            <input type="submit" name="deletar" id="deletar" className="buttons" value="Deletar" />
                         </div>
                         <div className="display-botoes">
                             <button className="button-modalc" onClick={onClose}>
-                                Excluir produto
+                                Cancelar
                             </button>
                         </div>
                     </form>
