@@ -61,6 +61,14 @@ const router = createBrowserRouter([
                 element: <Private Item={Caixa}/>,
             },
             {
+                path: "/relatorio",
+                element: <Private Item={Erro}/>,
+            },
+            {
+                path: "/dashboard",
+                element: <Private Item={Erro}/>,
+            },
+            {
                 path: "*",
                 element: <Login />,
             }

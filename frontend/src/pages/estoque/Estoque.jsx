@@ -1,7 +1,7 @@
 import { Card } from "../../Card/Card";
 import { NavBar } from "../../components/navBar/NavBar";
 import { products } from "../../Datas";
-import { PesquisaProduto, Tabela } from "../estoque/EstoqueStyled";
+import { Tabela } from "../estoque/EstoqueStyled";
 import EstoqueModal from "../estoque/EstoqueModal";
 import { useState } from "react";
 import { getAllPosts, searchProduct } from "../../services/postsServices";
