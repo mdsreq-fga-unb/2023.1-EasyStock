@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 const PORT = process.env.PORT || 8000;
 
 app.use(cors({
-    origin: "https://easystock.onrender.com"
+    origin: "https://easystock-app.netlify.app"
 }))
 
 app.use("/produto", productRoute); // Rota padrão de produto
