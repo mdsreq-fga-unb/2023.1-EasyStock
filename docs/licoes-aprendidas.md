@@ -5,6 +5,7 @@
 | 18/04/2023 | 0.1 | Criação e estruturação do documentação | Hemanoel,Gustavo,Isaac |
 | 19/04/2023 | 0.2 | Criação, estruturação e preenchimento do documento | Isaac |
 | 18/05/2023 | 0.3 | Lições aprendidas da Unidade 2 | Gustavo |
+| 13/06/2023 | 0.4 | Lições aprendidas da Unidade 3 | Hemanoel,Gustavo,Isaac |
 
 ## 4.1 Unidade 1
 <div style="text-align: justify">
@@ -25,11 +26,13 @@ Definimos os padrões UI do projeto, onde foram definidas as telas, paletas de c
 </div>
 
 
-<!-- ## Unidade 2
+## 4.3 Unidade 3
 
+<div style="text-align: justify">
 
-## Unidade 3
+Durante a Unidade 3, embarcamos na implementação do sistema proposto desde o início da disciplina, aplicando os princípios ágeis, para desenvolver nosso Produto Mais Valioso (MVP) com Node.js, React e MongoDB. Nesse processo, nos deparamos com alguns desafios tecnológicos, e entre a equipe.Apesar dos obstáculos  e dos resultados abaixo do esperado, essas experiências nos forneceram lições para aprimorar nosso trabalho em equipe. Através dos desafios encontrados aprimoramos nossa habilidade de resolver problemas tecnológicos  e ganhamos uma compreensão mais profunda da importância da integração entre as diferentes partes do sistema.Essa etapa também nos incentivou a explorar novas abordagens e estratégias para garantir a qualidade e a eficiência do nosso código. A interação entre o front-end e o back-end se mostrou um ponto crucial, e nosso foco na colaboração e no compartilhamento de conhecimento se intensificou.
 
+</div>
 
 ## Unidade 4 -->
 

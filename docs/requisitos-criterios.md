@@ -92,7 +92,7 @@
 
 | ID | Critérios de Aceitação |
 | -----------|------------------------------------- |
-| <b>[US01]</b>| - O sistema deve ser capaz de exibir o preço de produtos atualizados.<br> - O preço deve ser exibido com o valor correto estabelecido.<br> - Deve ser exibido o nome e a imagem do produto, junto com sua descrição.|
+| <b>[US01]</b>| - O sistema deve ser capaz de exibir o preço de produtos atualizados.<br> - O preço deve ser exibido com o valor correto estabelecido.<br> - Deve ser exibido o nome do produto junto com sua descrição.|
 | <b>[US02]</b>| - O sistema deve exibir o nível de estoque em tempo real.<br> - O nível do estoque deve estar atualizado e correto.<br> - O sistema deve permitir que o usuário visualize o nível de estoque de todos  os produtos. |
 | <b>[US07]</b>| - O sistema deve permitir o gerente visualizar o estoque da loja em tempo real.<br> - O estoque total deve estar atualizado.|
 | <b>[US03]</b>| - O sistema deve permitir que o gerente adicione um produto do catálogo. <br>- O sistema deve pedir ao gerente as informações para adicionar um novo produto nome, quantidade no estoque, descrição e preço. |

@@ -23,7 +23,7 @@
 | Sprint 1 | Criação do documento de Visão do produto e projeto;<br>Construção do GitPages;<br>Inicio da documentação. | 17/04/2023 | 30/04/2023 |
 | Sprint 2 | Criação da estrutura do Backlog;<br>Estabelecimento dos requisitos funcionais e não funcionais;<br> Estabelecimento do MVP1 e MVP2;<br>Idealização do Workflow;<br> Atualização da documentação.| 01/05/2023 | 15/05/2023 |
 | Sprint 3 | Desenvolvimento do MVP1;<br>[US01];<br>[US02];<br>[US03];<br>[US04]. | 16/05/2023 | 30/05/2023 |
-| Sprint 4 |  | 31/05/2023 | 14/06/2023 |
+| Sprint 4 | finalização do MVP1 <br>[US01];<br>[US02];<br>[US03];<br>[US04] <b>[US07]</b>, <b>[US08]</b>,<b>[US10]</b>,<b>[US11]</b>,<b>[US06]</b>,<b>[US09]</b> | 31/05/2023 | 14/06/2023 |
 | Sprint 5 |  | 15/06/2023 | 29/06/2023 |
 | Sprint 6 |  | 30/06/2023 | 14/07/2023 |
 | Sprint 7 |  | 15/07/2023 | 29/07/2023 |
