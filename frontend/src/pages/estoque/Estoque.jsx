@@ -4,7 +4,7 @@ import { products } from "../../Datas";
 import { PesquisaProduto, Tabela } from "../estoque/EstoqueStyled";
 import EstoqueModal from "../estoque/EstoqueModal";
 import { useState } from "react";
-import { getAllPosts } from "../../services/postsServices";
+import { getAllPosts, searchProduct } from "../../services/postsServices";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProdutoModal from "../estoque/ProdutoModal";
