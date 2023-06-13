@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
-
+import { postCliente } from "../../services/postsServices";
 export default function ModalCliente({ isOpen, onClose }) {   
     const [nome, setNome] = useState();
-    const [numeroTelefone, setNumeroTelefone] = useState();
+    const [telefone, setNumeroTelefone] = useState();
     const [email, setEmail] = useState();
-    const [valorDivida, setValorDivida] = useState();
+    const [divida, setValorDivida] = useState();
 
     const createForm = async (e) => {
         e.preventDefault();
 
         const data = {
             nome,
-            numeroTelefone,
+            telefone,
             email,
-            valorDivida,
+            divida,
         };
 
-        await postProduto(data);
+        await postCliente(data);
 
         // Recarrega a página
         window.location.reload();

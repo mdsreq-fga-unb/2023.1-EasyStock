@@ -1,25 +1,12 @@
 import React, { useState } from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
+import { deleteCliente, updateCliente } from "../../services/postsServices";
 
 export default function NomeModal({ isOpen, onClose, selectedClient }) {
-    // const [nome, setNome] = useState();
-    // const [precoCusto, setPrecoCusto] = useState();
-    // const [precoVenda, setPrecoVenda] = useState();
-    // const [qtdEstoque, setQtdEstoque] = useState();
-    // const [qtdEstoqueMin, setQtdEstoqueMin] = useState();
-    // const [medida, setMedida] = useState();
-
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
-
-        const data = {
-            nome,
-            telefone,
-            email,
-            divida,           
-        };
-        await editClient(data);
-    };
+    const [nome, setNome] = useState();
+    const [telefone, setNumeroTelefone] = useState();
+    const [email, setEmail] = useState();
+    const [divida, setValorDivida] = useState();
 
     if (!isOpen) {
         return null;
@@ -29,19 +16,43 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
         return null;
     }
 
+     const name = selectedClient.nome;
+        const deleteClient = async (name) =>{
+            await deleteCliente(name);
+        }
+        
+    const handleFormSubmit = async (e, name) => {
+        e.preventDefault();
+
+       
+
+        const data = {
+            nome,
+            telefone,
+            email,
+            divida,
+        };
+        await updateCliente(name, data);
+    };
+
+
     return (
         <TodoModal>
             <div className="container">
                 <div className="card">
                     <h1>{selectedClient.nome}</h1>
-                    <form onSubmit={async (e) => await handleFormSubmit(e).then(onClose)}>
+                    <form
+                        onSubmit={async (e) =>
+                            await handleFormSubmit(e, name).then(onClose)
+                        }
+                    >
                         <div className="label-float">
                             <input
                                 type="text"
                                 name="nome"
                                 id="nome"
                                 placeholder={`Nome: ${selectedClient.nome}`}
-                                onChange={(e) => setPrecoCusto(e.target.value)}
+                                onChange={(e) => setNome(e.target.value)}
                             />
                         </div>
                         <div className="label-float">
@@ -51,7 +62,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                                 name="numero"
                                 id="numero"
                                 placeholder={`Número: ${selectedClient.telefone}`}
-                                onChange={(e) => setPrecoVenda(e.target.value)}
+                                onChange={(e) => setNumeroTelefone(e.target.value)}
                             />
                         </div>
                         <div className="label-float">
@@ -60,7 +71,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                                 name="email"
                                 id="email"
                                 placeholder={`Email: ${selectedClient.email}`}
-                                onChange={(e) => setNome(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className="label-float">
@@ -69,9 +80,9 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                                 name="qtd"
                                 id="qtd"
                                 placeholder={`Quantidade: ${selectedClient.divida}`}
-                                onChange={(e) => setQtdEstoque(e.target.value)}
+                                onChange={(e) => setValorDivida(e.target.value)}
                             />
-                        </div>                      
+                        </div>
                         <div className="display-botoes">
                             <input
                                 type="submit"
@@ -82,7 +93,16 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                             />
                         </div>
                         <div className="display-botoes">
-                            <input type="submit" name="deletar" id="deletar" className="buttons" value="Deletar" />
+                            <input
+                                type="submit"
+                                name="deletar"
+                                id="deletar"
+                                className="buttons"
+                                value="Deletar"
+                                onClick={async () =>
+                                    await deleteClient(name).then(onClose)
+                                }
+                            />
                         </div>
                         <div className="display-botoes">
                             <button className="button-modalc" onClick={onClose}>
