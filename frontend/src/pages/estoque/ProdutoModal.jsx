@@ -50,7 +50,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
             <div className="container">
                 <div className="card">
                     <h1>
-                        {selectedProduct.nome} {selectedProduct.codigoPDV}
+                        {selectedProduct.nome}
                     </h1>
                     <form
                         onSubmit={async (e) =>

@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/caixa",
-                element: <Private Item={Caixa}/>,
+                element: <Private Item={Erro}/>,
             },
             {
                 path: "/relatorio",

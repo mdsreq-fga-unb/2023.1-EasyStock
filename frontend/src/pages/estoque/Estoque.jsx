@@ -38,7 +38,7 @@ export default function Estoque() {
         <>
             <NavBar />
 
-            <PesquisaCaixa>
+            {/* <PesquisaCaixa>
                 <form>
                     <div>
                         <i className="bi bi-search"></i>
@@ -51,11 +51,10 @@ export default function Estoque() {
                             id="pesquisar"
                             className="buttons"
                             value={"Pesquisar"}
-                            required
                         />
                     </div>
                 </form>
-            </PesquisaCaixa>
+            </PesquisaCaixa> */}
 
             <Tabela>
                 <table>
