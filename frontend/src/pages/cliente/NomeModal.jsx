@@ -16,15 +16,17 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
         return null;
     }
 
-     const name = selectedClient.nome;
-        const deleteClient = async (name) =>{
-            await deleteCliente(name);
-        }
-        
-    const handleFormSubmit = async (e, name) => {
-        e.preventDefault();
+    const id = selectedClient._id;
+    //console.log(id);
 
-       
+    const deleteClient = async (id) =>{
+        await deleteCliente(id);
+
+        window.location.reload();
+    }
+        
+    const handleFormSubmit = async (e, id) => {
+        e.preventDefault();
 
         const data = {
             nome,
@@ -32,7 +34,9 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
             email,
             divida,
         };
-        await updateCliente(name, data);
+        await updateCliente(id, data);
+
+        window.location.reload();
     };
 
 
@@ -43,7 +47,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                     <h1>{selectedClient.nome}</h1>
                     <form
                         onSubmit={async (e) =>
-                            await handleFormSubmit(e, name).then(onClose)
+                            await handleFormSubmit(e, id).then(onClose)
                         }
                     >
                         <div className="label-float">
@@ -100,7 +104,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                                 className="buttons"
                                 value="Deletar"
                                 onClick={async () =>
-                                    await deleteClient(name).then(onClose)
+                                    await deleteClient(id).then(onClose)
                                 }
                             />
                         </div>

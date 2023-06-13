@@ -64,7 +64,6 @@ export default function ModalCliente({ isOpen, onClose }) {
                                     step="any"
                                     id="valorDivida "
                                     placeholder="Valor da Divida"
-                                    required
                                     onChange={(e) => setValorDivida(e.target.value)}
                                 />
                             </div>
