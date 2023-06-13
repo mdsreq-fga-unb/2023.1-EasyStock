@@ -23,7 +23,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
 
     const deleteProduct = async (pdv) => {
         await deleteProduto(pdv);
-    }
+    };
 
     const handleFormSubmit = async (e, pdv) => {
         e.preventDefault();
@@ -40,6 +40,8 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
 
         await updateProduto(pdv, data);
 
+        window.location.reload();
+
         console.log(data);
     };
 
@@ -47,8 +49,14 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
         <TodoModal>
             <div className="container">
                 <div className="card">
-                    <h1>{selectedProduct.nome} {selectedProduct.codigoPDV}</h1>
-                    <form onSubmit={async (e) => await handleFormSubmit(e, pdv).then(onClose)}>
+                    <h1>
+                        {selectedProduct.nome} {selectedProduct.codigoPDV}
+                    </h1>
+                    <form
+                        onSubmit={async (e) =>
+                            await handleFormSubmit(e, pdv).then(onClose)
+                        }
+                    >
                         <div className="label-float">
                             <input
                                 type="number"
@@ -106,7 +114,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                 onChange={(e) => setMedida(e.target.value)}
                             >
                                 <option value="" disabled hidden>
-                                {selectedProduct.medida}
+                                    {selectedProduct.medida}
                                 </option>
                                 <option value="UN">UN</option>
                                 <option value="UN">KG</option>
@@ -122,9 +130,16 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                             />
                         </div>
                         <div className="display-botoes">
-                            <input type="submit" name="deletar" id="deletar"
-                             className="buttons" value="Deletar"
-                             onClick={async () => await deleteProduct(pdv).then(onClose)} />
+                            <input
+                                type="submit"
+                                name="deletar"
+                                id="deletar"
+                                className="buttons"
+                                value="Deletar"
+                                onClick={async () =>
+                                    await deleteProduct(pdv).then(onClose)
+                                }
+                            />
                         </div>
                         <div className="display-botoes">
                             <button className="button-modalc" onClick={onClose}>

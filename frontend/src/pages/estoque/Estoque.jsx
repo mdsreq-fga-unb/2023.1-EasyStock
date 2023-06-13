@@ -1,7 +1,7 @@
 import { Card } from "../../Card/Card";
 import { NavBar } from "../../components/navBar/NavBar";
 import { products } from "../../Datas";
-import { PesquisaProduto, Tabela } from "../estoque/EstoqueStyled";
+import { Tabela } from "../estoque/EstoqueStyled";
 import EstoqueModal from "../estoque/EstoqueModal";
 import { useState } from "react";
 import { getAllPosts, searchProduct } from "../../services/postsServices";
@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProdutoModal from "../estoque/ProdutoModal";
 import { sessionStatus } from "../../contexts/AuthContext";
+import { PesquisaCaixa } from "../caixa/CaixaStyled";
 
 export default function Estoque() {
     const [products, setProducts] = useState([]);
@@ -37,10 +38,24 @@ export default function Estoque() {
         <>
             <NavBar />
 
-            <PesquisaProduto>
-                <i className="bi bi-search"></i>
-                <input type="text" placeholder="Código ou nome do produto" />
-            </PesquisaProduto>
+            <PesquisaCaixa>
+                <form>
+                    <div>
+                        <i className="bi bi-search"></i>
+                        <input type="text" placeholder="Código ou nome" />
+                    </div>
+                    <div>
+                        <input
+                            type="submit"
+                            name="Pesquisar Produto"
+                            id="pesquisar"
+                            className="buttons"
+                            value={"Pesquisar"}
+                            required
+                        />
+                    </div>
+                </form>
+            </PesquisaCaixa>
 
             <Tabela>
                 <table>

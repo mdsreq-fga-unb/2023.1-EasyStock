@@ -63,7 +63,7 @@ export default function Cliente() {
                 </button>
                 <ModalCliente
                     isOpen={openModal}
-                    onClose={() => setOpenModal(!openModal)}
+                    onClose={() => setOpenModal(false)}
                 />
                 <NomeModal
                     isOpen={openNomeModal}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
-import { PesquisaProduto, Tabela } from "../estoque/EstoqueStyled";
+import {Tabela } from "../estoque/EstoqueStyled";
 import { caixas } from "../../Datas";
 import { CardCaixa } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";

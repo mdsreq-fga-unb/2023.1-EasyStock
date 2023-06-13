@@ -1,29 +1,5 @@
 import styled from "styled-components";
 
-export const PesquisaProduto = styled.div`
-    width: 90%;
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
-    margin-left: 1rem;
-    background-color: #77c3d5;
-    border-radius: 0.8rem;
-
-    i.bi-search {
-        margin-left: 1px;
-        padding: 0.6rem;
-    }
-
-    input {
-        outline: none;
-        font-size: 1rem;
-        padding: 0.4rem;
-        background-color: #77c3d5;
-        border: none;
-        width: 78%;
-    }
-`;
-
 export const Tabela = styled.section`
     table {
         background-color: #f4f4ed;

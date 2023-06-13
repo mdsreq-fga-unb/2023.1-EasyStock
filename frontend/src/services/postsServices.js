@@ -59,3 +59,15 @@ export function postCliente(data) {
     
     return response;
 }
+
+export function updateCliente(id, data){
+    const response = api.patch(`/cliente/${id}`, data)
+
+    return response;
+}
+
+export function deleteCliente(id) {
+    const response = api.delete(`/cliente/${id}`);
+
+    return response;
+}
