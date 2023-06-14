@@ -50,7 +50,7 @@ export default function Cliente() {
                     </thead>
                     <tbody>
                         {clients.map((client) => (
-                            <CardClient key={client.id} client={client} onSelect={handleProductSelect}/>
+                            <CardClient key={client._id} client={client} onSelect={handleProductSelect}/>
                         ))}
                     </tbody>
                 </table>
