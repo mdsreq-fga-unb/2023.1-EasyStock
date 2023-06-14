@@ -7,7 +7,7 @@ export function NavBar() {
         <>
             <Nav>
                 <div>
-                    <Link to="/">
+                    <Link to="/inicio">
                         <ImgLogo src={logo} alt="Logo EasyStock" />
                     </Link>
                 </div>

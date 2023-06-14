@@ -44,8 +44,7 @@ export default function Cliente() {
                             <th>Cliente</th>
                             <th>Número</th>
                             <th>Email</th>
-                            <th>Dividendo</th>
-                            {/* <th>Status</th> */}
+                            <th>Dívida</th>
                         </tr>
                     </thead>
                     <tbody>
