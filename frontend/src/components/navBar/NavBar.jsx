@@ -34,6 +34,9 @@ export function NavBar() {
                         <li>
                             <Link to="/dashboard">DASHBOARD</Link>
                         </li>
+                        <li>
+                            <Link to="/">SAIR</Link>
+                        </li>
                     </ul>
                 </BarraPrincipal>
             </Nav>

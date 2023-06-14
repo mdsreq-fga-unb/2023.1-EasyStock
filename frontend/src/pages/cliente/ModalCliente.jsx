@@ -48,7 +48,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                                 <input
                                     type="text"
                                     id="nome"
-                                    placeholder="Nome"
+                                    placeholder="Nome *"
                                     required
                                     onChange={(e) => setNome(e.target.value)}
                                 />
@@ -58,7 +58,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                                 <input
                                     type="number"
                                     id="numeroTelefone"
-                                    placeholder="Número *"
+                                    placeholder="Número"
                                     onChange={(e) =>
                                         setNumeroTelefone(e.target.value)
                                     }
@@ -68,7 +68,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                                 <input
                                     type="email"
                                     id="email"
-                                    placeholder="email *"
+                                    placeholder="email"
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
@@ -76,7 +76,7 @@ export default function ModalCliente({ isOpen, onClose }) {
                                 <input
                                     type="number"
                                     step="any"
-                                    id="valorDivida "
+                                    id="valorDivida"
                                     placeholder="Valor da Divida"
                                     onChange={(e) =>
                                         setValorDivida(e.target.value)

@@ -59,7 +59,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                 <input
                                     type="text"
                                     id="nome"
-                                    placeholder="Nome"
+                                    placeholder="Nome *"
                                     required
                                     onChange={(e) => setNome(e.target.value)}
                                 />
@@ -69,7 +69,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                     type="number"
                                     step="any"
                                     id="precoCusto"
-                                    placeholder="Preço custo"
+                                    placeholder="Preço custo *"
                                     required
                                     onChange={(e) =>
                                         setPrecoCusto(e.target.value)
@@ -81,7 +81,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                     type="number"
                                     step="any"
                                     id="precoVenda"
-                                    placeholder="Preço venda"
+                                    placeholder="Preço venda *"
                                     required
                                     onChange={(e) =>
                                         setPrecoVenda(e.target.value)
@@ -92,7 +92,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                 <input
                                     type="number"
                                     id="qtdEstoque"
-                                    placeholder="Quantidade"
+                                    placeholder="Quantidade *"
                                     required
                                     onChange={(e) =>
                                         setQtdEstoque(e.target.value)
@@ -103,7 +103,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                 <input
                                     type="number"
                                     id="qtdEstoqueMin"
-                                    placeholder="Quantidade mínima"
+                                    placeholder="Quantidade mínima *"
                                     required
                                     onChange={(e) =>
                                         setQtdEstoqueMin(e.target.value)

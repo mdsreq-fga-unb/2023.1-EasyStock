@@ -110,7 +110,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                                 type="number"
                                 name="qtd"
                                 id="qtd"
-                                placeholder={`Quantidade: ${selectedClient.divida}`}
+                                placeholder={`Divida: ${selectedClient.divida}`}
                                 onChange={(e) => setValorDivida(e.target.value)}
                             />
                         </div>

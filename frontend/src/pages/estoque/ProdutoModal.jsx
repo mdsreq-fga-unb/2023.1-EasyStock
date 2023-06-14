@@ -145,7 +145,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                     {selectedProduct.medida}
                                 </option>
                                 <option value="UN">UN</option>
-                                <option value="UN">KG</option>
+                                <option value="KG">KG</option>
                             </select>
                         </div>
                         <div className="display-botoes">
