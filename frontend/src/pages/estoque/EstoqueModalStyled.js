@@ -84,4 +84,8 @@ export const TodoModal = styled.section`
         background-color: #1e5c74;
         font-weight: bolder;
     }
+.separar-botoes{
+    display: flex;
+    justify-content: space-around;
+}
 `;

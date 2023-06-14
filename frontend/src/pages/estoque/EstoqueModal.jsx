@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { TodoModal } from "./EstoqueModalStyled";
-import { useState } from "react";
-import blogFetch from "../../services/postProduto";
 import { postProduto } from "../../services/postsServices";
 
 export default function EstoqueModal({ isOpen, onClose }) {
@@ -13,10 +11,12 @@ export default function EstoqueModal({ isOpen, onClose }) {
     const [medida, setMedida] = useState();
     const [statusVenda, setStatusVenda] = useState();
 
-    const createForm = async (e) => {
-        e.preventDefault();
+    const [showConfirmation, setShowConfirmation] = useState(false); // Estado para controlar a exibição da caixa de diálogo de confirmação
+    const [data, setData] = useState(null); // Variável para armazenar os dados do formulário
 
-        const data = {
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        const formData = {
             nome,
             precoCusto,
             precoVenda,
@@ -25,12 +25,25 @@ export default function EstoqueModal({ isOpen, onClose }) {
             medida,
             statusVenda: true,
         };
-        //console.log(data);
 
-        await postProduto(data);
+        // Armazenar os dados do formulário na variável "data"
+        setData(formData);
 
-        // Recarrega a página
-        window.location.reload();
+        // Mostrar a caixa de diálogo de confirmação
+        setShowConfirmation(true);
+    };
+
+    const handleConfirmation = async (confirmed) => {
+        if (confirmed) {
+            if (data) {
+                // Se o usuário confirmou e os dados do formulário existem
+                await postProduto(data);
+                window.location.reload();
+            }
+        }
+
+        // Fechar a caixa de diálogo de confirmação
+        setShowConfirmation(false);
     };
 
     if (isOpen) {
@@ -39,11 +52,9 @@ export default function EstoqueModal({ isOpen, onClose }) {
                 <div className="container">
                     <div className="card">
                         <h1>Adicionar Produtos</h1>
-                        <form
-                            onSubmit={async (e) =>
-                                await createForm(e).then(onClose)
-                            }
-                        >
+                        <form onSubmit={handleFormSubmit}>
+                            {/* Restante do seu formulário... */}
+
                             <div className="label-float">
                                 <input
                                     type="text"
@@ -123,7 +134,6 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                 />
                             </div>
                             <div className="display-botoes">
-                                {/* <button className="button-modal">Adicionar</button> */}
                                 <button
                                     className="button-modalc"
                                     onClick={onClose}
@@ -134,6 +144,27 @@ export default function EstoqueModal({ isOpen, onClose }) {
                         </form>
                     </div>
                 </div>
+
+                {/* Caixa de diálogo de confirmação */}
+                {showConfirmation && (
+                    <section className="container">
+                        <div className="card">
+                            <p>Deseja adicionar o produto?</p>
+                            <div className="separar-botoes">
+                                <button
+                                    onClick={() => handleConfirmation(true)}
+                                >
+                                    SIM
+                                </button>
+                                <button
+                                    onClick={() => handleConfirmation(false)}
+                                >
+                                    NÃO
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                )}
             </TodoModal>
         );
     }
