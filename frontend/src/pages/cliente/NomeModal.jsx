@@ -7,6 +7,8 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
     const [telefone, setNumeroTelefone] = useState();
     const [email, setEmail] = useState();
     const [divida, setValorDivida] = useState();
+    const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+    const [showUpdateConfirmation, setShowUpdateConfirmation] = useState(false);
 
     if (!isOpen) {
         return null;
@@ -17,14 +19,17 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
     }
 
     const id = selectedClient._id;
-    //console.log(id);
 
-    const deleteClient = async (id) =>{
+    const deleteClient = async (id) => {
         await deleteCliente(id);
-
         window.location.reload();
-    }
-        
+    };
+
+    const updateClient = async (id, data) => {
+        await updateCliente(id, data);
+        window.location.reload();
+    };
+
     const handleFormSubmit = async (e, id) => {
         e.preventDefault();
 
@@ -34,11 +39,31 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
             email,
             divida,
         };
-        await updateCliente(id, data);
-
-        window.location.reload();
+        await updateClient(id, data);
+        onClose();
     };
 
+    const handleDeleteConfirmation = async (confirmed) => {
+        if (confirmed) {
+            await deleteClient(id);
+            onClose();
+        }
+        setShowDeleteConfirmation(false);
+    };
+
+    const handleUpdateConfirmation = async (confirmed) => {
+        if (confirmed) {
+            const data = {
+                nome,
+                telefone,
+                email,
+                divida,
+            };
+            await updateClient(id, data);
+            onClose();
+        }
+        setShowUpdateConfirmation(false);
+    };
 
     return (
         <TodoModal>
@@ -66,7 +91,9 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                                 name="numero"
                                 id="numero"
                                 placeholder={`Número: ${selectedClient.telefone}`}
-                                onChange={(e) => setNumeroTelefone(e.target.value)}
+                                onChange={(e) =>
+                                    setNumeroTelefone(e.target.value)
+                                }
                             />
                         </div>
                         <div className="label-float">
@@ -83,30 +110,33 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                                 type="number"
                                 name="qtd"
                                 id="qtd"
-                                placeholder={`Quantidade: ${selectedClient.divida}`}
+                                placeholder={`Divida: ${selectedClient.divida}`}
                                 onChange={(e) => setValorDivida(e.target.value)}
                             />
                         </div>
                         <div className="display-botoes">
-                            <input
-                                type="submit"
+                            <button
+                                type="button"
                                 name="editar"
                                 id="editar"
                                 className="buttons"
                                 value="Atualizar"
-                            />
+                                onClick={() => setShowUpdateConfirmation(true)} // Mostrar a caixa de diálogo de confirmação
+                            >
+                                Atualizar
+                            </button>
                         </div>
                         <div className="display-botoes">
-                            <input
-                                type="submit"
+                            <button
+                                type="button"
                                 name="deletar"
                                 id="deletar"
                                 className="buttons"
                                 value="Deletar"
-                                onClick={async () =>
-                                    await deleteClient(id).then(onClose)
-                                }
-                            />
+                                onClick={() => setShowDeleteConfirmation(true)} // Mostrar a caixa de diálogo de confirmação
+                            >
+                                Deletar
+                            </button>
                         </div>
                         <div className="display-botoes">
                             <button className="button-modalc" onClick={onClose}>
@@ -116,6 +146,46 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                     </form>
                 </div>
             </div>
+
+            {showDeleteConfirmation && (
+                <section className="container">
+                    <div className="card">
+                        <p>Deseja deletar o cliente?</p>
+                        <div className="separar-botoes">
+                            <button
+                                onClick={() => handleDeleteConfirmation(true)}
+                            >
+                                SIM
+                            </button>
+                            <button
+                                onClick={() => handleDeleteConfirmation(false)}
+                            >
+                                NÃO
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {showUpdateConfirmation && (
+                <section className="container">
+                    <div className="card">
+                        <p>Deseja atualizar o cliente?</p>
+                        <div className="separar-botoes">
+                            <button
+                                onClick={() => handleUpdateConfirmation(true)}
+                            >
+                                SIM
+                            </button>
+                            <button
+                                onClick={() => handleUpdateConfirmation(false)}
+                            >
+                                NÃO
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            )}
         </TodoModal>
     );
 }

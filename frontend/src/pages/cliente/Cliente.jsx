@@ -44,13 +44,12 @@ export default function Cliente() {
                             <th>Cliente</th>
                             <th>Número</th>
                             <th>Email</th>
-                            <th>Dividendo</th>
-                            {/* <th>Status</th> */}
+                            <th>Dívida</th>
                         </tr>
                     </thead>
                     <tbody>
                         {clients.map((client) => (
-                            <CardClient key={client.nome} client={client} onSelect={handleProductSelect}/>
+                            <CardClient key={client._id} client={client} onSelect={handleProductSelect}/>
                         ))}
                     </tbody>
                 </table>

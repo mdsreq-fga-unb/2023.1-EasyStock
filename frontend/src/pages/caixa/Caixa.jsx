@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
 import {Tabela } from "../estoque/EstoqueStyled";
-import { caixas } from "../../Datas";
+//import { caixas } from "../../Datas";
 import { CardCaixa } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
 import { PesquisaCaixa } from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
+import { getAllCaixa } from "../../services/postsServices";
+
 
 export default function Caixa() {
     const [openModal, setOpenModal] = useState(false);
+    const [caixa, setCaixa] = useState([]);
     const navigate = useNavigate();
 
+    async function findAllCaixa(){
+        const response = await getAllCaixa();
+        setCaixa(response.data);
+
+    }
     useEffect(() => {
         sessionStatus(navigate);
+
+        findAllCaixa();
     }, []);
+
 
     return (
         <>
@@ -54,16 +65,16 @@ export default function Caixa() {
                 <table>
                     <thead>
                         <tr>
-                            <th>Item</th>
-                            <th>Qtd</th>
+                            <th>codigoPDV</th>
                             <th>Nome</th>
+                            <th>Qtd</th>
                             <th>Preço unt</th>
                             <th>Preço ttl</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {caixas.map((caixa, index) => (
-                            <CardCaixa key={index} caixa={caixa} />
+                        {caixa.map((caixa) => (
+                            <CardCaixa key={caixa._id} caixa={caixa} />
                         ))}
                     </tbody>
                 </table>

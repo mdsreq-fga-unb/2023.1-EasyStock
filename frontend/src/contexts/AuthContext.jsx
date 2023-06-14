@@ -11,12 +11,18 @@ export const sessionStatus = async (navigate) => {
     }
 }
 
+export const isAuthenticated = async (navigate) => {
+    const authToken = Cookies.get('token');
+
+    if (authToken) {
+        navigate("/inicio");
+    }
+}
+
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
     const [username, setUsername] = useState();
-
-    const isAuthenticated = !!username;
 
     useEffect(() => {
         const { token } = Cookies.get();
@@ -57,8 +63,14 @@ export const AuthProvider = ({ children }) => {
         return false;
     }
 
+    async function signOut() {
+        Cookies.remove('token');
+
+        setUsername(null);
+    }
+
     return (
-        <AuthContext.Provider value={{ username, isAuthenticated, signIn }}>
+        <AuthContext.Provider value={{ username, isAuthenticated, signIn, signOut }}>
             {children}
         </AuthContext.Provider>
     )

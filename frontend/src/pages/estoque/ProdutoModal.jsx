@@ -11,6 +11,9 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
     const [medida, setMedida] = useState();
     const [codigoPDV, setCodigoPDV] = useState();
 
+    const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+    const [showUpdateConfirmation, setShowUpdateConfirmation] = useState(false);
+
     if (!isOpen) {
         return null;
     }
@@ -23,11 +26,16 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
 
     const deleteProduct = async (pdv) => {
         await deleteProduto(pdv);
+        window.location.reload();
+    };
+
+    const updateProduct = async (pdv, data) => {
+        await updateProduto(pdv, data);
+        window.location.reload();
     };
 
     const handleFormSubmit = async (e, pdv) => {
         e.preventDefault();
-
         const data = {
             nome,
             precoCusto,
@@ -38,25 +46,54 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
             statusVenda: true,
         };
 
-        await updateProduto(pdv, data);
+        await updateProduct(pdv, data);
+        onClose();
+    };
 
-        window.location.reload();
+    const handleDeleteConfirmation = async (confirmed) => {
+        if (confirmed) {
+            await deleteProduct(pdv);
+            onClose();
+        }
+        setShowDeleteConfirmation(false);
+    };
 
-        console.log(data);
+    const handleUpdateConfirmation = async (confirmed) => {
+        if (confirmed) {
+            const data = {
+                nome,
+                precoCusto,
+                precoVenda,
+                qtdEstoque,
+                qtdEstoqueMin,
+                medida,
+                statusVenda: true,
+            };
+            await updateProduct(pdv, data);
+            onClose();
+        }
+        setShowUpdateConfirmation(false);
     };
 
     return (
         <TodoModal>
             <div className="container">
                 <div className="card">
-                    <h1>
-                        {selectedProduct.nome}
-                    </h1>
+                    <h1>{selectedProduct.nome}</h1>
                     <form
                         onSubmit={async (e) =>
                             await handleFormSubmit(e, pdv).then(onClose)
                         }
                     >
+                        <div className="label-float">
+                            <input
+                                type="text"
+                                name="nome"
+                                id="nome"
+                                placeholder={`Nome: ${selectedProduct.nome}`}
+                                onChange={(e) => setNome(e.target.value)}
+                            />
+                        </div>
                         <div className="label-float">
                             <input
                                 type="number"
@@ -75,15 +112,6 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                 id="custo"
                                 placeholder={`Preço Venda: ${selectedProduct.precoVenda}`}
                                 onChange={(e) => setPrecoVenda(e.target.value)}
-                            />
-                        </div>
-                        <div className="label-float">
-                            <input
-                                type="text"
-                                name="nome"
-                                id="nome"
-                                placeholder={`Nome: ${selectedProduct.nome}`}
-                                onChange={(e) => setNome(e.target.value)}
                             />
                         </div>
                         <div className="label-float">
@@ -117,28 +145,29 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                     {selectedProduct.medida}
                                 </option>
                                 <option value="UN">UN</option>
-                                <option value="UN">KG</option>
+                                <option value="KG">KG</option>
                             </select>
                         </div>
                         <div className="display-botoes">
-                            <input
-                                type="submit"
-                                name="editar"
-                                id="editar"
+                            <button
+                                type="button"
+                                name="atualizar"
+                                id="atualizar"
                                 className="buttons"
                                 value="Atualizar"
-                            />
+                                onClick={() => setShowUpdateConfirmation(true)} // Mostrar a caixa de diálogo de confirmação
+                            >
+                                Atualizar
+                            </button>
                         </div>
                         <div className="display-botoes">
                             <input
-                                type="submit"
+                                type="button"
                                 name="deletar"
                                 id="deletar"
                                 className="buttons"
                                 value="Deletar"
-                                onClick={async () =>
-                                    await deleteProduct(pdv).then(onClose)
-                                }
+                                onClick={() => setShowDeleteConfirmation(true)} // Mostrar a caixa de diálogo de confirmação
                             />
                         </div>
                         <div className="display-botoes">
@@ -149,6 +178,44 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                     </form>
                 </div>
             </div>
+            {showDeleteConfirmation && (
+                <section className="container">
+                    <div className="card">
+                        <p>Deseja deletar o produto?</p>
+                        <div className="separar-botoes">
+                            <button
+                                onClick={() => handleDeleteConfirmation(true)}
+                            >
+                                SIM
+                            </button>
+                            <button
+                                onClick={() => handleDeleteConfirmation(false)}
+                            >
+                                NÃO
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            )}
+            {showUpdateConfirmation && (
+                <section className="container">
+                    <div className="card">
+                        <p>Deseja Atualizar o produto?</p>
+                        <div className="separar-botoes">
+                            <button
+                                onClick={() => handleUpdateConfirmation(true)}
+                            >
+                                SIM
+                            </button>
+                            <button
+                                onClick={() => handleUpdateConfirmation(false)}
+                            >
+                                NÃO
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            )}
         </TodoModal>
     );
 }

@@ -29,7 +29,7 @@ export const BarraPrincipal = styled.div`
         text-decoration: none;
         color: #444452;
         font-size: 20px;
-        padding: 50px;
+        padding: 40px;
         transition: all 0.3s ease-out;
         text-transform: uppercase;
         :hover {

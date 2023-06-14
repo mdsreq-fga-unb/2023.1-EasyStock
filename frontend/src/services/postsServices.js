@@ -23,8 +23,8 @@ export function searchProduct(nomeProduto) {
     return response;
 }
 
-export function getProductById(id) {
-    const response = api.get(`/produto/:${id}`);
+export function getProductByPdv(pdv) {
+    const response = api.get(`/produto/:${pdv}`);
 
     return response;
 }
@@ -68,6 +68,13 @@ export function updateCliente(id, data){
 
 export function deleteCliente(id) {
     const response = api.delete(`/cliente/${id}`);
+
+    return response;
+}
+
+//Caixa
+export function getAllCaixa() {
+    const response = api.get(`/pedido`);
 
     return response;
 }

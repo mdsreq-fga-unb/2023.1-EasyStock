@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LoginStyled.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { isAuthenticated } from "../../contexts/AuthContext";
 
 
 export default function Login() {
@@ -13,6 +14,11 @@ export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+
+
+    useEffect(() => {
+        isAuthenticated(navigate);
+    }, []);    
 
     async function handleSignIn(data) {
         const res = await signIn(data);
