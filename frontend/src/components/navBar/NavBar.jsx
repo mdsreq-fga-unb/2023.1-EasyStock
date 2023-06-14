@@ -1,8 +1,17 @@
 import logo from "../../images/LOGOeasystock.png";
 import { BarraPrincipal, ImgLogo, Nav } from "./NavBarStyled";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import useAuth from "../../hooks/useAuth";
 
 export function NavBar() {
+    const { signOut } = useAuth();
+
+    async function terminateSession() {
+        await signOut();
+
+        window.location.reload();
+    }
+
     return (
         <>
             <Nav>
@@ -35,7 +44,7 @@ export function NavBar() {
                             <Link to="/dashboard">DASHBOARD</Link>
                         </li>
                         <li>
-                            <Link to="/">SAIR</Link>
+                            <Link onClick={() => terminateSession()}>SAIR</Link>
                         </li>
                     </ul>
                 </BarraPrincipal>
