@@ -71,3 +71,10 @@ export function deleteCliente(id) {
 
     return response;
 }
+
+//Caixa
+export function getAllCaixa() {
+    const response = api.get(`/pedido`);
+
+    return response;
+}
