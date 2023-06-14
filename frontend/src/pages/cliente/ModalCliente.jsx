@@ -1,26 +1,36 @@
 import React, { useState } from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { postCliente } from "../../services/postsServices";
-export default function ModalCliente({ isOpen, onClose }) {   
+export default function ModalCliente({ isOpen, onClose }) {
     const [nome, setNome] = useState();
     const [telefone, setNumeroTelefone] = useState();
     const [email, setEmail] = useState();
     const [divida, setValorDivida] = useState();
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const [data, setData] = useState(null);
 
-    const createForm = async (e) => {
+    const createForm = (e) => {
         e.preventDefault();
 
-        const data = {
+        const formData = {
             nome,
             telefone,
             email,
             divida,
         };
 
-        await postCliente(data);
+        setData(formData);
+        setShowConfirmation(true);
+    };
 
-        // Recarrega a página
-        window.location.reload();
+    const handleConfirmation = async (confirmed) => {
+        if (confirmed) {
+            if (data) {
+                await postCliente(data);
+                window.location.reload();
+            }
+        }
+        setShowConfirmation(false);
     };
 
     if (isOpen) {
@@ -29,7 +39,11 @@ export default function ModalCliente({ isOpen, onClose }) {
                 <div className="container">
                     <div className="card">
                         <h1>Adicionar Cliente</h1>
-                        <form onSubmit={async (e) => await createForm(e).then(onClose)}>
+                        <form
+                            onSubmit={async (e) =>
+                                await createForm(e).then(onClose)
+                            }
+                        >
                             <div className="label-float">
                                 <input
                                     type="text"
@@ -45,8 +59,9 @@ export default function ModalCliente({ isOpen, onClose }) {
                                     type="number"
                                     id="numeroTelefone"
                                     placeholder="Número *"
-                                    onChange={(e) => setNumeroTelefone(e.target.value)}
-                                    
+                                    onChange={(e) =>
+                                        setNumeroTelefone(e.target.value)
+                                    }
                                 />
                             </div>
                             <div className="label-float">
@@ -55,7 +70,6 @@ export default function ModalCliente({ isOpen, onClose }) {
                                     id="email"
                                     placeholder="email *"
                                     onChange={(e) => setEmail(e.target.value)}
-                                    
                                 />
                             </div>
                             <div className="label-float">
@@ -64,7 +78,9 @@ export default function ModalCliente({ isOpen, onClose }) {
                                     step="any"
                                     id="valorDivida "
                                     placeholder="Valor da Divida"
-                                    onChange={(e) => setValorDivida(e.target.value)}
+                                    onChange={(e) =>
+                                        setValorDivida(e.target.value)
+                                    }
                                 />
                             </div>
                             <div className="display-botoes">
@@ -86,6 +102,25 @@ export default function ModalCliente({ isOpen, onClose }) {
                         </form>
                     </div>
                 </div>
+                {showConfirmation && (
+                    <section className="container">
+                        <div className="card">
+                            <p>Deseja adicionar o cliente?</p>
+                            <div className="separar-botoes">
+                                <button
+                                    onClick={() => handleConfirmation(true)}
+                                >
+                                    SIM
+                                </button>
+                                <button
+                                    onClick={() => handleConfirmation(false)}
+                                >
+                                    NÃO
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                )}
             </TodoModal>
         );
     }
