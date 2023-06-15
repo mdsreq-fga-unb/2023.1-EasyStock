@@ -7,10 +7,12 @@ import CaixaModal from "./CaixaModal";
 import { PesquisaCaixa } from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
-import { getAllCaixa, getProductByPdv } from "../../services/postsServices";
+import { getProductByPdv, postPedido } from "../../services/postsServices";
 
 let cont = 0;
 let caixa = [];
+let produtos = [];
+let pedido = { produtos }
 
 export default function Caixa() {
     const [openModal, setOpenModal] = useState(false);
@@ -19,6 +21,7 @@ export default function Caixa() {
     //const [caixa, setCaixa] = useState([]);
     const navigate = useNavigate();
     const [data, setData] = useState(null);
+    const [dataPedido, setDataPedido] = useState(null);
 
     //console.log(cont);
     const handleFormSubmit = async (e) => {
@@ -30,7 +33,7 @@ export default function Caixa() {
 
         const dataProduto = await getProductByPdv(codigoPDV);
 
-        const { nome, precoVenda } = dataProduto.data;
+        const { nome, precoVenda, _id } = dataProduto.data;
 
         const precoTotal = precoVenda*quantidade;
 
@@ -42,14 +45,23 @@ export default function Caixa() {
             precoTotal
         }
 
+        let formDataPedido = {
+            produto: _id,
+            quantidade
+        }
+
         // Armazenar os dados do formulário na variável "data"
         setData(formData);
+        setDataPedido(formDataPedido);
         console.log(formData);
+        console.log(formDataPedido);
 
         //setCaixa(formData);
         caixa[cont] = formData;
+        produtos[cont] = formDataPedido;
         cont++;
         console.log(caixa);
+        console.log(JSON.stringify(pedido));
 
         // Mostrar a caixa de diálogo de confirmação
         //setShowConfirmation(true);
@@ -96,9 +108,7 @@ export default function Caixa() {
                             value={"Adicionar"}
                         />
                     </div>
-                    <div className="valor">
-                        <p> VALOR: "0"</p>
-                    </div>
+
                 </form>
             </PesquisaCaixa>
 
@@ -122,7 +132,7 @@ export default function Caixa() {
                 <div>
                     <button
                         className="botao-principal"
-                        onClick={() => setOpenModal(true)}
+                        onClick={async () => await postPedido(pedido).then(setOpenModal(true))}
                     >
                         Pagamento
                     </button>
