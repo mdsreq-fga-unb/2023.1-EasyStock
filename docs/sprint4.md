@@ -24,7 +24,7 @@ Data término: 14/06/2023
 
 ## Sprint Review
 <div style="text-align: justify"> 
-Feedback do cliente consistiu em como ela queria que fosse realizados as histórias pendentes do MVP1, além de achar o produto atual bom e intuitivo.
+"O feedback do cliente consistiu em como ela queria que as histórias pendentes do MVP1 fossem realizadas, além de achar o produto atual bom e intuitivo. Isso posto e com base no feedback recebido e nas discussões da revisão, o cliente está alinhado, por enquanto, com as histórias implementadas e com o que foi planejado para a implementação das histórias pendentes. Caso necessário, atualizaremos o backlog do produto com requisitos que podem vir a aparecer de acordo com os próximos feedbacks.
 
 </div>
 
@@ -35,12 +35,13 @@ Após discussão e análise, identificamos alguns aspectos positivos que contrib
 </div>
 
 <div style="text-align: justify"> 
-No entanto, também enfrentamos algumas limitações que impactaram nosso desempenho. Enfrentamos problemas de comunicação,obstáculos durante o desenvolvimento e dificuldades na distribuição das tarefas. Assim como melhorias para próxima sprint, além dos aspectos de softskills seriam a conclusão das histórias US10,US11 e US06 por ser algo mais difícil de ser feito, estamos nos empenhando para compreender como fazer para implementar no nosso site.Estamos confiantes de que com esses erros identificados realizaremos a próxima sprint de forma mais eficaz, obtendo resultados ainda melhores.
+No entanto, também enfrentamos algumas limitações que impactaram nosso desempenho. Enfrentamos problemas de comunicação,obstáculos durante o desenvolvimento e dificuldades na distribuição das tarefas. Assim como melhorias para próxima sprint, além dos aspectos de softskills seriam a conclusão das histórias <b>[US10]</b>,<b>[US11]</b> e <b>[US06]</b> por ser algo mais difícil de ser feito, estamos nos empenhando para compreender como fazer para implementar no nosso site.Estamos confiantes de que com esses erros identificados realizaremos a próxima sprint de forma mais eficaz, obtendo resultados ainda melhores.
 </div>
+
 
 ### Histórias Completas
 
-Durante a unidade 3, conseguimos completar as seguintes histórias ,em resumo, do MVP1:
+Durante a sprint 4, conseguimos completar as seguintes histórias ,em resumo, do MVP1:
 
 <b>Finalizamos os débitos técnicos da sprint 3:</b>
 
@@ -68,11 +69,11 @@ Na sprint 4, o desenvolvimento das histórias a baixo são as que a equipe encon
 
 <b>[US11]</b> Finalizar a compra.
 
-<b>[US06]</b> Receber uma notificação de estoque baixo
+<b>[US06]</b> Receber uma notificação de estoque baixo.
 
 ### Práticas utilizadas 
 
-Durante a unidade 3, foram utilizadas o projeto simples, a integração contínua, a posse coletiva, a padronização do código, os small releases e a programação em pares. Porém, não utilizamos a refatoração e os testes unitários mas estão previstos para o próximo sprint. 
+Durante a sprint 4, foram utilizadas o projeto simples, a integração contínua, a posse coletiva, os small releases e a programação em pares. Porém, não utilizamos a refatoração,a padronização do código, e os testes unitários mas estão previstos para o próximo sprint. 
 
  <b> Pair Programming realizado nessa Sprint </b>
 
