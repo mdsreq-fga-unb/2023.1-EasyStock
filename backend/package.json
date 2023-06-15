@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
