@@ -78,3 +78,6 @@ export function postPedido(data) {
 
     return response;
 }
+
+//Pagamento
+ 

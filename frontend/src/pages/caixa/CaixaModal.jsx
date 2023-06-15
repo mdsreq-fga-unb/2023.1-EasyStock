@@ -2,8 +2,10 @@ import React from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { useState } from "react";
 
-export default function ModalCliente({ isOpen, onClose }) {
+export default function ModalCliente({ isOpen, onClose, idPedido }) {
     if (isOpen) {
+
+        console.log(idPedido);
         return (
             <TodoModal>
                 <div className="container">

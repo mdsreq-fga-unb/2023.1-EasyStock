@@ -13,6 +13,7 @@ let cont = 0;
 let caixa = [];
 let produtos = [];
 let pedido = { produtos }
+let resPedido = undefined;
 
 export default function Caixa() {
     const [openModal, setOpenModal] = useState(false);
@@ -133,9 +134,8 @@ export default function Caixa() {
                     <button
                         className="botao-principal"
                         onClick={
-                            async () => await postPedido(pedido)
-                            .then(setOpenModal(true)
-                            .catch(err))
+                            resPedido = async () => await postPedido(pedido)
+                            .then(setOpenModal(true))
                         }
                     >
                         Pagamento
@@ -145,6 +145,7 @@ export default function Caixa() {
                 <CaixaModal
                     isOpen={openModal}
                     onClose={() => setOpenModal(!openModal)}
+                    // idPedido={ resPedido }
                 />
             </Tabela>
         </>
