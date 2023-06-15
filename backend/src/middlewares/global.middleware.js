@@ -96,6 +96,9 @@ export const validOrderProduct = async (req, res, next) => {
         if (qtdExcedida)
             return res.status(400).send({ middleware: 'Quantidade indisponível para compra' });
 
+        if (produtos.length === 0)
+            return res.status(400).send({ middleware: 'Selecione pelo menos um pedido para compra' });
+            
         req.produtos = produtos;    
         next();
     } catch (err) {
