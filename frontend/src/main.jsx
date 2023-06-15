@@ -23,17 +23,6 @@ const Private = ({ Item }) => {
     return signIn > 0 ? <Item /> : <Login />;
 }
 
-// const router = createBrowserRouter([
-//     {
-//         path: "/",
-//         element: <Inicio />,
-//     },
-//     {
-//         path: "/estoque",
-//         element: <Estoque />,
-//     },
-// ]);
-
 const router = createBrowserRouter([
     {
         path: "/",
@@ -75,24 +64,6 @@ const router = createBrowserRouter([
         ],
     },
 ]);
-
-
-
-// const RoutesApp = () => {
-//         <BrowserRouter>
-//             <Fragment>
-//                 <Routes>
-//                     <Route path="/" element={<App />}/>
-//                     <Route path="/" element={<Login />}/>
-//                     <Route exact path="/inicio" element={<Private Item={Inicio}/>}/>
-//                     <Route exact path="/estoque" element={<Private Item={Estoque}/>}/>
-//                     <Route exact path="/cliente" element={<Private Item={Cliente}/>}/>
-//                     <Route exact path="/caixa" element={<Private Item={Caixa}/>}/>
-//                     <Route path="*" element={<Login />}/>
-//                 </Routes>
-//             </Fragment>
-//         </BrowserRouter>
-// }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>

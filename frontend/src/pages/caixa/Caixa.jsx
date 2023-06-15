@@ -19,12 +19,10 @@ export default function Caixa() {
     const [openModal, setOpenModal] = useState(false);
     const [codigoPDV, setCodigoPDV] = useState();
     const [quantidade, setQuantidade] = useState();
-    //const [caixa, setCaixa] = useState([]);
     const navigate = useNavigate();
     const [data, setData] = useState(null);
     const [dataPedido, setDataPedido] = useState(null);
 
-    //console.log(cont);
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         let formData = {
@@ -54,15 +52,10 @@ export default function Caixa() {
         // Armazenar os dados do formulário na variável "data"
         setData(formData);
         setDataPedido(formDataPedido);
-        console.log(formData);
-        console.log(formDataPedido);
 
-        //setCaixa(formData);
         caixa[cont] = formData;
         produtos[cont] = formDataPedido;
         cont++;
-        console.log(caixa);
-        console.log(JSON.stringify(pedido));
 
         // Mostrar a caixa de diálogo de confirmação
         //setShowConfirmation(true);
@@ -70,8 +63,6 @@ export default function Caixa() {
 
     useEffect(() => {
         sessionStatus(navigate);
-
-        //findAllCaixa();
     }, []);
 
 
