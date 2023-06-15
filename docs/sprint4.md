@@ -23,17 +23,22 @@ Data término: 14/06/2023
 
 
 ## Sprint Review
-
+<div style="text-align: justify"> 
 Feedback do cliente consistiu em como ela queria que fosse realizados as histórias pendentes do MVP1, além de achar o produto atual bom e intuitivo.
-O vídeo do feedback da cliente está localizado na aba de entrega da unidade.
+
+</div>
 
 ## Sprint Retrospective
 
+<div style="text-align: justify"> 
 Após discussão e análise, identificamos alguns aspectos positivos que contribuíram para o nosso progresso na sprint. A prática de programação em duplas promoveu uma colaboração eficiente, auxiliando na garantia da qualidade do código. Além disso, a utilização da integração contínua nos commits nos permitiu manter um trabalho sincronizado.
+</div>
 
+<div style="text-align: justify"> 
 No entanto, também enfrentamos algumas limitações que impactaram nosso desempenho. Enfrentamos problemas de comunicação,obstáculos durante o desenvolvimento e dificuldades na distribuição das tarefas. Assim como melhorias para próxima sprint, além dos aspectos de softskills seriam a conclusão das histórias US10,US11 e US06 por ser algo mais difícil de ser feito, estamos nos empenhando para compreender como fazer para implementar no nosso site.Estamos confiantes de que com esses erros identificados realizaremos a próxima sprint de forma mais eficaz, obtendo resultados ainda melhores.
+</div>
 
-### Histórias Completadas
+### Histórias Completas
 
 Durante a unidade 3, conseguimos completar as seguintes histórias ,em resumo, do MVP1:
 
@@ -47,7 +52,7 @@ Durante a unidade 3, conseguimos completar as seguintes histórias ,em resumo, d
 
 <b>[US04]</b> Remover um produto do catálogo.
 
-<b>Histórias novas completadas:</b>
+<b>Histórias novas completas:</b>
 
 <b>[US07]</b> Visualizar o estoque total da loja em tempo real.
 
@@ -65,7 +70,7 @@ Na sprint 4, o desenvolvimento das histórias a baixo são as que a equipe encon
 
 <b>[US06]</b> Receber uma notificação de estoque baixo
 
-#### Práticas utilizadas 
+### Práticas utilizadas 
 
 Durante a unidade 3, foram utilizadas o projeto simples, a integração contínua, a posse coletiva, a padronização do código, os small releases e a programação em pares. Porém, não utilizamos a refatoração e os testes unitários mas estão previstos para o próximo sprint. 
 
@@ -78,6 +83,6 @@ Durante a unidade 3, foram utilizadas o projeto simples, a integração contínu
 | Isaac/Gustavo | - Integração Frontend e Backend | 12/06/2023 |
 | Isaac/Gustavo | - Integração Frontend e Backend | 14/06/2023 |
 
-#### CI Test
+### CI Test
 
 A integração contínua foi implementada e já está em uso através de um workflow no GitHub. Os testes unitários estão em fase de andamento e algumas funcionalidades já estão passíveis de serem testadas. 
