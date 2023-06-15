@@ -7,23 +7,58 @@ import CaixaModal from "./CaixaModal";
 import { PesquisaCaixa } from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
-import { getAllCaixa } from "../../services/postsServices";
+import { getAllCaixa, getProductByPdv } from "../../services/postsServices";
 
+let cont = 0;
+let caixa = [];
 
 export default function Caixa() {
     const [openModal, setOpenModal] = useState(false);
-    const [caixa, setCaixa] = useState([]);
+    const [codigoPDV, setCodigoPDV] = useState();
+    const [quantidade, setQuantidade] = useState();
+    //const [caixa, setCaixa] = useState([]);
     const navigate = useNavigate();
+    const [data, setData] = useState(null);
 
-    async function findAllCaixa(){
-        const response = await getAllCaixa();
-        setCaixa(response.data);
+    //console.log(cont);
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        let formData = {
+            codigoPDV,
+            quantidade
+        };
 
-    }
+        const dataProduto = await getProductByPdv(codigoPDV);
+
+        const { nome, precoVenda } = dataProduto.data;
+
+        const precoTotal = precoVenda*quantidade;
+
+        formData = {
+            codigoPDV,
+            quantidade,
+            nome,
+            precoVenda,
+            precoTotal
+        }
+
+        // Armazenar os dados do formulário na variável "data"
+        setData(formData);
+        console.log(formData);
+
+        //setCaixa(formData);
+        caixa[cont] = formData;
+        cont++;
+        console.log(caixa);
+
+        // Mostrar a caixa de diálogo de confirmação
+        //setShowConfirmation(true);
+    };
+
     useEffect(() => {
         sessionStatus(navigate);
 
-        findAllCaixa();
+        //findAllCaixa();
     }, []);
 
 
@@ -32,10 +67,15 @@ export default function Caixa() {
             <NavBar />
 
             <PesquisaCaixa>
-                <form>
+                <form onSubmit={handleFormSubmit}>
                     <div>
                         <i className="bi bi-search"></i>
-                        <input type="text" placeholder="Código ou nome" />
+                        <input 
+                            type="number"
+                            placeholder="Código do produto"
+                            required
+                            onChange={(e) => setCodigoPDV(e.target.value)} 
+                        />
                     </div>
                     <div>
                         <input
@@ -44,6 +84,7 @@ export default function Caixa() {
                             id="qtd"
                             placeholder="Quantidade"
                             required
+                            onChange={(e) => setQuantidade(e.target.value)}
                         />
                     </div>
                     <div>
@@ -65,16 +106,16 @@ export default function Caixa() {
                 <table>
                     <thead>
                         <tr>
-                            <th>codigoPDV</th>
+                            <th>Código PDV</th>
                             <th>Nome</th>
-                            <th>Qtd</th>
-                            <th>Preço unt</th>
-                            <th>Preço ttl</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Preço Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         {caixa.map((caixa) => (
-                            <CardCaixa key={caixa._id} caixa={caixa} />
+                            <CardCaixa key={caixa.codigoPDV} caixa={caixa} />
                         ))}
                     </tbody>
                 </table>

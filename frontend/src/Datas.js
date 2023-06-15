@@ -62,7 +62,7 @@ export const caixas = [
         qtdEstoqueP: 10,
         nomeP: "Açaí 750mL",
         precoUniP: 7,
-        precoVendaP: 11.5,
+        precoVendaP: 10,
         
     },
     {

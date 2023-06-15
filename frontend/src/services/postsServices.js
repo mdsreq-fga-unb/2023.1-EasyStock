@@ -24,7 +24,7 @@ export function searchProduct(nomeProduto) {
 }
 
 export function getProductByPdv(pdv) {
-    const response = api.get(`/produto/:${pdv}`);
+    const response = api.get(`/produto/${pdv}`);
 
     return response;
 }

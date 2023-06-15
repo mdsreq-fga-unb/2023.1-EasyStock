@@ -40,11 +40,11 @@ export function CardClient({ client, onSelect }) {
 export function CardCaixa({ caixa }) {
     return (
         <Produtos>
-            <td>{caixa.itemP}</td>
-            <td>{caixa.qtdEstoqueP}</td>
-            <td>{caixa.nomeP}</td>
-            <td>{caixa.precoUniP}</td>
-            <td>{caixa.precoVendaP}</td>
+            <td>{caixa.codigoPDV}</td>
+            <td>{caixa.nome}</td>
+            <td>{caixa.quantidade}</td>
+            <td>{caixa.precoVenda}</td>
+            <td>{caixa.precoTotal}</td>
         </Produtos>
     );
 }
