@@ -132,7 +132,11 @@ export default function Caixa() {
                 <div>
                     <button
                         className="botao-principal"
-                        onClick={async () => await postPedido(pedido).then(setOpenModal(true))}
+                        onClick={
+                            async () => await postPedido(pedido)
+                            .then(setOpenModal(true)
+                            .catch(err))
+                        }
                     >
                         Pagamento
                     </button>
