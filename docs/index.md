@@ -8,11 +8,13 @@ O produto desenvolvido pela equipe EasyStock, formada por acadêmicos da Univers
 
 | Aluno     | Matrícula |
 |-----------|-----------|
+| Daniela   | 211041123 |
+| Gustavo   | 211039457 |
 | Hemanoel  | 200061674 |
 | Isaac     | 211031735 |
 | Milena    | 211062339 |
-| Gustavo   | 211039457 |
-| Daniela   | 211041123 |
+
+
 
 
 
