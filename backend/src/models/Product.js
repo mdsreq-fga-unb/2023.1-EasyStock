@@ -7,7 +7,14 @@ const ProductSchema = new mongoose.Schema({
     },
     precoCusto: {
         type: Number,
-        required: true
+        required: true,
+        //talvez impede que o valor de venda seja maior
+        validate: {
+            validator: function (value) {
+                return value <= this.precoVenda;
+            },
+            message: 'O preço de custo não pode ser maior que o preço de venda.'
+        }
     },
     precoVenda: {
         type: Number,
