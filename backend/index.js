@@ -1,6 +1,6 @@
 import express from 'express';
 import connectDatabase from './src/database/db.js';
-import dotenv from 'dotenv';
+import "dotenv/config";
 import cors from 'cors';
 
 // Rotas
@@ -11,13 +11,14 @@ import orderRoute from './src/routes/order.route.js';
 import paymentRoute from './src/routes/payment.route.js';
 
 const app = express();
-dotenv.config(); // Habilitando o uso do .env
+//dotenv.config(); //Habilitando o uso do .env
 
 connectDatabase();
 app.use(express.json()); // Habilitando uso do JSON no express
 app.use(express.urlencoded({ extended: false }));
 
 const PORT = process.env.PORT || 8000;
+console.log(process.env.ADMIN_USERNAME)
 
 app.use(cors({
     origin: "http://localhost:5173"
@@ -32,5 +33,7 @@ app.use("/pagamento", paymentRoute); // Rota padrão de pagamento
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
+
+
 
 
