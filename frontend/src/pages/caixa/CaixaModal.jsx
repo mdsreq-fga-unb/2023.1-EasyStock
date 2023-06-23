@@ -2,8 +2,10 @@ import React from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { useState } from "react";
 
-export default function ModalCliente({ isOpen, onClose }) {
+export default function ModalCliente({ isOpen, onClose, idPedido }) {
     if (isOpen) {
+
+        console.log(idPedido);
         return (
             <TodoModal>
                 <div className="container">
@@ -11,19 +13,21 @@ export default function ModalCliente({ isOpen, onClose }) {
                         <h1>Pagamentos</h1>
                         <form onSubmit={(e) => createForm(e)}>
                             <div className="label-float">
-                                <label htmlFor="medida">
+                                <label htmlFor="pagamento">
                                     Tipo de pagamento:
                                 </label>
                                 <select
-                                    id="medida"
+                                    id="pagamento"
                                     onChange={(e) => setMedida(e.target.value)}
                                 >
-                                    <option value="C">Cartão</option>
-                                    <option value="PD">pix/dinheiro</option>
-                                    <option value="F">Fiado</option>
+                                    <option value="CR">Crédito</option>
+                                    <option value="DB">Débito</option>
+                                    <option value="PX">PIX</option>
+                                    <option value="DN">Dinheiro</option>
+                                    <option value="FD">Fiado</option>
                                 </select>
                             </div>
-                            <div className="label-float">
+                             {/* <div className="label-float">
                                 <input
                                     type="number"
                                     step="any"
@@ -39,17 +43,18 @@ export default function ModalCliente({ isOpen, onClose }) {
                                     id="preco"
                                     placeholder="Troco"
                                     required
-                                />
-                            </div>
+                                /> 
+                            </div> */}
                             <div className="label-float">
-                                <label htmlFor="medida">Tipo de entrega:</label>
+                                <label htmlFor="entrega">Tipo de entrega:</label>
                                 <select
-                                    id="medida"
+                                    id="entrega"
                                     onChange={(e) => setMedida(e.target.value)}
                                 >
-                                    <option value="UN">presencial</option>
-                                    <option value="KG">ifood</option>
-                                    <option value="KG">mototaxi</option>
+                                    <option value="SE">Sem Entrega</option>
+                                    <option value="LJ">Loja</option>
+                                    <option value="AP">Aplicativo</option>
+
                                 </select>
                             </div>
                             <div className="display-botoes">

@@ -24,7 +24,7 @@ export function searchProduct(nomeProduto) {
 }
 
 export function getProductByPdv(pdv) {
-    const response = api.get(`/produto/:${pdv}`);
+    const response = api.get(`/produto/${pdv}`);
 
     return response;
 }
@@ -73,8 +73,11 @@ export function deleteCliente(id) {
 }
 
 //Caixa
-export function getAllCaixa() {
-    const response = api.get(`/pedido`);
+export function postPedido(data) {
+    const response = api.post(`/pedido`, data);
 
     return response;
 }
+
+//Pagamento
+ 

@@ -11,6 +11,8 @@ const searchByName = (nome) => Product.find({
 
 const findByPdvService = (pdv) => Product.findOne({ codigoPDV: pdv });
 
+const findByIdService = (id) => Product.findById(id);
+
 const updateService = (
     codigoPDV,
     nome,
@@ -32,6 +34,7 @@ export default {
     findAllService,
     searchByName,
     findByPdvService,
+    findByIdService,
     updateService,
     deleteService
 }
