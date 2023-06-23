@@ -9,7 +9,7 @@ import { Fragment } from "react";
 import { createBrowserRouter, RouterProvider, Route, Routes, BrowserRouter } from "react-router-dom";
 
 //importando paginas
-import Inicio from "./pages/Inicio/Inicio.jsx";
+import Inicio from "./pages/inicio/Inicio.jsx";
 import Estoque from "./pages/estoque/Estoque.jsx";
 import Erro from "./pages/erro/Error.jsx";
 import Cliente from "./pages/cliente/Cliente.jsx";
