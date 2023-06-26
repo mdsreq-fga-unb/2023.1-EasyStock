@@ -1,30 +1,68 @@
 import React from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { useState } from "react";
+import { postPagamento } from "../../services/postsServices";
 
 export default function ModalCliente({ isOpen, onClose, idPedido }) {
-    if (isOpen) {
+    const [tipoPagamento, setTipoPagamento] = useState();
+    const [tipoEntrega, setTipoEntrega] = useState();
 
-        console.log(idPedido);
+    const [showConfirmation, setShowConfirmation] = useState(false); // Estado para controlar a exibição da caixa de diálogo de confirmação
+    const [data, setData] = useState(null); // Variável para armazenar os dados do formulário
+    
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        const formData = {
+            pedido: idPedido.data.Order._id,
+            tipoPagamento,
+            tipoEntrega
+        };
+
+        // Armazenar os dados do formulário na variável "data"
+        setData(formData);
+        console.log(formData);
+
+        // Mostrar a caixa de diálogo de confirmação
+        setShowConfirmation(true);
+    };
+
+    const handleConfirmation = async (confirmed) => {
+        if (confirmed) {
+            if (data) {
+                // Se o usuário confirmou e os dados do formulário existem
+                await postPagamento(data);
+                window.location.reload();
+            }
+        }
+
+        // Fechar a caixa de diálogo de confirmação
+        setShowConfirmation(false);
+    };
+
+    if (isOpen) {
         return (
             <TodoModal>
                 <div className="container">
                     <div className="card">
                         <h1>Pagamentos</h1>
-                        <form onSubmit={(e) => createForm(e)}>
+                        <form onSubmit={handleFormSubmit}>
                             <div className="label-float">
                                 <label htmlFor="pagamento">
                                     Tipo de pagamento:
                                 </label>
                                 <select
+                                    name="pagamento"
                                     id="pagamento"
-                                    onChange={(e) => setMedida(e.target.value)}
+                                    defaultValue="Crédito"
+                                    required
+                                    onChange={(e) => setTipoPagamento(e.target.value)}
                                 >
-                                    <option value="CR">Crédito</option>
-                                    <option value="DB">Débito</option>
-                                    <option value="PX">PIX</option>
-                                    <option value="DN">Dinheiro</option>
-                                    <option value="FD">Fiado</option>
+                                    <option value="Crédito">Crédito</option>
+                                    <option value="Débito">Débito</option>
+                                    <option value="PIX">PIX</option>
+                                    <option value="Dinheiro">Dinheiro</option>
+                                    <option value="Fiado">Fiado</option>
                                 </select>
                             </div>
                              {/* <div className="label-float">
@@ -48,12 +86,15 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
                             <div className="label-float">
                                 <label htmlFor="entrega">Tipo de entrega:</label>
                                 <select
+                                    name="entrega"
                                     id="entrega"
-                                    onChange={(e) => setMedida(e.target.value)}
+                                    defaultValue="Sem Entrega"
+                                    required
+                                    onChange={(e) => setTipoEntrega(e.target.value)}
                                 >
-                                    <option value="SE">Sem Entrega</option>
-                                    <option value="LJ">Loja</option>
-                                    <option value="AP">Aplicativo</option>
+                                    <option value="Sem Entrega">Sem Entrega</option>
+                                    <option value="Loja">Loja</option>
+                                    <option value="Aplicativo">Aplicativo</option>
 
                                 </select>
                             </div>
@@ -78,6 +119,27 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
                         </form>
                     </div>
                 </div>
+
+                {/* Caixa de diálogo de confirmação */}
+                {showConfirmation && (
+                    <section className="container">
+                        <div className="card">
+                            <p>Deseja finalizar o pagamento?</p>
+                            <div className="separar-botoes">
+                                <button
+                                    onClick={() => handleConfirmation(true)}
+                                >
+                                    SIM
+                                </button>
+                                <button
+                                    onClick={() => handleConfirmation(false)}
+                                >
+                                    NÃO
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                )}
             </TodoModal>
         );
     }

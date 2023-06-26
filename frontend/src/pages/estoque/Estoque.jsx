@@ -64,7 +64,7 @@ export default function Estoque() {
                             <th>Preço Custo</th>
                             <th>Preço venda</th>
                             <th>Qtd Estoque</th>
-                            <th>Qtd Min</th>
+                            <th>Qtd Min Estoque</th>
                             <th>Medida</th>
                             <th>CódigoPDV</th>
                             <th>Status</th>

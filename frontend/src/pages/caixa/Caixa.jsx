@@ -13,7 +13,7 @@ let cont = 0;
 let caixa = [];
 let produtos = [];
 let pedido = { produtos }
-let resPedido = undefined;
+let re = undefined;
 
 export default function Caixa() {
     const [openModal, setOpenModal] = useState(false);
@@ -21,6 +21,7 @@ export default function Caixa() {
     const [quantidade, setQuantidade] = useState();
     const navigate = useNavigate();
     const [data, setData] = useState(null);
+    const [modalData, setModalData] = useState(null);
     const [dataPedido, setDataPedido] = useState(null);
 
     const handleFormSubmit = async (e) => {
@@ -61,8 +62,20 @@ export default function Caixa() {
         //setShowConfirmation(true);
     };
 
+    async function resPedido(pedido) {
+        const res = await postPedido(pedido);
+
+        setModalData(res);
+
+        setOpenModal(true);
+    
+        return res.data;
+    }
+
     useEffect(() => {
         sessionStatus(navigate);
+
+        //console.log(resPedido);
     }, []);
 
 
@@ -125,8 +138,7 @@ export default function Caixa() {
                     <button
                         className="botao-principal"
                         onClick={
-                            resPedido = async () => await postPedido(pedido)
-                            .then(setOpenModal(true))
+                           async () => {await resPedido(pedido)}
                         }
                     >
                         Pagamento
@@ -136,7 +148,7 @@ export default function Caixa() {
                 <CaixaModal
                     isOpen={openModal}
                     onClose={() => setOpenModal(!openModal)}
-                    // idPedido={ resPedido }
+                    idPedido={modalData}
                 />
             </Tabela>
         </>
