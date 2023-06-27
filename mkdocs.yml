@@ -22,6 +22,8 @@ nav:
     - Workflow: 'workflow.md'  
     - Entregas:
         - 'Vídeos': 'unidade1.md'
+    - Testes:
+        - 'Estrategia de testes': 'teste.md'
         
 theme: 
     name: material
