@@ -1,24 +1,26 @@
 import React from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { postPagamento } from "../../services/postsServices";
 
 export default function ModalCliente({ isOpen, onClose, idPedido }) {
     const [tipoPagamento, setTipoPagamento] = useState();
     const [tipoEntrega, setTipoEntrega] = useState();
+    const [valorPago, setValorPago] = useState();
+    const [troco, setTroco] = useState(0);
 
     const [showConfirmation, setShowConfirmation] = useState(false); // Estado para controlar a exibição da caixa de diálogo de confirmação
     const [data, setData] = useState(null); // Variável para armazenar os dados do formulário
-    
-
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         const formData = {
             pedido: idPedido.data.Order._id,
             tipoPagamento,
-            tipoEntrega
-        };
+            tipoEntrega,
+            valorPago,
+            troco,
 
+        };
         // Armazenar os dados do formulário na variável "data"
         setData(formData);
         console.log(formData);
@@ -31,6 +33,7 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
         if (confirmed) {
             if (data) {
                 // Se o usuário confirmou e os dados do formulário existem
+
                 await postPagamento(data);
                 window.location.reload();
             }
@@ -40,13 +43,45 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
         setShowConfirmation(false);
     };
 
+    useEffect(() => {
+        if (idPedido && idPedido.data) {
+            const valorTotal = idPedido.data.Order.precoTotal;
+            let valorTroco = valorPago - valorTotal;
+            valorTroco = valorTroco >= 0 ? valorTroco : 0;
+            setTroco(valorTroco);
+        } else {
+            setTroco(0);
+        }
+    }, [valorPago, idPedido]);
+
     if (isOpen) {
+        const valorTotal =
+            idPedido && idPedido.data ? idPedido.data.Order.precoTotal : 0;
         return (
             <TodoModal>
                 <div className="container">
                     <div className="card">
                         <h1>Pagamentos</h1>
                         <form onSubmit={handleFormSubmit}>
+                            <div className="label-float">
+                                <label htmlFor="ValorTotal">
+                                    Valor total: R$ {valorTotal}
+                                </label>
+                            </div>
+
+                            <div className="label-float">
+                                <input
+                                    type="number"
+                                    step="any"
+                                    placeholder="Valor Pago:  "
+                                    value={valorPago}
+                                    onChange={(e) =>
+                                        setValorPago(parseFloat(e.target.value))
+                                    }
+                                />
+                            </div>
+
+
                             <div className="label-float">
                                 <label htmlFor="pagamento">
                                     Tipo de pagamento:
@@ -56,7 +91,9 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
                                     id="pagamento"
                                     defaultValue="Crédito"
                                     required
-                                    onChange={(e) => setTipoPagamento(e.target.value)}
+                                    onChange={(e) =>
+                                        setTipoPagamento(e.target.value)
+                                    }
                                 >
                                     <option value="Crédito">Crédito</option>
                                     <option value="Débito">Débito</option>
@@ -65,39 +102,51 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
                                     <option value="Fiado">Fiado</option>
                                 </select>
                             </div>
-                             {/* <div className="label-float">
+                            {/* <div className="label-float">
                                 <input
                                     type="number"
                                     step="any"
                                     id="Qtd"
                                     placeholder="Valor recebido"
                                     required
-                                />
-                            </div>
-                            <div className="label-float">
-                                <input
+                                    />
+                                    </div>
+                                    <div className="label-float">
+                                    <input
                                     type="number"
                                     step="any"
                                     id="preco"
                                     placeholder="Troco"
                                     required
-                                /> 
-                            </div> */}
+                                    /> 
+                                </div> */}
                             <div className="label-float">
-                                <label htmlFor="entrega">Tipo de entrega:</label>
+                                <label htmlFor="entrega">
+                                    Tipo de entrega:
+                                </label>
                                 <select
                                     name="entrega"
                                     id="entrega"
                                     defaultValue="Sem Entrega"
                                     required
-                                    onChange={(e) => setTipoEntrega(e.target.value)}
+                                    onChange={(e) =>
+                                        setTipoEntrega(e.target.value)
+                                    }
                                 >
-                                    <option value="Sem Entrega">Sem Entrega</option>
+                                    <option value="Sem Entrega">
+                                        Sem Entrega
+                                    </option>
                                     <option value="Loja">Loja</option>
-                                    <option value="Aplicativo">Aplicativo</option>
-
+                                    <option value="Aplicativo">
+                                        Aplicativo
+                                    </option>
                                 </select>
                             </div>
+                                <div className="label-float">
+                                    <label htmlFor="troco">
+                                        TROCO: {troco}
+                                    </label>
+                                </div>
                             <div className="display-botoes">
                                 <input
                                     type="submit"
