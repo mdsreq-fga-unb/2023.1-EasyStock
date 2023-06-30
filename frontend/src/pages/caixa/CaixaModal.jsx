@@ -65,7 +65,7 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
                         <form onSubmit={handleFormSubmit}>
                             <div className="label-float">
                                 <label htmlFor="ValorTotal">
-                                    Valor total: R$ {valorTotal}
+                                    Valor total:{valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                                 </label>
                             </div>
 
@@ -78,6 +78,7 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
                                     onChange={(e) =>
                                         setValorPago(parseFloat(e.target.value))
                                     }
+                                    required
                                 />
                             </div>
 
@@ -144,7 +145,7 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
                             </div>
                                 <div className="label-float">
                                     <label htmlFor="troco">
-                                        TROCO: {troco}
+                                        TROCO: {troco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                                     </label>
                                 </div>
                             <div className="display-botoes">
