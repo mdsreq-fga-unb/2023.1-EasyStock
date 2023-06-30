@@ -68,7 +68,6 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                     onChange={(e) =>
                                         setValorPago(parseFloat(e.target.value))
                                     }
-                                    required
                                 />
                             </div>
 
