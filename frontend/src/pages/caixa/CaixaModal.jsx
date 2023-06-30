@@ -1,9 +1,9 @@
 import React from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { useState, useEffect } from "react";
-import { postPagamento } from "../../services/postsServices";
+import { postPedido } from "../../services/postsServices";
 
-export default function ModalCliente({ isOpen, onClose, idPedido }) {
+export default function ModalCliente({ isOpen, onClose, infoPedido }) {
     const [tipoPagamento, setTipoPagamento] = useState();
     const [tipoEntrega, setTipoEntrega] = useState();
     const [valorPago, setValorPago] = useState();
@@ -14,16 +14,13 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         const formData = {
-            pedido: idPedido.data.Order._id,
+            produtos: infoPedido.produtos,
+            //cliente,
             tipoPagamento,
-            tipoEntrega,
-            valorPago,
-            troco,
-
+            tipoEntrega
         };
         // Armazenar os dados do formulário na variável "data"
         setData(formData);
-        console.log(formData);
 
         // Mostrar a caixa de diálogo de confirmação
         setShowConfirmation(true);
@@ -34,7 +31,7 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
             if (data) {
                 // Se o usuário confirmou e os dados do formulário existem
 
-                await postPagamento(data);
+                await postPedido(data);
                 window.location.reload();
             }
         }
@@ -44,19 +41,19 @@ export default function ModalCliente({ isOpen, onClose, idPedido }) {
     };
 
     useEffect(() => {
-        if (idPedido && idPedido.data) {
-            const valorTotal = idPedido.data.Order.precoTotal;
+        if (infoPedido) {
+            const valorTotal = infoPedido.valorTotal[0];
             let valorTroco = valorPago - valorTotal;
             valorTroco = valorTroco >= 0 ? valorTroco : 0;
             setTroco(valorTroco);
         } else {
             setTroco(0);
         }
-    }, [valorPago, idPedido]);
+    }, [valorPago, infoPedido]);
 
     if (isOpen) {
         const valorTotal =
-            idPedido && idPedido.data ? idPedido.data.Order.precoTotal : 0;
+            infoPedido ? infoPedido.valorTotal[0] : 0;
         return (
             <TodoModal>
                 <div className="container">

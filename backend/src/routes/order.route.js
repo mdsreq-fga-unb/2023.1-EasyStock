@@ -5,10 +5,9 @@ import { validId, validOrder, validOrderProduct } from "../middlewares/global.mi
 
 const router = Router();
 
-router.post("/", validOrderProduct, orderController.createOrder);
-router.get("/", orderController.findAllOrders);
-router.get("/:id", validId, validOrder, orderController.findOrderById);
-router.patch("/:id", validId, validOrder, orderController.updateOrder);
-router.delete("/:id", validId, validOrder, orderController.deleteOrder);
+router.post("/", authMiddleware, validOrderProduct, orderController.createOrder);
+router.get("/", authMiddleware, orderController.findAllOrders);
+router.get("/:id", authMiddleware, validId, validOrder, orderController.findOrderById);
+router.delete("/:id", authMiddleware, validId, validOrder, orderController.deleteOrder);
 
 export default router;

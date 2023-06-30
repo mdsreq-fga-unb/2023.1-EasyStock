@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
-import {Tabela } from "../estoque/EstoqueStyled";
+import { Tabela } from "../estoque/EstoqueStyled";
 //import { caixas } from "../../Datas";
 import { CardCaixa } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
 import { PesquisaCaixa } from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
-import { getProductByPdv, postPedido } from "../../services/postsServices";
+import { getProductByPdv } from "../../services/postsServices";
 
 let cont = 0;
 let caixa = [];
 let produtos = [];
-let pedido = { produtos }
+let valorTotal = [];
+let precoTotalPedido = 0;
+let pedido = { produtos, valorTotal }
 let re = undefined;
 
 export default function Caixa() {
@@ -36,6 +38,10 @@ export default function Caixa() {
         const { nome, precoVenda, _id } = dataProduto.data;
 
         const precoTotal = precoVenda*quantidade;
+
+        precoTotalPedido = precoTotalPedido+precoTotal;
+
+        valorTotal[0] = precoTotalPedido;
 
         formData = {
             codigoPDV,
@@ -62,20 +68,14 @@ export default function Caixa() {
         //setShowConfirmation(true);
     };
 
-    async function resPedido(pedido) {
-        const res = await postPedido(pedido);
-
-        setModalData(res);
+    function enviaProdutos(pedido) {
+        setModalData(pedido);
 
         setOpenModal(true);
-    
-        return res.data;
     }
 
     useEffect(() => {
         sessionStatus(navigate);
-
-        //console.log(resPedido);
     }, []);
 
 
@@ -138,7 +138,7 @@ export default function Caixa() {
                     <button
                         className="botao-principal"
                         onClick={
-                           async () => {await resPedido(pedido)}
+                           () => {enviaProdutos(pedido)}
                         }
                     >
                         Pagamento
@@ -148,7 +148,7 @@ export default function Caixa() {
                 <CaixaModal
                     isOpen={openModal}
                     onClose={() => setOpenModal(!openModal)}
-                    idPedido={modalData}
+                    infoPedido={modalData}
                 />
             </Tabela>
         </>
