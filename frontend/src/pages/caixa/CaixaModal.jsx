@@ -17,7 +17,7 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
             produtos: infoPedido.produtos,
             //cliente,
             tipoPagamento,
-            tipoEntrega
+            tipoEntrega,
         };
         // Armazenar os dados do formulário na variável "data"
         setData(formData);
@@ -52,8 +52,7 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
     }, [valorPago, infoPedido]);
 
     if (isOpen) {
-        const valorTotal =
-            infoPedido ? infoPedido.valorTotal[0] : 0;
+        const valorTotal = infoPedido ? infoPedido.valorTotal[0] : 0;
         return (
             <TodoModal>
                 <div className="container">
@@ -62,7 +61,11 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                         <form onSubmit={handleFormSubmit}>
                             <div className="label-float">
                                 <label htmlFor="ValorTotal">
-                                    Valor total:{valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                                    Valor total:
+                                    {valorTotal.toLocaleString("pt-BR", {
+                                        style: "currency",
+                                        currency: "BRL",
+                                    })}
                                 </label>
                             </div>
 
@@ -79,7 +82,6 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                 />
                             </div>
 
-
                             <div className="label-float">
                                 <label htmlFor="pagamento">
                                     Tipo de pagamento:
@@ -93,6 +95,9 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                         setTipoPagamento(e.target.value)
                                     }
                                 >
+                                    <option value="" disabled hidden>
+                                        Pagamento:
+                                    </option>
                                     <option value="Crédito">Crédito</option>
                                     <option value="Débito">Débito</option>
                                     <option value="PIX">PIX</option>
@@ -131,6 +136,9 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                         setTipoEntrega(e.target.value)
                                     }
                                 >
+                                    <option value="" disabled hidden>
+                                        Entrega:
+                                    </option>
                                     <option value="Sem Entrega">
                                         Sem Entrega
                                     </option>
@@ -140,11 +148,15 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                     </option>
                                 </select>
                             </div>
-                                <div className="label-float">
-                                    <label htmlFor="troco">
-                                        TROCO: {troco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                                    </label>
-                                </div>
+                            <div className="label-float">
+                                <label htmlFor="troco">
+                                    TROCO:{" "}
+                                    {troco.toLocaleString("pt-BR", {
+                                        style: "currency",
+                                        currency: "BRL",
+                                    })}
+                                </label>
+                            </div>
                             <div className="display-botoes">
                                 <input
                                     type="submit"
