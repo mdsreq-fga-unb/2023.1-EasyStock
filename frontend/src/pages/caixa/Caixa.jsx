@@ -69,9 +69,11 @@ export default function Caixa() {
     };
 
     function enviaProdutos(pedido) {
-        setModalData(pedido);
+        if (pedido.produtos.length > 0) {
+            setModalData(pedido);
 
-        setOpenModal(true);
+            setOpenModal(true);
+        }
     }
 
     useEffect(() => {
