@@ -60,16 +60,6 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                         <h1>Pagamentos</h1>
                         <form onSubmit={handleFormSubmit}>
                             <div className="label-float">
-                                <label htmlFor="ValorTotal">
-                                    Valor total:
-                                    {valorTotal.toLocaleString("pt-BR", {
-                                        style: "currency",
-                                        currency: "BRL",
-                                    })}
-                                </label>
-                            </div>
-
-                            <div className="label-float">
                                 <input
                                     type="number"
                                     step="any"
@@ -107,22 +97,22 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                             </div>
                             {/* <div className="label-float">
                                 <input
-                                    type="number"
-                                    step="any"
-                                    id="Qtd"
-                                    placeholder="Valor recebido"
-                                    required
-                                    />
-                                    </div>
-                                    <div className="label-float">
-                                    <input
-                                    type="number"
-                                    step="any"
-                                    id="preco"
-                                    placeholder="Troco"
-                                    required
-                                    /> 
-                                </div> */}
+                                type="number"
+                                step="any"
+                                id="Qtd"
+                                placeholder="Valor recebido"
+                                required
+                                />
+                                </div>
+                                <div className="label-float">
+                                <input
+                                type="number"
+                                step="any"
+                                id="preco"
+                                placeholder="Troco"
+                                required
+                                /> 
+                            </div> */}
                             <div className="label-float">
                                 <label htmlFor="entrega">
                                     Tipo de entrega:
@@ -148,14 +138,21 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                     </option>
                                 </select>
                             </div>
-                            <div className="label-float">
-                                <label htmlFor="troco">
+                            <div className="separar-h3">
+                                <h3>
+                                    VALOR TOTAL:{" "}
+                                    {valorTotal.toLocaleString("pt-BR", {
+                                        style: "currency",
+                                        currency: "BRL",
+                                    })}
+                                </h3>
+                                <h3>
                                     TROCO:{" "}
                                     {troco.toLocaleString("pt-BR", {
                                         style: "currency",
                                         currency: "BRL",
                                     })}
-                                </label>
+                                </h3>
                             </div>
                             <div className="display-botoes">
                                 <input
