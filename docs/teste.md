@@ -6,5 +6,8 @@
 
 | MVP           | Tipos de Teste                     | Níveis de Teste | Técnicas de Testes                                                                                   |
 | -------------------- | --------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------- |
-| 1      | Funcional, <br> Usabilidade. | Unitário, <br> Integração, <br> Aceitação. | Manual |
-| 2       | Funcional, <br> Usabilidade, <br> Eficiência, <br> Teste de interface, <br> Teste de segurança | Unitário, <br> Integração, <br> Sistema, <br> Aceitação.| Caixa Preta,<br>Manual, <br> Automática. |
+| 1      | Funcional | Unitário | Manual |
+| 2      | Funcional | Unitário | Manual |
+| 2      | Usabilidade | Unitário | Automática |
+| 2      | Eficiência | Sistema | Caixa Preta |
+| 2      | Teste de segurança  | Unitário | Automática |
