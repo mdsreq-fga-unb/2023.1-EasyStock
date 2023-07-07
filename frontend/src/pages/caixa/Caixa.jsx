@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
-import {Tabela } from "../estoque/EstoqueStyled";
+import { Tabela } from "../estoque/EstoqueStyled";
 //import { caixas } from "../../Datas";
 import { CardCaixa } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
 import { PesquisaCaixa } from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
-import { getProductByPdv, postPedido } from "../../services/postsServices";
+import { getProductByPdv } from "../../services/postsServices";
 
 let cont = 0;
 let caixa = [];
 let produtos = [];
-let pedido = { produtos }
-let resPedido = undefined;
+let valorTotal = [];
+let precoTotalPedido = 0;
+let pedido = { produtos, valorTotal }
+let re = undefined;
 
 export default function Caixa() {
     const [openModal, setOpenModal] = useState(false);
@@ -21,6 +23,7 @@ export default function Caixa() {
     const [quantidade, setQuantidade] = useState();
     const navigate = useNavigate();
     const [data, setData] = useState(null);
+    const [modalData, setModalData] = useState(null);
     const [dataPedido, setDataPedido] = useState(null);
 
     const handleFormSubmit = async (e) => {
@@ -35,6 +38,10 @@ export default function Caixa() {
         const { nome, precoVenda, _id } = dataProduto.data;
 
         const precoTotal = precoVenda*quantidade;
+
+        precoTotalPedido = precoTotalPedido+precoTotal;
+
+        valorTotal[0] = precoTotalPedido;
 
         formData = {
             codigoPDV,
@@ -60,6 +67,14 @@ export default function Caixa() {
         // Mostrar a caixa de diálogo de confirmação
         //setShowConfirmation(true);
     };
+
+    function enviaProdutos(pedido) {
+        if (pedido.produtos.length > 0) {
+            setModalData(pedido);
+
+            setOpenModal(true);
+        }
+    }
 
     useEffect(() => {
         sessionStatus(navigate);
@@ -125,8 +140,7 @@ export default function Caixa() {
                     <button
                         className="botao-principal"
                         onClick={
-                            resPedido = async () => await postPedido(pedido)
-                            .then(setOpenModal(true))
+                           () => {enviaProdutos(pedido)}
                         }
                     >
                         Pagamento
@@ -136,7 +150,7 @@ export default function Caixa() {
                 <CaixaModal
                     isOpen={openModal}
                     onClose={() => setOpenModal(!openModal)}
-                    // idPedido={ resPedido }
+                    infoPedido={modalData}
                 />
             </Tabela>
         </>

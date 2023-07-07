@@ -25,7 +25,10 @@ const createProduct = async (req, res) => { // Cadastro de um produto
 
             if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !qtdEstoqueMin || !medida || !statusVenda)
                 return res.status(400).send({message: "Preencha todos os campos para realizar o cadastro"});
-     
+            
+            if (precoCusto >= precoVenda)
+                return res.status(400).send({message: "Defina um preço de venda superior ao preço de custo"});
+
             const product = await productService.createService({ nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, codigoPDV, statusVenda });
 
             if (!product)
@@ -95,6 +98,9 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
 
         if (!nome && !precoCusto && !precoVenda && !qtdEstoque && !qtdEstoqueMin && !medida && !statusVenda)
             return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
+
+        if (precoCusto >= req.product.precoVenda)
+            return res.status(400).send({message: "Defina um preço de venda superior ao preço de custo"});
 
         const { id, product, pdv } = req;
             

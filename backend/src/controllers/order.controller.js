@@ -1,8 +1,17 @@
 import orderService from "../services/order.service.js";
 import OrderProduct from '../models/OrderProduct.js';
+import customerService from "../services/customer.service.js";
 
 const createOrder = async (req, res) => {
     try {
+        const { produtos, cliente, tipoPagamento, tipoEntrega } = req.body;
+
+        if (!produtos)
+            return res.status(400).send({message: "Ao menos um produto deve ser selecionado para o pedido ser realizado"});
+
+        if (!tipoPagamento || !tipoEntrega)
+            return res.status(400).send({message: "Preencha todos os campos obrigatórios para realizar o pagamento"});
+
         const orderProductsIds = Promise.all(req.body.produtos.map(async (orderProduct) => {
             let newOrderProduct = new OrderProduct({
                 quantidade: orderProduct.quantidade,
@@ -27,6 +36,9 @@ const createOrder = async (req, res) => {
         let order = {
             produtos: orderIdsResolved,
             precoTotal,
+            cliente,
+            tipoPagamento,
+            tipoEntrega
         };
 
         const Order = await orderService.createService(order);
@@ -34,10 +46,26 @@ const createOrder = async (req, res) => {
         if (!Order)
             return res.status(400).send({ message: 'Erro na criação do pedido' });
 
+        if (tipoPagamento === 'Fiado' && cliente) {
+            const customer = await customerService.findByIdService(cliente);
+            if (!customer)
+                return res.status(400).send({ message: "Cliente não encontrado" });
+
+            const divida = customer.divida + order.precoTotal;
+
+            await customerService.updateService(
+                cliente,
+                customer.nome,
+                customer.telefone,
+                customer.email,
+                divida
+            );
+        }    
+
         res.status(201).send({
             Order,
             message: 'Pedido aberto com sucesso'
-         });    
+        });    
     } catch (err) {
         res.status(500).send({ orderController: err.message });
     }
@@ -92,7 +120,7 @@ const deleteOrder = async (req, res) => {
 
         await orderService.deleteService(id).then(async order => {
             if(order) {
-                await order.produtos.map(async orderItem => {
+                order.produtos.map(async orderItem => {
                     await OrderProduct.findByIdAndDelete(orderItem);
                 });
             } else {

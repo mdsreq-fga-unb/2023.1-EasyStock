@@ -2,10 +2,13 @@ import customerService from "../services/customer.service.js";
 
 const createCustomer = async (req, res) => { // Cadastro de um cliente
     try {
-        const { nome } = req.body;
+        const { nome, divida } = req.body;
 
         if (!nome)
             return res.status(400).send({ message: 'Informe o nome do cliente' });
+
+        if (divida < 0 || divida >= 1000)
+            return res.status(400).send({ message: 'A dívida deve ser um valor entre R$ 0 e R$ 999' });    
 
         const customer = await customerService.createService(req.body);
 
@@ -51,6 +54,9 @@ const updateCustomer = async (req, res) => { // Atualiza os campos do cliente
 
         if (!nome && !telefone && !email && !divida)
             return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
+
+        if (divida < 0 || divida >= 1000)
+            return res.status(400).send({ message: 'A dívida deve ser um valor entre R$ 0 e R$ 999' });    
 
         const { id } = req;
 

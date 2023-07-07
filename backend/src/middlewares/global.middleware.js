@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import productService from '../services/product.service.js';
 import customerService from '../services/customer.service.js';
 import orderService from '../services/order.service.js';
-import paymentService from '../services/payment.service.js';
 
 export const validId = (req, res, next) => { // Verifica se o ID do produto segue o padrão do mongo
     try {
