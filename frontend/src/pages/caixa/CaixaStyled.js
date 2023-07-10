@@ -40,7 +40,6 @@ export const TabelasContainer = styled.section`
 `;
 
 export const Tabela1 = styled.table`
-    
     margin-top: 2rem;
     margin-left: 2rem;
     border-radius: 30px;
@@ -78,10 +77,16 @@ export const Tabela1 = styled.table`
 `;
 
 export const Tabela2 = styled.table`
+    display: flex;
+    flex-direction: column;
     margin-top: 2rem;
     margin-left: 2rem;
-    border-radius: 30px;
+    border-radius: 10px;
     width: 30%;
+    max-height: 340px;
+    overflow-y: auto;
+    margin-right: 20px;
+    background-color: white;
 
     tr {
         font-size: 20px;
@@ -93,5 +98,4 @@ export const Tabela2 = styled.table`
         width: 10%;
         border-radius: 10px;
     }
-
 `;
