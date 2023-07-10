@@ -33,3 +33,8 @@ export const PesquisaCaixa = styled.div`
     }
 
 `;
+
+export const TabelasContainer = styled.section`
+  display: flex;
+  justify-content: space-around;
+`;

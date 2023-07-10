@@ -4,7 +4,7 @@ import { Tabela } from "../estoque/EstoqueStyled";
 //import { caixas } from "../../Datas";
 import { CardCaixa, CardProduto } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
-import { PesquisaCaixa } from "./CaixaStyled";
+import { PesquisaCaixa, TabelasContainer } from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
 import { getProductByPdv } from "../../services/postsServices";
@@ -130,7 +130,7 @@ export default function Caixa() {
                 </form>
             </PesquisaCaixa>
 
-            <section className="separar-tabelas">
+            <TabelasContainer>
                 <Tabela>
                     <table>
                         <thead>
@@ -187,7 +187,7 @@ export default function Caixa() {
                         </tbody>
                     </table>
                 </Tabela>
-            </section>
+            </TabelasContainer>
         </>
     );
 }
