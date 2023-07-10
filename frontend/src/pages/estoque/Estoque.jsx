@@ -58,6 +58,9 @@ export default function Estoque() {
 
             <Tabela>
                 <table>
+                    <caption>
+                        <h3>Estoque de Produtos</h3>
+                    </caption>
                     <thead>
                         <tr>
                             <th>Nome</th>

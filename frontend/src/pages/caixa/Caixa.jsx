@@ -4,7 +4,7 @@ import { Tabela } from "../estoque/EstoqueStyled";
 //import { caixas } from "../../Datas";
 import { CardCaixa, CardProduto } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
-import { PesquisaCaixa, TabelasContainer } from "./CaixaStyled";
+import {PesquisaCaixa, Tabela1, Tabela2, TabelasContainer} from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
 import { getProductByPdv } from "../../services/postsServices";
@@ -131,7 +131,10 @@ export default function Caixa() {
             </PesquisaCaixa>
 
             <TabelasContainer>
-                <Tabela>
+                <Tabela1>
+                    <caption>
+                        <h3>Pagamento</h3>
+                    </caption>
                     <table>
                         <thead>
                             <tr>
@@ -167,8 +170,11 @@ export default function Caixa() {
                         onClose={() => setOpenModal(!openModal)}
                         infoPedido={modalData}
                     />
-                </Tabela>
-                <Tabela>
+                </Tabela1>
+                <Tabela2>
+                    <caption>
+                        <h3>Produtos do Estoque</h3>
+                    </caption>
                     <table>
                         <thead>
                             <tr>
@@ -186,7 +192,7 @@ export default function Caixa() {
                             ))}
                         </tbody>
                     </table>
-                </Tabela>
+                </Tabela2>
             </TabelasContainer>
         </>
     );

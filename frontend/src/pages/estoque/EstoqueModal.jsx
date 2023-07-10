@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { TodoModal } from "./EstoqueModalStyled";
 import { postProduto } from "../../services/postsServices";
-import ErroMensagem from "../../components/navBar/ErroMensagem";
 
 export default function EstoqueModal({ isOpen, onClose }) {
     const [nome, setNome] = useState();
@@ -38,10 +37,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
         if (confirmed) {
             if (data) {
                 // Se o usuário confirmou e os dados do formulário existem
-                const res = await postProduto(data);
-                if (res.status == 400) {
-                    ErroMensagem(res.data);
-                }
+                await postProduto(data);
                 window.location.reload();
             }
         }
@@ -52,7 +48,6 @@ export default function EstoqueModal({ isOpen, onClose }) {
 
     if (isOpen) {
         return (
-            <>
             <TodoModal>
                 <div className="container">
                     <div className="card">
@@ -171,10 +166,6 @@ export default function EstoqueModal({ isOpen, onClose }) {
                     </section>
                 )}
             </TodoModal>
-            <ErroMensagem>
-                    
-            </ErroMensagem>
-            </>
         );
     }
     return null;

@@ -39,6 +39,9 @@ export default function Cliente() {
 
             <Tabela>
                 <table>
+                    <caption>
+                        <h3>Lista de Clientes</h3>
+                    </caption>
                     <thead>
                         <tr>
                             <th>Cliente</th>
@@ -49,7 +52,11 @@ export default function Cliente() {
                     </thead>
                     <tbody>
                         {clients.map((client) => (
-                            <CardClient key={client._id} client={client} onSelect={handleProductSelect}/>
+                            <CardClient
+                                key={client._id}
+                                client={client}
+                                onSelect={handleProductSelect}
+                            />
                         ))}
                     </tbody>
                 </table>
@@ -68,7 +75,7 @@ export default function Cliente() {
                     isOpen={openNomeModal}
                     onClose={() => setOpenNomeModal(false)}
                     selectedClient={selectedClient}
-                    />
+                />
             </Tabela>
         </>
     );
