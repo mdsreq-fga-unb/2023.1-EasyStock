@@ -19,7 +19,7 @@ let pedido = { produtos, valorTotal };
 let re = undefined;
 
 export default function Caixa() {
-    const [produtos, setProducts] = useState([]);
+    const [produtoss, setProducts] = useState([]);
     const [openModal, setOpenModal] = useState(false);
     const [codigoPDV, setCodigoPDV] = useState();
     const [quantidade, setQuantidade] = useState();
@@ -178,7 +178,7 @@ export default function Caixa() {
                             </tr>
                         </thead>
                         <tbody>
-                            {produtos.map((produtoz) => (
+                            {produtoss.map((produtoz) => (
                                 <CardProduto
                                     key={produtoz.codigoPDV}
                                     produtoz={produtoz}
