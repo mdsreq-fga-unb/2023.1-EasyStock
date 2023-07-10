@@ -22,6 +22,15 @@ export function Card({ product, onSelect }) {
         </Produtos>
     );
 }
+export function CardProduto({ produtoz}) {
+    return (
+        <Produtos>
+            <td>{produtoz.codigoPDV}</td>
+            <td>{produtoz.nome}</td>
+            <td>{produtoz.qtdEstoque}</td>
+        </Produtos>
+    );
+}
 
 export function CardClient({ client, onSelect }) {
     const handleClick = () => {
