@@ -63,13 +63,13 @@ export default function Estoque() {
                     </caption>
                     <thead>
                         <tr>
+                            <th>CódigoPDV</th>
                             <th>Nome</th>
                             <th>Preço Custo</th>
                             <th>Preço venda</th>
                             <th>Qtd Estoque</th>
                             <th>Qtd Min Estoque</th>
                             <th>Medida</th>
-                            <th>CódigoPDV</th>
                             <th>Status</th>
                         </tr>
                     </thead>

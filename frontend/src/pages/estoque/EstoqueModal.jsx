@@ -38,7 +38,6 @@ export default function EstoqueModal({ isOpen, onClose }) {
             if (data) {
                 // Se o usuário confirmou e os dados do formulário existem
                 await postProduto(data);
-                window.location.reload();
             }
         }
 
