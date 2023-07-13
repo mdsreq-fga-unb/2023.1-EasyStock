@@ -12,6 +12,11 @@ export default function ModalCliente({ isOpen, onClose }) {
     const createForm = (e) => {
         e.preventDefault();
 
+        if (telefone.length !== 10 && telefone.length !== 11) {
+            alert("O número de telefone deve ter 10 ou 11 dígitos");
+            return;
+        }
+
         const formData = {
             nome,
             telefone,

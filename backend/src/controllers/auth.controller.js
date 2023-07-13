@@ -1,4 +1,5 @@
-import { generateToken, getUserFromToken } from "../services/auth.service.js";
+import { generateToken, getUserFromToken, employeeLoginService } from "../services/auth.service.js";
+import bcrypt from "bcrypt";
 
 const loginAdmin = async (req, res) => {
     try {
@@ -13,6 +14,29 @@ const loginAdmin = async (req, res) => {
             token,
             username
         });
+    } catch (err) {
+        res.status(500).send({ authController: err.message });
+    }
+}
+
+const loginEmployee = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        if (!username || !password)
+            return res.status(400).send({ message: 'Insira os campos obrigatórios' });
+
+        const employee = await employeeLoginService(username);
+
+        if (!employee)
+            return res.status(400).send({ message: 'Usuário e/ou senha inválidos' });
+
+        const passwordIsValid = await bcrypt.compare(password, employee.password);
+
+        if (!passwordIsValid)
+            return res.status(400).send({ message: 'Usuário e/ou senha inválidos' });
+
+        res.send(employee);
     } catch (err) {
         res.status(500).send({ authController: err.message });
     }
@@ -36,4 +60,9 @@ const getUsername = async (req, res) => {
     }
 }
 
-export { loginAdmin, getUsername };
+const validateEmail = (email) => {
+    let re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+export { loginAdmin, loginEmployee, getUsername, validateEmail };

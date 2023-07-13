@@ -4,13 +4,15 @@ import Order from "../src/models/Order";
 jest.mock("../src/models/Order", () => ({
   create: jest.fn(),
   find: jest.fn(),
+  findOneAndDelete: jest.fn(),
+  findById: jest.fn(),
 }));
 
 describe("createService", () => {
     afterEach(() => {
       jest.clearAllMocks();
     });
-  it('Criar pedido', async () => {
+  it("Criar pedido", async () => {
     const mockOrder = {};
 
     Order.create.mockResolvedValue(mockOrder);
@@ -22,9 +24,9 @@ describe("createService", () => {
     expect(result).toEqual(mockOrder);
   });
 
-  it('Erro caso a criação do pedido falhe', async () => {
+  it("Erro caso a criação do pedido falhe", async () => {
     const mockOrder = {};
-    const mockError = new Error('Falha ao criar pedido');
+    const mockError = new Error("Falha ao criar pedido");
 
     Order.create.mockRejectedValue(mockError);
 
@@ -37,11 +39,11 @@ describe('findAllService', () => {
     jest.clearAllMocks();
   });
 
-  it('should return all orders with client names sorted by dataPedido in descending order', async () => {
+  it("retornar todos os pedidos com nomes de clientes classificados por dataPedido em ordem decrescente", async () => {
     const mockOrders = [
-      { _id: 1, cliente: { nome: 'Client 1' }, dataPedido: '2023-07-01' },
-      { _id: 2, cliente: { nome: 'Client 2' }, dataPedido: '2023-07-02' },
-      { _id: 3, cliente: { nome: 'Client 3' }, dataPedido: '2023-07-03' },
+      { _id: 1, cliente: { nome: 'Bruna Alencar' }, dataPedido: '2023-07-01' },
+      { _id: 2, cliente: { nome: 'Rafael Silva' }, dataPedido: '2023-07-02' },
+      { _id: 3, cliente: { nome: 'Pietra Soares' }, dataPedido: '2023-07-03' },
     ];
 
     Order.find.mockReturnValue({
@@ -61,4 +63,44 @@ describe('findAllService', () => {
   });
 });
 
+describe("deleteService", () => {
+  it("Deletar em ordem", async () => {
+    const mockedOrder = { _id: 'order_id'}; 
+
+    Order.findOneAndDelete.mockResolvedValueOnce(mockedOrder);
+
+    const id = 'order_id'; 
+
+    const result = await orderService.deleteService(id);
+
+    expect(result).toEqual(mockedOrder);
+
+    expect(Order.findOneAndDelete).toHaveBeenCalledWith({ _id: id });
+  });
+});
+
+describe("findByIdService", () => {
+  it("deve encontrar um pedido por ID e preencher os campos relacionados", async () => {
+    const mockedOrder = { _id: 'order_id'}; 
+
+    Order.findById.mockReturnValue({
+      populate: jest.fn().mockReturnValue({
+        populate: jest.fn().mockResolvedValueOnce(mockedOrder),
+      }),
+    });
+
+    const id = 'order_id'; 
+
+    const result = await orderService.findByIdService(id);
+
+    expect(result).toEqual(mockedOrder);
+
+    expect(Order.findById).toHaveBeenCalledWith(id);
+    expect(Order.findById().populate).toHaveBeenCalledWith('cliente', 'nome');
+    expect(Order.findById().populate().populate).toHaveBeenCalledWith({
+      path: 'produtos',
+      populate: 'produto',
+    });
+  });
+});
 

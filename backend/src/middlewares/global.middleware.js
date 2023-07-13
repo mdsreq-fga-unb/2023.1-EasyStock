@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import productService from '../services/product.service.js';
 import customerService from '../services/customer.service.js';
 import orderService from '../services/order.service.js';
+import employeeService from '../services/employee.service.js';
 
 export const validId = (req, res, next) => { // Verifica se o ID do produto segue o padrão do mongo
     try {
@@ -105,17 +106,18 @@ export const validOrderProduct = async (req, res, next) => {
     }
 }
 
-export const validPayment = async (req, res, next) => {
+export const validEmployee = async (req, res, next) => {
     try {
         const id = req.params.id;
 
-        const payment = await paymentService.findByIdService(id);
+        const employee = await employeeService.findByIdService(id);
 
-        if (!payment)
-            return res.status(400).send({ message: "Pagamento não encontrado" });
+        if (!employee)
+            return res.status(400).send({ message: "Funcionário não encontrado" });
             
         req.id = id;
-        req.payment = payment;
+        req.employee = employee;
+        
         next();
     } catch (err) {
         res.status(500).send({ middleware: err.message });

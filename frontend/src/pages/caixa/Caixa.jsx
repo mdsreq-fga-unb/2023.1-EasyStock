@@ -2,22 +2,24 @@ import React, { useState, useEffect } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
 import { Tabela } from "../estoque/EstoqueStyled";
 //import { caixas } from "../../Datas";
-import { CardCaixa } from "../../Card/Card";
+import { CardCaixa, CardProduto } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
-import { PesquisaCaixa } from "./CaixaStyled";
+import {PesquisaCaixa, Tabela1, Tabela2, TabelasContainer} from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
 import { getProductByPdv } from "../../services/postsServices";
+import { getAllPosts } from "../../services/postsServices";
 
 let cont = 0;
 let caixa = [];
 let produtos = [];
 let valorTotal = [];
 let precoTotalPedido = 0;
-let pedido = { produtos, valorTotal }
+let pedido = { produtos, valorTotal };
 let re = undefined;
 
 export default function Caixa() {
+    const [produtoss, setProducts] = useState([]);
     const [openModal, setOpenModal] = useState(false);
     const [codigoPDV, setCodigoPDV] = useState();
     const [quantidade, setQuantidade] = useState();
@@ -26,20 +28,31 @@ export default function Caixa() {
     const [modalData, setModalData] = useState(null);
     const [dataPedido, setDataPedido] = useState(null);
 
+    async function findAllPosts() {
+        const response = await getAllPosts();
+        setProducts(response.data);
+    }
+
+    useEffect(() => {
+        sessionStatus(navigate);
+
+        findAllPosts();
+    }, []);
+
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         let formData = {
             codigoPDV,
-            quantidade
+            quantidade,
         };
 
         const dataProduto = await getProductByPdv(codigoPDV);
 
         const { nome, precoVenda, _id } = dataProduto.data;
 
-        const precoTotal = precoVenda*quantidade;
+        const precoTotal = precoVenda * quantidade;
 
-        precoTotalPedido = precoTotalPedido+precoTotal;
+        precoTotalPedido = precoTotalPedido + precoTotal;
 
         valorTotal[0] = precoTotalPedido;
 
@@ -48,13 +61,13 @@ export default function Caixa() {
             quantidade,
             nome,
             precoVenda,
-            precoTotal
-        }
+            precoTotal,
+        };
 
         let formDataPedido = {
             produto: _id,
-            quantidade
-        }
+            quantidade,
+        };
 
         // Armazenar os dados do formulário na variável "data"
         setData(formData);
@@ -80,7 +93,6 @@ export default function Caixa() {
         sessionStatus(navigate);
     }, []);
 
-
     return (
         <>
             <NavBar />
@@ -89,11 +101,11 @@ export default function Caixa() {
                 <form onSubmit={handleFormSubmit}>
                     <div>
                         <i className="bi bi-search"></i>
-                        <input 
+                        <input
                             type="number"
                             placeholder="Código do produto"
                             required
-                            onChange={(e) => setCodigoPDV(e.target.value)} 
+                            onChange={(e) => setCodigoPDV(e.target.value)}
                         />
                     </div>
                     <div>
@@ -115,44 +127,73 @@ export default function Caixa() {
                             value={"Adicionar"}
                         />
                     </div>
-
                 </form>
             </PesquisaCaixa>
 
-            <Tabela>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Código PDV</th>
-                            <th>Nome</th>
-                            <th>Quantidade</th>
-                            <th>Preço Unitário</th>
-                            <th>Preço Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {caixa.map((caixa) => (
-                            <CardCaixa key={caixa.codigoPDV} caixa={caixa} />
-                        ))}
-                    </tbody>
-                </table>
-                <div>
-                    <button
-                        className="botao-principal"
-                        onClick={
-                           () => {enviaProdutos(pedido)}
-                        }
-                    >
-                        Pagamento
-                    </button>
-                </div>
+            <TabelasContainer>
+                <Tabela1>
+                    <caption>
+                        <h3>Pagamento</h3>
+                    </caption>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código PDV</th>
+                                <th>Nome</th>
+                                <th>Quantidade</th>
+                                <th>Preço Unitário</th>
+                                <th>Preço Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {caixa.map((caixa) => (
+                                <CardCaixa
+                                    key={caixa.codigoPDV}
+                                    caixa={caixa}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                    <div>
+                        <button
+                            className="botao-principal"
+                            onClick={() => {
+                                enviaProdutos(pedido);
+                            }}
+                        >
+                            Pagamento
+                        </button>
+                    </div>
 
-                <CaixaModal
-                    isOpen={openModal}
-                    onClose={() => setOpenModal(!openModal)}
-                    infoPedido={modalData}
-                />
-            </Tabela>
+                    <CaixaModal
+                        isOpen={openModal}
+                        onClose={() => setOpenModal(!openModal)}
+                        infoPedido={modalData}
+                    />
+                </Tabela1>
+                <Tabela2>
+                    <caption>
+                        <h3>Produtos do Estoque</h3>
+                    </caption>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código PDV</th>
+                                <th>Nome</th>
+                                <th>Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {produtoss.map((produtoz) => (
+                                <CardProduto
+                                    key={produtoz.codigoPDV}
+                                    produtoz={produtoz}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                </Tabela2>
+            </TabelasContainer>
         </>
     );
 }
