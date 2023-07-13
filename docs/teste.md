@@ -1,13 +1,13 @@
 | Data       | Versão | Descrição            | Autor(es)                                                   |
 | ---------- | ------ | -------------------- | ------------------------------------------------------------ |
-| 26/06/2023  | 0.3 | Atualização da documentação da sprint 3 |  Daniela, Hemanoel, Milena  |
+| 26/06/2023  | 0.3 | Atualização da documentação dos testes |  Daniela, Hemanoel, Milena  |
+| 13/07/2023  | 0.4 | Atualização da documentação dos testes |  Daniela, Hemanoel |
 
 ## Estratégia de Teste
 
-| MVP           | Tipos de Teste                     | Níveis de Teste | Técnicas de Testes                                                                                   |
-| -------------------- | --------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------- |
-| 1      | Funcional | Unitário | Manual |
-| 2      | Funcional | Unitário | Manual |
-| 2      | Usabilidade | Unitário | Automática |
-| 2      | Eficiência | Sistema | Caixa Preta |
-| 2      | Teste de segurança  | Unitário | Automática |
+| Escopo           | Tipos de Teste                     | Níveis de Teste | Técnicas de Testes | Objetivos | Perspectiva|
+| -------------------- | --------------------------------------- | ------------- | ---------------------- | ---------------------- | ---------------------- |
+|MVP1/MVP2     | Funcional | Unitário | Automatico |Qualidade Interna|Técnica| 
+|MVP1/MVP2     | Usabilidade | Unitário | Manual |Qualidade Externa|Negócio| 
+|MVP1/MVP2    | Eficiência | Sistema | Manual |Qualidade Externa|Técnica| 
+|MVP2   | Teste de segurança  | Unitário | Automática |Qualidade Interna|Técnica|
