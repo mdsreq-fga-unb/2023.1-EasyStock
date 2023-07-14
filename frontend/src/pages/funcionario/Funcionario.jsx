@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
 import { Tabela } from "../estoque/EstoqueStyled";
 import { getAllFuncionarios } from "../../services/postsServices";
-import { sessionStatus } from "../../contexts/AuthContext";
+import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { CardFuncionario } from "../../Card/Card";
 import { useNavigate } from "react-router-dom";
 import FuncionarioModal from "./FuncionarioModal";
@@ -18,8 +18,8 @@ export default function Funcionario() {
     }
 
     useEffect(() => {
-        sessionStatus(navigate);
-        findAllFuncionarios();
+        sessionStatusAdmin(navigate)
+        .then(() => findAllFuncionarios());
     }, []);
 
     return (
