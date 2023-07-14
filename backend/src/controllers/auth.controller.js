@@ -1,4 +1,4 @@
-import { generateToken, getUserFromToken, employeeLoginService } from "../services/auth.service.js";
+import { generateToken, getUserFromToken, generateEmployeeToken, employeeLoginService } from "../services/auth.service.js";
 import bcrypt from "bcrypt";
 
 const loginAdmin = async (req, res) => {
@@ -36,7 +36,12 @@ const loginEmployee = async (req, res) => {
         if (!passwordIsValid)
             return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
 
-        res.send(employee);
+        const token = generateEmployeeToken(employee.id);
+
+        res.send({
+            token,
+            username
+        });
     } catch (err) {
         res.status(500).send({ authController: err.message });
     }
