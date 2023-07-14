@@ -9,13 +9,13 @@ export function Card({ product, onSelect }) {
 
     return (
         <Produtos onClick={handleClick}>
+            <td>{product.codigoPDV}</td>
             <td>{product.nome}</td>
             <td>{product.precoCusto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
             <td>{product.precoVenda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
             <td>{product.qtdEstoque}</td>
             <td>{product.qtdEstoqueMin}</td>
             <td>{product.medida}</td>
-            <td>{product.codigoPDV}</td>
             <td className={statusClass.toString()}>
                 {product.statusVenda ? "Ativo" : "Inativo"}
             </td>

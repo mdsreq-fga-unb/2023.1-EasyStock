@@ -32,7 +32,6 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                 // Se o usuário confirmou e os dados do formulário existem
 
                 await postPedido(data);
-                window.location.reload();
             }
         }
 

@@ -20,16 +20,6 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
 
     const id = selectedClient._id;
 
-    const deleteClient = async (id) => {
-        await deleteCliente(id);
-        window.location.reload();
-    };
-
-    const updateClient = async (id, data) => {
-        await updateCliente(id, data);
-        window.location.reload();
-    };
-
     const handleFormSubmit = async (e, id) => {
         e.preventDefault();
 
@@ -39,14 +29,12 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
             email,
             divida,
         };
-        await updateClient(id, data);
-        onClose();
+        await updateCliente(id, data);
     };
 
     const handleDeleteConfirmation = async (confirmed) => {
         if (confirmed) {
-            await deleteClient(id);
-            onClose();
+            await deleteCliente(id);
         }
         setShowDeleteConfirmation(false);
     };
@@ -59,8 +47,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                 email,
                 divida,
             };
-            await updateClient(id, data);
-            onClose();
+            await updateCliente(id, data);
         }
         setShowUpdateConfirmation(false);
     };

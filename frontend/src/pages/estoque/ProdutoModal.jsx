@@ -24,16 +24,6 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
 
     const pdv = selectedProduct.codigoPDV;
 
-    const deleteProduct = async (pdv) => {
-        await deleteProduto(pdv);
-        window.location.reload();
-    };
-
-    const updateProduct = async (pdv, data) => {
-        await updateProduto(pdv, data);
-        window.location.reload();
-    };
-
     const handleFormSubmit = async (e, pdv) => {
         e.preventDefault();
         const data = {
@@ -46,13 +36,13 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
             statusVenda: true,
         };
 
-        await updateProduct(pdv, data);
+        await updateProduto(pdv, data);
         onClose();
     };
 
     const handleDeleteConfirmation = async (confirmed) => {
         if (confirmed) {
-            await deleteProduct(pdv);
+            await deleteProduto(pdv);
             onClose();
         }
         setShowDeleteConfirmation(false);
@@ -69,7 +59,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                 medida,
                 statusVenda: true,
             };
-            await updateProduct(pdv, data);
+            await updateProduto(pdv, data);
             onClose();
         }
         setShowUpdateConfirmation(false);

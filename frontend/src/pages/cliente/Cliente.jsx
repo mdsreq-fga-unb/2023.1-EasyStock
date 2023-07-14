@@ -1,7 +1,6 @@
 import React from "react";
 import { NavBar } from "../../components/navBar/NavBar";
 import { Tabela } from "../estoque/EstoqueStyled";
-//import { clients } from "../../Datas";
 import { CardClient } from "../../Card/Card";
 import ModalCliente from "./ModalCliente";
 import { useState, useEffect } from "react";
@@ -45,7 +44,7 @@ export default function Cliente() {
                     <thead>
                         <tr>
                             <th>Cliente</th>
-                            <th>Número</th>
+                            <th>Telefone</th>
                             <th>Email</th>
                             <th>Dívida</th>
                         </tr>

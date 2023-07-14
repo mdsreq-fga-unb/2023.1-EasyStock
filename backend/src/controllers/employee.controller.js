@@ -6,18 +6,18 @@ const createEmployee = async (req, res) => { // Cadastro de um funcionário
         const { nomeCompleto, username, password, telefone, email, dataContratacao } = req.body;
 
         if (!nomeCompleto || !username || !password || !dataContratacao)
-                return res.status(400).send({ message: "Preencha todos os campos obrigatórios para realizar o cadastro" });
+                return res.status(400).send({ message: "Preencha todos os campos obrigatórios para realizar o cadastro!" });
 
         if (email) {
             const valEmail = validateEmail(email);
             if (!valEmail)
-                return res.status(400).send({ message: 'Formato de email inválido' }); 
+                return res.status(400).send({ message: 'Formato de email inválido!' }); 
         }
 
         const employee = await employeeService.createService(req.body);
 
         if (!employee)
-            return res.status(400).send({ message: 'Erro no cadastro do funcionário' });
+            return res.status(400).send({ message: 'Erro no cadastro do funcionário!' });
 
         res.status(201).send({
             employee,
@@ -33,7 +33,7 @@ const findAllEmployees = async (req, res) => { // Listagem de todos os funcioná
         const employees = await employeeService.findAllService();
 
         if (employees.length === 0)
-            return res.status(400).send({ message: "Não há clientes cadastrados" });
+            return res.status(400).send({ message: "Não há clientes cadastrados!" });
         
         res.send(employees);
     } catch (err) {
@@ -56,12 +56,12 @@ const updateEmployee = async (req, res) => { // Atualiza os campos do funcionár
         const { nomeCompleto, username, password, telefone, email, dataContratacao } = req.body;
 
         if (!nomeCompleto && !username && !password && !telefone && !email && !dataContratacao)
-            return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
+            return res.status(400).send({ message: "Preencha pelo menos um campo para atualização!" });
 
         if (email) {
             const valEmail = validateEmail(email);
             if (!valEmail)
-                return res.status(400).send({ message: 'Formato de email inválido' }); 
+                return res.status(400).send({ message: 'Formato de email inválido!' }); 
         }
 
         const { id } = req;
@@ -88,7 +88,7 @@ const deleteEmployee = async (req, res) => { // Deleta um funcionário
 
         await employeeService.deleteService(id);
 
-        res.send({ message: 'Cliente deletado com sucesso' });
+        res.send({ message: 'Cliente deletado com sucesso!' });
     } catch (err) {
         res.status(500).send({ employeeController: err.message });
     }

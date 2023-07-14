@@ -24,15 +24,18 @@ const createProduct = async (req, res) => { // Cadastro de um produto
             const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda } = req.body;
 
             if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !qtdEstoqueMin || !medida || !statusVenda)
-                return res.status(400).send({message: "Preencha todos os campos para realizar o cadastro"});
+                return res.status(400).send({ message: "Preencha todos os campos para realizar o cadastro!" });
             
-            if (precoCusto >= precoVenda)
-                return res.status(400).send({message: "Defina um preço de venda superior ao preço de custo"});
+            if (parseInt(qtdEstoque) < 0 || parseInt(qtdEstoqueMin) < 1)
+                return res.status(400).send({ message: "Qtd de estoque e/ou qtd de estoque mínimo inválidos!" });
+
+            if (parseInt(precoVenda) <= parseInt(precoCusto))
+                return res.status(400).send({ message: "Defina um preço de venda superior ao preço de custo!" });
 
             const product = await productService.createService({ nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, codigoPDV, statusVenda });
 
             if (!product)
-                return res.status(400).send({ message: "Erro no cadastro do produto" });
+                return res.status(400).send({ message: "Erro no cadastro do produto!" });
 
             res.status(201).send({
                 product: {
@@ -59,7 +62,7 @@ const findAllProducts = async (req, res) => { // Listagem de todos os produtos c
         const products = await productService.findAllService();
 
         if (products.length === 0)
-            return res.status(400).send({ message: "Não há produtos cadastrados" });
+            return res.status(400).send({ message: "Não há produtos cadastrados!" });
 
         res.send(products);
     } catch (err) {
@@ -97,12 +100,23 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
         const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda } = req.body;
 
         if (!nome && !precoCusto && !precoVenda && !qtdEstoque && !qtdEstoqueMin && !medida && !statusVenda)
-            return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
+            return res.status(400).send({ message: "Preencha pelo menos um campo para atualização!" });
 
-        if (precoCusto >= req.product.precoVenda)
-            return res.status(400).send({message: "Defina um preço de venda superior ao preço de custo"});
+        const { pdv, product } = req;
 
-        const { id, product, pdv } = req;
+        if (parseInt(qtdEstoque) < 0 || parseInt(qtdEstoqueMin) < 1)
+            return res.status(400).send({ message: "Qtd de estoque e/ou qtd de estoque mínimo inválidos!" });
+
+        if (precoVenda && precoCusto) {
+            if (parseInt(precoVenda) <= parseInt(precoCusto))
+                return res.status(400).send({ message: "Defina um preço de venda superior ao preço de custo!" });
+        } else if (precoVenda && !precoCusto) {
+            if (parseInt(precoVenda) <= parseInt(product.precoCusto))
+                return res.status(400).send({ message: "Defina um preço de venda superior ao preço de custo!" });
+        } else if (!precoVenda && precoCusto) {
+            if (parseInt(product.precoVenda) <= parseInt(precoCusto))
+                return res.status(400).send({ message: "Defina um preço de venda superior ao preço de custo!" });
+        }
             
         await productService.updateService(
             pdv,
