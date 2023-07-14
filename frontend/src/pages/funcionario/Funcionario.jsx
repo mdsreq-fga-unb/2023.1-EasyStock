@@ -5,10 +5,12 @@ import { getAllFuncionarios } from "../../services/postsServices";
 import { sessionStatus } from "../../contexts/AuthContext";
 import { CardFuncionario } from "../../Card/Card";
 import { useNavigate } from "react-router-dom";
+import FuncionarioModal from "./FuncionarioModal";
 
 export default function Funcionario() {
     const [funcionarios, setFuncionarios] = useState([]);
     const navigate = useNavigate();
+    const [openFuncionarioModal, setOpenFuncionarioModal] = useState(false);
 
     async function findAllFuncionarios() {
         const response = await getAllFuncionarios();
@@ -50,11 +52,14 @@ export default function Funcionario() {
                 </table>
                 <button
                     className="botao-principal"
-                    onClick={() => setOpenModal(true)}
+                    onClick={() => setOpenFuncionarioModal(true)}
                 >
                     Cadastrar Funcionário
                 </button>
-
+                <FuncionarioModal
+                     isOpen={openFuncionarioModal}
+                     onClose={() => setOpenFuncionarioModal(false)}
+                />
             </Tabela>
         </>
     );
