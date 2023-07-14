@@ -1,10 +1,13 @@
 import orderService from "../services/order.service.js";
 import OrderProduct from '../models/OrderProduct.js';
 import customerService from "../services/customer.service.js";
+import productService from "../services/product.service.js";
 
 const createOrder = async (req, res) => {
     try {
         const { produtos, cliente, tipoPagamento, tipoEntrega } = req.body;
+
+        let cont = 0;
 
         if (!produtos)
             return res.status(400).send({ message: "Ao menos um produto deve ser selecionado para o pedido ser realizado!" });
@@ -19,6 +22,8 @@ const createOrder = async (req, res) => {
             });
 
             newOrderProduct = await newOrderProduct.save();
+
+            cont++;
 
             return newOrderProduct._id;
         }));
@@ -46,6 +51,20 @@ const createOrder = async (req, res) => {
         if (!Order)
             return res.status(400).send({ message: 'Erro na criação do pedido!' });
 
+        for (let i = 0; i < cont; i++) {
+            let qtdProdAposVenda = 0;
+            const product = await productService.findByIdService(produtos[i].produto);
+
+            if (product) {
+                qtdProdAposVenda = product.qtdEstoque - produtos[i].quantidade;
+
+                await productService.updateAfterOrder(
+                    produtos[i].produto,
+                    qtdProdAposVenda
+                );
+            }
+        }
+
         if (tipoPagamento === 'Fiado' && cliente) {
             const customer = await customerService.findByIdService(cliente);
             if (!customer)
@@ -64,7 +83,7 @@ const createOrder = async (req, res) => {
 
         res.status(201).send({
             Order,
-            message: 'Pedido aberto com sucesso'
+            message: 'Pedido finalizado com sucesso!'
         });    
     } catch (err) {
         res.status(500).send({ orderController: err.message });

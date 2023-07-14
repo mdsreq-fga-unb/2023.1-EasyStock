@@ -34,7 +34,6 @@ export default function ModalCliente({ isOpen, onClose }) {
         if (confirmed) {
             if (data) {
                 await postCliente(data);
-                window.location.reload();
             }
         }
         setShowConfirmation(false);

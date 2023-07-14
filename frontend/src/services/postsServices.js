@@ -156,7 +156,11 @@ export function postPedido(data) {
     })
     .catch(async (err) => {
         if (err.response) {
-            await swal("Erro!", err.response.data.message, "error");
+            if (err.response.data.message) {
+                await swal("Erro!", err.response.data.message, "error");
+            } else {
+                await swal("Erro!", err.response.data.middleware, "error");
+            }
         }
     });
 

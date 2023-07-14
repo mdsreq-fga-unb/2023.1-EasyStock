@@ -26,6 +26,9 @@ const createProduct = async (req, res) => { // Cadastro de um produto
             if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !qtdEstoqueMin || !medida || !statusVenda)
                 return res.status(400).send({ message: "Preencha todos os campos para realizar o cadastro!" });
             
+            if (parseInt(qtdEstoque) < 0 || parseInt(qtdEstoqueMin) < 1)
+                return res.status(400).send({ message: "Qtd de estoque e/ou qtd de estoque mínimo inválidos!" });
+
             if (parseInt(precoVenda) <= parseInt(precoCusto))
                 return res.status(400).send({ message: "Defina um preço de venda superior ao preço de custo!" });
 
@@ -100,6 +103,9 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
             return res.status(400).send({ message: "Preencha pelo menos um campo para atualização!" });
 
         const { pdv, product } = req;
+
+        if (parseInt(qtdEstoque) < 0 || parseInt(qtdEstoqueMin) < 1)
+            return res.status(400).send({ message: "Qtd de estoque e/ou qtd de estoque mínimo inválidos!" });
 
         if (precoVenda && precoCusto) {
             if (parseInt(precoVenda) <= parseInt(precoCusto))
