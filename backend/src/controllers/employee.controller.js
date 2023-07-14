@@ -1,5 +1,6 @@
 import employeeService from '../services/employee.service.js';
 import { validateEmail } from './auth.controller.js';
+import bcrypt from "bcrypt";
 
 const createEmployee = async (req, res) => { // Cadastro de um funcionário
     try {
@@ -62,6 +63,7 @@ const findEmployeeById = async (req, res) => { // Busca de um funcionário espec
 const updateEmployee = async (req, res) => { // Atualiza os campos do funcionário
     try {
         const { nomeCompleto, username, password, telefone, email, dataContratacao } = req.body;
+        let newPassword = password;
 
         if (!nomeCompleto && !username && !password && !telefone && !email && !dataContratacao)
             return res.status(400).send({ message: "Preencha pelo menos um campo para atualização!" });
@@ -72,13 +74,17 @@ const updateEmployee = async (req, res) => { // Atualiza os campos do funcionár
                 return res.status(400).send({ message: 'Formato de email inválido!' }); 
         }
 
+        if (password) {
+            newPassword = await bcrypt.hash(password, 10);
+        }
+
         const { id } = req;
 
         await employeeService.updateService(
             id,
             nomeCompleto,
             username,
-            password,
+            newPassword,
             telefone,
             email,
             dataContratacao
