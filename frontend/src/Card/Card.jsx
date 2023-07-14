@@ -57,3 +57,15 @@ export function CardCaixa({ caixa }) {
         </Produtos>
     );
 }
+export function CardFuncionario ({funcionario}){
+    return(
+        <Produtos>
+            <td>{funcionario.nomeCompleto}</td>
+            <td>{funcionario.username}</td>
+            <td>{funcionario.password}</td>
+            <td>{funcionario.telefone}</td>
+            <td>{funcionario.email}</td>
+            <td>{funcionario.dataContratacao}</td>
+        </Produtos>
+    );
+}
