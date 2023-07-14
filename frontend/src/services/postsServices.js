@@ -168,7 +168,7 @@ export function postPedido(data) {
 }
 
 //Funcionario
-export function gelAllFuncionarios(data){
+export function getAllFuncionarios(data){
     const response = api.get(`/funcionario`)
     .catch(async (err) => {
         if (err.response) {
