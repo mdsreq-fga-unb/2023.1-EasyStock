@@ -8,7 +8,7 @@ import { getAllPosts, searchProduct } from "../../services/postsServices";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProdutoModal from "../estoque/ProdutoModal";
-import { sessionStatus } from "../../contexts/AuthContext";
+import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { PesquisaCaixa } from "../caixa/CaixaStyled";
 
 export default function Estoque() {
@@ -24,9 +24,8 @@ export default function Estoque() {
     }
 
     useEffect(() => {
-        sessionStatus(navigate);
-
-        findAllPosts();
+        sessionStatusAdmin(navigate)
+        .then(() => findAllPosts());
     }, []);
 
     const handleProductSelect = (product) => {

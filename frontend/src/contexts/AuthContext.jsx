@@ -2,19 +2,31 @@ import { createContext, useEffect, useState } from "react";
 import { login, getUsernameFromToken } from "../services/authServices";
 import Cookies from 'js-cookie';
 import { api } from "../services/postsServices";
+import swal from 'sweetalert';
 
 export const sessionStatus = async (navigate) => {
-    const { token } = Cookies.get();
+    const adminToken = Cookies.get('adminToken');
+    const employeeToken = Cookies.get('employeeToken');
 
-    if (!token) {
+    if (!adminToken && !employeeToken) {
         navigate("/");
     }
 }
 
-export const isAuthenticated = async (navigate) => {
-    const authToken = Cookies.get('token');
+export const sessionStatusAdmin = async (navigate) => {
+    const adminToken = Cookies.get('adminToken');
 
-    if (authToken) {
+    if (!adminToken) {
+        await swal("Acesso Negado!", "Você não possui permissão para acessar esta página", "error");
+        navigate("/inicio");
+    }
+}
+
+export const isAuthenticated = async (navigate) => {
+    const adminToken = Cookies.get('adminToken');
+    const employeeToken = Cookies.get('employeeToken');
+
+    if (adminToken || employeeToken) {
         navigate("/inicio");
     }
 }
@@ -25,19 +37,30 @@ export const AuthProvider = ({ children }) => {
     const [username, setUsername] = useState();
 
     useEffect(() => {
-        const { token } = Cookies.get();
+        const adminToken = Cookies.get('adminToken');
+        const employeeToken = Cookies.get('employeeToken');
 
-        const objToken = {
-            token
+        const objTokenAdmin = {
+            adminToken
+        }
+
+        const objTokenEmployee = {
+            employeeToken
         }
 
         async function getUsername() {
-            if (token) {
-                const res = await getUsernameFromToken(objToken);
+            if (adminToken) {
+                const res = await getUsernameFromToken(objTokenAdmin);
     
                 if (res.status === 200) {
                     setUsername(res.data);
                 }  
+            } else if (employeeToken) {
+                const res = await getUsernameFromToken(objTokenEmployee);
+    
+                if (res.status === 200) {
+                    setUsername(res.data);
+                }
             }
         }
 
@@ -51,7 +74,11 @@ export const AuthProvider = ({ children }) => {
         if (res.status === 200) {
             const { token, username } = res.data;
 
-            Cookies.set('token', token, { expires: 1 }); // Expira em 1 dia
+            if (username == 'admin') {
+                Cookies.set('adminToken', token, { expires: 1 }); // Expira em 1 dia
+            } else {
+                Cookies.set('employeeToken', token, { expires: 1 }); // Expira em 1 dia
+            }
         
             setUsername(username);
 
@@ -63,10 +90,13 @@ export const AuthProvider = ({ children }) => {
         return false;
     }
 
-    async function signOut() {
-        Cookies.remove('token');
+    async function signOut(navigate) {
+        Cookies.remove('adminToken');
+        Cookies.remove('employeeToken');
 
         setUsername(null);
+
+        navigate("/");
     }
 
     return (

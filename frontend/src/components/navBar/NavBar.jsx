@@ -2,12 +2,14 @@ import logo from "../../images/LOGOeasystock.png";
 import { BarraPrincipal, ImgLogo, Nav } from "./NavBarStyled";
 import { Link } from "react-router-dom"
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export function NavBar() {
     const { signOut } = useAuth();
+    const navigate = useNavigate();
 
     async function terminateSession() {
-        await signOut();
+        await signOut(navigate);
 
         window.location.reload();
     }

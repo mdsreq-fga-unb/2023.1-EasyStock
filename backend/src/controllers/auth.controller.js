@@ -1,25 +1,25 @@
 import { generateToken, getUserFromToken, generateEmployeeToken, employeeLoginService } from "../services/auth.service.js";
 import bcrypt from "bcrypt";
 
-const loginAdmin = async (req, res) => {
-    try {
-        const { username, password } = req.body;
+// const loginAdmin = async (req, res) => {
+//     try {
+//         const { username, password } = req.body;
 
-        if (username !== process.env.ADMIN_USERNAME || password !== process.env.ADMIN_PASSWORD)
-            return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
+//         if (username !== process.env.ADMIN_USERNAME || password !== process.env.ADMIN_PASSWORD)
+//             return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
 
-        const token = generateToken(username, password);
+//         const token = generateToken(username, password);
 
-        res.send({
-            token,
-            username
-        });
-    } catch (err) {
-        res.status(500).send({ authController: err.message });
-    }
-}
+//         res.send({
+//             token,
+//             username
+//         });
+//     } catch (err) {
+//         res.status(500).send({ authController: err.message });
+//     }
+// }
 
-const loginEmployee = async (req, res) => {
+const login = async (req, res) => {
     try {
         const { username, password } = req.body;
 
@@ -28,20 +28,30 @@ const loginEmployee = async (req, res) => {
 
         const employee = await employeeLoginService(username);
 
-        if (!employee)
-            return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
+        if (!employee) {
+            if (username == process.env.ADMIN_USERNAME && password == process.env.ADMIN_PASSWORD) {
+                const token = generateToken(username);
 
-        const passwordIsValid = await bcrypt.compare(password, employee.password);
+                res.send({
+                    token,
+                    username
+                });
+            } else {
+                return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
+            }
+        } else {
+            const passwordIsValid = await bcrypt.compare(password, employee.password);
 
-        if (!passwordIsValid)
-            return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
+            if (!passwordIsValid)
+                return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
 
-        const token = generateEmployeeToken(employee.id);
+            const token = generateEmployeeToken(employee.id, employee.username);
 
-        res.send({
-            token,
-            username
-        });
+            res.send({
+                token,
+                username
+            });
+        }
     } catch (err) {
         res.status(500).send({ authController: err.message });
     }
@@ -49,17 +59,26 @@ const loginEmployee = async (req, res) => {
 
 const getUsername = async (req, res) => {
     try {
-        const { token } = req.body;
+        const { adminToken, employeeToken } = req.body;
 
-        if (!token)
+        if (!adminToken && !employeeToken)
             return res.status(400).send({ message: 'Informe o token!' });
 
-        const username = getUserFromToken(token);
+        if (adminToken) {
+            const username = getUserFromToken(adminToken);
 
-        if (username === 'false')
-            return res.status(400).send({ message: 'Token inválido!' });
+            if (username === 'false')
+                return res.status(400).send({ message: 'Token inválido!' });
 
-        res.send({username});
+            res.send({username});    
+        } else if (employeeToken) {
+            const username = getUserFromToken(employeeToken);
+
+            if (username === 'false')
+                return res.status(400).send({ message: 'Token inválido!' });
+
+            res.send({username});    
+        }    
     } catch (err) {
         res.status(500).send({ authController: err.message });
     }
@@ -70,4 +89,4 @@ const validateEmail = (email) => {
     return re.test(email);
 }
 
-export { loginAdmin, loginEmployee, getUsername, validateEmail };
+export { login, getUsername, validateEmail };

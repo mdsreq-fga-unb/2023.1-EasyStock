@@ -34,9 +34,8 @@ export default function Caixa() {
     }
 
     useEffect(() => {
-        sessionStatus(navigate);
-
-        findAllPosts();
+        sessionStatus(navigate)
+        .then(() => findAllPosts());
     }, []);
 
     const handleFormSubmit = async (e) => {

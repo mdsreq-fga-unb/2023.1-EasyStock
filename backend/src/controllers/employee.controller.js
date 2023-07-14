@@ -6,7 +6,15 @@ const createEmployee = async (req, res) => { // Cadastro de um funcionário
         const { nomeCompleto, username, password, telefone, email, dataContratacao } = req.body;
 
         if (!nomeCompleto || !username || !password || !dataContratacao)
-                return res.status(400).send({ message: "Preencha todos os campos obrigatórios para realizar o cadastro!" });
+            return res.status(400).send({ message: "Preencha todos os campos obrigatórios para realizar o cadastro!" });
+
+        if (username == process.env.ADMIN_USERNAME)
+            return res.status(400).send({ message: "Username inválido, tente outro!" });
+
+        const findEmployee = await employeeService.findByUsernameService(username);
+
+        if (findEmployee)
+            return res.status(400).send({ message: "Username já cadastrado, tente outro!" });
 
         if (email) {
             const valEmail = validateEmail(email);

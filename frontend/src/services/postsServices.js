@@ -2,14 +2,17 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import swal from 'sweetalert';
 
-const { token } = Cookies.get();
+const adminToken = Cookies.get('adminToken');
+const employeeToken = Cookies.get('employeeToken');
 
 export const api = axios.create({
     baseURL: "http://localhost:8000"
 });
 
-if (token) {
-    api.defaults.headers['Authorization'] = `Bearer ${token}`;
+if (adminToken) {
+    api.defaults.headers['Authorization'] = `Bearer ${adminToken}`;
+} else if (employeeToken) {
+    api.defaults.headers['Authorization'] = `Bearer ${employeeToken}`;
 }
 //Produto
 export function getAllPosts() {

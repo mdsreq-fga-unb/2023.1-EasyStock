@@ -5,7 +5,7 @@ import { CardClient } from "../../Card/Card";
 import ModalCliente from "./ModalCliente";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { sessionStatus } from "../../contexts/AuthContext";
+import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { getAllClients } from "../../services/postsServices";
 import NomeModal from "./NomeModal";
 
@@ -22,9 +22,8 @@ export default function Cliente() {
     }
 
     useEffect(() => {
-        sessionStatus(navigate);
-
-        findAllClients();
+        sessionStatusAdmin(navigate)
+        .then(() => findAllClients());
     }, []);
 
     const handleProductSelect = (client) => {
