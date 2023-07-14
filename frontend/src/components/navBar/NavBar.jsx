@@ -33,6 +33,9 @@ export function NavBar() {
                         <li>
                             <Link to="/cliente">CLIENTE</Link>
                         </li>
+                    <li>
+                            <Link to="/funcionario">FUNCIONARIO</Link>
+                        </li>
                         <li>
                             <Link to="/estoque">ESTOQUE</Link>
                         </li>
