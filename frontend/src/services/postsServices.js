@@ -180,3 +180,18 @@ export function getAllFuncionarios(data){
     });
     return response;
 }
+
+export function postFuncionario(data) {
+    const response = api.post(`/funcionario`, data)
+    .then(async () => {
+        await swal("Sucesso!", "Funcionário cadastrado com sucesso!", "success");
+        window.location.reload();
+    })
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
+    
+    return response;
+}

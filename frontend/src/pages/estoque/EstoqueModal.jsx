@@ -51,9 +51,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                 <div className="container">
                     <div className="card">
                         <h1>Adicionar Produtos</h1>
-                        <form onSubmit={handleFormSubmit}>
-                            {/* Restante do seu formulário... */}
-
+                        <form onSubmit={handleFormSubmit}>                           
                             <div className="label-float">
                                 <input
                                     type="text"
