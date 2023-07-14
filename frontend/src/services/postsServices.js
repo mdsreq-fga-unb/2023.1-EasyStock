@@ -168,4 +168,15 @@ export function postPedido(data) {
     });
 
     return response;
-} 
+}
+
+//Funcionario
+export function getAllFuncionarios(data){
+    const response = api.get(`/funcionario`)
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
+    return response;
+}

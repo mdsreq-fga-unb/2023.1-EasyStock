@@ -16,6 +16,7 @@ import Cliente from "./pages/cliente/Cliente.jsx";
 import Caixa from "./pages/caixa/Caixa.jsx";
 import Login from "./pages/login/Login.jsx";
 import useAuth from "./hooks/useAuth.jsx";
+import Funcionario from "./pages/funcionario/Funcionario.jsx";
 
 const Private = ({ Item }) => {
     const signIn = true;
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
             {
                 path: "/caixa",
                 element: <Private Item={Caixa}/>,
+            },
+            {
+                path: "/funcionario",
+                element: <Private Item={Funcionario}/>,
             },
             {
                 path: "/relatorio",
