@@ -171,7 +171,7 @@ export function postPedido(data) {
 }
 
 //Funcionario
-export function getAllFuncionarios(data){
+export function getAllFuncionarios(){
     const response = api.get(`/funcionario`)
     .catch(async (err) => {
         if (err.response) {
@@ -234,6 +234,5 @@ export function getAllVendas() {
             await swal("Erro!", err.response.data.message, "error");
         }
     });
-
     return response;
 }

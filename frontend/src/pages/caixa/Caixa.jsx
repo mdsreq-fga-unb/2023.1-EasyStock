@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
 import { Tabela } from "../estoque/EstoqueStyled";
-//import { caixas } from "../../Datas";
 import { CardCaixa, CardProduto } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
 import {PesquisaCaixa, Tabela1, Tabela2, TabelasContainer} from "./CaixaStyled";
@@ -16,7 +15,6 @@ let produtos = [];
 let valorTotal = [];
 let precoTotalPedido = 0;
 let pedido = { produtos, valorTotal };
-let re = undefined;
 
 export default function Caixa() {
     const [produtoss, setProducts] = useState([]);
@@ -75,9 +73,6 @@ export default function Caixa() {
         caixa[cont] = formData;
         produtos[cont] = formDataPedido;
         cont++;
-
-        // Mostrar a caixa de diálogo de confirmação
-        //setShowConfirmation(true);
     };
 
     function enviaProdutos(pedido) {

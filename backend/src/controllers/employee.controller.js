@@ -12,6 +12,9 @@ const createEmployee = async (req, res) => { // Cadastro de um funcionário
         if (username == process.env.ADMIN_USERNAME)
             return res.status(400).send({ message: "Username inválido, tente outro!" });
 
+        if (username.includes(":"))
+            return res.status(400).send({ message: "" });    
+
         const findEmployee = await employeeService.findByUsernameService(username);
 
         if (findEmployee)
