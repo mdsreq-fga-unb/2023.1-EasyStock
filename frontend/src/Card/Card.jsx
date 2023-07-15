@@ -74,9 +74,13 @@ export function CardFuncionario ({funcionario, onSelect}){
 }
 
 //Vendas
-export function CardVenda({venda}) {
+export function CardVenda({venda, onSelect}) {
+    const handleClick = () =>{
+        onSelect(venda);
+    };
+
     return (
-        <Produtos>
+        <Produtos onClick={handleClick}>
             <td>{venda.precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
             <td>{venda.tipoPagamento}</td>
             <td>{venda.tipoEntrega}</td>
