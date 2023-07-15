@@ -22,7 +22,9 @@ export default function Caixa() {
     const [codigoPDV, setCodigoPDV] = useState();
     const [quantidade, setQuantidade] = useState();
     const navigate = useNavigate();
+    const [data, setData] = useState(null);
     const [modalData, setModalData] = useState(null);
+    const [dataPedido, setDataPedido] = useState(null);
 
     async function findAllPosts() {
         const response = await getAllPosts();
@@ -63,6 +65,10 @@ export default function Caixa() {
             produto: _id,
             quantidade,
         };
+
+        // Armazenar os dados do formulário na variável "data"
+        setData(formData);
+        setDataPedido(formDataPedido);
 
         caixa[cont] = formData;
         produtos[cont] = formDataPedido;
