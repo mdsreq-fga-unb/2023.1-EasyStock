@@ -171,7 +171,7 @@ export function postPedido(data) {
 }
 
 //Funcionario
-export function getAllFuncionarios(data){
+export function getAllFuncionarios(){
     const response = api.get(`/funcionario`)
     .catch(async (err) => {
         if (err.response) {
@@ -223,5 +223,26 @@ export function deleteFuncionario(id) {
         }
     });
 
+    return response;
+}
+
+// Vendas
+export function getAllVendas(){
+    const response = api.get(`/pedido`)
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
+    return response;
+}
+
+export function getVendaById(id) {
+    const response = api.get(`/pedido/${id}`)
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
     return response;
 }
