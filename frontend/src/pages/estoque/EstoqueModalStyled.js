@@ -34,7 +34,7 @@ export const TodoModal = styled.section`
         transition: all 0.3s ease-out;
         border-radius: 20px;
     }
-
+    
     .label-float {
         position: relative;
         padding-top: 1px;
@@ -51,8 +51,10 @@ export const TodoModal = styled.section`
         background-color: transparent;
         text-align: center;
         font-size: 18px;
+        width: 100%;
+        border-radius: 20px;
     }
-
+    
     .label-float label,
     select {
         border: none;
