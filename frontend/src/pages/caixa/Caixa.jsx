@@ -131,10 +131,10 @@ export default function Caixa() {
 
             <TabelasContainer>
                 <Tabela1>
-                    <caption>
-                        <h3>Pagamento</h3>
-                    </caption>
                     <table>
+                        <caption>
+                            <h3>Pagamento</h3>
+                        </caption>
                         <thead>
                             <tr>
                                 <th>Código PDV</th>
@@ -171,10 +171,10 @@ export default function Caixa() {
                     />
                 </Tabela1>
                 <Tabela2>
-                    <caption>
-                        <h3>Produtos do Estoque</h3>
-                    </caption>
                     <table>
+                        <caption>
+                            <h3>Produtos do Estoque</h3>
+                        </caption>
                         <thead>
                             <tr>
                                 <th>Código PDV</th>

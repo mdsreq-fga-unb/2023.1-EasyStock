@@ -39,7 +39,7 @@ export const TabelasContainer = styled.section`
     justify-content: space-around;
 `;
 
-export const Tabela1 = styled.table`
+export const Tabela1 = styled.div`
     margin-top: 2rem;
     margin-left: 2rem;
     border-radius: 30px;
@@ -76,7 +76,7 @@ export const Tabela1 = styled.table`
     }
 `;
 
-export const Tabela2 = styled.table`
+export const Tabela2 = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
