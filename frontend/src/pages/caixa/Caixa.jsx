@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
 import { getProductByPdv } from "../../services/postsServices";
 import { getAllPosts } from "../../services/postsServices";
+import swal from 'sweetalert';
 
 let cont = 0;
 let caixa = [];
@@ -47,6 +48,15 @@ export default function Caixa() {
 
         if (!dataProduto)
             return;
+
+        for (let i = 0; i < cont; i++) {
+            let num = JSON.stringify(caixa[i].codigoPDV).replace(/"/g, ''); // Remove as aspas duplas do 'caixa[i].codigoPDV' 
+        
+            if (parseInt(codigoPDV) == parseInt(num)) {
+                await swal("Erro!", "Este produto já foi inserido no carrinho!", "error");
+                return;
+            }
+        }    
 
         const { nome, precoVenda, _id } = dataProduto.data;
 

@@ -1,7 +1,7 @@
 import { Card } from "../../Card/Card";
 import { NavBar } from "../../components/navBar/NavBar";
 import { products } from "../../Datas";
-import { Tabela } from "../estoque/EstoqueStyled";
+import { Tabela, Botao, Div } from "../estoque/EstoqueStyled";
 import EstoqueModal from "../estoque/EstoqueModal";
 import { useState } from "react";
 import { getAllPosts, searchProduct } from "../../services/postsServices";
@@ -54,51 +54,55 @@ export default function Estoque() {
                     </div>
                 </form>
             </PesquisaCaixa> */}
+            <Div>
+                <Tabela>
+                    <table>
+                        <caption>
+                            <h3>Estoque de Produtos</h3>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th className="primeiroTH">CódigoPDV</th>
+                                <th>Nome</th>
+                                <th>Preço Custo</th>
+                                <th>Preço venda</th>
+                                <th>Qtd Estoque</th>
+                                <th>Qtd Min Estoque</th>
+                                <th>Medida</th>
+                                <th className="ultimoTH">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {products.map((product) => (
+                                <Card
+                                    key={product.codigoPDV}
+                                    product={product}
+                                    onSelect={handleProductSelect}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
 
-            <Tabela>
-                <table>
-                    <caption>
-                        <h3>Estoque de Produtos</h3>
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th>CódigoPDV</th>
-                            <th>Nome</th>
-                            <th>Preço Custo</th>
-                            <th>Preço venda</th>
-                            <th>Qtd Estoque</th>
-                            <th>Qtd Min Estoque</th>
-                            <th>Medida</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {products.map((product) => (
-                            <Card
-                                key={product.codigoPDV}
-                                product={product}
-                                onSelect={handleProductSelect}
-                            />
-                        ))}
-                    </tbody>
-                </table>
 
-                <button
-                    className="botao-principal"
-                    onClick={() => setOpenEstoqueModal(true)}
-                >
-                    Adicionar Produtos
-                </button>
-                <EstoqueModal
-                    isOpen={openEstoqueModal}
-                    onClose={() => setOpenEstoqueModal(false)}
-                />
-                <ProdutoModal
-                    isOpen={openProdutoModal}
-                    onClose={() => setOpenProdutoModal(false)}
-                    selectedProduct={selectedProduct}
-                />
-            </Tabela>
+                    <EstoqueModal
+                        isOpen={openEstoqueModal}
+                        onClose={() => setOpenEstoqueModal(false)}
+                    />
+                    <ProdutoModal
+                        isOpen={openProdutoModal}
+                        onClose={() => setOpenProdutoModal(false)}
+                        selectedProduct={selectedProduct}
+                    />
+                </Tabela>
+                <Botao>
+                    <button
+                        className="botao-principal"
+                        onClick={() => setOpenEstoqueModal(true)}
+                    >
+                        Adicionar Produtos
+                    </button>
+                </Botao>
+            </Div>
         </>
     );
 }

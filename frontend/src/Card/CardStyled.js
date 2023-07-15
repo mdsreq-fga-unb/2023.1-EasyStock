@@ -4,7 +4,13 @@ export const Produtos = styled.tr`
     text-align: center;
     td{
         background-color: #77c3d5;
-        border-radius: 10px;
+        border-radius: 0px;
         padding: 1px;
+    }
+    :hover td {
+        background-color: #1e5c74;
+        font-weight: bolder;
+        color: #6ba9b6;
+        transition: all 0.1s ease-out;
     }
 `;
