@@ -236,3 +236,13 @@ export function getAllVendas() {
     });
     return response;
 }
+
+export function getVendaById(id) {
+    const response = api.get(`/pedido/${id}`)
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
+    return response;
+}

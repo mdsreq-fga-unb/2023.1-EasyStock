@@ -45,6 +45,9 @@ export default function Caixa() {
 
         const dataProduto = await getProductByPdv(codigoPDV);
 
+        if (!dataProduto)
+            return;
+
         const { nome, precoVenda, _id } = dataProduto.data;
 
         const precoTotal = precoVenda * quantidade;
