@@ -6,11 +6,14 @@ import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { CardFuncionario } from "../../Card/Card";
 import { useNavigate } from "react-router-dom";
 import FuncionarioModal from "./FuncionarioModal";
+import EditarFuncionario from "./EditarFuncionario";
 
 export default function Funcionario() {
     const [funcionarios, setFuncionarios] = useState([]);
     const navigate = useNavigate();
     const [openFuncionarioModal, setOpenFuncionarioModal] = useState(false);
+    const [openEditarFuncionarioModal, setOpenEditarFuncionarioModal] = useState(false)
+    const [selectedFuncionario, setSelectedFuncionario] = useState(null);
 
     async function findAllFuncionarios() {
         const response = await getAllFuncionarios();
@@ -21,6 +24,12 @@ export default function Funcionario() {
         sessionStatusAdmin(navigate)
         .then(() => findAllFuncionarios());
     }, []);
+
+    const handleFuncionarioSelect = (funcionario) => {
+        setSelectedFuncionario(funcionario);
+        setOpenEditarFuncionarioModal(true);
+    }
+
 
     return (
         <>
@@ -46,6 +55,7 @@ export default function Funcionario() {
                             <CardFuncionario
                                 key={funcionario._id}
                                 funcionario={funcionario}
+                                onSelect = {handleFuncionarioSelect}
                             />
                         ))}
                     </tbody>
@@ -58,7 +68,12 @@ export default function Funcionario() {
                 </button>
                 <FuncionarioModal
                      isOpen={openFuncionarioModal}
-                     onClose={() => setOpenFuncionarioModal(false)}
+                     onClose={() => setOpenEditarFuncionarioModal(false)}
+                />
+                <EditarFuncionario 
+                    isOpen={openEditarFuncionarioModal}
+                    onClose={() => setOpenEditarFuncionarioModal(false)}
+                    selectedFuncionario={selectedFuncionario}
                 />
             </Tabela>
         </>

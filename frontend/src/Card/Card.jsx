@@ -57,9 +57,13 @@ export function CardCaixa({ caixa }) {
         </Produtos>
     );
 }
-export function CardFuncionario ({funcionario}){
+export function CardFuncionario ({funcionario, onSelect}){
+    const handleClick = () => {
+        onSelect(funcionario);
+    };
+
     return(
-        <Produtos>
+        <Produtos onClick={handleClick}>
             <td>{funcionario.nomeCompleto}</td>
             <td>{funcionario.username}</td>
             <td>{funcionario.password}</td>

@@ -195,3 +195,33 @@ export function postFuncionario(data) {
     
     return response;
 }
+
+export function updateFuncionario(id, data){
+    const response = api.patch(`/funcionario/${id}`, data)
+    .then(async () => {
+        await swal("Sucesso!", "Funcionario atualizado com sucesso!", "success");
+        window.location.reload();
+    })
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
+
+    return response;
+}
+
+export function deleteFuncionario(id) {
+    const response = api.delete(`/funcionario/${id}`)
+    .then(async () => {
+        await swal("Sucesso!", "Funcionario deletado com sucesso!", "success");
+        window.location.reload();
+    })
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
+
+    return response;
+}
