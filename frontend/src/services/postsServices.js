@@ -225,3 +225,15 @@ export function deleteFuncionario(id) {
 
     return response;
 }
+
+//Vendas
+export function getAllVendas() {
+    const response = api.get(`/pedido`)
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
+
+    return response;
+}

@@ -17,6 +17,7 @@ import Caixa from "./pages/caixa/Caixa.jsx";
 import Login from "./pages/login/Login.jsx";
 import useAuth from "./hooks/useAuth.jsx";
 import Funcionario from "./pages/funcionario/Funcionario.jsx";
+import Venda from "./pages/venda/Venda.jsx";
 
 const Private = ({ Item }) => {
     const signIn = true;
@@ -55,8 +56,8 @@ const router = createBrowserRouter([
                 element: <Private Item={Funcionario}/>,
             },
             {
-                path: "/relatorio",
-                element: <Private Item={Erro}/>,
+                path: "/venda",
+                element: <Private Item={Venda}/>,
             },
             {
                 path: "/dashboard",

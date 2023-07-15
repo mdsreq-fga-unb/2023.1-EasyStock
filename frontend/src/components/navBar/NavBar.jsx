@@ -43,7 +43,7 @@ export function NavBar() {
                         </li>
 
                         <li>
-                            <Link to="/relatorio">RELATÓRIO</Link>
+                            <Link to="/venda">VENDAS</Link>
                         </li>
                         <li>
                             <Link to="/dashboard">DASHBOARD</Link>

@@ -72,3 +72,15 @@ export function CardFuncionario ({funcionario, onSelect}){
         </Produtos>
     );
 }
+
+//Vendas
+export function CardVenda({venda}) {
+    return (
+        <Produtos>
+            <td>{venda.precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+            <td>{venda.tipoPagamento}</td>
+            <td>{venda.tipoEntrega}</td>
+            <td>{venda.dataPedido}</td>
+        </Produtos>
+    );
+}
