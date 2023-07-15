@@ -44,7 +44,6 @@ export default function Funcionario() {
                         <tr>
                             <th>Funcionário</th>
                             <th>Usuário</th>
-                            <th>senha?</th>
                             <th>Telefone</th>
                             <th>Email</th>
                             <th>Data Contratação</th>
@@ -68,7 +67,7 @@ export default function Funcionario() {
                 </button>
                 <FuncionarioModal
                      isOpen={openFuncionarioModal}
-                     onClose={() => setOpenEditarFuncionarioModal(false)}
+                     onClose={() => setOpenFuncionarioModal(false)}
                 />
                 <EditarFuncionario 
                     isOpen={openEditarFuncionarioModal}
