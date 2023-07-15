@@ -5,6 +5,7 @@ import { getAllVendas } from "../../services/postsServices";
 import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { Tabela } from "../estoque/EstoqueStyled";
 import { CardVenda } from "../../Card/Card";
+import InfoVenda from "./InfoVenda";
 
 export default function Venda() {
     const navigate = useNavigate();
@@ -22,6 +23,11 @@ export default function Venda() {
         sessionStatusAdmin(navigate)
         .then(() => findAllVendas());
     }, []);
+    const handleProductSelect = (venda) =>{
+        setSelectedVenda(venda);
+        setOpenPedidosModal(true);
+    };
+
 
     return (
         <>
@@ -45,10 +51,16 @@ export default function Venda() {
                             <CardVenda
                                 key={venda._id}
                                 venda={venda}
+                                onSelect={handleProductSelect}
                             />
                         ))}
                     </tbody>
                 </table>
+                <InfoVenda 
+                    isOpen={openPedidosModal}
+                    onClose={()=> setOpenPedidosModal(false)}
+                    selectedVenda={selectedVenda}
+                />
             </Tabela>
         </>
     );
