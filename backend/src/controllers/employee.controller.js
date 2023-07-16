@@ -13,7 +13,7 @@ const createEmployee = async (req, res) => { // Cadastro de um funcionário
             return res.status(400).send({ message: "Username inválido, tente outro!" });
 
         if (username.includes(":"))
-            return res.status(400).send({ message: "" });    
+            return res.status(400).send({ message: "Caracter inválido, digite outro username!" });    
 
         const findEmployee = await employeeService.findByUsernameService(username);
 

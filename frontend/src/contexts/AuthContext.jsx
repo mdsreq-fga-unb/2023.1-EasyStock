@@ -71,20 +71,29 @@ export const AuthProvider = ({ children }) => {
     async function signIn(data) {
         const res = await login(data);
 
-        if (res.status === 200) {
-            const { token, username } = res.data;
+        if (res) {
+            if (res.status == 200) {
+                const { token, username } = res.data;
 
-            if (username == 'admin') {
-                Cookies.set('adminToken', token, { expires: 1 }); // Expira em 1 dia
-            } else {
-                Cookies.set('employeeToken', token, { expires: 1 }); // Expira em 1 dia
-            }
-        
-            setUsername(username);
+                const parts = username.split(":");
 
-            api.defaults.headers['Authorization'] = `Bearer ${token}`;
+                if (!parts.length === 2)
+                    return false;
+
+                const [ user, role ] = parts;
+
+                if (role == 'adm') {
+                    Cookies.set('adminToken', token, { expires: 1 }); // Expira em 1 dia
+                } else if (role == 'emp') {
+                    Cookies.set('employeeToken', token, { expires: 1 }); // Expira em 1 dia
+                }
             
-            return true;
+                setUsername(username);
+
+                api.defaults.headers['Authorization'] = `Bearer ${token}`;
+
+                return true;
+            }
         }
 
         return false;
