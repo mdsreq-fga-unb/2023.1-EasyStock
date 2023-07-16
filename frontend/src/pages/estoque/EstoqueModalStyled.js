@@ -40,13 +40,14 @@ export const TodoModal = styled.section`
         padding-top: 1px;
         margin-top: 1%;
         margin-bottom: 5%;
+        text-align: center;
     }
     .separar-h3 {
         display: flex;
         justify-content: space-between;
         background-color: #F4F4ED;
     }
-    .label-float input {
+    .label-float input, select {
         border: none;
         background-color: transparent;
         text-align: center;
