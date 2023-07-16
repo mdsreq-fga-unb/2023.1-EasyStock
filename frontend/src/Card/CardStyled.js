@@ -24,6 +24,7 @@ export const Produto = styled.tr`
     }
     .deletar-card{
         background-color: #D9D9D9;
+        cursor: pointer;
     }
     i:hover{
         color: red;
