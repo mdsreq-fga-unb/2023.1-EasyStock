@@ -39,7 +39,7 @@ const createOrder = async (req, res) => {
         const precoTotal = precosTotais.reduce((a,b) => a + b, 0);
 
         let dataPedido = new Date();
-        dataPedido = dataPedido.toLocaleString('pt-BR', { timezone: 'UTC', dateStyle: 'short' });
+        dataPedido = dataPedido.toLocaleString('pt-BR', { timezone: 'UTC' });
 
         let order = {
             produtos: orderIdsResolved,
