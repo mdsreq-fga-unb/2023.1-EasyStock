@@ -86,6 +86,14 @@ const data = [
 
     async function findAllVendas() {
         const response = await getAllVendas();
+
+        let vendas = response.data;
+        for (let i = 0; i < vendas.length; i++) {
+          let dataCurta = JSON.stringify(vendas[i].dataPedido).substring(1, 11);
+          vendas[i].dataPedido = dataCurta;
+
+        }
+        vendas.reverse();
         setVendas(response.data);
     }
 
@@ -96,8 +104,6 @@ const data = [
    
 
     },[]);
-
-
     const handleProductSelect = (venda) =>{
         setSelectedVenda(venda);
         setOpenPedidosModal(true);
@@ -117,6 +123,7 @@ const data = [
         flexWrap: 'wrap',
       }}>
     <div className="chart">
+        {console.log(vendas)}
         {vendas && vendas.length > 0 &&(
     <AreaChart
           width={600}
@@ -125,10 +132,11 @@ const data = [
          
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="dataPedido" tickFormatter={(value) => new Date(value).toLocaleDateString()}/>
-          <YAxis dataKey="precoTotal" />
+          <XAxis dataKey="dataPedido" label={{ value: "Pages of my website",offset:0, angle: 0, position: 'insideBottom' }} />
+         
+          <YAxis type="number" dataKey="precoTotal"  label={{ value: 'pv of page', angle: -90, position: 'insideLeft' }}/>
           <Tooltip />
-          <Area type="monotone" dataKey="precoTotal" stroke="#8884d8" fill="#8884d8" />
+          <Area type="monotone" dataKey="precoTotal"  stroke="#8884d8" fill="#8884d8" />
         </AreaChart>
 )}
 </div>
@@ -136,7 +144,7 @@ const data = [
           width={400}
           height={400}
           data={data}
-          margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+          //margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
         >
           <XAxis dataKey="name" />
           <Tooltip />
@@ -150,12 +158,13 @@ const data = [
           width={500}
           height={300}
           data={vendas}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}>
+        //   margin={{
+        //     top: 5,
+        //     right: 30,
+        //     left: 20,
+        //     bottom: 5,
+        //   }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="dataPedido" />
           <YAxis dataKey="precoTotal" />
