@@ -18,6 +18,8 @@ import Login from "./pages/login/Login.jsx";
 import useAuth from "./hooks/useAuth.jsx";
 import Funcionario from "./pages/funcionario/Funcionario.jsx";
 import Venda from "./pages/venda/Venda.jsx";
+import Dashboard from "./pages/dashboard/Dashboard.jsx";
+
 
 const Private = ({ Item }) => {
     const signIn = true;
@@ -61,7 +63,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard",
-                element: <Private Item={Erro}/>,
+                element: <Private Item={Dashboard}/>,
             },
             {
                 path: "*",

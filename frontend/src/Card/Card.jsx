@@ -88,3 +88,17 @@ export function CardVenda({venda, onSelect}) {
         </Produtos>
     );
 }
+//graficos
+
+export function Cardnovo({venda, onSelect}) {
+    const handleClick = () =>{
+        onSelect(venda);
+    };
+
+    return (
+        <Produtos onClick={handleClick}>
+            <td>{venda.precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+            <td>{venda.dataPedido}</td>
+        </Produtos>
+    );
+}
