@@ -28,5 +28,6 @@ export const Produto = styled.tr`
     }
     i:hover{
         color: red;
+        transition: all 0.1s ease-out;
     }
 `;
