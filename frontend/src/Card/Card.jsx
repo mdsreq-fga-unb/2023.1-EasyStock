@@ -1,4 +1,4 @@
-import { Produtos } from "./CardStyled";
+import { Produtos, Produto } from "./CardStyled";
 
 export function Card({ product, onSelect }) {
     const statusClass = product.statusVenda;
@@ -48,13 +48,14 @@ export function CardClient({ client, onSelect }) {
 }
 export function CardCaixa({ caixa }) {
     return (
-        <Produtos>
+        <Produto>
             <td>{caixa.codigoPDV}</td>
             <td>{caixa.nome}</td>
             <td>{caixa.quantidade}</td>
             <td>{caixa.precoVenda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
             <td>{caixa.precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-        </Produtos>
+            <td className="deletar-card"><i class="bi-x-circle"></i></td>
+        </Produto>
     );
 }
 export function CardFuncionario ({funcionario, onSelect}){

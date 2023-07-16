@@ -15,3 +15,17 @@ export const Produtos = styled.tr`
         transition: all 0.1s ease-out;
     }
 `;
+export const Produto = styled.tr`
+    text-align: center;
+    td{
+        background-color: #77c3d5;
+        border-radius: 0px;
+        padding: 1px;
+    }
+    .deletar-card{
+        background-color: #D9D9D9;
+    }
+    i:hover{
+        color: red;
+    }
+`;

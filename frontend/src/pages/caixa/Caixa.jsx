@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
-import { Botao, Tabela } from "../estoque/EstoqueStyled";
 import { CardCaixa, CardProduto } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
 import {
+    BotaoCaixa,
     DivTabela,
     PesquisaCaixa,
     Tabela1,
@@ -159,6 +159,7 @@ export default function Caixa() {
                                     <th>Quantidade</th>
                                     <th>Preço Unitário</th>
                                     <th className="ultimoTH">Preço Total</th>
+                                    <th className="diminuir">i</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -177,7 +178,7 @@ export default function Caixa() {
                             infoPedido={modalData}
                         />
                     </Tabela1>
-                    <Botao>
+                    <BotaoCaixa>
                         <button
                             className="botao-principal"
                             onClick={() => {
@@ -186,7 +187,7 @@ export default function Caixa() {
                         >
                             Pagamento
                         </button>
-                    </Botao>
+                    </BotaoCaixa>
                 </DivTabela>
                 <Tabela2>
                     <table>
