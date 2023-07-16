@@ -107,15 +107,13 @@ export default function FuncionarioModal({ isOpen, onClose }) {
                                     }
                                 />
                             </div>
-                            <div className="display-botoes">
+                            <div className="alinhar">
                                 <input
                                     type="submit"
                                     name="Adicionar funcionário"
                                     id="enviar"
                                     className="buttons"
                                 />
-                            </div>
-                            <div className="display-botoes">
                                 <button
                                     className="button-modalc"
                                     onClick={onClose}

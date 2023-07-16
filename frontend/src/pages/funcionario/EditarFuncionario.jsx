@@ -131,15 +131,7 @@ export default function EditarFuncionario({
                                 }
                             />
                         </div>
-                        <div className="display-botoes">
-                            <input
-                                type="submit"
-                                name="Adicionar funcionário"
-                                id="enviar"
-                                className="buttons"
-                            />
-                        </div>
-                        <div className="display-botoes">
+                        <div className="alinhar">
                             <button
                                 type="button"
                                 name="editar"
@@ -150,8 +142,7 @@ export default function EditarFuncionario({
                             >
                                 Atualizar
                             </button>
-                        </div>
-                        <div className="display-botoes">
+
                             <button
                                 type="button"
                                 name="deletar"
@@ -162,8 +153,7 @@ export default function EditarFuncionario({
                             >
                                 Deletar
                             </button>
-                        </div>
-                        <div className="display-botoes">
+
                             <button className="button-modalc" onClick={onClose}>
                                 Cancelar
                             </button>

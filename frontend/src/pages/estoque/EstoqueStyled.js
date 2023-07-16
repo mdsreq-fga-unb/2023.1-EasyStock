@@ -21,6 +21,7 @@ export const Botao = styled.div`
         border-radius: 20px;
         color: #4f5a51;
         padding: 10px;
+        margin-top: 10px;
 
         /* width: 90%; */
     }
