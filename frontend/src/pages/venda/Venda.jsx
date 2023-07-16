@@ -3,7 +3,7 @@ import { NavBar } from "../../components/navBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import { getAllVendas } from "../../services/postsServices";
 import { sessionStatusAdmin } from "../../contexts/AuthContext";
-import { Tabela } from "../estoque/EstoqueStyled";
+import { Div, Tabela } from "../estoque/EstoqueStyled";
 import { CardVenda } from "../../Card/Card";
 import InfoVenda from "./InfoVenda";
 
@@ -20,48 +20,48 @@ export default function Venda() {
     }
 
     useEffect(() => {
-        sessionStatusAdmin(navigate)
-        .then(() => findAllVendas());
+        sessionStatusAdmin(navigate).then(() => findAllVendas());
     }, []);
-    const handleProductSelect = (venda) =>{
+    const handleProductSelect = (venda) => {
         setSelectedVenda(venda);
         setOpenPedidosModal(true);
     };
-
 
     return (
         <>
             <NavBar />
 
-            <Tabela>
-                <table>
-                    <caption>
-                        <h3>Lista de Vendas</h3>
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th>Preço</th>
-                            <th>Pagamento</th>
-                            <th>Entrega</th>
-                            <th>Data</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {vendas.map((venda) => (
-                            <CardVenda
-                                key={venda._id}
-                                venda={venda}
-                                onSelect={handleProductSelect}
-                            />
-                        ))}
-                    </tbody>
-                </table>
-                <InfoVenda 
-                    isOpen={openPedidosModal}
-                    onClose={()=> setOpenPedidosModal(false)}
-                    selectedVenda={selectedVenda}
-                />
-            </Tabela>
+            <Div>
+                <Tabela>
+                    <table>
+                        <caption>
+                            <h3>Lista de Vendas</h3>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th className="primeiroTH">Preço</th>
+                                <th>Pagamento</th>
+                                <th>Entrega</th>
+                                <th className="ultimoTH">Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {vendas.map((venda) => (
+                                <CardVenda
+                                    key={venda._id}
+                                    venda={venda}
+                                    onSelect={handleProductSelect}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                    <InfoVenda
+                        isOpen={openPedidosModal}
+                        onClose={() => setOpenPedidosModal(false)}
+                        selectedVenda={selectedVenda}
+                    />
+                </Tabela>
+            </Div>
         </>
     );
 }

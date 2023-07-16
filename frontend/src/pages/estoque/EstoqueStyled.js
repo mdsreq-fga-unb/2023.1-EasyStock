@@ -9,29 +9,29 @@ export const Div = styled.div`
     border-radius: 30px;
     /* justify-content: flex-end; */
     /* align-items: end; */
-`
+`;
 
 export const Botao = styled.div`
-    
+    display: flex;
+    justify-content: flex-end;
     .botao-principal {
         cursor: pointer;
         border: none;
         background-color: #6ba9b6;
         border-radius: 20px;
-        color: #4F5A51;
+        color: #4f5a51;
         padding: 10px;
-        
+
         /* width: 90%; */
-        
     }
-    
+
     .botao-principal:hover {
         background-color: #1e5c74;
         font-weight: bolder;
         color: #6ba9b6;
         transition: all 0.1s ease-out;
     }
-`
+`;
 
 export const Tabela = styled.section`
     table {
