@@ -45,8 +45,15 @@ const findAllEmployees = async (req, res) => { // Listagem de todos os funcioná
         const employees = await employeeService.findAllService();
 
         if (employees.length === 0)
-            return res.status(400).send({ message: "Não há clientes cadastrados!" });
-        
+            return res.status(400).send({ message: "Não há funcionários cadastrados!" });
+
+        // for (let i = 0; i < employees.length; i++) {
+        //     console.log(employees[i].dataContratacao.toLocaleString('pt-BR', { timezone: 'UTC' }).substring(0, 10));
+        //     let newDate = new Date(employees[i].dataContratacao);
+        //     console.log(typeof(newDate));
+        //     console.log(newDate);
+        //     employees[i].dataContratacao = newDate; 
+        // }    
         res.send(employees);
     } catch (err) {
         res.status(500).send({ employeeController: err.message });

@@ -24,7 +24,7 @@ const EmployeeSchema = new mongoose.Schema({
         lowercase: true
     },
     dataContratacao: {
-        type: Date,
+        type: String,
         required: true
     }
 });
