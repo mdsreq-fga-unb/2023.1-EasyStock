@@ -94,7 +94,21 @@ export const TodoModal = styled.section`
         justify-content: space-around;
     }
     .separar-botoes button{
-        background-color: red;
+        //bottom: 90px;
+        border-color: #272262;
+        color: #444449;
+        padding: 1px;
+        width: 60px;
+        font-size: 16px;
+        margin-top: 0;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.1s ease-out;
+        background-color: #6ba9b6;
+    }
+    .separar-botoes button:hover{
+        background-color: #1e5c74;
+        font-weight: bolder;
     }
 
     .alinhar{
