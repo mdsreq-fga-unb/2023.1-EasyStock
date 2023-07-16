@@ -138,7 +138,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                 <option value="KG">KG</option>
                             </select>
                         </div>
-                        <div className="display-botoes">
+                        <div className="alinhar">
                             <button
                                 type="button"
                                 name="atualizar"
@@ -149,8 +149,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                             >
                                 Atualizar
                             </button>
-                        </div>
-                        <div className="display-botoes">
+
                             <input
                                 type="button"
                                 name="deletar"
@@ -159,8 +158,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                 value="Deletar"
                                 onClick={() => setShowDeleteConfirmation(true)} // Mostrar a caixa de diálogo de confirmação
                             />
-                        </div>
-                        <div className="display-botoes">
+
                             <button className="button-modalc" onClick={onClose}>
                                 Cancelar
                             </button>

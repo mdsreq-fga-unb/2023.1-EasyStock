@@ -101,7 +101,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                                 onChange={(e) => setValorDivida(e.target.value)}
                             />
                         </div>
-                        <div className="display-botoes">
+                        <div className="alinhar">
                             <button
                                 type="button"
                                 name="editar"
@@ -112,8 +112,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                             >
                                 Atualizar
                             </button>
-                        </div>
-                        <div className="display-botoes">
+                        
                             <button
                                 type="button"
                                 name="deletar"
@@ -124,8 +123,8 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                             >
                                 Deletar
                             </button>
-                        </div>
-                        <div className="display-botoes">
+            
+                    
                             <button className="button-modalc" onClick={onClose}>
                                 Cancelar
                             </button>

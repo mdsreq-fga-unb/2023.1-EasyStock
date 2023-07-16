@@ -40,13 +40,14 @@ export const TodoModal = styled.section`
         padding-top: 1px;
         margin-top: 1%;
         margin-bottom: 5%;
+        text-align: center;
     }
     .separar-h3 {
         display: flex;
         justify-content: space-between;
         background-color: #F4F4ED;
     }
-    .label-float input {
+    .label-float input, select {
         border: none;
         background-color: transparent;
         text-align: center;
@@ -67,17 +68,14 @@ export const TodoModal = styled.section`
         -webkit-appearance: none;
         margin: 0;
     }
-    .display-botoes {
-        display: inline;
-        justify-content: space-between;
-        background-color: #f4f4ed;
-    }
+
     .button-modalc,
     .buttons {
         bottom: 90px;
         border-color: #272262;
         color: #444449;
-        padding: 2px;
+        padding: 8px;
+        width: 100px;
         font-size: 16px;
         margin-top: 0;
         border-radius: 20px;
@@ -94,5 +92,14 @@ export const TodoModal = styled.section`
     .separar-botoes {
         display: flex;
         justify-content: space-around;
+    }
+    .separar-botoes button{
+        background-color: red;
+    }
+
+    .alinhar{
+        background-color: white;
+        display: flex;
+        justify-content:space-between ;
     }
 `;

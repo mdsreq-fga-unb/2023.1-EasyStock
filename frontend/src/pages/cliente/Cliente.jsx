@@ -1,6 +1,6 @@
 import React from "react";
 import { NavBar } from "../../components/navBar/NavBar";
-import { Tabela } from "../estoque/EstoqueStyled";
+import { Botao, Div, Tabela } from "../estoque/EstoqueStyled";
 import { CardClient } from "../../Card/Card";
 import ModalCliente from "./ModalCliente";
 import { useState, useEffect } from "react";
@@ -22,8 +22,7 @@ export default function Cliente() {
     }
 
     useEffect(() => {
-        sessionStatusAdmin(navigate)
-        .then(() => findAllClients());
+        sessionStatusAdmin(navigate).then(() => findAllClients());
     }, []);
 
     const handleProductSelect = (client) => {
@@ -34,47 +33,50 @@ export default function Cliente() {
     return (
         <>
             <NavBar />
+            <Div>
+                <Tabela>
+                    <table>
+                        <caption>
+                            <h3>Lista de Clientes</h3>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th className="primeiroTH">Cliente</th>
+                                <th>Telefone</th>
+                                <th>Email</th>
+                                <th className="ultimoTH">Dívida</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {clients.map((client) => (
+                                <CardClient
+                                    key={client._id}
+                                    client={client}
+                                    onSelect={handleProductSelect}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
 
-            <Tabela>
-                <table>
-                    <caption>
-                        <h3>Lista de Clientes</h3>
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th>Cliente</th>
-                            <th>Telefone</th>
-                            <th>Email</th>
-                            <th>Dívida</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {clients.map((client) => (
-                            <CardClient
-                                key={client._id}
-                                client={client}
-                                onSelect={handleProductSelect}
-                            />
-                        ))}
-                    </tbody>
-                </table>
-
-                <button
-                    className="botao-principal"
-                    onClick={() => setOpenModal(true)}
-                >
-                    Adicionar cliente
-                </button>
-                <ModalCliente
-                    isOpen={openModal}
-                    onClose={() => setOpenModal(false)}
-                />
-                <NomeModal
-                    isOpen={openNomeModal}
-                    onClose={() => setOpenNomeModal(false)}
-                    selectedClient={selectedClient}
-                />
-            </Tabela>
+                    <ModalCliente
+                        isOpen={openModal}
+                        onClose={() => setOpenModal(false)}
+                    />
+                    <NomeModal
+                        isOpen={openNomeModal}
+                        onClose={() => setOpenNomeModal(false)}
+                        selectedClient={selectedClient}
+                    />
+                </Tabela>
+                <Botao>
+                    <button
+                        className="botao-principal"
+                        onClick={() => setOpenModal(true)}
+                    >
+                        Adicionar cliente
+                    </button>
+                </Botao>
+            </Div>
         </>
     );
 }

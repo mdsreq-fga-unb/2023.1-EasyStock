@@ -71,20 +71,17 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                             </div>
 
                             <div className="label-float">
-                                <label htmlFor="pagamento">
-                                    Tipo de pagamento:
-                                </label>
                                 <select
                                     name="pagamento"
                                     id="pagamento"
-                                    defaultValue="Crédito"
+                                    defaultValue=""
                                     required
                                     onChange={(e) =>
                                         setTipoPagamento(e.target.value)
                                     }
                                 >
                                     <option value="" disabled hidden>
-                                        Pagamento:
+                                        Selecione um pagamento:
                                     </option>
                                     <option value="Crédito">Crédito</option>
                                     <option value="Débito">Débito</option>
@@ -112,20 +109,17 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                 /> 
                             </div> */}
                             <div className="label-float">
-                                <label htmlFor="entrega">
-                                    Tipo de entrega:
-                                </label>
                                 <select
                                     name="entrega"
                                     id="entrega"
-                                    defaultValue="Sem Entrega"
+                                    defaultValue=""
                                     required
                                     onChange={(e) =>
                                         setTipoEntrega(e.target.value)
                                     }
                                 >
                                     <option value="" disabled hidden>
-                                        Entrega:
+                                        Tipo de entrega:
                                     </option>
                                     <option value="Sem Entrega">
                                         Sem Entrega
@@ -152,16 +146,15 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                     })}
                                 </h3>
                             </div>
-                            <div className="display-botoes">
+                            <div className="alinhar">
                                 <input
                                     type="submit"
                                     name="Adicionar Produto"
                                     id="enviar"
                                     className="buttons"
-                                    value="Finalizar pedido"
+                                    value="Finalizar"
                                 />
-                            </div>
-                            <div className="display-botoes">
+                            
                                 {/* <button className="button-modal">Adicionar</button> */}
                                 <button
                                     className="button-modalc"

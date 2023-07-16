@@ -51,7 +51,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
                 <div className="container">
                     <div className="card">
                         <h1>Adicionar Produtos</h1>
-                        <form onSubmit={handleFormSubmit}>                           
+                        <form onSubmit={handleFormSubmit}>
                             <div className="label-float">
                                 <input
                                     type="text"
@@ -122,15 +122,14 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                     <option value="KG">KG</option>
                                 </select>
                             </div>
-                            <div className="display-botoes">
+                            <div className="alinhar">
                                 <input
                                     type="submit"
                                     name="Adicionar Produto"
                                     id="enviar"
                                     className="buttons"
                                 />
-                            </div>
-                            <div className="display-botoes">
+
                                 <button
                                     className="button-modalc"
                                     onClick={onClose}

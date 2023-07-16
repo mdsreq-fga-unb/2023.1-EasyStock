@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
-import { Tabela } from "../estoque/EstoqueStyled";
 import { CardCaixa, CardProduto } from "../../Card/Card";
 import CaixaModal from "./CaixaModal";
-import {PesquisaCaixa, Tabela1, Tabela2, TabelasContainer} from "./CaixaStyled";
+import {
+    BotaoCaixa,
+    DivTabela,
+    PesquisaCaixa,
+    Tabela1,
+    Tabela2,
+    TabelasContainer,
+} from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
 import { sessionStatus } from "../../contexts/AuthContext";
 import { getProductByPdv } from "../../services/postsServices";
 import { getAllPosts } from "../../services/postsServices";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 let cont = 0;
 let caixa = [];
@@ -33,8 +39,7 @@ export default function Caixa() {
     }
 
     useEffect(() => {
-        sessionStatus(navigate)
-        .then(() => findAllPosts());
+        sessionStatus(navigate).then(() => findAllPosts());
     }, []);
 
     const handleFormSubmit = async (e) => {
@@ -46,17 +51,20 @@ export default function Caixa() {
 
         const dataProduto = await getProductByPdv(codigoPDV);
 
-        if (!dataProduto)
-            return;
+        if (!dataProduto) return;
 
         for (let i = 0; i < cont; i++) {
-            let num = JSON.stringify(caixa[i].codigoPDV).replace(/"/g, ''); // Remove as aspas duplas do 'caixa[i].codigoPDV' 
-        
+            let num = JSON.stringify(caixa[i].codigoPDV).replace(/"/g, ""); // Remove as aspas duplas do 'caixa[i].codigoPDV'
+
             if (parseInt(codigoPDV) == parseInt(num)) {
-                await swal("Erro!", "Este produto já foi inserido no carrinho!", "error");
+                await swal(
+                    "Erro!",
+                    "Este produto já foi inserido no carrinho!",
+                    "error"
+                );
                 return;
             }
-        }    
+        }
 
         const { nome, precoVenda, _id } = dataProduto.data;
 
@@ -138,30 +146,39 @@ export default function Caixa() {
             </PesquisaCaixa>
 
             <TabelasContainer>
-                <Tabela1>
-                    <table>
-                        <caption>
-                            <h3>Pagamento</h3>
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th>Código PDV</th>
-                                <th>Nome</th>
-                                <th>Quantidade</th>
-                                <th>Preço Unitário</th>
-                                <th>Preço Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {caixa.map((caixa) => (
-                                <CardCaixa
-                                    key={caixa.codigoPDV}
-                                    caixa={caixa}
-                                />
-                            ))}
-                        </tbody>
-                    </table>
-                    <div>
+                <DivTabela>
+                    <Tabela1>
+                        <table>
+                            <caption>
+                                <h3>Pagamento</h3>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th className="primeiroTH">Código PDV</th>
+                                    <th>Nome</th>
+                                    <th>Quantidade</th>
+                                    <th>Preço Unitário</th>
+                                    <th className="ultimoTH">Preço Total</th>
+                                    <th className="diminuir">i</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {caixa.map((caixa) => (
+                                    <CardCaixa
+                                        key={caixa.codigoPDV}
+                                        caixa={caixa}
+                                    />
+                                ))}
+                            </tbody>
+                        </table>
+
+                        <CaixaModal
+                            isOpen={openModal}
+                            onClose={() => setOpenModal(!openModal)}
+                            infoPedido={modalData}
+                        />
+                    </Tabela1>
+                    <BotaoCaixa>
                         <button
                             className="botao-principal"
                             onClick={() => {
@@ -170,14 +187,8 @@ export default function Caixa() {
                         >
                             Pagamento
                         </button>
-                    </div>
-
-                    <CaixaModal
-                        isOpen={openModal}
-                        onClose={() => setOpenModal(!openModal)}
-                        infoPedido={modalData}
-                    />
-                </Tabela1>
+                    </BotaoCaixa>
+                </DivTabela>
                 <Tabela2>
                     <table>
                         <caption>
@@ -185,9 +196,9 @@ export default function Caixa() {
                         </caption>
                         <thead>
                             <tr>
-                                <th>Código PDV</th>
+                                <th className="primeiroTH">Código PDV</th>
                                 <th>Nome</th>
-                                <th>Quantidade</th>
+                                <th className="ultimoTH"> Quantidade</th>
                             </tr>
                         </thead>
                         <tbody>
