@@ -35,13 +35,7 @@ export const Botao = styled.div`
 `;
 
 export const Tabela = styled.section`
-    table {
-        //background-color: #f4f4ed;
-        //margin-top: 2rem;
-        //margin-left: 2rem;
-        //border-radius: 30px;
-        //width: 90%;
-    }
+
 
     tr {
         font-size: 20px;
@@ -50,6 +44,7 @@ export const Tabela = styled.section`
         background-color: #6ba9b6;
         color: #44443e;
         width: 10%;
+        
     }
     .primeiroTH {
         border-radius: 10px 0px 0px 0px;

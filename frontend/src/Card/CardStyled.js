@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Produtos = styled.tr`
     text-align: center;
+    cursor: pointer;
     td{
         background-color: #77c3d5;
         border-radius: 0px;

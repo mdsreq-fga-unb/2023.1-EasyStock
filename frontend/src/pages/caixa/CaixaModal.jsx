@@ -152,16 +152,15 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                     })}
                                 </h3>
                             </div>
-                            <div className="display-botoes">
+                            <div className="alinhar">
                                 <input
                                     type="submit"
                                     name="Adicionar Produto"
                                     id="enviar"
                                     className="buttons"
-                                    value="Finalizar pedido"
+                                    value="Finalizar"
                                 />
-                            </div>
-                            <div className="display-botoes">
+                            
                                 {/* <button className="button-modal">Adicionar</button> */}
                                 <button
                                     className="button-modalc"

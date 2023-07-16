@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+export const DivTabela = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border-radius: 30px;
+    /* justify-content: flex-end; */
+    /* align-items: end; */
+`;
+
 export const PesquisaCaixa = styled.div`
     width: 80%;
     margin-top: 2rem;
@@ -40,11 +51,7 @@ export const TabelasContainer = styled.section`
 `;
 
 export const Tabela1 = styled.div`
-    margin-top: 2rem;
-    margin-left: 2rem;
-    border-radius: 30px;
-    width: 70%;
-
+width: 800px;
     tr {
         font-size: 20px;
     }
@@ -53,7 +60,6 @@ export const Tabela1 = styled.div`
         background-color: #6ba9b6;
         color: #44443e;
         width: 10%;
-        border-radius: 10px;
     }
 
     .botao-principal {
@@ -74,6 +80,13 @@ export const Tabela1 = styled.div`
         color: #6ba9b6;
         transition: all 0.1s ease-out;
     }
+    .primeiroTH {
+        border-radius: 10px 0px 0px 0px;
+    }
+    .ultimoTH {
+        border-radius: 0px 10px 0px 0px;
+    }
+    
 `;
 
 export const Tabela2 = styled.div`
@@ -82,7 +95,7 @@ export const Tabela2 = styled.div`
     margin-top: 2rem;
     margin-left: 2rem;
     border-radius: 10px;
-    width: 30%;
+    width: 35%;
     max-height: 340px;
     overflow-y: auto;
     margin-right: 20px;
@@ -96,6 +109,11 @@ export const Tabela2 = styled.div`
         background-color: #6ba9b6;
         color: #44443e;
         width: 10%;
-        border-radius: 10px;
+    }
+    .primeiroTH {
+        border-radius: 10px 0px 0px 0px;
+    }
+    .ultimoTH {
+        border-radius: 0px 10px 0px 0px;
     }
 `;
