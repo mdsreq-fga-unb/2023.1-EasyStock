@@ -32,9 +32,11 @@ const login = async (req, res) => {
             if (username == process.env.ADMIN_USERNAME && password == process.env.ADMIN_PASSWORD) {
                 const token = generateToken(username);
 
+                const admUsername = username + ":adm";
+
                 res.send({
                     token,
-                    username
+                    username: admUsername
                 });
             } else {
                 return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
@@ -47,9 +49,11 @@ const login = async (req, res) => {
 
             const token = generateEmployeeToken(employee.id, employee.username);
 
+            const empUsername = username + ":emp";
+
             res.send({
                 token,
-                username
+                username: empUsername
             });
         }
     } catch (err) {
