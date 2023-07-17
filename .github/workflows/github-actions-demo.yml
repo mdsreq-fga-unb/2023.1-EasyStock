@@ -32,9 +32,6 @@ jobs:
       - name: Install dependencies and run tests
         working-directory: ./backend
         run: |
-          cd ./frontend
           npm ci --ignore-scripts
           npm run build
-          cd ../backend
-          npm ci --ignore-scripts
           npm test
