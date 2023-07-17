@@ -17,14 +17,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js 
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x' 
-          
-      - name: testes
+          node-version: '14' # Altere a versão do Node.js, se necessário
+
+      - name: Install backend dependencies
         working-directory: ./backend
         run: |
+          npm uninstall bcrypt # Remova a instalação do bcrypt
           npm install
-          npm run test
 
+      - name: Install bcryptjs and run tests
+        working-directory: ./backend
+        run: |
+          npm install bcryptjs
+          npm test
