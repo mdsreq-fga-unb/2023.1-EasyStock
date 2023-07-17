@@ -25,6 +25,12 @@ jobs:
       - name: Install dependencies
         run: cd ./frontend && npm install && npm run build
 
+      - name: Set up environment variables
+        run: |
+          echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> $GITHUB_ENV
+          echo "ADMIN_USERNAME=${{ secrets.ADMIN_USERNAME }}" >> $GITHUB_ENV
+          echo "ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}" >> $GITHUB_ENV
+          echo "SECRET_JWT=${{ secrets.SECRET_JWT }}" >> $GITHUB_ENV
       - name: Install dependencies and run tests
         working-directory: ./backend
         run: |
