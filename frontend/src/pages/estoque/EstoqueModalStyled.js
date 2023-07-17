@@ -14,6 +14,8 @@ export const TodoModal = styled.section`
         padding: 30px;
         border-radius: 4%;
         box-shadow: 3px 3px 1px 0px #00000080;
+        display: flex;
+        flex-direction: column;
     }
     h1 {
         text-align: center;
@@ -47,7 +49,7 @@ export const TodoModal = styled.section`
         justify-content: space-between;
         background-color: #F4F4ED;
     }
-    .label-float input, select {
+    .label-float input, select, h3 {
         border: none;
         background-color: transparent;
         text-align: center;
@@ -115,5 +117,25 @@ export const TodoModal = styled.section`
         background-color: white;
         display: flex;
         justify-content:space-between ;
+    }
+    .alinharVenda{
+        display: flex;
+        justify-content: end;
+    }
+
+    .infoVenda{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 94%;
+
+    }
+    .infoVenda h3{
+        text-align: start;
+        background-color: #77C3D5;
+        padding: 6px;
+        margin: 10px;
+        white-space: pre-wrap;
+
     }
 `;
