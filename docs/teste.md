@@ -2,6 +2,7 @@
 | ---------- | ------ | -------------------- | ------------------------------------------------------------ |
 | 26/06/2023  | 0.3 | Atualização da documentação dos testes |  Daniela, Hemanoel, Milena  |
 | 13/07/2023  | 0.4 | Atualização da documentação dos testes |  Daniela, Hemanoel |
+| 13/07/2023  | 0.5 | Atualização estratégia de testes |  Daniela |
 
 ## Estratégia de Teste
 
