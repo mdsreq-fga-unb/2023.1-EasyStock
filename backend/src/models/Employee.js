@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcryptjs from "../../node_modules/bcrypt";
+import bcrypt from "bcrypt"
 
 const EmployeeSchema = new mongoose.Schema({
     nomeCompleto: {
@@ -31,7 +31,7 @@ const EmployeeSchema = new mongoose.Schema({
 });
 
 EmployeeSchema.pre("save", async function(next) {
-    this.password = await bcryptjs.hash(this.password, 10);
+    this.password = await bcrypt.hash(this.password, 10);
     next();
 });
 
