@@ -25,13 +25,10 @@ jobs:
 
       - name: Install backend dependencies
         working-directory: ./backend
-        run: |
-          rm -rf node_modules
-          npm install
+        run: npm install
 
       - name: Install bcryptjs and run tests
         working-directory: ./backend
         run: |
-          npm uninstall bcrypt
           npm install bcryptjs
           npm test
