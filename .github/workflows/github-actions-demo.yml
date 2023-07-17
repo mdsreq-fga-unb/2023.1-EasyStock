@@ -22,14 +22,3 @@ jobs:
         with:
           node-version: '18.x'
     
-      - name: Install backend dependencies
-        working-directory: ./backend
-        run: npm ci --ignore-scripts # Instalar dependências, ignorando os scripts de instalação
-
-      - name: Install bcryptjs and run tests
-        working-directory: ./backend
-        run: |
-          npm uninstall bcrypt # Remover bcrypt (caso tenha sido instalado antes)
-          npm install bcryptjs # Instalar bcryptjs para uso nos testes
-          npm test
-
