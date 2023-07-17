@@ -34,7 +34,7 @@ jobs:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
           ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
-          SECRET_JWT: ${{ secrets.SECRET_JWT }}
+          SECRET_JWT: '176b58d9ce75355402b1e146cdbfa90f'
         run: |
           npm install bcryptjs
           npm test
