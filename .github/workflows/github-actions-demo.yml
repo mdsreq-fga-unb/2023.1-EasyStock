@@ -1,4 +1,4 @@
-name: Workflow GitHub Actions 
+name: Workflow GitHub Actions
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on:
@@ -20,11 +20,11 @@ jobs:
       - name: Set up Node.js 
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: '18.x' 
           
       - name: testes
-         working-directory:./backend
+        working-directory: ./backend
         run: |
           npm install
-          npm run teste
-    
+          npm run test
+
