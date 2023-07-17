@@ -46,7 +46,11 @@ export function CardClient({ client, onSelect }) {
         </Produtos>
     );
 }
-export function CardCaixa({ caixa }) {
+export function CardCaixa({ caixa, onSelect }) {
+    const handleClick = () => {
+        onSelect(caixa);
+    };
+
     return (
         <Produto>
             <td>{caixa.codigoPDV}</td>
@@ -54,7 +58,7 @@ export function CardCaixa({ caixa }) {
             <td>{caixa.quantidade}</td>
             <td>{caixa.precoVenda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
             <td>{caixa.precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-            <td className="deletar-card"><i class="bi-x-circle"></i></td>
+            <td className="deletar-card" onClick={handleClick}>{caixa.deletar}<i className="bi-x-circle"></i></td>
         </Produto>
     );
 }

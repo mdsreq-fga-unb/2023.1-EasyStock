@@ -5,12 +5,6 @@ import { getVendaById } from "../../services/postsServices";
 export default function InfoVenda({ isOpen, onClose, selectedVenda }) {
     const [venda, setVenda] = useState(null);
 
-    console.log(selectedVenda);
-
-    document.addEventListener('DOMContentLoaded', function() {
-
-    });
-
     if (isOpen) {
         function printaProdutos() {
             let string = '';
@@ -20,8 +14,6 @@ export default function InfoVenda({ isOpen, onClose, selectedVenda }) {
                 Preço Custo: ${selectedVenda.produtos[i].produto.precoCusto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}, 
                 Quantidade: ${selectedVenda.produtos[i].quantidade}\n`;
             }
-            //console.log(string);
-            //document.getElementById('produtos-container').innerHTML = string;
             return string;
         }
     

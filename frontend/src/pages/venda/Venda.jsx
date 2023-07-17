@@ -10,7 +10,6 @@ import InfoVenda from "./InfoVenda";
 export default function Venda() {
     const navigate = useNavigate();
     const [vendas, setVendas] = useState([]);
-    //const [venda, setVenda] = useState(null);
 
     const [selectedVenda, setSelectedVenda] = useState(null);
     const [openPedidosModal, setOpenPedidosModal] = useState(null);
@@ -19,12 +18,6 @@ export default function Venda() {
         const response = await getAllVendas();
         setVendas(response.data);
     }
-
-    // async function vendaEspecifica(idVenda) {
-    //     const vendaComId = await getVendaById(idVenda);
-        
-    //     setVenda(vendaComId);
-    // }
 
     useEffect(() => {
         sessionStatusAdmin(navigate).then(() => findAllVendas());
