@@ -31,4 +31,5 @@ jobs:
         working-directory: ./backend
         run: |
           npm install bcryptjs
+          npm install bcrypt
           npm test
