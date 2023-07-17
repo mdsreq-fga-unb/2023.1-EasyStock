@@ -10,21 +10,24 @@ import {
     generateEmployeeToken
 } from '../src/services/auth.service'
 
+const secretKey = '176b58d9ce75355402b1e146cdbfa90f'
+
 describe('generateToken', () => {
     it('Testando geração de Token', () => {
         const username = 'Carla';
         const password = 'Carla123';
+       
         const token = generateToken(username, password);
 
         expect(token).toBeDefined();
         expect(typeof token).toBe('string')
 
-        const decodedToken = jwt.verify(token, process.env.SECRET_JWT);
+        const decodedToken = jwt.verify(token, secretKey);
         expect(decodedToken).toBeDefined();
         expect(decodedToken.username).toBe(username);
     })
     it('getUserFromToken', () => {
-        const token = jwt.sign({username: 'Carol'}, process.env.SECRET_JWT);
+        const token = jwt.sign({username: 'Carol'}, secretKey);
         const result = getUserFromToken(token);
         expect(result).toBe('Carol');
     })
@@ -69,7 +72,7 @@ describe('employeeLoginService', () => {
       expect(token).toBeDefined();
       expect(typeof token).toBe('string');
   
-      const decodedToken = jwt.verify(token, process.env.SECRET_JWT);
+      const decodedToken = jwt.verify(token, secretKey);
       expect(decodedToken).toBeDefined();
       expect(decodedToken.id).toBe(employeeId);
     });
