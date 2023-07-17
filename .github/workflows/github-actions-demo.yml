@@ -23,5 +23,15 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Install dependencies
-        run: cd ./frontend && npm install && npm run build
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: |
+          rm -rf node_modules
+          npm install
+
+      - name: Install bcryptjs and run tests
+        working-directory: ./backend
+        run: |
+          npm uninstall bcrypt
+          npm install bcryptjs
+          npm test
