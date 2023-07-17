@@ -63,7 +63,7 @@ export function CardClient({ client, onSelect }) {
 }
 export function CardClientePay({ client }) {
     return (
-        <option value="clientes">{client.nome}</option>
+        <option value={client._id}>{client.nome}</option>
         //<select name="clientes" id="clientes" defaultValue="" >
         //</select>
     );

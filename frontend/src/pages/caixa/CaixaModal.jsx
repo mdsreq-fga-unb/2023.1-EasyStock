@@ -12,6 +12,7 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
     const [valorPago, setValorPago] = useState();
     const [troco, setTroco] = useState(0);
     const [clients, setClients] = useState([]);
+    const [cliente, setClientes] = useState([]);
 
     const [showConfirmation, setShowConfirmation] = useState(false); // Estado para controlar a exibição da caixa de diálogo de confirmação
     const [data, setData] = useState(null); // Variável para armazenar os dados do formulário
@@ -28,7 +29,7 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
         e.preventDefault();
         const formData = {
             produtos: infoPedido.produtos,
-            //cliente,
+            cliente,
             tipoPagamento,
             tipoEntrega,
         };
@@ -121,26 +122,31 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                         Sem Entrega
                                     </option>
                                     <option value="Loja">Loja</option>
-                                    <option value="Aplicativo">
+                                    <option value="Loja">
                                         Aplicativo
                                     </option>
                                 </select>
                             </div>
-                            
+
                             <div className="label-float">
-                                <select name="clientes" id="clientes" defaultValue="">
+                                <select
+                                    name="clientes"
+                                    id="clientes"
+                                    defaultValue=""
+                                    onChange={(e) =>
+                                        setClientes(e.target.value)
+                                    }
+                                >
                                     <option value="" disabled hidden>
                                         Nome do Cliente:
                                     </option>
-                                    {clients.map((client) => 
+                                    {clients.map((client) => (
                                         <CardClientePay
                                             key={client._id}
                                             client={client}
-
                                         />
-                                    )}
+                                    ))}
                                 </select>
-
                             </div>
 
                             <div className="separar-h3">
