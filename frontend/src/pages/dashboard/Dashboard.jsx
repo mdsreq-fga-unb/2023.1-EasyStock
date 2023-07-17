@@ -1,6 +1,5 @@
 import React, { useEffect, useState, PureComponent } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
-import { Tabela } from "../estoque/EstoqueStyled";
 import { useNavigate } from "react-router-dom";
 import { Box, Stack, Typography } from "@mui/material";
 import {
@@ -22,9 +21,10 @@ import {
     ResponsiveContainer,
 } from "recharts";
 import { getAllVendas } from "../../services/postsServices";
-import { getVendaById  } from "../../services/postsServices";
+import { getVendaById } from "../../services/postsServices";
 import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { Cardnovo } from "../../Card/Card";
+import { Graficos } from "./DashboardStyled";
 
 const data = [
     { name: "Group A", value: 400 },
@@ -94,7 +94,7 @@ export default function Dashboard() {
     return (
         <>
             <NavBar />
-            <Tabela>
+            <Graficos>
                 <Box
                     sx={{
                         display: "flex",
@@ -104,7 +104,8 @@ export default function Dashboard() {
                         marginTop: "40px",
                     }}
                 >
-                    <AreaChart width={500} height={500} data={vendas}  >
+                    <div className="fundo">
+                    <AreaChart width={500} height={500} data={vendas}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="dataPedido" />
 
@@ -123,10 +124,11 @@ export default function Dashboard() {
                             dataKey="precoTotal"
                             stroke="#8884d8"
                             fill="#8884d8"
-
                         />
                     </AreaChart>
 
+                    </div>
+                    <div className="fundo">
                     <BarChart
                         width={500}
                         height={500}
@@ -154,6 +156,24 @@ export default function Dashboard() {
                         <Bar dataKey="precoTotal" fill="#82ca9d" />
                     </BarChart>
 
+                    </div>
+                    <div className="fundo">
+                    <PieChart width={800} height={800}>
+                        <Pie
+                            data={vendas}
+                            cx="50%"
+                            cy="50%"
+                            labelLine={false}
+                            label={renderCustomizedLabel}
+                            outerRadius={200}
+                            fill="#8884d8"
+                            dataKey="precoTotal"
+                        ></Pie>
+                    </PieChart>
+
+                    </div>
+
+
                     {/* <LineChart
                         width={600}
                         height={500}
@@ -179,20 +199,8 @@ export default function Dashboard() {
                         />
                     </LineChart> */}
 
-                    <PieChart width={800} height={800}>
-                        <Pie
-                            data={vendas}
-                            cx="50%"
-                            cy="50%"
-                            labelLine={false}
-                            label={renderCustomizedLabel}
-                            outerRadius={200}
-                            fill="#8884d8"
-                            dataKey="precoTotal"
-                        ></Pie>
-                    </PieChart>
                 </Box>
-            </Tabela>
+            </Graficos>
         </>
     );
 }
