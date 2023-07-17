@@ -58,13 +58,16 @@ export default function Estoque() {
 
             <Tabela>
                 <table>
+                    <caption>
+                        <h3>Estoque de Produtos</h3>
+                    </caption>
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Preço Custo</th>
                             <th>Preço venda</th>
                             <th>Qtd Estoque</th>
-                            <th>Qtd Min</th>
+                            <th>Qtd Min Estoque</th>
                             <th>Medida</th>
                             <th>CódigoPDV</th>
                             <th>Status</th>

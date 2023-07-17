@@ -77,7 +77,4 @@ export function postPedido(data) {
     const response = api.post(`/pedido`, data);
 
     return response;
-}
-
-//Pagamento
- 
+} 

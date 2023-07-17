@@ -11,10 +11,19 @@ const OrderSchema = new mongoose.Schema({
         required: true,
         default: 0
     },
-    statusPedido: {
+    cliente: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Customer'
+    },
+    tipoPagamento: {
         type: String,
-        required: true,
-        default: 'Em andamento...'
+        enum: ['Crédito', 'Débito', 'PIX', 'Dinheiro', 'Fiado'],
+        required: true
+    },
+    tipoEntrega: {
+        type: String,
+        enum: ['Sem Entrega', 'Loja', 'Aplicativo'],
+        required: true
     },
     dataPedido: {
         type: Date,
@@ -40,7 +49,9 @@ Order Example:
             "produto" : "64753c65d9cfe673c981f7f9"
         }
     ],
-    "cliente": "647cb54c4c68d2b2d7c6b2bd"
+    "cliente": "647cb54c4c68d2b2d7c6b2bd",
+    "tipoPagamento": "PIX",
+    "tipoEntrega": "Aplicativo"
 }
 
  */

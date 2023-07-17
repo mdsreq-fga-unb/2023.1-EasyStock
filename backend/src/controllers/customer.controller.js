@@ -1,11 +1,21 @@
 import customerService from "../services/customer.service.js";
+import { validateEmail } from "./auth.controller.js";
 
 const createCustomer = async (req, res) => { // Cadastro de um cliente
     try {
-        const { nome } = req.body;
+        const { nome, divida, email } = req.body;
 
         if (!nome)
             return res.status(400).send({ message: 'Informe o nome do cliente' });
+
+        if (divida < 0 || divida >= 1000)
+            return res.status(400).send({ message: 'A dívida deve ser um valor entre R$ 0 e R$ 999' });    
+
+        if (email) {
+            const valEmail = validateEmail(email);
+            if (!valEmail)
+                return res.status(400).send({ message: 'Formato de email inválido' }); 
+        }
 
         const customer = await customerService.createService(req.body);
 
@@ -35,7 +45,7 @@ const findAllCustomers = async (req, res) => { // Listagem de todos os clientes 
     }
 }
 
-const findCustomerById = async (req, res) => {  // Busca de um cliente específico pelo ID
+const findCustomerById = async (req, res) => { // Busca de um cliente específico pelo ID
     try {
         const customer = req.customer;
 
@@ -51,6 +61,15 @@ const updateCustomer = async (req, res) => { // Atualiza os campos do cliente
 
         if (!nome && !telefone && !email && !divida)
             return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
+
+        if (divida < 0 || divida >= 1000)
+            return res.status(400).send({ message: 'A dívida deve ser um valor entre R$ 0 e R$ 999' });    
+
+        if (email) {
+            const valEmail = validateEmail(email);
+            if (!valEmail)
+                return res.status(400).send({ message: 'Formato de email inválido' }); 
+        }
 
         const { id } = req;
 

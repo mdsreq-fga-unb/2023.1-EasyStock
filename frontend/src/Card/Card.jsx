@@ -10,8 +10,8 @@ export function Card({ product, onSelect }) {
     return (
         <Produtos onClick={handleClick}>
             <td>{product.nome}</td>
-            <td>{product.precoCusto}</td>
-            <td>{product.precoVenda}</td>
+            <td>{product.precoCusto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+            <td>{product.precoVenda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
             <td>{product.qtdEstoque}</td>
             <td>{product.qtdEstoqueMin}</td>
             <td>{product.medida}</td>
@@ -19,6 +19,15 @@ export function Card({ product, onSelect }) {
             <td className={statusClass.toString()}>
                 {product.statusVenda ? "Ativo" : "Inativo"}
             </td>
+        </Produtos>
+    );
+}
+export function CardProduto({ produtoz}) {
+    return (
+        <Produtos>
+            <td>{produtoz.codigoPDV}</td>
+            <td>{produtoz.nome}</td>
+            <td>{produtoz.qtdEstoque}</td>
         </Produtos>
     );
 }
@@ -33,7 +42,7 @@ export function CardClient({ client, onSelect }) {
             <td>{client.nome}</td>
             <td>{client.telefone}</td>
             <td>{client.email}</td>
-            <td>{client.divida}</td>
+            <td>{client.divida.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
         </Produtos>
     );
 }
@@ -43,8 +52,8 @@ export function CardCaixa({ caixa }) {
             <td>{caixa.codigoPDV}</td>
             <td>{caixa.nome}</td>
             <td>{caixa.quantidade}</td>
-            <td>{caixa.precoVenda}</td>
-            <td>{caixa.precoTotal}</td>
+            <td>{caixa.precoVenda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+            <td>{caixa.precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
         </Produtos>
     );
 }

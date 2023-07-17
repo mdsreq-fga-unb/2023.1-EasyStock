@@ -1,0 +1,97 @@
+import employeeService from '../services/employee.service.js';
+import { validateEmail } from './auth.controller.js';
+
+const createEmployee = async (req, res) => { // Cadastro de um funcionário
+    try {
+        const { nomeCompleto, username, password, telefone, email, dataContratacao } = req.body;
+
+        if (!nomeCompleto || !username || !password || !dataContratacao)
+                return res.status(400).send({ message: "Preencha todos os campos obrigatórios para realizar o cadastro" });
+
+        if (email) {
+            const valEmail = validateEmail(email);
+            if (!valEmail)
+                return res.status(400).send({ message: 'Formato de email inválido' }); 
+        }
+
+        const employee = await employeeService.createService(req.body);
+
+        if (!employee)
+            return res.status(400).send({ message: 'Erro no cadastro do funcionário' });
+
+        res.status(201).send({
+            employee,
+            message: 'Funcionário cadastrado com sucesso!'
+        });    
+    } catch (err) {
+        res.status(500).send({ employeeController: err.message });
+    }
+}
+
+const findAllEmployees = async (req, res) => { // Listagem de todos os funcionários cadastrados
+    try {
+        const employees = await employeeService.findAllService();
+
+        if (employees.length === 0)
+            return res.status(400).send({ message: "Não há clientes cadastrados" });
+        
+        res.send(employees);
+    } catch (err) {
+        res.status(500).send({ employeeController: err.message });
+    }
+}
+
+const findEmployeeById = async (req, res) => { // Busca de um funcionário específico pelo ID
+    try {
+        const employee = req.employee;
+
+        res.send(employee);
+    } catch (err) {
+        res.status(500).send({ employeeController: err.message });
+    }
+}
+
+const updateEmployee = async (req, res) => { // Atualiza os campos do funcionário
+    try {
+        const { nomeCompleto, username, password, telefone, email, dataContratacao } = req.body;
+
+        if (!nomeCompleto && !username && !password && !telefone && !email && !dataContratacao)
+            return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
+
+        if (email) {
+            const valEmail = validateEmail(email);
+            if (!valEmail)
+                return res.status(400).send({ message: 'Formato de email inválido' }); 
+        }
+
+        const { id } = req;
+
+        await employeeService.updateService(
+            id,
+            nomeCompleto,
+            username,
+            password,
+            telefone,
+            email,
+            dataContratacao
+        );
+
+        res.send({ message: 'Funcionário atualizado com sucesso' });
+    } catch (err) {
+        res.status(500).send({ employeeController: err.message });
+    }
+}
+
+const deleteEmployee = async (req, res) => { // Deleta um funcionário
+    try {
+        const { id } = req;
+
+        await employeeService.deleteService(id);
+
+        res.send({ message: 'Cliente deletado com sucesso' });
+    } catch (err) {
+        res.status(500).send({ employeeController: err.message });
+    }
+}
+
+export default { createEmployee, findAllEmployees, findEmployeeById, updateEmployee, deleteEmployee }
