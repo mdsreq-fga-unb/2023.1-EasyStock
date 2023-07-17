@@ -11,7 +11,7 @@ import {
     TabelasContainer,
 } from "./CaixaStyled";
 import { useNavigate } from "react-router-dom";
-import { sessionStatus } from "../../contexts/AuthContext";
+import { sessionStatus, sessionStatusAdmin } from "../../contexts/AuthContext";
 import { getProductByPdv } from "../../services/postsServices";
 import { getAllPosts } from "../../services/postsServices";
 import swal from "sweetalert";
@@ -97,33 +97,24 @@ export default function Caixa() {
         cont++;
     };
 
-    const removeCarrinho = (caixa, produtos, ccaixa, cardcaixa) => {
-        const tam_original = produtos.length;
-        console.log(data);
-        for (let i = 0; i < produtos.length; i++) {
-            if(produtos[i].produto == ccaixa._id) {
-                caixa[i] = null;
-                caixa.sort();
-                caixa.pop();
-                produtos[i] = null;
-                produtos.sort();
-                produtos.pop();
-                cont--;
-                break;
-            }   
+    const removeCarrinho = (caixa, produtos, ccaixa) => {
+        const index = produtos.findIndex((produto) => produto.produto === ccaixa._id);
+    
+        if (index !== -1) {
+            caixa.splice(index, 1);
+            produtos.splice(index, 1);
+            cont--;
+    
+            caixa = [...caixa];
+            produtos = [...produtos];
         }
-        for (let j = 0; j < produtos.length; j++) {
-            console.log(j);
-            setData(caixa[j]);
-            setDataPedido(produtos[j]);
-        }
-        // for (let k = produtos.length-1; k <= tam_original; k++) {
-        //     setData(null);
-        //     setDataPedido(null);
-        // }
-        console.log(produtos);   
-        console.log(caixa);
-    }
+        valorTotal[0] = valorTotal[0] - ccaixa.precoTotal;
+        precoTotalPedido = precoTotalPedido - ccaixa.precoTotal;
+        console.log(valorTotal[0]);
+
+        setData(caixa);
+        setDataPedido(produtos);
+    };
 
     function enviaProdutos(pedido) {
         if (pedido.produtos.length > 0) {
@@ -192,7 +183,7 @@ export default function Caixa() {
                                     <CardCaixa
                                         key={ccaixa.codigoPDV}
                                         caixa={ccaixa}
-                                        onSelect={() => removeCarrinho(caixa, produtos, ccaixa, CardCaixa)}
+                                        onSelect={() => removeCarrinho(caixa, produtos, ccaixa)}
                                     />
                                 ))}
                             </tbody>
