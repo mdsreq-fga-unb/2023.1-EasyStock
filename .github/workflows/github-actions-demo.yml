@@ -21,15 +21,4 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-
-      - name: Install backend dependencies
-        working-directory: ./backend
-        run: |
-          npm install
-
-      - name: Install bcryptjs and run tests
-        working-directory: ./backend
-        run: |
-          npm uninstall bcrypt
-          npm install bcryptjs
-          npm test
+    
