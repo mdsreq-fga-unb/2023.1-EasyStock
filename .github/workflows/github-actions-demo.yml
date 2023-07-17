@@ -33,5 +33,10 @@ jobs:
         working-directory: ./backend
         run: |
           npm ci --ignore-scripts
-          npm run build
           npm test
+
+      - name: Build frontend
+        working-directory: ./frontend
+        run: |
+          npm ci --ignore-scripts
+          npm run build
