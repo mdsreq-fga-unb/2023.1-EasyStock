@@ -11,8 +11,18 @@ export function Card({ product, onSelect }) {
         <Produtos onClick={handleClick}>
             <td>{product.codigoPDV}</td>
             <td>{product.nome}</td>
-            <td>{product.precoCusto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-            <td>{product.precoVenda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+            <td>
+                {product.precoCusto.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                })}
+            </td>
+            <td>
+                {product.precoVenda.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                })}
+            </td>
             <td>{product.qtdEstoque}</td>
             <td>{product.qtdEstoqueMin}</td>
             <td>{product.medida}</td>
@@ -22,7 +32,7 @@ export function Card({ product, onSelect }) {
         </Produtos>
     );
 }
-export function CardProduto({ produtoz}) {
+export function CardProduto({ produtoz }) {
     return (
         <Produtos>
             <td>{produtoz.codigoPDV}</td>
@@ -42,10 +52,23 @@ export function CardClient({ client, onSelect }) {
             <td>{client.nome}</td>
             <td>{client.telefone}</td>
             <td>{client.email}</td>
-            <td>{client.divida.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+            <td>
+                {client.divida.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                })}
+            </td>
         </Produtos>
     );
 }
+export function CardClientePay({ client }) {
+    return (
+        <option value="clientes">{client.nome}</option>
+        //<select name="clientes" id="clientes" defaultValue="" >
+        //</select>
+    );
+}
+
 export function CardCaixa({ caixa, onSelect }) {
     const handleClick = () => {
         onSelect(caixa);
@@ -56,18 +79,31 @@ export function CardCaixa({ caixa, onSelect }) {
             <td>{caixa.codigoPDV}</td>
             <td>{caixa.nome}</td>
             <td>{caixa.quantidade}</td>
-            <td>{caixa.precoVenda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-            <td>{caixa.precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-            <td className="deletar-card" onClick={handleClick}>{caixa.deletar}<i className="bi-x-circle"></i></td>
+            <td>
+                {caixa.precoVenda.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                })}
+            </td>
+            <td>
+                {caixa.precoTotal.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                })}
+            </td>
+            <td className="deletar-card" onClick={handleClick}>
+                {caixa.deletar}
+                <i className="bi-x-circle"></i>
+            </td>
         </Produto>
     );
 }
-export function CardFuncionario ({funcionario, onSelect}){
+export function CardFuncionario({ funcionario, onSelect }) {
     const handleClick = () => {
         onSelect(funcionario);
     };
 
-    return(
+    return (
         <Produtos onClick={handleClick}>
             <td>{funcionario.nomeCompleto}</td>
             <td>{funcionario.username}</td>
@@ -79,14 +115,19 @@ export function CardFuncionario ({funcionario, onSelect}){
 }
 
 //Vendas
-export function CardVenda({venda, onSelect}) {
-    const handleClick = () =>{
+export function CardVenda({ venda, onSelect }) {
+    const handleClick = () => {
         onSelect(venda);
     };
 
     return (
         <Produtos onClick={handleClick}>
-            <td>{venda.precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+            <td>
+                {venda.precoTotal.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                })}
+            </td>
             <td>{venda.tipoPagamento}</td>
             <td>{venda.tipoEntrega}</td>
             <td>{venda.dataPedido}</td>
@@ -95,14 +136,19 @@ export function CardVenda({venda, onSelect}) {
 }
 //graficos
 
-export function Cardnovo({venda, onSelect}) {
-    const handleClick = () =>{
+export function Cardnovo({ venda, onSelect }) {
+    const handleClick = () => {
         onSelect(venda);
     };
 
     return (
         <Produtos onClick={handleClick}>
-            <td>{venda.precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+            <td>
+                {venda.precoTotal.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                })}
+            </td>
             <td>{venda.dataPedido}</td>
         </Produtos>
     );
