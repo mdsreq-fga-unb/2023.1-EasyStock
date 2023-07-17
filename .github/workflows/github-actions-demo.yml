@@ -1,4 +1,4 @@
-name: Workflow GitHub Actions 
+name: Workflow GitHub Actions
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on:
@@ -17,8 +17,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js 
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
-    
+          node-version: '14' # Altere a versão do Node.js, se necessário
+
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: |
+          npm uninstall bcrypt # Remova a instalação do bcrypt
+          npm install
+
+      - name: Install bcryptjs and run tests
+        working-directory: ./backend
+        run: |
+          npm install bcryptjs
+          npm test
