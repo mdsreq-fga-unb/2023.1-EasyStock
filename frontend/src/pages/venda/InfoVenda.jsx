@@ -33,7 +33,7 @@ export default function InfoVenda({ isOpen, onClose, selectedVenda }) {
                     <div className="card">
                         <h1>Venda: {selectedVenda._id}</h1>
                         <div className="infoVenda">
-                            <h3 id="produtos-container">{qtd}</h3>
+                            <h3 id="produtos-container" className="produtos-container">{qtd}</h3>
 
                             <h3>Preço Total: {selectedVenda.precoTotal
                                 .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h3>

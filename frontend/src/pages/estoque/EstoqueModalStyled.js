@@ -36,7 +36,7 @@ export const TodoModal = styled.section`
         transition: all 0.3s ease-out;
         border-radius: 20px;
     }
-    
+
     .label-float {
         position: relative;
         padding-top: 1px;
@@ -47,9 +47,11 @@ export const TodoModal = styled.section`
     .separar-h3 {
         display: flex;
         justify-content: space-between;
-        background-color: #F4F4ED;
+        background-color: #f4f4ed;
     }
-    .label-float input, select, h3 {
+    .label-float input,
+    select,
+    h3 {
         border: none;
         background-color: transparent;
         text-align: center;
@@ -57,7 +59,7 @@ export const TodoModal = styled.section`
         width: 100%;
         border-radius: 20px;
     }
-    
+
     .label-float label,
     select {
         border: none;
@@ -95,7 +97,7 @@ export const TodoModal = styled.section`
         display: flex;
         justify-content: space-around;
     }
-    .separar-botoes button{
+    .separar-botoes button {
         //bottom: 90px;
         border-color: #272262;
         color: #444449;
@@ -108,34 +110,36 @@ export const TodoModal = styled.section`
         transition: all 0.1s ease-out;
         background-color: #6ba9b6;
     }
-    .separar-botoes button:hover{
+    .separar-botoes button:hover {
         background-color: #1e5c74;
         font-weight: bolder;
     }
 
-    .alinhar{
+    .alinhar {
         background-color: white;
         display: flex;
-        justify-content:space-between ;
+        justify-content: space-between;
     }
-    .alinharVenda{
+    .alinharVenda {
         display: flex;
         justify-content: end;
     }
 
-    .infoVenda{
+    .infoVenda {
         display: flex;
         flex-direction: column;
         align-items: start;
         width: 94%;
-
     }
-    .infoVenda h3{
+    .infoVenda h3 {
         text-align: start;
-        background-color: #77C3D5;
+        background-color: #77c3d5;
         padding: 6px;
         margin: 10px;
         white-space: pre-wrap;
-
+    }
+    .produtos-container {
+        max-height: 230px;
+        overflow-y: auto;
     }
 `;
