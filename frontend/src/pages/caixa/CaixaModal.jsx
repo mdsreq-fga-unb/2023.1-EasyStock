@@ -1,21 +1,35 @@
 import React from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { useState, useEffect } from "react";
-import { postPedido } from "../../services/postsServices";
+import { getAllClients, postPedido } from "../../services/postsServices";
+import { Navigate } from "react-router-dom";
+import { sessionStatusAdmin } from "../../contexts/AuthContext";
+import { CardClientePay } from "../../Card/Card";
 
 export default function ModalCliente({ isOpen, onClose, infoPedido }) {
     const [tipoPagamento, setTipoPagamento] = useState();
     const [tipoEntrega, setTipoEntrega] = useState();
     const [valorPago, setValorPago] = useState();
     const [troco, setTroco] = useState(0);
+    const [clients, setClients] = useState([]);
+    const [cliente, setClientes] = useState([]);
 
     const [showConfirmation, setShowConfirmation] = useState(false); // Estado para controlar a exibição da caixa de diálogo de confirmação
     const [data, setData] = useState(null); // Variável para armazenar os dados do formulário
+
+    async function findAllClients() {
+        const response = await getAllClients();
+        setClients(response.data);
+    }
+    useEffect(() => {
+        sessionStatusAdmin(Navigate).then(() => findAllClients());
+    }, []);
+
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         const formData = {
             produtos: infoPedido.produtos,
-            //cliente,
+            cliente,
             tipoPagamento,
             tipoEntrega,
         };
@@ -90,24 +104,7 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                     <option value="Fiado">Fiado</option>
                                 </select>
                             </div>
-                            {/* <div className="label-float">
-                                <input
-                                type="number"
-                                step="any"
-                                id="Qtd"
-                                placeholder="Valor recebido"
-                                required
-                                />
-                                </div>
-                                <div className="label-float">
-                                <input
-                                type="number"
-                                step="any"
-                                id="preco"
-                                placeholder="Troco"
-                                required
-                                /> 
-                            </div> */}
+
                             <div className="label-float">
                                 <select
                                     name="entrega"
@@ -125,11 +122,33 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                         Sem Entrega
                                     </option>
                                     <option value="Loja">Loja</option>
-                                    <option value="Aplicativo">
+                                    <option value="Loja">
                                         Aplicativo
                                     </option>
                                 </select>
                             </div>
+
+                            <div className="label-float">
+                                <select
+                                    name="clientes"
+                                    id="clientes"
+                                    defaultValue=""
+                                    onChange={(e) =>
+                                        setClientes(e.target.value)
+                                    }
+                                >
+                                    <option value="" disabled hidden>
+                                        Nome do Cliente:
+                                    </option>
+                                    {clients.map((client) => (
+                                        <CardClientePay
+                                            key={client._id}
+                                            client={client}
+                                        />
+                                    ))}
+                                </select>
+                            </div>
+
                             <div className="separar-h3">
                                 <h3>
                                     VALOR TOTAL:{" "}
@@ -154,7 +173,7 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
                                     className="buttons"
                                     value="Finalizar"
                                 />
-                            
+
                                 {/* <button className="button-modal">Adicionar</button> */}
                                 <button
                                     className="button-modalc"

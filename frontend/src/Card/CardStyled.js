@@ -31,3 +31,6 @@ export const Produto = styled.tr`
         transition: all 0.1s ease-out;
     }
 `;
+export const Lista = styled.option`
+background-color: red;
+`
