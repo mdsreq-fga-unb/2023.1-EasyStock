@@ -13,7 +13,6 @@ export default function InfoVenda({ isOpen, onClose, selectedVenda }) {
         } else {
             nomeCliente = "-";
         }
-        console.log(selectedVenda.cliente.nome)
 
         function printaProdutos() {
             let string = "";
