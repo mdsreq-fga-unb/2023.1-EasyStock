@@ -15,7 +15,10 @@ export default function InfoVenda({ isOpen, onClose, selectedVenda }) {
         function printaProdutos() {
             let string = '';
             for (let i = 0; i < selectedVenda.produtos.length; i++) {
-                string = string + `Produto ${i+1}: ${selectedVenda.produtos[i].produto.nome}, Preço Custo: ${selectedVenda.produtos[i].produto.precoCusto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}, Quantidade: ${selectedVenda.produtos[i].quantidade}\n`;
+                string = string + `Produto ${i+1}: 
+                ${selectedVenda.produtos[i].produto.nome}, 
+                Preço Custo: ${selectedVenda.produtos[i].produto.precoCusto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}, 
+                Quantidade: ${selectedVenda.produtos[i].quantidade}\n`;
             }
             //console.log(string);
             //document.getElementById('produtos-container').innerHTML = string;
