@@ -24,6 +24,7 @@ jobs:
           
       - name: testes
          working-directory:./backend
-         npm install
-         npm run teste
+        run: |
+          npm install
+          npm run teste
     
