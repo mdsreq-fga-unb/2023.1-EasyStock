@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcryptjs from "../models/bcrypt/bcrypt";
+import bcryptjs from "../../node_modules/bcrypt";
 
 const EmployeeSchema = new mongoose.Schema({
     nomeCompleto: {
