@@ -25,9 +25,17 @@ jobs:
       - name: Install backend dependencies
         working-directory: ./backend
         run: |
+          npm uninstall bcrypt # Remova a instalação do bcrypt
           npm install
-
-      - name: Run tests
+ 
+      - name: Install bcryptjs and run tests
         working-directory: ./backend
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          SECRET_JWT: '176b58d9ce75355402b1e146cdbfa90f'
         run: |
+          npm install bcryptjs
           npm test
+          

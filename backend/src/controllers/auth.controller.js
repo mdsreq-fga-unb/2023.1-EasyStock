@@ -1,5 +1,9 @@
 import { generateToken, getUserFromToken, employeeLoginService } from "../services/auth.service.js";
+<<<<<<< HEAD
 import bcryptjs from "bcryptjs";
+=======
+import bcrypt from "bcrypt";
+>>>>>>> edf738023bff689df015fe670993e3b417a5dd41
 
 const loginAdmin = async (req, res) => {
     try {
@@ -31,7 +35,11 @@ const loginEmployee = async (req, res) => {
         if (!employee)
             return res.status(400).send({ message: 'Usuário e/ou senha inválidos' });
 
+<<<<<<< HEAD
         const passwordIsValid = await bcryptjs.compare(password, employee.password);
+=======
+        const passwordIsValid = await bcrypt.compare(password, employee.password);
+>>>>>>> edf738023bff689df015fe670993e3b417a5dd41
 
         if (!passwordIsValid)
             return res.status(400).send({ message: 'Usuário e/ou senha inválidos' });
