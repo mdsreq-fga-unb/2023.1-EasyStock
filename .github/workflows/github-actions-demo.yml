@@ -26,10 +26,10 @@ jobs:
         working-directory: ./backend
         run: |
           npm install
+          npm uninstall bcrypt
 
       - name: Install bcryptjs and run tests
         working-directory: ./backend
         run: |
           npm install bcryptjs
-          npm install bcrypt
           npm test
