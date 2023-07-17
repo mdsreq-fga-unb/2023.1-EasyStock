@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
 import { useNavigate } from "react-router-dom";
-import { getAllVendas } from "../../services/postsServices";
+import { getAllVendas, getVendaById } from "../../services/postsServices";
 import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { Div, Tabela } from "../estoque/EstoqueStyled";
 import { CardVenda } from "../../Card/Card";
@@ -10,22 +10,33 @@ import InfoVenda from "./InfoVenda";
 export default function Venda() {
     const navigate = useNavigate();
     const [vendas, setVendas] = useState([]);
+    //const [venda, setVenda] = useState(null);
 
     const [selectedVenda, setSelectedVenda] = useState(null);
-    const [openPedidosModal, setOpenPedidosModal] = useState(false);
+    const [openPedidosModal, setOpenPedidosModal] = useState(null);
 
     async function findAllVendas() {
         const response = await getAllVendas();
         setVendas(response.data);
     }
 
+    // async function vendaEspecifica(idVenda) {
+    //     const vendaComId = await getVendaById(idVenda);
+        
+    //     setVenda(vendaComId);
+    // }
+
     useEffect(() => {
         sessionStatusAdmin(navigate).then(() => findAllVendas());
     }, []);
-    const handleProductSelect = (venda) => {
-        setSelectedVenda(venda);
+
+    const handleProductSelect = async (venda) => {
+        const vendaCompleta = await getVendaById(venda._id);
+        setSelectedVenda(vendaCompleta.data);
         setOpenPedidosModal(true);
     };
+
+    console.log(openPedidosModal);
 
     return (
         <>
