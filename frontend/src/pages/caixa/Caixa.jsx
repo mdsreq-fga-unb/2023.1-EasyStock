@@ -80,6 +80,7 @@ export default function Caixa() {
             nome,
             precoVenda,
             precoTotal,
+            _id
         };
 
         let formDataPedido = {
@@ -96,8 +97,32 @@ export default function Caixa() {
         cont++;
     };
 
-    const removeCarrinho = (caixa) => {
-        //console.log(caixa);
+    const removeCarrinho = (caixa, produtos, ccaixa, cardcaixa) => {
+        const tam_original = produtos.length;
+        console.log(data);
+        for (let i = 0; i < produtos.length; i++) {
+            if(produtos[i].produto == ccaixa._id) {
+                caixa[i] = null;
+                caixa.sort();
+                caixa.pop();
+                produtos[i] = null;
+                produtos.sort();
+                produtos.pop();
+                cont--;
+                break;
+            }   
+        }
+        for (let j = 0; j < produtos.length; j++) {
+            console.log(j);
+            setData(caixa[j]);
+            setDataPedido(produtos[j]);
+        }
+        // for (let k = produtos.length-1; k <= tam_original; k++) {
+        //     setData(null);
+        //     setDataPedido(null);
+        // }
+        console.log(produtos);   
+        console.log(caixa);
     }
 
     function enviaProdutos(pedido) {
@@ -107,10 +132,6 @@ export default function Caixa() {
             setOpenModal(true);
         }
     }
-
-    useEffect(() => {
-        sessionStatus(navigate);
-    }, []);
 
     return (
         <>
@@ -167,11 +188,11 @@ export default function Caixa() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {caixa.map((caixa) => (
+                                {caixa.map((ccaixa) => (
                                     <CardCaixa
-                                        key={caixa.codigoPDV}
-                                        caixa={caixa}
-                                        onSelect={removeCarrinho}
+                                        key={ccaixa.codigoPDV}
+                                        caixa={ccaixa}
+                                        onSelect={() => removeCarrinho(caixa, produtos, ccaixa, CardCaixa)}
                                     />
                                 ))}
                             </tbody>

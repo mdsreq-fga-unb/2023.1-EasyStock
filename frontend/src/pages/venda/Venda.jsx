@@ -29,8 +29,6 @@ export default function Venda() {
         setOpenPedidosModal(true);
     };
 
-    console.log(openPedidosModal);
-
     return (
         <>
             <NavBar />
