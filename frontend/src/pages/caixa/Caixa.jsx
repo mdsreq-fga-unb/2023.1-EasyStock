@@ -96,8 +96,8 @@ export default function Caixa() {
         cont++;
     };
 
-    const removeCarrinho = () => {
-        
+    const removeCarrinho = (caixa) => {
+        //console.log(caixa);
     }
 
     function enviaProdutos(pedido) {
@@ -171,7 +171,7 @@ export default function Caixa() {
                                     <CardCaixa
                                         key={caixa.codigoPDV}
                                         caixa={caixa}
-                                        onSelect={() => console.log('teste')}
+                                        onSelect={removeCarrinho}
                                     />
                                 ))}
                             </tbody>
