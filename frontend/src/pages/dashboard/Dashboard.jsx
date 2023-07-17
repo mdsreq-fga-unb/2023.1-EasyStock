@@ -22,6 +22,7 @@ import {
     ResponsiveContainer,
 } from "recharts";
 import { getAllVendas } from "../../services/postsServices";
+import { getVendaById  } from "../../services/postsServices";
 import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { Cardnovo } from "../../Card/Card";
 
@@ -97,14 +98,13 @@ export default function Dashboard() {
                 <Box
                     sx={{
                         display: "flex",
-                        flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "space-evenly",
                         flexWrap: "wrap",
                         marginTop: "40px",
                     }}
                 >
-                    <AreaChart width={1000} height={500} data={vendas}  >
+                    <AreaChart width={500} height={500} data={vendas}  >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="dataPedido" />
 
@@ -128,7 +128,7 @@ export default function Dashboard() {
                     </AreaChart>
 
                     <BarChart
-                        width={400}
+                        width={500}
                         height={500}
                         data={vendas}
                         //   margin={{
@@ -154,7 +154,7 @@ export default function Dashboard() {
                         <Bar dataKey="precoTotal" fill="#82ca9d" />
                     </BarChart>
 
-                    <LineChart
+                    {/* <LineChart
                         width={600}
                         height={500}
                         data={vendas}
@@ -177,16 +177,16 @@ export default function Dashboard() {
                             stroke="#ff7300"
                             yAxisId={0}
                         />
-                    </LineChart>
+                    </LineChart> */}
 
-                    <PieChart width={400} height={400}>
+                    <PieChart width={800} height={800}>
                         <Pie
                             data={vendas}
                             cx="50%"
                             cy="50%"
                             labelLine={false}
                             label={renderCustomizedLabel}
-                            outerRadius={80}
+                            outerRadius={200}
                             fill="#8884d8"
                             dataKey="precoTotal"
                         ></Pie>
