@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
-<<<<<<< HEAD
-import bcryptjs from "bcryptjs"
-=======
 import bcryptjs  from "bcryptjs"
->>>>>>> edf738023bff689df015fe670993e3b417a5dd41
 
 const EmployeeSchema = new mongoose.Schema({
     nomeCompleto: {
