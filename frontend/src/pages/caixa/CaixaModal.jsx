@@ -12,7 +12,7 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
     const [valorPago, setValorPago] = useState();
     const [troco, setTroco] = useState(0);
     const [clients, setClients] = useState([]);
-    const [cliente, setClientes] = useState([]);
+    const [cliente, setClientes] = useState();
 
     const [showConfirmation, setShowConfirmation] = useState(false); // Estado para controlar a exibição da caixa de diálogo de confirmação
     const [data, setData] = useState(null); // Variável para armazenar os dados do formulário

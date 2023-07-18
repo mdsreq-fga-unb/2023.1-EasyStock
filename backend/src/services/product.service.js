@@ -29,10 +29,11 @@ const updateService = (
 
 const updateAfterOrder = (
     id,
-    qtdEstoque
+    qtdEstoque,
+    statusVenda
 ) => Product.findOneAndUpdate(
     { _id: id },
-    { qtdEstoque }
+    { qtdEstoque, statusVenda }
 )
 
 const deleteService = (pdv) => Product.findOneAndDelete({ codigoPDV: pdv });

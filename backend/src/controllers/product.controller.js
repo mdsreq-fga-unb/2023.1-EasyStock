@@ -23,10 +23,10 @@ const createProduct = async (req, res) => { // Cadastro de um produto
             codigoPDV = seqId;
 
             const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda } = req.body;
-
-            if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !qtdEstoqueMin || !medida || !statusVenda)
+            console.log(req.body);
+            if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !qtdEstoqueMin || !medida)
                 return res.status(400).send({ message: "Preencha todos os campos para realizar o cadastro!" });
-            
+            console.log('teste');
             if (parseInt(qtdEstoque) < 0 || parseInt(qtdEstoqueMin) < 1)
                 return res.status(400).send({ message: "Qtd de estoque e/ou qtd de estoque mínimo inválidos!" });
 
@@ -98,7 +98,8 @@ const findProductById = async (req, res) => { // Busca de um produto específico
 
 const updateProduct = async (req, res) => { // Atualiza os campos do produto
     try {
-        const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda } = req.body;
+        const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida } = req.body;
+        let { statusVenda } = req.body;
 
         if (!nome && !precoCusto && !precoVenda && !qtdEstoque && !qtdEstoqueMin && !medida && !statusVenda)
             return res.status(400).send({ message: "Preencha pelo menos um campo para atualização!" });
@@ -107,6 +108,32 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
 
         if (parseInt(qtdEstoque) < 0 || parseInt(qtdEstoqueMin) < 1)
             return res.status(400).send({ message: "Qtd de estoque e/ou qtd de estoque mínimo inválidos!" });
+
+        if (qtdEstoque && qtdEstoqueMin) {
+            if (parseInt(qtdEstoque) <= parseInt(qtdEstoqueMin)) {
+                statusVenda = false;
+            } else {
+                statusVenda = true;
+            }
+        } else if (qtdEstoque && !qtdEstoqueMin) {
+            if (parseInt(qtdEstoque) <= parseInt(product.qtdEstoqueMin)) {
+                statusVenda = false;
+            } else {
+                statusVenda = true;
+            }
+        } else if (!qtdEstoque && qtdEstoqueMin) {
+            if (parseInt(product.qtdEstoque) <= parseInt(qtdEstoqueMin)) {
+                statusVenda = false;
+            } else {
+                statusVenda = true;
+            } 
+        } else {
+            if (parseInt(product.precoVenda) <= parseInt(product.qtdEstoqueMin)) {
+                statusVenda = false;
+            } else {
+                statusVenda = true;
+            } 
+        }
 
         if (precoVenda && precoCusto) {
             if (parseInt(precoVenda) <= parseInt(precoCusto))

@@ -57,14 +57,22 @@ const createOrder = async (req, res) => {
 
         for (let i = 0; i < cont; i++) {
             let qtdProdAposVenda = 0;
+            let statusVenda;
             const product = await productService.findByIdService(produtos[i].produto);
 
             if (product) {
                 qtdProdAposVenda = product.qtdEstoque - produtos[i].quantidade;
+                
+                if (qtdProdAposVenda < product.qtdEstoqueMin) {
+                    statusVenda = false;
+                } else {
+                    statusVenda = true;
+                }
 
                 await productService.updateAfterOrder(
                     produtos[i].produto,
-                    qtdProdAposVenda
+                    qtdProdAposVenda,
+                    statusVenda
                 );
             }
         }

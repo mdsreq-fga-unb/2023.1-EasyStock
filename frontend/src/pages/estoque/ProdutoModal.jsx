@@ -50,9 +50,31 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
 
     const handleUpdateConfirmation = async (confirmed) => {
         if (confirmed) {
-            let statusVenda = false;
-            if (qtdEstoque >= qtdEstoqueMin) {
-                statusVenda = true;
+            let statusVenda;
+            if (qtdEstoque && qtdEstoqueMin) {
+                statusVenda = false;
+                if (parseInt(qtdEstoque) >= parseInt(qtdEstoqueMin)) {
+                    statusVenda = true;
+                }
+            } else if (qtdEstoque) {
+                if (parseInt(qtdEstoque) >= parseInt(selectedProduct.qtdEstoqueMin)){
+                    statusVenda = true;
+                } else {
+                    statusVenda = false;
+                }
+
+            } else if (qtdEstoqueMin) {
+                if (parseInt(selectedProduct.qtdEstoque) >= parseInt(qtdEstoqueMin)){
+                    statusVenda = true;
+                } else {
+                    statusVenda = false;
+                }
+            } else {
+                if (parseInt(selectedProduct.qtdEstoque) >= parseInt(selectedProduct.qtdEstoqueMin)){
+                    statusVenda = true;
+                } else {
+                    statusVenda = false;
+                }
             }
 
             const data = {

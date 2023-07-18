@@ -21,12 +21,12 @@ export default function EditarFuncionario({
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [showUpdateConfirmation, setShowUpdateConfirmation] = useState(false);
 
-    const formatDate = (date) => {
-        const dateObject = parseISO(date);
-        //const localDate = new Date(dateObject.getTime() - dateObject.getTimezoneOffset() * 60000);
+    // const formatDate = (date) => {
+    //     const dateObject = parseISO(date);
+    //     //const localDate = new Date(dateObject.getTime() - dateObject.getTimezoneOffset() * 60000);
         
-        return format(dateObject, 'dd/MM/yyyy');
-    };
+    //     return format(dateObject, 'dd/MM/yyyy');
+    // };
 
     if (!isOpen) {
         return null;
@@ -68,7 +68,7 @@ export default function EditarFuncionario({
                 password,
                 telefone,
                 email,
-                dataContratacao: formatDate(dataContratacao),
+                //dataContratacao: formatDate(dataContratacao),
             };
             await updateFuncionario(id, data);
             //onClose();

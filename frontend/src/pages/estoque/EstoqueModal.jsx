@@ -17,10 +17,10 @@ export default function EstoqueModal({ isOpen, onClose }) {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         let statusVenda = false;
-        if (qtdEstoque >= qtdEstoqueMin) {
+        if (parseInt(qtdEstoque) >= parseInt(qtdEstoqueMin)) {
             statusVenda = true;
         }
-
+        console.log(statusVenda);
         const formData = {
             nome,
             precoCusto,

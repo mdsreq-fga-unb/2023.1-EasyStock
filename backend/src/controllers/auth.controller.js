@@ -1,23 +1,5 @@
 import { generateToken, getUserFromToken, generateEmployeeToken, employeeLoginService } from "../services/auth.service.js";
-import bcrypt from "bcrypt";
-
-// const loginAdmin = async (req, res) => {
-//     try {
-//         const { username, password } = req.body;
-
-//         if (username !== process.env.ADMIN_USERNAME || password !== process.env.ADMIN_PASSWORD)
-//             return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
-
-//         const token = generateToken(username, password);
-
-//         res.send({
-//             token,
-//             username
-//         });
-//     } catch (err) {
-//         res.status(500).send({ authController: err.message });
-//     }
-// }
+import bcryptjs from "bcryptjs";
 
 const login = async (req, res) => {
     try {
@@ -42,7 +24,7 @@ const login = async (req, res) => {
                 return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
             }
         } else {
-            const passwordIsValid = await bcrypt.compare(password, employee.password);
+            const passwordIsValid = await bcryptjs.compare(password, employee.password);
 
             if (!passwordIsValid)
                 return res.status(400).send({ message: 'Usuário e/ou senha inválidos!' });
