@@ -12,8 +12,8 @@
 | -------------------- | --------------------------------------- | ------------- | ---------------------- | ---------------------- | ---------------------- | -------------------- |
 | Estratégia 01 | Funcional | Unitário | Automatico |Qualidade Interna|Técnica| MVP1/MVP2     |
 | Estratégia 02 | Usabilidade | Sistema | Manual |Qualidade Externa|Técnica |MVP1/MVP2     |
-| Estratégia 03 | Eficiência | Sistema | Manual |Qualidade Externa|Técnica |[US03], [US08], [US21]   |
-| Estratégia 04 | Teste de segurança  | Unitário | Automática |Qualidade Interna|Técnica | [US21], [US22]   |
+| Estratégia 03 | Eficiência | Sistema | Manual |Qualidade Externa|Técnica |[US03], [US08], [US06]   |
+| Estratégia 04 | Teste de segurança  | Unitário | Automática |Qualidade Interna|Técnica | [US06], [US07]   |
 
 <br>
 
@@ -25,9 +25,9 @@
 |  [US02] | - Funcional <br> - Usabilidade | Satisfatório <br> Satisfatório | 
 |  [US03] | - Funcional <br> - Usabilidade <br> - Eficiência| Satisfatório <br> Satisfatório <br> Satisfatório | 
 |  [US04] | - Funcional <br> - Usabilidade | Satisfatório <br> Satisfatório | 
-|  [US05] | - Usabilidade <br> | Satisfatório | 
-|  [US06] | - Usabilidade <br> | Satisfatório | 
-|  [US07] | - Funcional <br> - Usabilidade | Satisfatório <br> Satisfatório | 
+|  [US05] | - Funcional <br> - Usabilidade | Satisfatório <br> Satisfatório | 
+|  [US06] | - Funcional <br> - Teste de Segurança <br> - Eficiência  | Satisfatório <br> Satisfatório <br> Satisfatório | 
+|  [US07] | - Funcional <br> - Teste de Segurança  | Satisfatório <br> Satisfatório | 
 |  [US08] | - Funcional <br> - Usabilidade <br> - Eficiência | Satisfatório <br> Satisfatório <br> Satisfatório| 
 |  [US09] | - Funcional <br> - Usabilidade | Satisfatório <br> Satisfatório | 
 |  [US10] | - Funcional <br> - Usabilidade | Satisfatório <br> Satisfatório | 
@@ -41,8 +41,6 @@
 |  [US18] | - Funcional <br> - Usabilidade | Satisfatório <br> Satisfatório | 
 |  [US19] | - Funcional <br> - Usabilidade | Satisfatório <br> Satisfatório | 
 |  [US20] | - Funcional <br> - Usabilidade | Satisfatório <br> Satisfatório | 
-|  [US21] | - Funcional <br> - Teste de Segurança <br> - Eficiência  | Satisfatório <br> Satisfatório <br> Satisfatório | 
-|  [US22] | - Funcional <br> - Teste de Segurança  | Satisfatório <br> Satisfatório | 
 
 
 ### Apresentação Canva
