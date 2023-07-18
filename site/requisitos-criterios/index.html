@@ -837,6 +837,12 @@
 <td>Atualização do Backlog</td>
 <td>Gustavo, Milena, Isaac</td>
 </tr>
+<tr>
+<td>17/07/2023</td>
+<td>0.8</td>
+<td>Atualização do Backlog</td>
+<td>Daniela</td>
+</tr>
 </tbody>
 </table>
 <h2 id="personas">Personas</h2>
@@ -895,6 +901,11 @@
 <td><b>[EP08]</b> Registro de funcionários</td>
 <td><b>[US17]</b> Eu, como gerente, quero ser capaz de adicionar um novo funcionário ao sistema, para manter o registro atual dos funcionários.<br><b>[US18]</b> Eu, como gerente, quero ser capaz de remover um funcionário do sistema, para manter a integridade do sistema.<br><b>[US19]</b> Eu, como gerente, quero ser capaz de editar as informações de um funcionário existente, para atualizar com novas informações.<br><b>[US20]</b> Eu, como gerente, quero ser capaz de visualizar as informações pessoais dos funcionários, para manter o registro atualizado.<br></td>
 </tr>
+<tr>
+<td><b>[TM04]</b> Gerenciamento de funcionários</td>
+<td><b>[EP08]</b> Acesso de funcionários</td>
+<td><b>[US21]</b> Eu, como funcionário, quero ser capaz de fazer login no sistema usando meu nome de usuário e senha.<br><b>[US22]</b> Eu, como funcionário, desejo que meu token de expire após um período para garatir a segurança dos meus dados<br></td>
+</tr>
 </tbody>
 </table>
 <h2 id="requisitos-nao-funcionais">Requisitos não-Funcionais</h2>
@@ -928,31 +939,180 @@
 </tr>
 </tbody>
 </table>
-<!-- ## Tabela de Critérios
-
-| ID | Declaração | Valor de Negócio | Viabilidade | Complexidade Técnica | Total |
-| -----------|------------------------------------- | --------- | --------- | ---------| ---------|
-| <b>[US01]</b>| Eu, como usuário, quero poder consultar o preço do produto, para verificar o valor antes da compra. | 3 | 3 | 3 | 9 |
-| <b>[US02]</b>| Eu, como usuário, quero consultar o nível de estoque dos produtos, para saber a disponibilidade do produto. | 3 | 3 | 3 | 9 |
-| <b>[US03]</b>| Eu, como gerente, quero ser capaz de adicionar um novo produto ao catálogo, para atualizar o estoque. | 3 | 3 | 2 | 8 |
-| <b>[US04]</b>| Eu, como gerente, quero ser capaz de remover um produto do catálogo, para atualizar o estoque. | 3 | 3 | 2 | 8 |
-| <b>[US05]</b>| Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas. | 1 | 2 | 2 | 5 |
-| <b>[US06]</b>| Eu, como gerente, gostaria de receber uma notificação de estoque baixo, para poder repor o produto. | 1 | 3 | 3 | 7 |
-| <b>[US07]</b>| Eu, como gerente, quero ser capaz de visualizar o estoque total da loja em tempo real, para ter uma visão atualizada sobre os produtos. | 3 | 3 | 3 | 9 |
-| <b>[US08]</b>| Eu, como usuário, quero ser capaz de cadastrar clientes devedores no sistema, para acompanhar as pendências de pagamento.| 3 | 3 | 2 | 8 |
-| <b>[US09]</b>| Eu, como usuário, quero ser capaz de alterar a dívida de um cliente existente, para atualizar as pendências. | 3 | 2 | 2 | 7 |
-| <b>[US10]</b>| Eu, como funcionário, quero ser capaz de adicionar um pedido de venda, para efetuar a compra. | 3 | 2 | 1 | 6 |
-| <b>[US11]</b>| Eu, como funcionário, quero ser capaz de finalizar a compra, para registrar a venda. | 2 | 3 | 2 | 7 |
-| <b>[US12]</b>| Eu, como gerente, quero ser capaz de gerar um gráfico de linhas, para monitorar melhor o fluxo de vendas de produtos específicos e identificar tendências e padrões. | 3 | 2 | 3 | 8 |
-| <b>[US13]</b>| Eu, como gerente, quero ser capaz de gerar um gráfico de pizza, para identificar a participação de cada categoria nas vendas totais. | 2 | 2 | 2 | 6 |
-| <b>[US14]</b>| Eu, como gerente, quero ser capaz de gerar um gráfico de barras, para comparar as vendas de diferentes produtos. | 2 | 2 | 2 | 6 |
-| <b>[US15]</b>| Eu, como gerente, quero ser capaz de gerar um relatório, para identificar o desempenho das vendas. | 2 | 2 | 2 | 6 |
-| <b>[US16]</b>| Eu, como gerente, quero ser capaz de gerar uma lista com todas as vendas já realizadas, para manter registro completo. | 2 | 2 | 2 | 6 |
-| <b>[US17]</b>| Eu, como gerente, quero ser capaz de adicionar um novo funcionário ao sistema, para manter o registro atual dos funcionários. | 2 | 2 | 2 | 6 |
-| <b>[US18]</b>| Eu, como gerente, quero ser capaz de remover um funcionário do sistema, para manter a integridade do sistema.| 2 | 2 | 2 | 6 |
-| <b>[US19]</b>| Eu, como gerente, quero ser capaz de editar as informações de um funcionário existente, para atualizar com novas informações.| 2 | 2 | 2 | 6 | 
-| <b>[US20]</b>| Eu, como gerente, quero ser capaz de visualizar as informações pessoais dos funcionários, para manter o registro atualizado. | 2 | 3 | 2 | 7 | -->
-
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Declaração</th>
+<th>Valor de Negócio</th>
+<th>Viabilidade</th>
+<th>Complexidade Técnica</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>[US01]</b></td>
+<td>Eu, como usuário, quero poder consultar o preço do produto, para verificar o valor antes da compra.</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td><b>[US02]</b></td>
+<td>Eu, como usuário, quero consultar o nível de estoque dos produtos, para saber a disponibilidade do produto.</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td><b>[US03]</b></td>
+<td>Eu, como gerente, quero ser capaz de adicionar um novo produto ao catálogo, para atualizar o estoque.</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>8</td>
+</tr>
+<tr>
+<td><b>[US04]</b></td>
+<td>Eu, como gerente, quero ser capaz de remover um produto do catálogo, para atualizar o estoque.</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>8</td>
+</tr>
+<tr>
+<td><b>[US05]</b></td>
+<td>Eu, como gerente, gostaria de adicionar promoções, para estimular as vendas.</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr>
+<td><b>[US06]</b></td>
+<td>Eu, como gerente, gostaria de receber uma notificação de estoque baixo, para poder repor o produto.</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr>
+<td><b>[US07]</b></td>
+<td>Eu, como gerente, quero ser capaz de visualizar o estoque total da loja em tempo real, para ter uma visão atualizada sobre os produtos.</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td><b>[US08]</b></td>
+<td>Eu, como usuário, quero ser capaz de cadastrar clientes devedores no sistema, para acompanhar as pendências de pagamento.</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>8</td>
+</tr>
+<tr>
+<td><b>[US09]</b></td>
+<td>Eu, como usuário, quero ser capaz de alterar a dívida de um cliente existente, para atualizar as pendências.</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>7</td>
+</tr>
+<tr>
+<td><b>[US10]</b></td>
+<td>Eu, como funcionário, quero ser capaz de adicionar um pedido de venda, para efetuar a compra.</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>6</td>
+</tr>
+<tr>
+<td><b>[US11]</b></td>
+<td>Eu, como funcionário, quero ser capaz de finalizar a compra, para registrar a venda.</td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>7</td>
+</tr>
+<tr>
+<td><b>[US12]</b></td>
+<td>Eu, como gerente, quero ser capaz de gerar um gráfico de linhas, para monitorar melhor o fluxo de vendas de produtos específicos e identificar tendências e padrões.</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>8</td>
+</tr>
+<tr>
+<td><b>[US13]</b></td>
+<td>Eu, como gerente, quero ser capaz de gerar um gráfico de pizza, para identificar a participação de cada categoria nas vendas totais.</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td><b>[US14]</b></td>
+<td>Eu, como gerente, quero ser capaz de gerar um gráfico de barras, para comparar as vendas de diferentes produtos.</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td><b>[US15]</b></td>
+<td>Eu, como gerente, quero ser capaz de gerar um relatório, para identificar o desempenho das vendas.</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td><b>[US16]</b></td>
+<td>Eu, como gerente, quero ser capaz de gerar uma lista com todas as vendas já realizadas, para manter registro completo.</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td><b>[US17]</b></td>
+<td>Eu, como gerente, quero ser capaz de adicionar um novo funcionário ao sistema, para manter o registro atual dos funcionários.</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td><b>[US18]</b></td>
+<td>Eu, como gerente, quero ser capaz de remover um funcionário do sistema, para manter a integridade do sistema.</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td><b>[US19]</b></td>
+<td>Eu, como gerente, quero ser capaz de editar as informações de um funcionário existente, para atualizar com novas informações.</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr>
+<td><b>[US20]</b></td>
+<td>Eu, como gerente, quero ser capaz de visualizar as informações pessoais dos funcionários, para manter o registro atualizado.</td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
 <h2 id="tabela-de-criterios">Tabela de Critérios</h2>
 <table>
 <thead>
@@ -985,6 +1145,22 @@
 <tr>
 <td><b>[US07]</b></td>
 <td>Eu, como gerente, quero ser capaz de visualizar o estoque total da loja em tempo real, para ter uma visão atualizada sobre os produtos.</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td><b>[US21]</b></td>
+<td>Eu, como funcionário, quero ser capaz de fazer login no sistema usando meu nome de usuário e senha.</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td><b>[US22]</b></td>
+<td>Eu, como funcionário, desejo que meu token de expire após um período para garatir a segurança dos meus dados</td>
 <td>3</td>
 <td>3</td>
 <td>3</td>
@@ -1143,7 +1319,7 @@
 </tr>
 <tr>
 <td><b>[US02]</b></td>
-<td>- O sistema deve exibir o nível de estoque em tempo real.<br> - O nível do estoque deve estar atualizado e correto.<br> - O sistema deve permitir que o usuário visualize o nível de estoque de todos  os produtos.</td>
+<td>- O sistema deve exibir o nível de estoque em tempo real.<br> - O nível do estoque deve estar atualizado e correto.<br> - O sistema deve permitir que o usuário visualize o nível de estoque de todos os produtos.</td>
 </tr>
 <tr>
 <td><b>[US07]</b></td>
@@ -1151,7 +1327,7 @@
 </tr>
 <tr>
 <td><b>[US03]</b></td>
-<td>- O sistema deve permitir que o gerente adicione um produto do catálogo. <br>- O sistema deve pedir ao gerente as informações para adicionar um novo produto nome, quantidade no estoque, descrição e preço.</td>
+<td>- O sistema deve permitir que o gerente adicione um produto do catálogo. <br> - Para adicionar um novo produto, o funcionário deve obrigatoriamente preencher os campos: "Nome", "Preço de custo", "Preço de venda", "Quantidade", "Quantidade mínima". <br> O sistema deve processar a adição e a deleção de produtos em, no máximo, 5 segundos.</td>
 </tr>
 <tr>
 <td><b>[US04]</b></td>
@@ -1159,7 +1335,7 @@
 </tr>
 <tr>
 <td><b>[US08]</b></td>
-<td>- O sistema deve ser capaz de exibir uma lista dos devedores.<br> - A lista de devedores deve conter informações: nome e valor total da dívida.</td>
+<td>- O sistema deve ser capaz de exibir uma lista dos devedores.<br> - A lista de devedores deve conter informações: nome e valor total da dívida. <br> Para cadastrar um novo cliente, o campo "nome" deve ser obrigatoriamente preenchido <br> O sistema deve processar a adição e a deleção de um cliente em, no máximo, 5 segundos</td>
 </tr>
 <tr>
 <td><b>[US10]</b></td>
@@ -1175,7 +1351,7 @@
 </tr>
 <tr>
 <td><b>[US09]</b></td>
-<td>- O sistema deve fornecer uma maneira de buscar de clientes. <br> - A lista de devedores deve ser atualizada ao confirmar pagamentos e pendências quando forem registradas no sistema. <br> - O sistema deve permitir alterar a dívida de um cliente.</td>
+<td>- O sistema deve fornecer uma maneira de buscar de clientes. <br> - A lista de devedores deve ser atualizada ao confirmar pagamentos e pendências quando forem registradas no sistema. <br> - O sistema deve permitir alterar a dívida de um cliente. <br> - O sistema deve permitir a exclusão de clientes pelo seu ID</td>
 </tr>
 <tr>
 <td><b>[US15]</b></td>
@@ -1192,6 +1368,14 @@
 <tr>
 <td><b>[US20]</b></td>
 <td>- O sistema deve permitir que o gerente visualize as informações do funcionário.</td>
+</tr>
+<tr>
+<td><b>[US21]</b></td>
+<td>- O sistema deve aceitar o nome de usuário e a senha do funcionário. <br> - Caso as credenciais estejam corretas, o funcionário deve ser autenticado e receber um token validado. <br> - Caso as credenciais estejam incorretas, o sistema deve fornecer uma mensagem de erro. <br> Após inserir as credenciais, o usuário deve ser redirecionado para a tela principal em, no máximo, 15 segundos</td>
+</tr>
+<tr>
+<td><b>[US22]</b></td>
+<td>- O token de acesso gerado deve expirar automaticamente após 24 horas. <br> - Após o vencimento do token, o sistema deve exigir que o funcionário faça login novamente.</td>
 </tr>
 </tbody>
 </table>
