@@ -46,7 +46,7 @@ export default function EditarFuncionario({
             password,
             telefone,
             email,
-            dataContratacao: formatDate(dataContratacao),
+            dataContratacao,
         };
         await updateFuncionario(id, data);
         //onClose();
@@ -68,7 +68,7 @@ export default function EditarFuncionario({
                 password,
                 telefone,
                 email,
-                dataContratacao,
+                dataContratacao: formatDate(dataContratacao),
             };
             await updateFuncionario(id, data);
             //onClose();
