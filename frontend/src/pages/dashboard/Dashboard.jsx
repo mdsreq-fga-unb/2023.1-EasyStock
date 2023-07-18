@@ -266,14 +266,15 @@ const onPieEnter = useCallback(
                 <Box
                     sx={{
                         display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-evenly",
+                        alignItems: "flex-start",
+                        //justifyContent: "space-",
                         flexWrap: "wrap",
                         marginTop: "40px",
+                        marginLeft: "40px",
                     }}
                 >
                     <div className="fundo">
-                    <AreaChart width={900} height={600} data={vendas}>
+                    <AreaChart width={1000} height={600} data={vendas}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="dataPedido" tick={false}/>
 
