@@ -49,9 +49,6 @@ Durante a sprint 7, conseguimos completar as seguintes histórias ,em resumo, do
 |<b>[US18]</b>| remover um funcionário do sistema<br>
 |<b>[US19]</b>| editar as informações de um funcionário existente<br>
 
-### CI Test
-
-A integração contínua foi implementada e já está em uso através de um workflow no GitHub. Os testes unitários estão em fase de andamento e algumas funcionalidades já estão passíveis de serem testadas. 
 
 
 
