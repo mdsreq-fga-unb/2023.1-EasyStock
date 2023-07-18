@@ -157,8 +157,32 @@ export default function Dashboard() {
             vendas[i].dataPedido = dataCurta;
         }
         vendas.reverse();
-        console.log(vendas);
-        setVendas(response.data);
+        for (let j = 0; j < vendas.length; j++) {
+            vendalin[j] = { precoTotal: vendas[j].precoTotal, dataPedido: vendas[j].dataPedido }
+        }
+
+        const resultado = {};
+
+        for (const chave in vendalin) {
+        const item = vendalin[chave];
+        const precoTotal = item.precoTotal;
+        const dataPedido = item.dataPedido;
+
+            if (resultado[dataPedido]) {
+                resultado[dataPedido] += precoTotal;
+            } else {
+                resultado[dataPedido] = precoTotal;
+            }
+        }
+
+        var resultado2 = [];
+
+        for (var dataPedido in resultado) {
+            var precoTotal = resultado[dataPedido];
+            resultado2.push({ dataPedido: dataPedido, precoTotal: precoTotal });
+        }
+
+        setVendas(resultado2);
     }
 
     async function getAllSales() {
@@ -217,7 +241,6 @@ async function findAllVendasid() {
 ////////////////////////////////////
     useEffect(() => {
         sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getAllSales());
-        //console.log(vendasPizza);
     }, []);
     const handleProductSelect = (venda) => {
         setSelectedVenda(venda);
@@ -235,9 +258,6 @@ const onPieEnter = useCallback(
   },
   [setActiveIndex]
 );
-
-    //console.log(vendasPizza);
-    console.log(vendas)
     
     return (
         <>
@@ -253,7 +273,7 @@ const onPieEnter = useCallback(
                     }}
                 >
                     <div className="fundo">
-                    <AreaChart width={600} height={600} data={vendas}>
+                    <AreaChart width={900} height={600} data={vendas}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="dataPedido" tick={false}/>
 
@@ -275,6 +295,23 @@ const onPieEnter = useCallback(
                         />
                     </AreaChart>
 
+                    </div>
+                    <div className="fundo">
+                        <PieChart width={600} height={600}>
+                            <Pie
+                            activeIndex={activeIndex}
+                            activeShape={renderActiveShape}
+                            data={vendasPizza} // Nome Qtd de aparições
+                            cx={300}
+                            cy={250}
+                            innerRadius={100}
+                            outerRadius={150}
+                            fill="#8884d8"
+                            dataKey="qtd"
+                            onMouseEnter={onPieEnter}
+                            />
+                            
+                        </PieChart>
                     </div>
                     <div className="fundo">
                     <BarChart
@@ -332,23 +369,6 @@ const onPieEnter = useCallback(
                         /> */}
 
                     </div> 
-<div className="fundo">
- <PieChart width={600} height={600}>
-      <Pie
-        activeIndex={activeIndex}
-        activeShape={renderActiveShape}
-        data={vendasPizza} // Nome Qtd de aparições
-        cx={300}
-        cy={250}
-        innerRadius={100}
-        outerRadius={150}
-        fill="#8884d8"
-        dataKey="qtd"
-        onMouseEnter={onPieEnter}
-      />
-      
-    </PieChart>
-    </div>
                     {/* <LineChart
                         width={600}
                         height={600}
