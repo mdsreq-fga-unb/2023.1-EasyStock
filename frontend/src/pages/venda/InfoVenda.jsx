@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
-import { getVendaById } from "../../services/postsServices";
+import { deleteVenda, getVendaById } from "../../services/postsServices";
 
 export default function InfoVenda({ isOpen, onClose, selectedVenda }) {
     const [venda, setVenda] = useState(null);
+    const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
     if (isOpen) {
         let nomeCliente;
@@ -33,6 +34,15 @@ export default function InfoVenda({ isOpen, onClose, selectedVenda }) {
         }
 
         const qtd = printaProdutos();
+
+        const id = selectedVenda._id;
+        const handleDeleteConfirmation = async (confirmed) => {
+            if (confirmed) {
+                await deleteVenda(id);
+                onClose();
+            }
+            setShowDeleteConfirmation(false);
+        };
 
         return (
             <TodoModal>
@@ -67,13 +77,46 @@ export default function InfoVenda({ isOpen, onClose, selectedVenda }) {
 
                             <h3>Cliente: {nomeCliente}</h3>
                         </div>
-                        <div className="alinharVenda">
+                        <div className="alinhar">
+                            <button
+                                type="button"
+                                name="deletar"
+                                id="deletar"
+                                className="buttons"
+                                value="Deletar"
+                                onClick={() => setShowDeleteConfirmation(true)} // Mostrar a caixa de diálogo de confirmação
+                            >
+                                Deletar
+                            </button>
                             <button className="button-modalc" onClick={onClose}>
                                 Fechar
                             </button>
                         </div>
                     </div>
                 </div>
+                {showDeleteConfirmation && (
+                    <section className="container">
+                        <div className="card">
+                            <p>Deseja deletar a venda?</p>
+                            <div className="separar-botoes">
+                                <button
+                                    onClick={() =>
+                                        handleDeleteConfirmation(true)
+                                    }
+                                >
+                                    SIM
+                                </button>
+                                <button
+                                    onClick={() =>
+                                        handleDeleteConfirmation(false)
+                                    }
+                                >
+                                    NÃO
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                )}
             </TodoModal>
         );
     }

@@ -246,6 +246,22 @@ export function getVendaById(id) {
     });
     return response;
 }
+
+export function deleteVenda(id) {
+    const response = api.delete(`/pedido/${id}`)
+    .then(async () => {
+        await swal("Sucesso!", "Venda deletada com sucesso!", "success");
+        window.location.reload();
+    })
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
+
+    return response;
+}
+
 // Consultas em vendas
 export function getProductsInSales() {
     const response = api.get(`/pedido/vendas`)
