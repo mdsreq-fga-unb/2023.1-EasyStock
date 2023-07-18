@@ -139,8 +139,6 @@ const renderActiveShape = (props) => {
 
 
   
- 
-
 export default function Dashboard() {
     const navigate = useNavigate();
     const [vendas, setVendas] = useState([]);
@@ -166,41 +164,39 @@ export default function Dashboard() {
 
     async function getAllSales() {
         const response = await getProductsInSales();
-
-        console.log(response.data);
+        let vendasPizza = response.data;
+        // console.log(response.data);
         for (let i = 0; i < response.data.length; i++) {
             for (let j = 0; j < response.data[i].produtos.length; j++) {
-                console.log(response.data[i].produtos.length);
-                //console.log(`Nome do produto: ${response.data[i].produtos[j].produto.nome} Quantidade: ${response.data[i].produtos[j].quantidade}`);
+                // console.log(response.data[i].produtos.length);
+                // console.log(`Nome do produto: ${response.data[i].produtos[j].produto.nome} Quantidade: ${response.data[i].produtos[j].quantidade}`);
                 //setVendasPizza(response.data[i].produtos[j].produto.nome);
             }
             
         }
-        console.log(vendasPizza);
+        // console.log(vendasPizza);
     }
 
-//////////////////////
+////////////////////////////////
+
 const [vendasid, setVendasid] = useState([]);
-async function getProdutosEQtdVendida() {
+const [selectedVendaid, setSelectedVendaid] = useState(null);
+const [openPedidosModalid, setOpenPedidosModalid] = useState(false);
+//////////////////////////
+async function findAllVendasid() {
     const response = await getProductsInSales();
-    console.log(response);
-    let vendasid = response.data;
+
+    let vendas = response.data;
     setVendasid(response.data);
 }
-//////////////////////////
-// console.log(vendasid)
-//console.log(vendas);
-    // Nome do produto, qtd Vendida;
-    async function getProdutosEQtdVendida() {
-        const response = await getAllVendas();
-        
-        
-    }
 
-  
+////////////////////////////
 
+
+
+////////////////////////////////////
     useEffect(() => {
-        sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getAllSales());
+        sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getAllSales()).then(() => findAllVendasid());
     }, []);
     const handleProductSelect = (venda) => {
         setSelectedVenda(venda);
@@ -208,7 +204,7 @@ async function getProdutosEQtdVendida() {
     };
 
 
-//console.log(vendas);
+
 
 
 const [activeIndex, setActiveIndex] = useState(0);
@@ -219,9 +215,21 @@ const onPieEnter = useCallback(
   [setActiveIndex]
 );
 
+ // console.log(vendasPizza);
+  //console.log(vendas)
+ console.log(vendasid)
 
 
-
+ 
+ const aggregatedData = vendasid.reduce((result, current) => {
+    const existingData = result.find((item) => produtos.produto.nome === current.name);
+    if (existingData) {
+      existingData.value += current.value;
+    } else {
+      result.push({ name: current.name, value: current.value });
+    }
+    return result;
+  }, []);
 
     
     return (
@@ -263,9 +271,9 @@ const onPieEnter = useCallback(
                     </div>
                     <div className="fundo">
                     <BarChart
-                        width={600}
+                        width={1000}
                         height={600}
-                        data={vendas}
+                        data={vendasid}
                         //   margin={{
                         //     top: 5,
                         //     right: 30,
@@ -274,10 +282,10 @@ const onPieEnter = useCallback(
                         //   }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="dataPedido" />
+                        <XAxis dataKey="produtos.0.produto.nome"  />
                         <YAxis
                             type="number"
-                            dataKey="precoTotal"
+                            dataKey="produtos.0.quantidade"
                             label={{
                                 value: "Valor da Venda",
                                 angle: -90,
@@ -286,7 +294,7 @@ const onPieEnter = useCallback(
                         />
                         <Tooltip />
 
-                        <Bar dataKey="precoTotal" fill="#82ca9d" />
+                        <Bar dataKey="produtos.0.quantidade" fill="#82ca9d" />
                     </BarChart>
 
                     {/* </div>
@@ -322,13 +330,13 @@ const onPieEnter = useCallback(
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
-        data={vendas} // Nome Qtd de aparições
+        data={vendasid} // Nome Qtd de aparições
         cx={300}
         cy={250}
         innerRadius={100}
         outerRadius={150}
         fill="#8884d8"
-        dataKey="precoTotal"
+        dataKey="produtos.0.quantidade"
         onMouseEnter={onPieEnter}
       />
       
