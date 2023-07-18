@@ -23,6 +23,7 @@ import {
 } from "recharts";
 import { getAllVendas } from "../../services/postsServices";
 import { getVendaById } from "../../services/postsServices";
+import { getProductsInSales } from "../../services/postsServices";
 import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { Cardnovo } from "../../Card/Card";
 import { Graficos } from "./DashboardStyled";
@@ -165,14 +166,13 @@ export default function Dashboard() {
 //////////////////////
 const [vendasid, setVendasid] = useState([]);
 async function getProdutosEQtdVendida() {
-    
-    const response = await getVendaById();
+    const response = await getProductsInSales();
+    console.log(response);
     let vendasid = response.data;
     setVendasid(response.data);
 }
 //////////////////////////
-getProdutosEQtdVendida();
-console.log(vendasid)
+// console.log(vendasid)
 console.log(vendas)
     // Nome do produto, qtd Vendida;
     async function getProdutosEQtdVendida() {
@@ -184,7 +184,7 @@ console.log(vendas)
   
 
     useEffect(() => {
-        sessionStatusAdmin(navigate).then(() => findAllVendas());
+        sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getProdutosEQtdVendida());
     }, []);
     const handleProductSelect = (venda) => {
         setSelectedVenda(venda);
