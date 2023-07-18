@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import orderService from "../services/order.service.js";
 
 const OrderSchema = new mongoose.Schema({
     produtos: [{
@@ -35,11 +34,6 @@ const OrderSchema = new mongoose.Schema({
 const Order = mongoose.model('Order', OrderSchema);
 
 export default Order;
-
-// Order.aggregate([
-//     { $unwind: '$produtos' }
-// ]).then((orders) => console.log(orders));
-
 
 /**
 Order Example:

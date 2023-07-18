@@ -27,7 +27,7 @@ export function Card({ product, onSelect }) {
             <td>{product.qtdEstoqueMin}</td>
             <td>{product.medida}</td>
             <td className={statusClass.toString()}>
-                {product.statusVenda ? "Ativo" : "Inativo"}
+                {product.statusVenda ? "Disponível" : "Abaixo do mínimo"}
             </td>
         </Produtos>
     );

@@ -22,9 +22,9 @@ export default function InfoVenda({ isOpen, onClose, selectedVenda }) {
                     string +
                     `Produto ${i + 1}: 
                 ${selectedVenda.produtos[i].produto.nome}, 
-                Preço Custo: ${selectedVenda.produtos[
+                Preço Unitário: ${selectedVenda.produtos[
                     i
-                ].produto.precoCusto.toLocaleString("pt-BR", {
+                ].produto.precoVenda.toLocaleString("pt-BR", {
                     style: "currency",
                     currency: "BRL",
                 })}, 

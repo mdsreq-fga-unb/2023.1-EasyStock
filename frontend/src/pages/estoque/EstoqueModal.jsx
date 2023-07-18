@@ -16,6 +16,11 @@ export default function EstoqueModal({ isOpen, onClose }) {
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
+        let statusVenda = false;
+        if (qtdEstoque >= qtdEstoqueMin) {
+            statusVenda = true;
+        }
+
         const formData = {
             nome,
             precoCusto,
@@ -23,7 +28,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
             qtdEstoque,
             qtdEstoqueMin,
             medida,
-            statusVenda: true,
+            statusVenda,
         };
 
         // Armazenar os dados do formulário na variável "data"
@@ -120,6 +125,9 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                     </option>
                                     <option value="UN">UN</option>
                                     <option value="KG">KG</option>
+                                    <option value="G">G</option>
+                                    <option value="L">L</option>
+                                    <option value="mL">mL</option>
                                 </select>
                             </div>
                             <div className="alinhar">

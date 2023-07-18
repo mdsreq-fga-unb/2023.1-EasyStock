@@ -50,6 +50,11 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
 
     const handleUpdateConfirmation = async (confirmed) => {
         if (confirmed) {
+            let statusVenda = false;
+            if (qtdEstoque >= qtdEstoqueMin) {
+                statusVenda = true;
+            }
+
             const data = {
                 nome,
                 precoCusto,
@@ -57,7 +62,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                 qtdEstoque,
                 qtdEstoqueMin,
                 medida,
-                statusVenda: true,
+                statusVenda,
             };
             await updateProduto(pdv, data);
             onClose();
@@ -136,6 +141,9 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                 </option>
                                 <option value="UN">UN</option>
                                 <option value="KG">KG</option>
+                                <option value="G">G</option>
+                                <option value="L">L</option>
+                                <option value="mL">mL</option>
                             </select>
                         </div>
                         <div className="alinhar">

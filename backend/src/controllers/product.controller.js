@@ -1,5 +1,6 @@
 import productService from '../services/product.service.js';
 import counterService from '../models/CounterTable.js';
+import orderService from '../services/order.service.js';
 
 const createProduct = async (req, res) => { // Cadastro de um produto
     try {
@@ -138,6 +139,16 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
 const deleteProduct = async (req, res) => { // Deleta um produto
     try {
         const { pdv } = req;
+
+        const possiveisVendas = await orderService.findProductsInSales();
+        if (possiveisVendas) {
+            for (let i = 0; i < possiveisVendas.length; i++) {
+                for (let j = 0; j < possiveisVendas[i].produtos.length; j++) {
+                    if (possiveisVendas[i].produtos[j].produto.codigoPDV == pdv)
+                        return res.status(400).send({ message: "Este produto está registrado em outra(s) venda(s), apague a venda antes de excluí-lo!" });
+                }
+            }
+        }
 
         await productService.deleteService(pdv);
 
