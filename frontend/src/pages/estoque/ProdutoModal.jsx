@@ -115,7 +115,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                         </div>
                         <div className="label-float">
                             <input
-                                type="qtdMin"
+                                type="number"
                                 name="min"
                                 id="min"
                                 placeholder={`Quantidade mínima: ${selectedProduct.qtdEstoqueMin}`}

@@ -20,7 +20,7 @@ Order.find()
     select: 'quantidade', 
     populate: {
         path: 'produto',
-        select: 'nome'
+        select: 'nome codigoPDV'
     } 
 });
 

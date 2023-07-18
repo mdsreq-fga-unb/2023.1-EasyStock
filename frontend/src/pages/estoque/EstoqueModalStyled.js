@@ -138,6 +138,9 @@ export const TodoModal = styled.section`
         margin: 10px;
         white-space: pre-wrap;
     }
+    .data-contrato{
+        color: #6B7877;
+    }
     .produtos-container {
         max-height: 230px;
         overflow-y: auto;

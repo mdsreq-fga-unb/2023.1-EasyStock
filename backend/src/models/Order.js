@@ -36,9 +36,9 @@ const Order = mongoose.model('Order', OrderSchema);
 
 export default Order;
 
-Order.aggregate([
-    { $unwind: '$produtos' }
-]).then((orders) => console.log(orders));
+// Order.aggregate([
+//     { $unwind: '$produtos' }
+// ]).then((orders) => console.log(orders));
 
 
 /**

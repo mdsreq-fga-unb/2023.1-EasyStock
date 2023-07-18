@@ -23,6 +23,12 @@ export default function FuncionarioModal({ isOpen, onClose }) {
     const createForm = (e) => {
         e.preventDefault();
 
+        if (telefone) {
+            if (telefone.length !== 10 && telefone.length !== 11) {
+                alert("O número de telefone deve ter 10 ou 11 dígitos");
+                return;
+            }
+        }
         const formData = {
             nomeCompleto,
             username,

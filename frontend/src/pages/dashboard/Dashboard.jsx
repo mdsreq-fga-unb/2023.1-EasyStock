@@ -135,10 +135,7 @@ const renderActiveShape = (props) => {
       </g>
     );
   };
-  
 
-
-  
 export default function Dashboard() {
     const navigate = useNavigate();
     const [vendas, setVendas] = useState([]);
@@ -164,17 +161,38 @@ export default function Dashboard() {
 
     async function getAllSales() {
         const response = await getProductsInSales();
-        let vendasPizza = response.data;
-        // console.log(response.data);
+        let k = 0;
+        let vendapiz = [];
         for (let i = 0; i < response.data.length; i++) {
             for (let j = 0; j < response.data[i].produtos.length; j++) {
-                // console.log(response.data[i].produtos.length);
-                // console.log(`Nome do produto: ${response.data[i].produtos[j].produto.nome} Quantidade: ${response.data[i].produtos[j].quantidade}`);
-                //setVendasPizza(response.data[i].produtos[j].produto.nome);
+                vendapiz[k] = { pdv: response.data[i].produtos[j].produto.codigoPDV, qtd: response.data[i].produtos[j].quantidade, nome: response.data[i].produtos[j].produto.nome }                
+                k++;                 
             }
             
         }
-        // console.log(vendasPizza);
+
+        const resultado = {};
+
+        for (const chave in vendapiz) {
+        const item = vendapiz[chave];
+        const nome = item.nome;
+        const qtd = item.qtd;
+
+            if (resultado[nome]) {
+                resultado[nome] += qtd;
+            } else {
+                resultado[nome] = qtd;
+            }
+        }
+
+        var resultado2 = [];
+
+        for (var nome in resultado) {
+            var qtd = resultado[nome];
+            resultado2.push({ nome: nome, qtd: qtd });
+        }
+        //return resultado2;
+        setVendasPizza(resultado2);
     }
 
 ////////////////////////////////
@@ -196,7 +214,8 @@ async function findAllVendasid() {
 
 ////////////////////////////////////
     useEffect(() => {
-        sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getAllSales()).then(() => findAllVendasid());
+        sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getAllSales());
+        console.log(vendasPizza);
     }, []);
     const handleProductSelect = (venda) => {
         setSelectedVenda(venda);
@@ -215,22 +234,7 @@ const onPieEnter = useCallback(
   [setActiveIndex]
 );
 
- // console.log(vendasPizza);
-  //console.log(vendas)
- console.log(vendasid)
-
-
- 
- const aggregatedData = vendasid.reduce((result, current) => {
-    const existingData = result.find((item) => produtos.produto.nome === current.name);
-    if (existingData) {
-      existingData.value += current.value;
-    } else {
-      result.push({ name: current.name, value: current.value });
-    }
-    return result;
-  }, []);
-
+    console.log(vendasPizza);
     
     return (
         <>
