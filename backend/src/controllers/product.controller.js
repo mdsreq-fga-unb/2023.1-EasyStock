@@ -1,5 +1,6 @@
 import productService from '../services/product.service.js';
 import counterService from '../models/CounterTable.js';
+import orderService from '../services/order.service.js';
 
 const createProduct = async (req, res) => { // Cadastro de um produto
     try {
@@ -22,17 +23,20 @@ const createProduct = async (req, res) => { // Cadastro de um produto
             codigoPDV = seqId;
 
             const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda } = req.body;
+            console.log(req.body);
+            if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !qtdEstoqueMin || !medida)
+                return res.status(400).send({ message: "Preencha todos os campos para realizar o cadastro!" });
+            console.log('teste');
+            if (parseInt(qtdEstoque) < 0 || parseInt(qtdEstoqueMin) < 1)
+                return res.status(400).send({ message: "Qtd de estoque e/ou qtd de estoque mínimo inválidos!" });
 
-            if (!nome || !precoCusto || !precoVenda || !qtdEstoque || !qtdEstoqueMin || !medida || !statusVenda)
-                return res.status(400).send({message: "Preencha todos os campos para realizar o cadastro"});
-            
-            if (precoCusto >= precoVenda)
-                return res.status(400).send({message: "Defina um preço de venda superior ao preço de custo"});
+            if (parseInt(precoVenda) <= parseInt(precoCusto))
+                return res.status(400).send({ message: "Defina um preço de venda superior ao preço de custo!" });
 
             const product = await productService.createService({ nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, codigoPDV, statusVenda });
 
             if (!product)
-                return res.status(400).send({ message: "Erro no cadastro do produto" });
+                return res.status(400).send({ message: "Erro no cadastro do produto!" });
 
             res.status(201).send({
                 product: {
@@ -59,7 +63,7 @@ const findAllProducts = async (req, res) => { // Listagem de todos os produtos c
         const products = await productService.findAllService();
 
         if (products.length === 0)
-            return res.status(400).send({ message: "Não há produtos cadastrados" });
+            return res.status(400).send({ message: "Não há produtos cadastrados!" });
 
         res.send(products);
     } catch (err) {
@@ -94,15 +98,53 @@ const findProductById = async (req, res) => { // Busca de um produto específico
 
 const updateProduct = async (req, res) => { // Atualiza os campos do produto
     try {
-        const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda } = req.body;
+        const { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida } = req.body;
+        let { statusVenda } = req.body;
 
         if (!nome && !precoCusto && !precoVenda && !qtdEstoque && !qtdEstoqueMin && !medida && !statusVenda)
-            return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
+            return res.status(400).send({ message: "Preencha pelo menos um campo para atualização!" });
 
-        if (precoCusto >= req.product.precoVenda)
-            return res.status(400).send({message: "Defina um preço de venda superior ao preço de custo"});
+        const { pdv, product } = req;
 
-        const { id, product, pdv } = req;
+        if (parseInt(qtdEstoque) < 0 || parseInt(qtdEstoqueMin) < 1)
+            return res.status(400).send({ message: "Qtd de estoque e/ou qtd de estoque mínimo inválidos!" });
+
+        if (qtdEstoque && qtdEstoqueMin) {
+            if (parseInt(qtdEstoque) <= parseInt(qtdEstoqueMin)) {
+                statusVenda = false;
+            } else {
+                statusVenda = true;
+            }
+        } else if (qtdEstoque && !qtdEstoqueMin) {
+            if (parseInt(qtdEstoque) <= parseInt(product.qtdEstoqueMin)) {
+                statusVenda = false;
+            } else {
+                statusVenda = true;
+            }
+        } else if (!qtdEstoque && qtdEstoqueMin) {
+            if (parseInt(product.qtdEstoque) <= parseInt(qtdEstoqueMin)) {
+                statusVenda = false;
+            } else {
+                statusVenda = true;
+            } 
+        } else {
+            if (parseInt(product.precoVenda) <= parseInt(product.qtdEstoqueMin)) {
+                statusVenda = false;
+            } else {
+                statusVenda = true;
+            } 
+        }
+
+        if (precoVenda && precoCusto) {
+            if (parseInt(precoVenda) <= parseInt(precoCusto))
+                return res.status(400).send({ message: "Defina um preço de venda superior ao preço de custo!" });
+        } else if (precoVenda && !precoCusto) {
+            if (parseInt(precoVenda) <= parseInt(product.precoCusto))
+                return res.status(400).send({ message: "Defina um preço de venda superior ao preço de custo!" });
+        } else if (!precoVenda && precoCusto) {
+            if (parseInt(product.precoVenda) <= parseInt(precoCusto))
+                return res.status(400).send({ message: "Defina um preço de venda superior ao preço de custo!" });
+        }
             
         await productService.updateService(
             pdv,
@@ -124,6 +166,16 @@ const updateProduct = async (req, res) => { // Atualiza os campos do produto
 const deleteProduct = async (req, res) => { // Deleta um produto
     try {
         const { pdv } = req;
+
+        const possiveisVendas = await orderService.findProductsInSales();
+        if (possiveisVendas) {
+            for (let i = 0; i < possiveisVendas.length; i++) {
+                for (let j = 0; j < possiveisVendas[i].produtos.length; j++) {
+                    if (possiveisVendas[i].produtos[j].produto.codigoPDV == pdv)
+                        return res.status(400).send({ message: "Este produto está registrado em outra(s) venda(s), apague a venda antes de excluí-lo!" });
+                }
+            }
+        }
 
         await productService.deleteService(pdv);
 

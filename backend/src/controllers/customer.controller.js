@@ -6,21 +6,21 @@ const createCustomer = async (req, res) => { // Cadastro de um cliente
         const { nome, divida, email } = req.body;
 
         if (!nome)
-            return res.status(400).send({ message: 'Informe o nome do cliente' });
+            return res.status(400).send({ message: 'Informe o nome do cliente!' });
 
         if (divida < 0 || divida >= 1000)
-            return res.status(400).send({ message: 'A dívida deve ser um valor entre R$ 0 e R$ 999' });    
+            return res.status(400).send({ message: 'A dívida deve ser um valor entre R$ 0 e R$ 999!' });    
 
         if (email) {
             const valEmail = validateEmail(email);
             if (!valEmail)
-                return res.status(400).send({ message: 'Formato de email inválido' }); 
+                return res.status(400).send({ message: 'Formato de email inválido!' }); 
         }
 
         const customer = await customerService.createService(req.body);
 
         if (!customer)
-            return res.status(400).send({ message: 'Erro no cadastro do cliente' }); 
+            return res.status(400).send({ message: 'Erro no cadastro do cliente!' }); 
 
         res.status(201).send({
             customer,
@@ -37,7 +37,7 @@ const findAllCustomers = async (req, res) => { // Listagem de todos os clientes 
         const customers = await customerService.findAllService();
 
         if (customers.length === 0)
-            return res.status(400).send({ message: "Não há clientes cadastrados" });
+            return res.status(400).send({ message: "Não há clientes cadastrados!" });
         
         res.send(customers);    
     } catch (err) {
@@ -60,15 +60,15 @@ const updateCustomer = async (req, res) => { // Atualiza os campos do cliente
         const { nome, telefone, email, divida } = req.body;
 
         if (!nome && !telefone && !email && !divida)
-            return res.status(400).send({message: "Preencha pelo menos um campo para atualização"});
+            return res.status(400).send({message: "Preencha pelo menos um campo para atualização!"});
 
         if (divida < 0 || divida >= 1000)
-            return res.status(400).send({ message: 'A dívida deve ser um valor entre R$ 0 e R$ 999' });    
+            return res.status(400).send({ message: 'A dívida deve ser um valor entre R$ 0 e R$ 999!' });    
 
         if (email) {
             const valEmail = validateEmail(email);
             if (!valEmail)
-                return res.status(400).send({ message: 'Formato de email inválido' }); 
+                return res.status(400).send({ message: 'Formato de email inválido!' }); 
         }
 
         const { id } = req;

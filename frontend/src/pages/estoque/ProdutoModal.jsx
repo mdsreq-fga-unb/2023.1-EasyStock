@@ -24,16 +24,6 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
 
     const pdv = selectedProduct.codigoPDV;
 
-    const deleteProduct = async (pdv) => {
-        await deleteProduto(pdv);
-        window.location.reload();
-    };
-
-    const updateProduct = async (pdv, data) => {
-        await updateProduto(pdv, data);
-        window.location.reload();
-    };
-
     const handleFormSubmit = async (e, pdv) => {
         e.preventDefault();
         const data = {
@@ -46,13 +36,13 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
             statusVenda: true,
         };
 
-        await updateProduct(pdv, data);
+        await updateProduto(pdv, data);
         onClose();
     };
 
     const handleDeleteConfirmation = async (confirmed) => {
         if (confirmed) {
-            await deleteProduct(pdv);
+            await deleteProduto(pdv);
             onClose();
         }
         setShowDeleteConfirmation(false);
@@ -60,6 +50,33 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
 
     const handleUpdateConfirmation = async (confirmed) => {
         if (confirmed) {
+            let statusVenda;
+            if (qtdEstoque && qtdEstoqueMin) {
+                statusVenda = false;
+                if (parseInt(qtdEstoque) >= parseInt(qtdEstoqueMin)) {
+                    statusVenda = true;
+                }
+            } else if (qtdEstoque) {
+                if (parseInt(qtdEstoque) >= parseInt(selectedProduct.qtdEstoqueMin)){
+                    statusVenda = true;
+                } else {
+                    statusVenda = false;
+                }
+
+            } else if (qtdEstoqueMin) {
+                if (parseInt(selectedProduct.qtdEstoque) >= parseInt(qtdEstoqueMin)){
+                    statusVenda = true;
+                } else {
+                    statusVenda = false;
+                }
+            } else {
+                if (parseInt(selectedProduct.qtdEstoque) >= parseInt(selectedProduct.qtdEstoqueMin)){
+                    statusVenda = true;
+                } else {
+                    statusVenda = false;
+                }
+            }
+
             const data = {
                 nome,
                 precoCusto,
@@ -67,9 +84,9 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                 qtdEstoque,
                 qtdEstoqueMin,
                 medida,
-                statusVenda: true,
+                statusVenda,
             };
-            await updateProduct(pdv, data);
+            await updateProduto(pdv, data);
             onClose();
         }
         setShowUpdateConfirmation(false);
@@ -125,7 +142,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                         </div>
                         <div className="label-float">
                             <input
-                                type="qtdMin"
+                                type="number"
                                 name="min"
                                 id="min"
                                 placeholder={`Quantidade mínima: ${selectedProduct.qtdEstoqueMin}`}
@@ -146,9 +163,12 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                 </option>
                                 <option value="UN">UN</option>
                                 <option value="KG">KG</option>
+                                <option value="G">G</option>
+                                <option value="L">L</option>
+                                <option value="mL">mL</option>
                             </select>
                         </div>
-                        <div className="display-botoes">
+                        <div className="alinhar">
                             <button
                                 type="button"
                                 name="atualizar"
@@ -159,8 +179,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                             >
                                 Atualizar
                             </button>
-                        </div>
-                        <div className="display-botoes">
+
                             <input
                                 type="button"
                                 name="deletar"
@@ -169,8 +188,7 @@ export default function ProdutoModal({ isOpen, onClose, selectedProduct }) {
                                 value="Deletar"
                                 onClick={() => setShowDeleteConfirmation(true)} // Mostrar a caixa de diálogo de confirmação
                             />
-                        </div>
-                        <div className="display-botoes">
+
                             <button className="button-modalc" onClick={onClose}>
                                 Cancelar
                             </button>

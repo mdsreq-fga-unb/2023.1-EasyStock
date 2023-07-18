@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcryptjs from "bcryptjs";
 import bcryptjs  from "bcryptjs"
 
 const EmployeeSchema = new mongoose.Schema({
@@ -21,11 +22,10 @@ const EmployeeSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        unique: true,
         lowercase: true
     },
     dataContratacao: {
-        type: Date,
+        type: String,
         required: true
     }
 });

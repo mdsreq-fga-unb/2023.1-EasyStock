@@ -7,6 +7,8 @@ const findAllService = () => Employee.find();
 
 const findByIdService = (id) => Employee.findById(id);
 
+const findByUsernameService = (username) => Employee.findOne({ username: username });
+
 const updateService = (
     id,
     nomeCompleto,
@@ -26,6 +28,7 @@ export default {
     createService,
     findAllService,
     findByIdService,
+    findByUsernameService,
     updateService,
     deleteService
 }

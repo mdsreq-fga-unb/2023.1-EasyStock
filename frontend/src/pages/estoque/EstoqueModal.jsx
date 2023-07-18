@@ -16,6 +16,11 @@ export default function EstoqueModal({ isOpen, onClose }) {
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
+        let statusVenda = false;
+        if (parseInt(qtdEstoque) >= parseInt(qtdEstoqueMin)) {
+            statusVenda = true;
+        }
+        console.log(statusVenda);
         const formData = {
             nome,
             precoCusto,
@@ -23,7 +28,7 @@ export default function EstoqueModal({ isOpen, onClose }) {
             qtdEstoque,
             qtdEstoqueMin,
             medida,
-            statusVenda: true,
+            statusVenda,
         };
 
         // Armazenar os dados do formulário na variável "data"
@@ -38,7 +43,6 @@ export default function EstoqueModal({ isOpen, onClose }) {
             if (data) {
                 // Se o usuário confirmou e os dados do formulário existem
                 await postProduto(data);
-                window.location.reload();
             }
         }
 
@@ -53,8 +57,6 @@ export default function EstoqueModal({ isOpen, onClose }) {
                     <div className="card">
                         <h1>Adicionar Produtos</h1>
                         <form onSubmit={handleFormSubmit}>
-                            {/* Restante do seu formulário... */}
-
                             <div className="label-float">
                                 <input
                                     type="text"
@@ -123,17 +125,19 @@ export default function EstoqueModal({ isOpen, onClose }) {
                                     </option>
                                     <option value="UN">UN</option>
                                     <option value="KG">KG</option>
+                                    <option value="G">G</option>
+                                    <option value="L">L</option>
+                                    <option value="mL">mL</option>
                                 </select>
                             </div>
-                            <div className="display-botoes">
+                            <div className="alinhar">
                                 <input
                                     type="submit"
                                     name="Adicionar Produto"
                                     id="enviar"
                                     className="buttons"
                                 />
-                            </div>
-                            <div className="display-botoes">
+
                                 <button
                                     className="button-modalc"
                                     onClick={onClose}

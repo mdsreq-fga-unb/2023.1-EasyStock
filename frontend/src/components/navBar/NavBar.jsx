@@ -1,13 +1,15 @@
 import logo from "../../images/LOGOeasystock.png";
 import { BarraPrincipal, ImgLogo, Nav } from "./NavBarStyled";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export function NavBar() {
     const { signOut } = useAuth();
+    const navigate = useNavigate();
 
     async function terminateSession() {
-        await signOut();
+        await signOut(navigate);
 
         window.location.reload();
     }
@@ -20,6 +22,9 @@ export function NavBar() {
                         <ImgLogo src={logo} alt="Logo EasyStock" />
                     </Link>
                 </div>
+                {/* <button className="menu-toggle">
+                    <i className="bi bi-border-width"></i>
+                </button> */}
 
                 <BarraPrincipal>
                     <ul>
@@ -34,20 +39,23 @@ export function NavBar() {
                             <Link to="/cliente">CLIENTE</Link>
                         </li>
                         <li>
+                            <Link to="/funcionario">FUNCIONARIO</Link>
+                        </li>
+                        <li>
                             <Link to="/estoque">ESTOQUE</Link>
                         </li>
 
                         <li>
-                            <Link to="/relatorio">RELATÓRIO</Link>
+                            <Link to="/venda">VENDAS</Link>
                         </li>
                         <li>
-                            <Link to="/dashboard">DASHBOARD</Link>
-                        </li>
-                        <li>
-                            <Link onClick={() => terminateSession()}>SAIR</Link>
+                            <Link to="/dashboard">DASHBOARD </Link>
                         </li>
                     </ul>
                 </BarraPrincipal>
+                <Link className="sair" onClick={() => terminateSession()}>
+                    SAIR
+                </Link>
             </Nav>
         </>
     );

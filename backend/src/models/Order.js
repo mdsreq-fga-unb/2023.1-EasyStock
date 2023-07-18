@@ -26,8 +26,8 @@ const OrderSchema = new mongoose.Schema({
         required: true
     },
     dataPedido: {
-        type: Date,
-        default: Date.now
+        type: String,
+        required: true
     }
 });
 

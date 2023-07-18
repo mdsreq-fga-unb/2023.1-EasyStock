@@ -1,40 +1,61 @@
-import React, { useState } from "react";
+import React from "react";
+import {
+    deleteFuncionario,
+    updateFuncionario,
+} from "../../services/postsServices";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
-import { deleteCliente, updateCliente } from "../../services/postsServices";
+import { useState } from "react";
+import { format, parseISO } from 'date-fns'
 
-export default function NomeModal({ isOpen, onClose, selectedClient }) {
-    const [nome, setNome] = useState();
-    const [telefone, setNumeroTelefone] = useState();
+export default function EditarFuncionario({
+    isOpen,
+    onClose,
+    selectedFuncionario,
+}) {
+    const [nomeCompleto, setNomeCompleto] = useState();
+    const [username, setUsername] = useState();
+    const [password, setPassword] = useState();
+    const [telefone, setTelefone] = useState();
     const [email, setEmail] = useState();
-    const [divida, setValorDivida] = useState();
+    const [dataContratacao, setDataContrato] = useState();
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [showUpdateConfirmation, setShowUpdateConfirmation] = useState(false);
+
+    // const formatDate = (date) => {
+    //     const dateObject = parseISO(date);
+    //     //const localDate = new Date(dateObject.getTime() - dateObject.getTimezoneOffset() * 60000);
+        
+    //     return format(dateObject, 'dd/MM/yyyy');
+    // };
 
     if (!isOpen) {
         return null;
     }
-
-    if (!selectedClient) {
+    if (!selectedFuncionario) {
         return null;
     }
 
-    const id = selectedClient._id;
+    const id = selectedFuncionario._id;
 
     const handleFormSubmit = async (e, id) => {
         e.preventDefault();
 
         const data = {
-            nome,
+            nomeCompleto,
+            username,
+            password,
             telefone,
             email,
-            divida,
+            dataContratacao,
         };
-        await updateCliente(id, data);
+        await updateFuncionario(id, data);
+        //onClose();
     };
 
     const handleDeleteConfirmation = async (confirmed) => {
         if (confirmed) {
-            await deleteCliente(id);
+            await deleteFuncionario(id);
+            //onClose();
         }
         setShowDeleteConfirmation(false);
     };
@@ -42,12 +63,15 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
     const handleUpdateConfirmation = async (confirmed) => {
         if (confirmed) {
             const data = {
-                nome,
+                nomeCompleto,
+                username,
+                password,
                 telefone,
                 email,
-                divida,
+                //dataContratacao: formatDate(dataContratacao),
             };
-            await updateCliente(id, data);
+            await updateFuncionario(id, data);
+            //onClose();
         }
         setShowUpdateConfirmation(false);
     };
@@ -56,7 +80,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
         <TodoModal>
             <div className="container">
                 <div className="card">
-                    <h1>{selectedClient.nome}</h1>
+                    <h1>{selectedFuncionario.nomeCompleto}</h1>
                     <form
                         onSubmit={async (e) =>
                             await handleFormSubmit(e, id).then(onClose)
@@ -65,41 +89,50 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                         <div className="label-float">
                             <input
                                 type="text"
-                                name="nome"
                                 id="nome"
-                                placeholder={`Nome: ${selectedClient.nome}`}
-                                onChange={(e) => setNome(e.target.value)}
-                            />
-                        </div>
-                        <div className="label-float">
-                            <input
-                                type="number"
-                                step="any"
-                                name="numero"
-                                id="numero"
-                                placeholder={`Número: ${selectedClient.telefone}`}
+                                placeholder={`Nome: ${selectedFuncionario.nomeCompleto}`}
                                 onChange={(e) =>
-                                    setNumeroTelefone(e.target.value)
+                                    setNomeCompleto(e.target.value)
                                 }
                             />
                         </div>
                         <div className="label-float">
                             <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                placeholder={`Email: ${selectedClient.email}`}
-                                onChange={(e) => setEmail(e.target.value)}
+                                type="text"
+                                id="user"
+                                placeholder={`Usuário: ${selectedFuncionario.username}`}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="label-float">
+                            <input
+                                type="password"
+                                id="senha"
+                                placeholder="Nova senha: "
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                         <div className="label-float">
                             <input
-                                type="number"
-                                name="qtd"
-                                id="qtd"
-                                placeholder={`Divida: ${selectedClient.divida}`}
-                                onChange={(e) => setValorDivida(e.target.value)}
+                                type="tel"
+                                id="telefone"
+                                placeholder={`Número: ${selectedFuncionario.telefone}`}
+                                onChange={(e) => setTelefone(e.target.value)}
                             />
+                        </div>
+                        <div className="label-float">
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder={`Email: ${selectedFuncionario.email}`}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className="label-float">
+                           <h3 className="data-contrato">
+                           Data de contratação: {selectedFuncionario.dataContratacao}
+                           </h3>
                         </div>
                         <div className="alinhar">
                             <button
@@ -112,7 +145,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                             >
                                 Atualizar
                             </button>
-                        
+
                             <button
                                 type="button"
                                 name="deletar"
@@ -123,8 +156,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                             >
                                 Deletar
                             </button>
-            
-                    
+
                             <button className="button-modalc" onClick={onClose}>
                                 Cancelar
                             </button>
@@ -132,7 +164,6 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
                     </form>
                 </div>
             </div>
-
             {showDeleteConfirmation && (
                 <section className="container">
                     <div className="card">
@@ -156,7 +187,7 @@ export default function NomeModal({ isOpen, onClose, selectedClient }) {
             {showUpdateConfirmation && (
                 <section className="container">
                     <div className="card">
-                        <p>Deseja atualizar o cliente?</p>
+                        <p>Deseja atualizar o Funcionário?</p>
                         <div className="separar-botoes">
                             <button
                                 onClick={() => handleUpdateConfirmation(true)}

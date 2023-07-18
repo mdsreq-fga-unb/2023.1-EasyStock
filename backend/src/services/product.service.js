@@ -27,6 +27,15 @@ const updateService = (
     { nome, precoCusto, precoVenda, qtdEstoque, qtdEstoqueMin, medida, statusVenda }
 )
 
+const updateAfterOrder = (
+    id,
+    qtdEstoque,
+    statusVenda
+) => Product.findOneAndUpdate(
+    { _id: id },
+    { qtdEstoque, statusVenda }
+)
+
 const deleteService = (pdv) => Product.findOneAndDelete({ codigoPDV: pdv });
 
 export default {
@@ -36,5 +45,6 @@ export default {
     findByPdvService,
     findByIdService,
     updateService,
+    updateAfterOrder,
     deleteService
 }

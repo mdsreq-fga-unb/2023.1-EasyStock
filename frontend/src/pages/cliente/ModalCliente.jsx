@@ -12,9 +12,11 @@ export default function ModalCliente({ isOpen, onClose }) {
     const createForm = (e) => {
         e.preventDefault();
 
-        if (telefone.length !== 10 && telefone.length !== 11) {
-            alert("O número de telefone deve ter 10 ou 11 dígitos");
-            return;
+        if (telefone) {
+            if (telefone.length !== 10 && telefone.length !== 11) {
+                alert("O número de telefone deve ter 10 ou 11 dígitos");
+                return;
+            }
         }
 
         const formData = {
@@ -32,7 +34,6 @@ export default function ModalCliente({ isOpen, onClose }) {
         if (confirmed) {
             if (data) {
                 await postCliente(data);
-                window.location.reload();
             }
         }
         setShowConfirmation(false);
@@ -88,21 +89,22 @@ export default function ModalCliente({ isOpen, onClose }) {
                                     }
                                 />
                             </div>
-                            <div className="display-botoes">
-                                <input
-                                    type="submit"
-                                    name="Adicionar Produto"
-                                    id="enviar"
-                                    className="buttons"
-                                />
-                            </div>
-                            <div className="display-botoes">
-                                <button
-                                    className="button-modalc"
-                                    onClick={onClose}
-                                >
-                                    Cancelar
-                                </button>
+                            <div className="alinhar">
+                                
+                                    <input
+                                        type="submit"
+                                        name="Adicionar Produto"
+                                        id="enviar"
+                                        className="buttons"
+                                    />
+                                
+                                    <button
+                                        className="button-modalc"
+                                        onClick={onClose}
+                                    >
+                                        Cancelar
+                                    </button>
+                                
                             </div>
                         </form>
                     </div>
