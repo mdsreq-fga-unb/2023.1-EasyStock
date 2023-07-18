@@ -27,40 +27,40 @@ import { sessionStatusAdmin } from "../../contexts/AuthContext";
 import { Cardnovo } from "../../Card/Card";
 import { Graficos } from "./DashboardStyled";
 
-const data = [
-    { name: "Group A", value: 400 },
-    { name: "Group B", value: 300 },
-    { name: "Group C", value: 300 },
-    { name: "Group D", value: 200 },
-];
+// const data = [
+//     { name: "Group A", value: 400 },
+//     { name: "Group B", value: 300 },
+//     { name: "Group C", value: 300 },
+//     { name: "Group D", value: 200 },
+// ];
 //const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042','#CC2042'];
 
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-    cx,
-    cy,
-    midAngle,
-    innerRadius,
-    outerRadius,
-    percent,
-    index,
-}) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+// const RADIAN = Math.PI / 180;
+// const renderCustomizedLabel = ({
+//     cx,
+//     cy,
+//     midAngle,
+//     innerRadius,
+//     outerRadius,
+//     percent,
+//     index,
+// }) => {
+//     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+//     const x = cx + radius * Math.cos(-midAngle * RADIAN);
+//     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-    return (
-        <text
-            x={x}
-            y={y}
-            fill="white"
-            textAnchor={x > cx ? "start" : "end"}
-            dominantBaseline="central"
-        >
-            {`${(percent * 100).toFixed(0)}%`}
-        </text>
-    );
-};
+//     return (
+//         <text
+//             x={x}
+//             y={y}
+//             fill="white"
+//             textAnchor={x > cx ? "start" : "end"}
+//             dominantBaseline="central"
+//         >
+//             {`${(percent * 100).toFixed(0)}%`}
+//         </text>
+//     );
+// };
 
 const renderActiveShape = (props) => {
     const RADIAN = Math.PI / 180;
@@ -136,18 +136,7 @@ const renderActiveShape = (props) => {
   };
   
 
-export const datasa = [
-    ["Task", "Hours per Day"],
-    ["Work", 11],
-    ["Eat", 2],
-    ["Commute", 2],
-    ["Watch TV", 2],
-    ["Sleep", 7],
-  ];
-  
-  export const options = {
-    title: "My Daily Activities",
-  };
+
   
  
 
@@ -157,7 +146,7 @@ export default function Dashboard() {
 
     const [selectedVenda, setSelectedVenda] = useState(null);
     const [openPedidosModal, setOpenPedidosModal] = useState(false);
-
+//////////////////////////
     async function findAllVendas() {
         const response = await getAllVendas();
 
@@ -173,6 +162,18 @@ export default function Dashboard() {
         setVendas(response.data);
     }
 
+//////////////////////
+const [vendasid, setVendasid] = useState([]);
+async function getProdutosEQtdVendida() {
+    
+    const response = await getVendaById();
+    let vendasid = response.data;
+    setVendasid(response.data);
+}
+//////////////////////////
+getProdutosEQtdVendida();
+console.log(vendasid)
+console.log(vendas)
     // Nome do produto, qtd Vendida;
     async function getProdutosEQtdVendida() {
         const response = await getAllVendas();
@@ -191,7 +192,7 @@ export default function Dashboard() {
     };
 
 
-console.log(vendas);
+//console.log(vendas);
 
 
 const [activeIndex, setActiveIndex] = useState(0);
