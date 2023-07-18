@@ -49,6 +49,8 @@ export default function Caixa() {
             quantidade,
         };
 
+        if (quantidade <= 0) return;
+
         const dataProduto = await getProductByPdv(codigoPDV);
 
         if (!dataProduto) return;
