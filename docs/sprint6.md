@@ -5,9 +5,9 @@
 
 # Sprint 5
 
-Data início: 15/06/2023
+Data início: 30/06/2023
 
-Data término: 29/06/2023
+Data término: 14/07/2023
 
 ## Sprint Planning
 * Nessa sprint planejamos finalizar o restante do MVP1.
