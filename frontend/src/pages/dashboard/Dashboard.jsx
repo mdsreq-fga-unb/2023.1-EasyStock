@@ -1,6 +1,7 @@
 import React, { useEffect, useState, PureComponent } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
 import { useNavigate } from "react-router-dom";
+import { Chart } from "react-google-charts";
 import { Box, Stack, Typography } from "@mui/material";
 import {
     AreaChart,
@@ -61,6 +62,23 @@ const renderCustomizedLabel = ({
     );
 };
 
+
+
+export const datasa = [
+    ["Task", "Hours per Day"],
+    ["Work", 11],
+    ["Eat", 2],
+    ["Commute", 2],
+    ["Watch TV", 2],
+    ["Sleep", 7],
+  ];
+  
+  export const options = {
+    title: "My Daily Activities",
+  };
+  
+ 
+
 export default function Dashboard() {
     const navigate = useNavigate();
     const [vendas, setVendas] = useState([]);
@@ -83,6 +101,15 @@ export default function Dashboard() {
         setVendas(response.data);
     }
 
+    // Nome do produto, qtd Vendida;
+    async function getProdutosEQtdVendida() {
+        const response = await getAllVendas();
+        
+        
+    }
+
+  
+
     useEffect(() => {
         sessionStatusAdmin(navigate).then(() => findAllVendas());
     }, []);
@@ -91,6 +118,17 @@ export default function Dashboard() {
         setOpenPedidosModal(true);
     };
 
+
+console.log(vendas);
+
+
+
+
+
+
+
+
+    
     return (
         <>
             <NavBar />
@@ -158,7 +196,7 @@ export default function Dashboard() {
 
                     </div>
                     <div className="fundo">
-                    <PieChart width={800} height={800}>
+                    <PieChart width={400} height={400}>
                         <Pie
                             data={vendas}
                             cx="50%"
@@ -172,6 +210,17 @@ export default function Dashboard() {
                     </PieChart>
 
                     </div>
+
+                    {/* <div className="fundo">
+                    <Chart
+                            chartType="PieChart"
+                            data={datasa}
+                            options={options}
+                            width={"100%"}
+                            height={"400px"}
+                        />
+
+                    </div> */}
 
 
                     {/* <LineChart
