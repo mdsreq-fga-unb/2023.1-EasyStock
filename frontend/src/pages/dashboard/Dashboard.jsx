@@ -144,6 +144,7 @@ const renderActiveShape = (props) => {
 export default function Dashboard() {
     const navigate = useNavigate();
     const [vendas, setVendas] = useState([]);
+    const [vendasPizza, setVendasPizza] = useState([]);
 
     const [selectedVenda, setSelectedVenda] = useState(null);
     const [openPedidosModal, setOpenPedidosModal] = useState(false);
@@ -163,6 +164,21 @@ export default function Dashboard() {
         setVendas(response.data);
     }
 
+    async function getAllSales() {
+        const response = await getProductsInSales();
+
+        console.log(response.data);
+        for (let i = 0; i < response.data.length; i++) {
+            for (let j = 0; j < response.data[i].produtos.length; j++) {
+                console.log(response.data[i].produtos.length);
+                //console.log(`Nome do produto: ${response.data[i].produtos[j].produto.nome} Quantidade: ${response.data[i].produtos[j].quantidade}`);
+                //setVendasPizza(response.data[i].produtos[j].produto.nome);
+            }
+            
+        }
+        console.log(vendasPizza);
+    }
+
 //////////////////////
 const [vendasid, setVendasid] = useState([]);
 async function getProdutosEQtdVendida() {
@@ -173,7 +189,7 @@ async function getProdutosEQtdVendida() {
 }
 //////////////////////////
 // console.log(vendasid)
-console.log(vendas)
+//console.log(vendas);
     // Nome do produto, qtd Vendida;
     async function getProdutosEQtdVendida() {
         const response = await getAllVendas();
@@ -184,7 +200,7 @@ console.log(vendas)
   
 
     useEffect(() => {
-        sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getProdutosEQtdVendida());
+        sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getAllSales());
     }, []);
     const handleProductSelect = (venda) => {
         setSelectedVenda(venda);
@@ -306,7 +322,7 @@ const onPieEnter = useCallback(
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
-        data={vendas}
+        data={vendas} // Nome Qtd de aparições
         cx={300}
         cy={250}
         innerRadius={100}
