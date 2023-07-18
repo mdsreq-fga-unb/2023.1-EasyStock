@@ -107,6 +107,19 @@ const findAllOrders = async (req, res) => {
     }
 }
 
+const findAllProductsInSales = async (req, res) => {
+    try {
+        const orders = await orderService.findProductsInSales();
+
+        if (orders.length === 0)
+            return res.status(400).send({ message: "Não há pedidos cadastrados!" });
+
+        res.send(orders);    
+    } catch (err) {
+        res.status(500).send({ orderController: err.message });
+    }
+}
+
 const findOrderById = async (req, res) => {
     try {
         const order = req.order;
@@ -157,4 +170,11 @@ const deleteOrder = async (req, res) => {
     }
 }
 
-export default { createOrder, findAllOrders, findOrderById, updateOrder, deleteOrder }
+export default {
+    createOrder,
+    findAllOrders,
+    findAllProductsInSales,
+    findOrderById,
+    updateOrder,
+    deleteOrder
+}

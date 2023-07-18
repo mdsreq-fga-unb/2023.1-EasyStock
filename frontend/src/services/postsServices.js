@@ -246,3 +246,13 @@ export function getVendaById(id) {
     });
     return response;
 }
+// Consultas em vendas
+export function getProductsInSales() {
+    const response = api.get(`/pedido/vendas`)
+    .catch(async (err) => {
+        if (err.response) {
+            await swal("Erro!", err.response.data.message, "error");
+        }
+    });
+    return response;
+}
