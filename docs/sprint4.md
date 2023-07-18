@@ -19,7 +19,7 @@ Data término: 14/06/2023
 
 
 ### Metas da Sprint
-* Finalizar desenvolvimento do MVP1, implementando as stories <b>[US07]</b>, <b>[US08]</b>,<b>[US10]</b>,<b>[US11]</b>,<b>[US06]</b>,<b>[US09]</b>.
+* Finalizar desenvolvimento do MVP1, implementando as stories <b>[US07]</b>, <b>[US08]</b>,<b>[US10]</b>,<b>[US11]</b>,<b>[US09]</b>.
 
 
 ## Sprint Review
@@ -35,7 +35,7 @@ Após discussão e análise, identificamos alguns aspectos positivos que contrib
 </div>
 
 <div style="text-align: justify"> 
-No entanto, também enfrentamos algumas limitações que impactaram nosso desempenho. Enfrentamos problemas de comunicação,obstáculos durante o desenvolvimento e dificuldades na distribuição das tarefas. Assim como melhorias para próxima sprint, além dos aspectos de softskills seriam a conclusão das histórias <b>[US10]</b>,<b>[US11]</b> e <b>[US06]</b> por ser algo mais difícil de ser feito, estamos nos empenhando para compreender como fazer para implementar no nosso site.Estamos confiantes de que com esses erros identificados realizaremos a próxima sprint de forma mais eficaz, obtendo resultados ainda melhores.
+No entanto, também enfrentamos algumas limitações que impactaram nosso desempenho. Enfrentamos problemas de comunicação,obstáculos durante o desenvolvimento e dificuldades na distribuição das tarefas. Assim como melhorias para próxima sprint, além dos aspectos de softskills seriam a conclusão das histórias <b>[US10]</b>,<b>[US11]</b>  por ser algo mais difícil de ser feito, estamos nos empenhando para compreender como fazer para implementar no nosso site.Estamos confiantes de que com esses erros identificados realizaremos a próxima sprint de forma mais eficaz, obtendo resultados ainda melhores.
 </div>
 
 
@@ -55,11 +55,13 @@ Durante a sprint 4, conseguimos completar as seguintes histórias ,em resumo, do
 
 <b>Histórias novas completas:</b>
 
-<b>[US07]</b> Visualizar o estoque total da loja em tempo real.
+<b>[US07]</b>| Eu, como funcionário, desejo garatir a segurança dos meus dados.
 
 <b>[US08]</b> Cadastrar clientes devedores no sistema.
 
 <b>[US09]</b> Alterar a dívida de um cliente existente.
+
+<b>[US05]</b>  visualizar o estoque total da loja em tempo real
 
 ### Débitos técnicos
 
@@ -69,7 +71,6 @@ Na sprint 4, o desenvolvimento das histórias a baixo são as que a equipe encon
 
 <b>[US11]</b> Finalizar a compra.
 
-<b>[US06]</b> Receber uma notificação de estoque baixo.
 
 ### Práticas utilizadas 
 

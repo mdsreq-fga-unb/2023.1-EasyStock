@@ -16,6 +16,8 @@ nav:
         - 'Sprint 3': 'sprint3.md'
         - 'Sprint 4': 'sprint4.md'
         - 'Sprint 5': 'sprint5.md'
+        - 'Sprint 6': 'sprint6.md'
+        - 'Sprint 7': 'sprint7.md'
         
     - Arquitetura: 'arquitetura.md'
     - Interface: 'interface.md'
