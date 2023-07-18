@@ -91,7 +91,7 @@ const renderActiveShape = (props) => {
     return (
       <g>
         <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-          {payload.name}
+          {payload.nome}
         </text>
         <Sector
           cx={cx}
@@ -122,7 +122,7 @@ const renderActiveShape = (props) => {
           y={ey}
           textAnchor={textAnchor}
           fill="#333"
-        >{`Produto ${value}`}</text>
+        >{`Vendas: ${value}`}</text> 
         <text
           x={ex + (cos >= 0 ? 1 : -1) * 12}
           y={ey}
@@ -217,6 +217,7 @@ async function findAllVendasid() {
 ////////////////////////////////////
     useEffect(() => {
         sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getAllSales());
+        //console.log(vendasPizza);
     }, []);
     const handleProductSelect = (venda) => {
         setSelectedVenda(venda);
@@ -234,6 +235,9 @@ const onPieEnter = useCallback(
   },
   [setActiveIndex]
 );
+
+    //console.log(vendasPizza);
+    console.log(vendas)
     
     return (
         <>
@@ -251,7 +255,7 @@ const onPieEnter = useCallback(
                     <div className="fundo">
                     <AreaChart width={600} height={600} data={vendas}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="dataPedido" />
+                        <XAxis dataKey="dataPedido" tick={false}/>
 
                         <YAxis
                             type="number"
@@ -276,7 +280,7 @@ const onPieEnter = useCallback(
                     <BarChart
                         width={1000}
                         height={600}
-                        data={vendasid}
+                        data={vendasPizza}
                         //   margin={{
                         //     top: 5,
                         //     right: 30,
@@ -285,19 +289,19 @@ const onPieEnter = useCallback(
                         //   }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="produtos.0.produto.nome"  />
+                        <XAxis dataKey="nome" interval={0}tick={false} />
                         <YAxis
                             type="number"
-                            dataKey="produtos.0.quantidade"
+                            dataKey="qtd"
                             label={{
-                                value: "Valor da Venda",
+                                value: "Quantidade Vendida",
                                 angle: -90,
                                 position: "insideLeft",
                             }}
                         />
                         <Tooltip />
 
-                        <Bar dataKey="produtos.0.quantidade" fill="#82ca9d" />
+                        <Bar dataKey="qtd" fill="#82ca9d" />
                     </BarChart>
 
                     {/* </div>
@@ -333,13 +337,13 @@ const onPieEnter = useCallback(
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
-        data={vendasid} // Nome Qtd de aparições
+        data={vendasPizza} // Nome Qtd de aparições
         cx={300}
         cy={250}
         innerRadius={100}
         outerRadius={150}
         fill="#8884d8"
-        dataKey="produtos.0.quantidade"
+        dataKey="qtd"
         onMouseEnter={onPieEnter}
       />
       
