@@ -146,6 +146,7 @@ export default function Dashboard() {
 //////////////////////////
     async function findAllVendas() {
         const response = await getAllVendas();
+        let vendalin = [];
 
         let vendas = response.data;
         for (let i = 0; i < vendas.length; i++) {
@@ -156,6 +157,7 @@ export default function Dashboard() {
             vendas[i].dataPedido = dataCurta;
         }
         vendas.reverse();
+        console.log(vendas);
         setVendas(response.data);
     }
 
@@ -191,7 +193,7 @@ export default function Dashboard() {
             var qtd = resultado[nome];
             resultado2.push({ nome: nome, qtd: qtd });
         }
-        //return resultado2;
+
         setVendasPizza(resultado2);
     }
 
@@ -215,7 +217,6 @@ async function findAllVendasid() {
 ////////////////////////////////////
     useEffect(() => {
         sessionStatusAdmin(navigate).then(() => findAllVendas()).then(() => getAllSales());
-        console.log(vendasPizza);
     }, []);
     const handleProductSelect = (venda) => {
         setSelectedVenda(venda);
@@ -233,8 +234,6 @@ const onPieEnter = useCallback(
   },
   [setActiveIndex]
 );
-
-    console.log(vendasPizza);
     
     return (
         <>
