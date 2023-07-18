@@ -5,6 +5,7 @@ import {
 } from "../../services/postsServices";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { useState } from "react";
+import { format, parseISO } from 'date-fns'
 
 export default function EditarFuncionario({
     isOpen,
@@ -19,6 +20,13 @@ export default function EditarFuncionario({
     const [dataContratacao, setDataContrato] = useState();
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
     const [showUpdateConfirmation, setShowUpdateConfirmation] = useState(false);
+
+    const formatDate = (date) => {
+        const dateObject = parseISO(date);
+        //const localDate = new Date(dateObject.getTime() - dateObject.getTimezoneOffset() * 60000);
+        
+        return format(dateObject, 'dd/MM/yyyy');
+    };
 
     if (!isOpen) {
         return null;
@@ -38,7 +46,7 @@ export default function EditarFuncionario({
             password,
             telefone,
             email,
-            dataContratacao,
+            dataContratacao: formatDate(dataContratacao),
         };
         await updateFuncionario(id, data);
         //onClose();
@@ -123,7 +131,7 @@ export default function EditarFuncionario({
                         </div>
                         <div className="label-float">
                             <input
-                                type="text"
+                                type="date"
                                 id="data"
                                 placeholder={`Data Contratação: ${selectedFuncionario.dataContratacao}`}
                                 onChange={(e) =>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { postFuncionario } from "../../services/postsServices";
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 
 export default function FuncionarioModal({ isOpen, onClose }) {
     const [nomeCompleto, setNomeCompleto] = useState();
@@ -14,7 +14,8 @@ export default function FuncionarioModal({ isOpen, onClose }) {
     const [showConfirmation, setShowConfirmation] = useState(false);
 
     const formatDate = (date) => {
-        const dateObject = new Date(date);
+        const dateObject = parseISO(date);
+        //const localDate = new Date(dateObject.getTime() - dateObject.getTimezoneOffset() * 60000);
         
         return format(dateObject, 'dd/MM/yyyy');
     };
