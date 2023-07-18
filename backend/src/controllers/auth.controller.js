@@ -1,4 +1,4 @@
-import { generateToken, getUserFromToken, employeeLoginService } from "../services/auth.service.js";
+import { generateToken, getUserFromToken, generateEmployeeToken, employeeLoginService } from "../services/auth.service.js";
 import bcryptjs from "bcryptjs";
 
 const login = async (req, res) => {
@@ -16,7 +16,6 @@ const login = async (req, res) => {
 
                 const admUsername = username + ":adm";
 
-        const passwordIsValid = await bcryptjs.compare(password, employee.password);
                 res.send({
                     token,
                     username: admUsername
