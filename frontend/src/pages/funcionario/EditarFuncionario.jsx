@@ -130,14 +130,9 @@ export default function EditarFuncionario({
                             />
                         </div>
                         <div className="label-float">
-                            <input
-                                type="date"
-                                id="data"
-                                placeholder={`Data Contratação: ${selectedFuncionario.dataContratacao}`}
-                                onChange={(e) =>
-                                    setDataContrato(e.target.value)
-                                }
-                            />
+                           <h3 className="data-contrato">
+                           Data de contratação: {selectedFuncionario.dataContratacao}
+                           </h3>
                         </div>
                         <div className="alinhar">
                             <button
