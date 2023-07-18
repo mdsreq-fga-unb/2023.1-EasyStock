@@ -23,7 +23,8 @@
     "react-router-dom": "^6.11.2",
     "recharts": "^2.7.2",
     "styled-components": "^5.3.11",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "vite-plugin-rewrite-all": "^1.0.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.3",
