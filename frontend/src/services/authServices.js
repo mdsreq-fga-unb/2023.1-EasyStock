@@ -1,7 +1,7 @@
 import axios from "axios";
 import swal from 'sweetalert';
 
-const baseURL = "https://easystock-api.onrender.com";
+const baseURL = "http://localhost:8000";
 
 export async function login(data) {
     const response = await axios.post(`${baseURL}/auth/login`, data)

@@ -6,7 +6,7 @@ const adminToken = Cookies.get('adminToken');
 const employeeToken = Cookies.get('employeeToken');
 
 export const api = axios.create({
-    baseURL: "https://easystock-api.onrender.com"
+    baseURL: "http://localhost:8000"
 });
 
 if (adminToken) {
