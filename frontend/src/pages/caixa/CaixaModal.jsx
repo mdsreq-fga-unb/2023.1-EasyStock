@@ -3,7 +3,7 @@ import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { useState, useEffect } from "react";
 import { getAllClients, postPedido } from "../../services/postsServices";
 import { Navigate } from "react-router-dom";
-import { sessionStatusAdmin } from "../../contexts/AuthContext";
+import { sessionStatus } from "../../contexts/AuthContext";
 import { CardClientePay } from "../../Card/Card";
 
 export default function ModalCliente({ isOpen, onClose, infoPedido }) {
@@ -22,7 +22,7 @@ export default function ModalCliente({ isOpen, onClose, infoPedido }) {
         setClients(response.data);
     }
     useEffect(() => {
-        sessionStatusAdmin(Navigate).then(() => findAllClients());
+        sessionStatus(Navigate).then(() => findAllClients());
     }, []);
 
     const handleFormSubmit = async (e) => {

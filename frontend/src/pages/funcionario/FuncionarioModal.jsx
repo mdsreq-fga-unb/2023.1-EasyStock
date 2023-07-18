@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TodoModal } from "../estoque/EstoqueModalStyled";
 import { postFuncionario } from "../../services/postsServices";
+import { format, parseISO } from 'date-fns'
 
 export default function FuncionarioModal({ isOpen, onClose }) {
     const [nomeCompleto, setNomeCompleto] = useState();
@@ -12,6 +13,13 @@ export default function FuncionarioModal({ isOpen, onClose }) {
     const [data, setData] = useState(null);
     const [showConfirmation, setShowConfirmation] = useState(false);
 
+    const formatDate = (date) => {
+        const dateObject = parseISO(date);
+        //const localDate = new Date(dateObject.getTime() - dateObject.getTimezoneOffset() * 60000);
+        
+        return format(dateObject, 'dd/MM/yyyy');
+    };
+
     const createForm = (e) => {
         e.preventDefault();
 
@@ -21,7 +29,7 @@ export default function FuncionarioModal({ isOpen, onClose }) {
             password,
             telefone,
             email,
-            dataContratacao,
+            dataContratacao: formatDate(dataContratacao),
         };
 
         setData(formData);
@@ -53,6 +61,7 @@ export default function FuncionarioModal({ isOpen, onClose }) {
                                     type="text"
                                     id="nome"
                                     placeholder="Nome do Funcionário"
+                                    required
                                     onChange={(e) =>
                                         setNomeCompleto(e.target.value)
                                     }
@@ -63,6 +72,7 @@ export default function FuncionarioModal({ isOpen, onClose }) {
                                     type="text"
                                     id="user"
                                     placeholder="Usuário"
+                                    required
                                     onChange={(e) =>
                                         setUsername(e.target.value)
                                     }
@@ -74,6 +84,7 @@ export default function FuncionarioModal({ isOpen, onClose }) {
                                     type="password"
                                     id="senha"
                                     placeholder="Senha"
+                                    required
                                     onChange={(e) =>
                                         setPassword(e.target.value)
                                     }
@@ -99,16 +110,17 @@ export default function FuncionarioModal({ isOpen, onClose }) {
                             </div>
                             <div className="label-float">
                                 <input
-                                    type="text"
+                                    type="date"
                                     id="data"
                                     placeholder="Data"
+                                    required
                                     onChange={(e) =>
                                         setDataContrato(e.target.value)
                                     }
                                 />
                             </div>
                             <div className="alinhar">
-                                <input
+                                <input 
                                     type="submit"
                                     name="Adicionar funcionário"
                                     id="enviar"

@@ -9,6 +9,7 @@ export const sessionStatus = async (navigate) => {
     const employeeToken = Cookies.get('employeeToken');
 
     if (!adminToken && !employeeToken) {
+        await swal("Acesso Negado!", "Você não possui permissão para acessar esta página", "error");
         navigate("/");
     }
 }

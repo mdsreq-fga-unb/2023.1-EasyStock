@@ -101,7 +101,7 @@ export const Tabela2 = styled.div`
     margin-left: 2rem;
     border-radius: 10px;
     width: 35%;
-    max-height: 340px;
+    max-height: 500px;
     overflow-y: auto;
     margin-right: 20px;
     background-color: white;
