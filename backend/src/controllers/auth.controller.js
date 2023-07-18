@@ -1,9 +1,5 @@
 import { generateToken, getUserFromToken, employeeLoginService } from "../services/auth.service.js";
-<<<<<<< HEAD
 import bcryptjs from "bcryptjs";
-=======
-import bcrypt from "bcrypt";
->>>>>>> edf738023bff689df015fe670993e3b417a5dd41
 
 const login = async (req, res) => {
     try {
@@ -20,11 +16,7 @@ const login = async (req, res) => {
 
                 const admUsername = username + ":adm";
 
-<<<<<<< HEAD
         const passwordIsValid = await bcryptjs.compare(password, employee.password);
-=======
-        const passwordIsValid = await bcrypt.compare(password, employee.password);
->>>>>>> edf738023bff689df015fe670993e3b417a5dd41
                 res.send({
                     token,
                     username: admUsername
