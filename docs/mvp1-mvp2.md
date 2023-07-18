@@ -31,6 +31,8 @@
 
 | ID | Declaração |
 | -----------|------------------------------------- |
+| <b>[US21]</b>| Eu, como funcionário, quero ser capaz de fazer login no sistema usando meu nome de usuário e senha.
+| <b>[US22]</b>| Eu, como funcionário, desejo que meu token de expire após um período para garatir a segurança dos meus dados
 | <b>[US15]</b>| Eu, como gerente, quero ser capaz de gerar um relatório, para identificar o desempenho das vendas.
 | <b>[US16]</b>| Eu, como gerente, quero ser capaz de gerar uma lista com todas as vendas já realizadas, para manter registro completo.
 | <b>[US17]</b>| Eu, como gerente, quero ser capaz de adicionar um novo funcionário ao sistema, para manter o registro atual dos funcionários.
