@@ -1,4 +1,4 @@
-import React, { useEffect, useState, PureComponent } from "react";
+import React, { useEffect, useState, PureComponent,useCallback } from "react";
 import { NavBar } from "../../components/navBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import { Chart } from "react-google-charts";
@@ -62,7 +62,79 @@ const renderCustomizedLabel = ({
     );
 };
 
-
+const renderActiveShape = (props) => {
+    const RADIAN = Math.PI / 180;
+    const {
+      cx,
+      cy,
+      midAngle,
+      innerRadius,
+      outerRadius,
+      startAngle,
+      endAngle,
+      fill,
+      payload,
+      percent,
+      value
+    } = props;
+    const sin = Math.sin(-RADIAN * midAngle);
+    const cos = Math.cos(-RADIAN * midAngle);
+    const sx = cx + (outerRadius + 10) * cos;
+    const sy = cy + (outerRadius + 10) * sin;
+    const mx = cx + (outerRadius + 30) * cos;
+    const my = cy + (outerRadius + 30) * sin;
+    const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+    const ey = my;
+    const textAnchor = cos >= 0 ? "start" : "end";
+  
+    return (
+      <g>
+        <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+          {payload.name}
+        </text>
+        <Sector
+          cx={cx}
+          cy={cy}
+          innerRadius={innerRadius}
+          outerRadius={outerRadius}
+          startAngle={startAngle}
+          endAngle={endAngle}
+          fill={fill}
+        />
+        <Sector
+          cx={cx}
+          cy={cy}
+          startAngle={startAngle}
+          endAngle={endAngle}
+          innerRadius={outerRadius + 6}
+          outerRadius={outerRadius + 10}
+          fill={fill}
+        />
+        <path
+          d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
+          stroke={fill}
+          fill="none"
+        />
+        <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
+        <text
+          x={ex + (cos >= 0 ? 1 : -1) * 12}
+          y={ey}
+          textAnchor={textAnchor}
+          fill="#333"
+        >{`Produto ${value}`}</text>
+        <text
+          x={ex + (cos >= 0 ? 1 : -1) * 12}
+          y={ey}
+          dy={18}
+          textAnchor={textAnchor}
+          fill="#999"
+        >
+          {`( ${(percent * 100).toFixed(2)}%)`}
+        </text>
+      </g>
+    );
+  };
+  
 
 export const datasa = [
     ["Task", "Hours per Day"],
@@ -122,7 +194,13 @@ export default function Dashboard() {
 console.log(vendas);
 
 
-
+const [activeIndex, setActiveIndex] = useState(0);
+const onPieEnter = useCallback(
+  (_, index) => {
+    setActiveIndex(index);
+  },
+  [setActiveIndex]
+);
 
 
 
@@ -143,7 +221,7 @@ console.log(vendas);
                     }}
                 >
                     <div className="fundo">
-                    <AreaChart width={500} height={500} data={vendas}>
+                    <AreaChart width={600} height={600} data={vendas}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="dataPedido" />
 
@@ -168,8 +246,8 @@ console.log(vendas);
                     </div>
                     <div className="fundo">
                     <BarChart
-                        width={500}
-                        height={500}
+                        width={600}
+                        height={600}
                         data={vendas}
                         //   margin={{
                         //     top: 5,
@@ -194,7 +272,7 @@ console.log(vendas);
                         <Bar dataKey="precoTotal" fill="#82ca9d" />
                     </BarChart>
 
-                    </div>
+                    {/* </div>
                     <div className="fundo">
                     <PieChart width={400} height={400}>
                         <Pie
@@ -211,21 +289,37 @@ console.log(vendas);
 
                     </div>
 
-                    {/* <div className="fundo">
-                    <Chart
+                    <div className="fundo">
+                    {/* <Chart
                             chartType="PieChart"
-                            data={datasa}
+                            data={vendas.precoTotal}
+                            dataKey="precoTotal"
                             options={options}
                             width={"100%"}
                             height={"400px"}
-                        />
+                        /> */}
 
-                    </div> */}
-
-
+                    </div> 
+<div className="fundo">
+ <PieChart width={600} height={600}>
+      <Pie
+        activeIndex={activeIndex}
+        activeShape={renderActiveShape}
+        data={vendas}
+        cx={300}
+        cy={250}
+        innerRadius={100}
+        outerRadius={150}
+        fill="#8884d8"
+        dataKey="precoTotal"
+        onMouseEnter={onPieEnter}
+      />
+      
+    </PieChart>
+    </div>
                     {/* <LineChart
                         width={600}
-                        height={500}
+                        height={600}
                         data={vendas}
                         //margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
                     >
